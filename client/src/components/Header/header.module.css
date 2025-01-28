@@ -45,5 +45,32 @@
   font-size: 48px;
   line-height: 75px;
   color: #fff;
-  margin-top: 80px;
+}
+
+.swiper {
+  width: 80% !important;
+  margin-top: -80px;
+}
+
+.DestinationsCard {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.DestinationsCard img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 580px) {
+  .imageContainer {
+    height: 300px;
+    padding: 20px;
+  }
+
+  .imageContainer h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
 }
