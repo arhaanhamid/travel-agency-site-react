@@ -8,6 +8,8 @@
     "Grid-card-7 Grid-card-7 Grid-card-6 Grid-card-6 Grid-card-5 Grid-card-5";
 
   gap: 0px !important;
+  padding: 5%;
+  background-color: rgb(67, 156, 124);
 }
 
 .Memories_wrapper .MemoriesCard {

@@ -19,7 +19,7 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  /* gap: 10px; */
 }
 
 .hero-section {
@@ -38,9 +38,14 @@
   background: url(./assets/landscape-Panorama-02.jpg);
   background-size: cover;
   background-position: center;
-  filter: blur(4px);
+  filter: blur(2px);
   z-index: 1;
+  transition: transform 0.8s ease-out;
 }
+/* .blur-overlay:hover {
+  transform-origin: right center;
+  transform: scaleX(1.02);
+} */
 
 .hero-content {
   position: absolute;

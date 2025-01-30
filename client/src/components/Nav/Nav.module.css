@@ -27,14 +27,32 @@
 }
 
 .Nav_wrapper ul li a {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: white;
-  transition: 0.5s;
+  position: relative; /* Needed for pseudo-element */
+  transition: color 0.5s ease-in-out;
+  text-decoration: none; /* Remove default underline */
+}
+
+.Nav_wrapper ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Adjust underline position */
+  width: 0%; /* Start hidden */
+  height: 2px;
+  background-color: rgb(0, 168, 107);
+  transition: width 0.5s ease-in-out;
+  text-decoration-style: wavy;
 }
 
 .Nav_wrapper ul li a:hover {
-  color: rgb(231, 76, 60);
+  color: rgb(0, 168, 107);
+}
+
+.Nav_wrapper ul li a:hover::after {
+  width: 100%; /* Expand underline from left to right */
 }
 
 .nav_btns {
@@ -65,37 +83,32 @@
 .nav_btns .search_wrapper i {
   position: absolute;
   left: 8px;
-  top: 10px;
-  cursor: pointer;
+  top: 8px;
 }
 
 .nav_btns .CallBtn {
-  width: 200px;
   display: flex;
-  gap: 12px;
+  align-items: center;
+  gap: 6px;
 }
 
 .nav_btns .CallBtn i {
-  font-size: 25px;
-  color: rgb(231, 76, 60);
+  font-size: 20px;
+  color: rgb(0, 168, 107);
 }
 
-.nav_btns .CallBtn p {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.nav_btns .CallBtn p small {
-  font-weight: 300;
-  font-size: 13px;
-  display: block;
+.nav_btns .CallBtn h4 {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 #bars {
   padding: 15px;
   font-size: 18px;
   color: #1e1e1e;
-  background-color: rgb(231, 76, 60);
+  background-color: rgb(0, 168, 107);
   cursor: pointer;
   transition: 0.6s;
   display: none;

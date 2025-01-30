@@ -18,19 +18,16 @@ function Nav() {
           <a href="#">Home</a>
         </li>
         <li>
-          <a href="#">Trips</a>
+          <a href="#">Popular Trips</a>
         </li>
         <li>
           <a href="#">Destinations</a>
         </li>
         <li>
-          <a href="#">Searches</a>
+          <a href="#">Packages</a>
         </li>
         <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Popular Destinations</a>
+          <a href="#">Rentals</a>
         </li>
       </ul>
 
@@ -41,9 +38,7 @@ function Nav() {
         </div>
         <div className={navCSS.CallBtn}>
           <i className="ri-phone-line"></i>
-          <p>
-            +1 1800 25 2202 <small>Call Your Travel Agent</small>
-          </p>
+          <h4>Contact Us</h4>
         </div>
         <i
           className="ri-menu-2-line"

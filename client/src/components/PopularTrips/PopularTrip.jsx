@@ -67,6 +67,7 @@ const PopularTrips = () => {
         modules={[Pagination, Navigation]}
         spaceBetween={20}
         slidesPerView={1}
+        loop={true}
         breakpoints={{
           320: { slidesPerView: 1 },
           640: { slidesPerView: 1.5 },
