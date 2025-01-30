@@ -14,7 +14,7 @@ import destinationImg6 from "./../../assets/tour-06.png";
 
 function Header() {
   return (
-    <div className={`${headerCSS.header_wrapper} section`}>
+    <div className={`${headerCSS.header_wrapper}`}>
       <div className={headerCSS.imageContainer}>
         <h2>
           Explore The World , <br /> One Unforgattable Journey{" "}
