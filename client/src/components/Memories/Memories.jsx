@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import memoriesCSS from "./../Memories/Memories.module.css";
 import MemoriesImg1 from "./../../assets/travelport1.jpg";
 import MemoriesImg2 from "./../../assets/travelport2.jpg";
@@ -8,12 +9,18 @@ import MemoriesImg6 from "./../../assets/travelport6.jpg";
 import MemoriesImg7 from "./../../assets/travelport7.jpg";
 
 function Memories() {
+  const targetRef = useRef(null);
   return (
-    <div className={`${memoriesCSS.Memories_wrapper} section `}>
+    <div id="memories" className={`${memoriesCSS.Memories_wrapper} section `}>
       <div className={memoriesCSS.MemoriesCard}>
         <img src={MemoriesImg1} alt="Memories-img" />
 
-        <div className={memoriesCSS.content}>
+        <div
+          onClick={() =>
+            targetRef.current.scrollIntoView({ behavior: "smooth" })
+          }
+          className={memoriesCSS.content}
+        >
           <h3>Small Groups Depurtures</h3>
           <a href="#">View Tours</a>
         </div>

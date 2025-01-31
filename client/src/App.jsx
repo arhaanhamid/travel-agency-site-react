@@ -1,29 +1,26 @@
-import Header from "./components/Header/Header";
+import { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
-import Memories from "./components/Memories/Memories";
-import PopularTrip from "./components/PopularTrips/PopularTrip";
 import Footer from "./components/Footer/Footer";
+
+const Home = lazy(() => import("./components/Home/Home"));
+const Packages = lazy(() => import("./components/Packages/Packages"));
+const Rentals = lazy(() => import("./components/Rentals/Rentals"));
+
 function App() {
   return (
-    <div className="main">
-      <Nav />
-      <div className="hero-section">
-        <div className="blur-overlay"></div>
-        <div className="hero-content">
-          <h6>Connecting your journey with purpose</h6>
-          <h3>
-            Unforgettable travel
-            <br />
-            experiences with
-            <br />a <em>positive</em> impact
-          </h3>
-        </div>
-      </div>
-      <Header />
-      <Memories />
-      <PopularTrip />
-      <Footer />
-    </div>
+    <Router className="main">
+      <Suspense fallback={<div>Loading...</div>}>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/packages" element={<Packages />} />
+          <Route path="/rentals" element={<Rentals />} />
+          <Route path="*" element={<h1>404 - Page Not Found</h1>} />{" "}
+        </Routes>
+        <Footer />
+      </Suspense>
+    </Router>
   );
 }
 

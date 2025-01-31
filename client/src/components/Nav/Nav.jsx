@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import navCSS from "./../Nav/Nav.module.css";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 function Nav() {
   const menu = useRef();
@@ -10,32 +12,43 @@ function Nav() {
   return (
     <div className={navCSS.Nav_wrapper}>
       <div className={navCSS.logo}>
-        <a href="#">AchievementTravels</a>
+        <Link to="/">AchievementTravels</Link>
       </div>
 
       <ul ref={menu}>
         <li>
-          <a href="#">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="#">Popular Trips</a>
+          <HashLink smooth to="/#popular_trips">
+            Popular Trips
+          </HashLink>
         </li>
         <li>
-          <a href="#">Destinations</a>
+          <HashLink smooth to="/#memories">
+            Memories
+          </HashLink>
         </li>
         <li>
-          <a href="#">Packages</a>
+          <Link to="packages">Packages</Link>
         </li>
         <li>
-          <a href="#">Rentals</a>
+          <Link to="rentals">Rentals</Link>
         </li>
       </ul>
 
       <div className={navCSS.nav_btns}>
-        <div className={navCSS.search_wrapper}>
+        {/* <div className={navCSS.search_wrapper}>
           <i className="ri-search-line"></i>
-          <input type="text" placeholder="Search Places" />
-        </div>
+          <input
+            placeholder="Search..."
+            name="search"
+            type="text"
+            value={searchText}
+            onChange={handleSearchChange}
+            required
+          />
+        </div> */}
         <div className={navCSS.CallBtn}>
           <i className="ri-phone-line"></i>
           <h4>Contact Us</h4>

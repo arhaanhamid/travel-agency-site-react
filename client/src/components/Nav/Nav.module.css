@@ -23,7 +23,7 @@
 
 .Nav_wrapper ul li {
   display: inline-block;
-  margin: 0 5px;
+  margin: 0 30px;
 }
 
 .Nav_wrapper ul li a {
@@ -120,6 +120,25 @@
 }
 
 @media screen and (max-width: 1500px) {
+  .Nav_wrapper ul li {
+    margin: 0 15px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .Nav_wrapper .logo a {
+    font-size: 20px;
+    font-weight: 800;
+  }
+  .Nav_wrapper ul li {
+    margin: 0 5px;
+  }
+  .Nav_wrapper {
+    padding: 0 2%;
+  }
+}
+
+@media screen and (max-width: 786px) {
   #bars {
     display: block;
   }
@@ -152,25 +171,19 @@
     border-width: 1px;
     width: 100%;
   }
-}
 
-@media screen and (max-width: 1280px) {
-  .Nav_wrapper {
-    padding: 0 5%;
-  }
-}
-
-@media screen and (max-width: 786px) {
   .Nav_wrapper {
     padding: 0 2%;
-  }
-  .nav_btns .CallBtn {
-    display: none;
   }
 }
 
 @media screen and (max-width: 580px) {
   .nav_btns .search_wrapper {
+    display: none;
+  }
+}
+@media screen and (max-width: 580px) {
+  .nav_btns .CallBtn {
     display: none;
   }
 }
