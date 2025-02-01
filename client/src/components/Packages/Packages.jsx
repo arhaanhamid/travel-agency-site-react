@@ -27,7 +27,7 @@ const Packages = () => {
     return <div>Loading...</div>; // Optionally display a loading state
   }
 
-  return <PackageSearch tripsData={JSON.stringify(data)} />;
+  return <PackageSearch data={JSON.stringify(data)} />;
 };
 
 export default Packages;
