@@ -1,6 +1,5 @@
 import { Suspense, useEffect, useMemo, useState } from "react";
-// import WidePostCard from "./WidePostCard";
-import TripCard from "../PopularTrips/TripCard";
+import PackageCard from "./PackageCard";
 import Skeleton from "./../Skeleton";
 
 const PackageSearch = ({ data }) => {
@@ -106,6 +105,12 @@ const PackageSearch = ({ data }) => {
             required
           />
           <i className="ri-search-2-line w-10 h-10 sm:w-12 sm:h-12 p-2 sm:p-3 text-gray-400"></i>
+          {searchText && (
+            <i
+              className="ri-close-large-line w-10 h-10 sm:w-12 sm:h-12 p-2 sm:p-3  text-gray-400 cursor-pointer"
+              onClick={() => setSearchText("")}
+            ></i>
+          )}
         </div>
 
         {/* DURATION INPUT */}
@@ -183,7 +188,7 @@ const PackageSearch = ({ data }) => {
         {filteredTrips.length > 0 ? (
           filteredTrips.map((trip) => (
             <Suspense fallback={<Skeleton />} key={trip.id}>
-              <TripCard trip={trip} />
+              <PackageCard trip={trip} requestFrom="package-page" />
             </Suspense>
           ))
         ) : (

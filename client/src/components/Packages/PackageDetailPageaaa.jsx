@@ -1,8 +1,5 @@
-/* 
-  Data for all 27 car cards.
-  Each car object contains a category, name, details and price.
-  The "image" field is left empty; you can replace it with the correct URL.
-*/
+import { useParams } from "react-router-dom";
+
 const cars = [
   {
     id: 1,
@@ -26,199 +23,6 @@ const cars = [
     name: "Tempo Traveller 17 Seater",
     details: "16 manual 8 3",
     price: "₹5999 / day",
-    image: "",
-  },
-  {
-    id: 4,
-    category: "TAXI",
-    name: "Tempo Traveller 14 Seater",
-    details: "13 manual 7 3",
-    price: "₹4999 / day",
-    image: "",
-  },
-  {
-    id: 5,
-    category: "TAXI",
-    name: "Toyota Innova Crysta",
-    details: "6 manual 4 4",
-    price: "₹3999 / day",
-    image: "",
-  },
-  {
-    id: 6,
-    category: "TAXI",
-    name: "Toyota Innova",
-    details: "6 manual 4 4",
-    price: "₹2999 / day",
-    image: "",
-  },
-  {
-    id: 7,
-    category: "TAXI",
-    name: "Toyota Glanza",
-    details: "4 manual 3 4",
-    price: "₹2599 / day",
-    image: "",
-  },
-  {
-    id: 8,
-    category: "TAXI",
-    name: "Honda Amaze",
-    details: "4 manual 3 4",
-    price: "₹2599 / day",
-    image: "",
-  },
-  {
-    id: 9,
-    category: "TAXI",
-    name: "Swift Dzire",
-    details: "4 manual 3 4",
-    price: "₹2499 / day",
-    image: "",
-  },
-  {
-    id: 10,
-    category: "TAXI",
-    name: "Toyota Etios",
-    details: "4 manual 3 4",
-    price: "₹2399 / day",
-    image: "",
-  },
-  {
-    id: 11,
-    category: "4x4",
-    name: "Toyota Fortuner",
-    details: "7 manual 4 4",
-    price: "₹5500 / day",
-    image: "",
-  },
-  {
-    id: 12,
-    category: "4x4",
-    name: "New Mahindra Thar",
-    details: "4 manual 3 3",
-    price: "₹6500 / day",
-    image: "",
-  },
-  {
-    id: 13,
-    category: "Mpv",
-    name: "Toyota Innova",
-    details: "6 manual 4 4",
-    price: "₹6000 / day",
-    image: "",
-  },
-  {
-    id: 14,
-    category: "Self drive",
-    name: "New Scorpio S11",
-    details: "7 manual 4 5",
-    price: "₹6700 / day",
-    image: "",
-  },
-  {
-    id: 15,
-    category: "4x4",
-    name: "Old Mahindra Thar",
-    details: "6 manual 2 3",
-    price: "₹5000 / day",
-    image: "",
-  },
-  {
-    id: 16,
-    category: "Self drive",
-    name: "Hyundai Creta",
-    details: "6 manual 5 4",
-    price: "₹5000 / day",
-    image: "",
-  },
-  {
-    id: 17,
-    category: "Self drive",
-    name: "Xuv 500",
-    details: "7 manual 3 4",
-    price: "₹4300 / day",
-    image: "",
-  },
-  {
-    id: 18,
-    category: "Self drive",
-    name: "Old Mahindra Scorpio",
-    details: "7 manual 5 5",
-    price: "₹4400 / day",
-    image: "",
-  },
-  {
-    id: 19,
-    category: "Compact Suv",
-    name: "Kia Seltos",
-    details: "5 manual 3 4",
-    price: "₹4800 / day",
-    image: "",
-  },
-  {
-    id: 20,
-    category: "Hatchbacks",
-    name: "Maruti Suzuki Wagon R",
-    details: "4 manual 3 4",
-    price: "₹2800 / day",
-    image: "",
-  },
-  {
-    id: 21,
-    category: "Hatchbacks",
-    name: "Maruti Suzuki Baleno",
-    details: "4 manual 3 4",
-    price: "₹3700 / day",
-    image: "",
-  },
-  {
-    id: 22,
-    category: "Hatchbacks",
-    name: "Maruti Suzuki Swift Dzire",
-    details: "4 manual 5 4",
-    price: "₹3500 / day",
-    image: "",
-    discount: "10%",
-  },
-  {
-    id: 23,
-    category: "Hatchbacks",
-    name: "Maruti Suzuki Swift 2024",
-    details: "4 manual 3 4",
-    price: "₹3300 / day",
-    image: "",
-  },
-  {
-    id: 24,
-    category: "Hatchbacks",
-    name: "Maruti Suzuki Alto 800",
-    details: "4 manual 2 4",
-    price: "₹2700 / day",
-    image: "",
-  },
-  {
-    id: 25,
-    category: "Compact Suv",
-    name: "Mahindra Kuv100",
-    details: "5 manual 4 4",
-    price: "₹4000 / day",
-    image: "",
-  },
-  {
-    id: 26,
-    category: "Hatchbacks",
-    name: "Ford Figo",
-    details: "4 manual 2 4",
-    price: "₹3000 / day",
-    image: "",
-  },
-  {
-    id: 27,
-    category: "Hatchbacks",
-    name: "Grand i10",
-    details: "4 manual 2 4",
-    price: "₹3300 / day",
     image: "",
   },
 ];
@@ -462,7 +266,9 @@ function Footer() {
 }
 
 /* Main App Component */
-export default function Rentals() {
+export default function PackageDetailPage() {
+  const { packageId } = useParams();
+  console.log(packageId);
   return (
     <div>
       <Header />

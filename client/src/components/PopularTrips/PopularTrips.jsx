@@ -3,7 +3,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import TripCard from "./TripCard.jsx";
+import PackageCard from "../Packages/PackageCard.jsx";
 import tripsData from "../../assets/TripsData.js";
 
 import { useEffect, useState } from "react";
@@ -50,7 +50,7 @@ const PopularTrips = () => {
           trips.map((trip, index) =>
             trip.isPopular ? (
               <SwiperSlide key={trip.title || index}>
-                <TripCard trip={trip} />
+                <PackageCard trip={trip} />
               </SwiperSlide>
             ) : (
               ""
