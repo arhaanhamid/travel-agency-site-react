@@ -15,11 +15,11 @@ const PackageCard = ({ trip, requestFrom }) => {
         alt={trip.title}
         className="absolute left-0 top-0 w-full h-full z-0 object-cover"
       />
-      <span className="absolute top-3 left-3 sm:top-4 sm:left-4 text-xs sm:text-sm font-semibold text-white uppercase tracking-wide">
+      <span className="absolute top-3 left-3 sm:top-4 sm:left-4 text-xs sm:text-sm font-semibold flex items-center px-3 py-1 bg-gray-800 text-white uppercase tracking-wide">
         {trip.location}
       </span>
       <div
-        className={`absolute w-full p-3 sm:p-4 ${packagesPage && "px-5 md:px-10"} bottom-0 left-0 bg-gradient-to-t from-gray-900/60 to-gray-900/30 pt-4 sm:pt-6`}
+        className={`absolute w-full p-3 sm:p-4 ${packagesPage && "px-5 md:px-10"} bottom-0 left-0 bg-gradient-to-t from-gray-600 via-black/80  pt-4 sm:pt-6`}
       >
         <h5 className="text-sm sm:text-base font-bold text-white">
           {trip.duration}-Day Trip
@@ -29,7 +29,7 @@ const PackageCard = ({ trip, requestFrom }) => {
         >
           {trip.title}
         </h3>
-        <p className="line-clamp-3 text-xs/relaxed sm:text-sm/relaxed text-white/95">
+        <p className="line-clamp-3 text-xs/relaxed sm:text-sm/relaxed text-white/95 font-nunito">
           {trip.desc}...
         </p>
 

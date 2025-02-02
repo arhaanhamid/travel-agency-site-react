@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./ScrollToTop";
 
 const Home = lazy(() => import("./components/Home/Home"));
 const Packages = lazy(() => import("./components/Packages/Packages"));
@@ -14,6 +15,7 @@ function App() {
   return (
     <Router className="main">
       <Suspense fallback={<div>Loading...</div>}>
+        <ScrollToTop />
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />

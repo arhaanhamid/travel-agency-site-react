@@ -4,7 +4,12 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}", // Scans all files in `src` for Tailwind classes
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        fraunces: ["Fraunces", "serif"],
+        nunito: ["Nunito", "serif"],
+      },
+    },
   },
   plugins: [],
 };
