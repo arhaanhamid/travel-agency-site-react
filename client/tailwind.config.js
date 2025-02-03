@@ -8,6 +8,7 @@ export default {
       fontFamily: {
         fraunces: ["Fraunces", "serif"],
         nunito: ["Nunito", "serif"],
+        poppins: ["Poppins", "serif"],
       },
     },
   },
