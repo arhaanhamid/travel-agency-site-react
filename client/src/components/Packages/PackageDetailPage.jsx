@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
 import tripsData from "../../assets/TripsData";
+import {
+  LeftSwiperArrow,
+  RightSwiperArrow,
+} from "../UIComponents/UIComponents";
 
 const PackageDetailPage = () => {
   const [tripData, setTripData] = useState("");
@@ -46,23 +50,28 @@ const PackageDetailPage = () => {
   }
 
   return (
-    <div className="max-w-screen-xl mx-auto my-12 sm:my-16 md:my-20 lg:my-24 px-2 sm:px-4">
-      <main className="mt-28">
+    <div className=" bg-gray-200">
+      <div className="relative max-w-screen-lg mx-auto py-24 sm:py-24 md:py-124 lg:py-24 px-1">
         {/* Image Section */}
         <Swiper
           spaceBetween={20}
           slidesPerView={1}
-          modules={[Navigation, Pagination]}
-          navigation
-          pagination
-          style={
-            {
-              // "--swiper-navigation-color": "#fff",
-              // "--swiper-pagination-color": "#fff",
-            }
-          }
+          modules={[Navigation, Pagination, Autoplay]}
+          navigation={{
+            nextEl: ".custom-next",
+            prevEl: ".custom-prev",
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+          lazy="true"
         >
-          {tripData.imagee.map((image, index) => {
+          {tripData.images.map((image, index) => {
             return (
               <SwiperSlide key={index}>
                 <div className="relative max-w-screen-md mb-8 h-64 sm:h-80 md:h-96 mx-auto">
@@ -71,6 +80,7 @@ const PackageDetailPage = () => {
                     src={image}
                     alt={tripData.title}
                     className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg"
+                    loading="lazy"
                   />
                   <span className="absolute top-3 left-3 sm:top-4 sm:left-4 text-xs sm:text-sm font-bold uppercase tracking-wide px-3 py-1 bg-black text-gray-200">
                     {tripData.location}
@@ -87,27 +97,9 @@ const PackageDetailPage = () => {
               </SwiperSlide>
             );
           })}
+          <LeftSwiperArrow />
+          <RightSwiperArrow />
         </Swiper>
-
-        {/* <div className="relative w-full max-w-screen-md mx-auto mb-8 h-64 sm:h-80 md:h-96">
-          <div className="absolute left-0 bottom-0 w-full h-full z-10 bg-gradient-to-t from-black/70 via-transparent"></div>
-          <img
-            src={tripData.image}
-            alt={tripData.title}
-            className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg"
-          />
-          <span className="absolute top-3 left-3 sm:top-4 sm:left-4 text-xs sm:text-sm font-bold uppercase tracking-wide px-3 py-1 bg-black text-gray-200">
-            {tripData.location}
-          </span>
-          <div className="absolute bottom-4 left-4 z-20">
-            <h5 className="text-sm sm:text-base font-bold text-white">
-              {tripData.duration}-Day Trip
-            </h5>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-100 leading-tight">
-              {tripData.title}
-            </h2>
-          </div>
-        </div> */}
 
         {/* Travel Inclusive Items */}
         <div className="flex flex-wrap justify-center gap-4 mt-4">
@@ -121,12 +113,10 @@ const PackageDetailPage = () => {
             </div>
           ))}
         </div>
-
         {/* Description */}
         <div className="mt-12 max-w-screen-md mx-auto text-gray-700 text-base sm:text-lg leading-relaxed">
           <p className="pb-6">{tripData.desc}</p>
         </div>
-
         {/* Timeline Section */}
         <div className="mx-auto mt-12 max-w-full">
           <div className="relative wrap overflow-hidden p-0 sm:p-5">
@@ -184,7 +174,7 @@ const PackageDetailPage = () => {
             Book Now
           </button>
         </div>
-      </main>
+      </div>
     </div>
   );
 };

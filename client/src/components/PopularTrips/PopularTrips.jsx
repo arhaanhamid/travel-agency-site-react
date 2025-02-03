@@ -5,6 +5,8 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import PackageCard from "../Packages/PackageCard.jsx";
 import tripsData from "../../assets/TripsData.js";
+import { LeftSwiperArrow } from "../UIComponents/UIComponents.jsx";
+import { RightSwiperArrow } from "../UIComponents/UIComponents.jsx";
 
 import { useEffect, useState } from "react";
 
@@ -16,7 +18,7 @@ const PopularTrips = () => {
   return (
     <section
       id="popular_trips"
-      className="py-16 bg-[#e2e2e2] min-h-[800px] flex flex-col gap-10 md:gap-5 md:flex-row lg:flex-row"
+      className="relative py-16 bg-[#e2e2e2] min-h-[800px] flex flex-col gap-10 md:gap-5 md:flex-row lg:flex-row"
     >
       <div className="pl-6 sm:pl-8 md:pl-12 lg:pl-24 w-full md:w-[40%] lg:w-[40%]">
         <div className="flex h-[600px] items-end p-6 sm:p-8 md:p-10 lg:p-10">
@@ -43,8 +45,13 @@ const PopularTrips = () => {
           1024: { slidesPerView: 2 },
           1280: { slidesPerView: 2 },
         }}
-        navigation
+        // navigation
         className="relative px-4 sm:px-6 lg:px-8 w-full sm:w-[80%] md:w-[60%] lg:w-[60%]"
+        navigation={{
+          nextEl: ".custom-next",
+          prevEl: ".custom-prev",
+        }}
+        lazy="true"
       >
         {trips.length > 0 ? (
           trips.map((trip, index) =>
@@ -60,6 +67,8 @@ const PopularTrips = () => {
           <p>Loading Trips...</p>
         )}
       </Swiper>
+      <LeftSwiperArrow requestFrom="popular-trips" />
+      <RightSwiperArrow requestFrom="popular-trips" />
     </section>
   );
 };

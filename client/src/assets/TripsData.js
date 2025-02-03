@@ -5,13 +5,12 @@ import trip04 from "./Trips04.jpg";
 import trip05 from "./Trips05.jpg";
 import trip06 from "./Trips06.jpg";
 import trip07 from "./Trips07.jpg";
-import trip08 from "./Trips08.jpg";
+import trip08 from "./Trips07.jpg";
 
 const tripsData = [
   {
     id: 1,
-    image: trip01,
-    imagee: [trip01, trip02, trip03],
+    images: [trip01, trip02, trip03],
     location: "Pahalgam",
     duration: "4",
     title: "Pahalgam Serenity Retreat",
@@ -58,7 +57,7 @@ const tripsData = [
   },
   {
     id: 2,
-    image: trip02,
+    images: [trip04, trip05, trip06],
     location: "Sonamarg",
     duration: "2",
     title: "Sonamarg Meadow Escape",
@@ -91,7 +90,7 @@ const tripsData = [
   },
   {
     id: 3,
-    image: trip03,
+    images: [trip07, trip08, trip01],
     location: "Jammu",
     duration: "3",
     title: "Jammu Heritage Tour",
@@ -131,7 +130,7 @@ const tripsData = [
   },
   {
     id: 4,
-    image: trip04,
+    images: [trip03, trip05, trip07],
     location: "Katra",
     duration: "2",
     title: "Katra Pilgrimage Journey",
@@ -164,7 +163,7 @@ const tripsData = [
   },
   {
     id: 5,
-    image: trip05,
+    images: [trip01, trip03, trip02],
     location: "Doodhpathri",
     duration: "2",
     title: "Doodhpathri Nature Escape",
@@ -197,7 +196,7 @@ const tripsData = [
   },
   {
     id: 6,
-    image: trip06,
+    images: [trip04, trip06, trip01],
     location: "Yusmarg",
     duration: "3",
     title: "Yusmarg Adventure Trail",
@@ -234,7 +233,7 @@ const tripsData = [
   },
   {
     id: 7,
-    image: trip07,
+    images: [trip08, trip03, trip07],
     location: "Anantnag",
     duration: "3",
     title: "Anantnag Cultural Voyage",
