@@ -5,7 +5,7 @@ import img2 from "./image/img2.jpg";
 import img3 from "./image/img3.jpg";
 import img4 from "./image/img4.jpg";
 
-const Rentals = () => {
+const RentalsPage = () => {
   useEffect(() => {
     const nextDom = document.getElementById("next");
     const prevDom = document.getElementById("prev");
@@ -208,4 +208,4 @@ const Rentals = () => {
   );
 };
 
-export default Rentals;
+export default RentalsPage;

@@ -177,7 +177,7 @@ const PackageSearch = ({ data }) => {
 
         {/* FILTER BUTTON */}
         <button
-          className="bg-black h-10 sm:h-12 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2 sm:py-3 rounded-lg hover:bg-white hover:text-black border border-black hover:border-2 transition-all w-[110px] sm:w-[130px] min-w-[110px]"
+          className="bg-black h-10 sm:h-12 w-[110px] sm:w-[140px] min-w-[110px] text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2 sm:py-3 rounded-lg hover:bg-white hover:text-black border border-black hover:border-2 transition-all"
           onClick={applyFilters}
         >
           Apply Filters

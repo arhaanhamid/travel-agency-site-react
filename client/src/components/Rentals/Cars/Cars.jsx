@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PackageSearch from "./PackageSearch";
 import tripsData from "../../assets/TripsData";
 
-const Packages = () => {
+const Cars = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -30,4 +30,4 @@ const Packages = () => {
   return <PackageSearch data={JSON.stringify(data)} />;
 };
 
-export default Packages;
+export default Cars;

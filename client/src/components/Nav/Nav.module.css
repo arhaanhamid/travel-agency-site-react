@@ -133,8 +133,19 @@
   .Nav_wrapper ul li {
     margin: 0 5px;
   }
+  .Nav_wrapper ul li a,
+  .Nav_wrapper ul li button {
+    font-size: 13px;
+  }
+  .Nav_wrapper ul li .dropdown_svg {
+    width: 20px;
+    height: 20px;
+  }
   .Nav_wrapper {
     padding: 0 2%;
+  }
+  .dropdown {
+    width: 100px;
   }
 }
 
@@ -166,6 +177,10 @@
     padding: 8px 0;
     padding-left: 8% !important;
   }
+  .dropdown {
+    display: block;
+    padding: 0;
+  }
 
   .Nav_wrapper .activeMenu {
     border-width: 1px;
@@ -185,5 +200,22 @@
 @media screen and (max-width: 580px) {
   .nav_btns .CallBtn {
     display: none;
+  }
+}
+
+.dropdown_menu_10 {
+  animation: growOut 300ms ease-in-out forwards;
+  transform-origin: top center;
+}
+
+@keyframes growOut {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }

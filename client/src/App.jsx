@@ -5,8 +5,8 @@ import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./ScrollToTop";
 
 const Home = lazy(() => import("./components/Home/Home"));
-const Packages = lazy(() => import("./components/Packages/Packages"));
-const Rentals = lazy(() => import("./components/Rentals/Rentals"));
+const PackagesPage = lazy(() => import("./components/Packages/PackagesPage"));
+const RentalsPage = lazy(() => import("./components/Rentals/RentalsPage"));
 const PackageDetailPage = lazy(
   () => import("./components/Packages/PackageDetailPage")
 );
@@ -19,9 +19,9 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/packages" element={<Packages />} />
+          <Route path="/packages" element={<PackagesPage />} />
           <Route path="/packages/:packageId" element={<PackageDetailPage />} />
-          <Route path="/rentals" element={<Rentals />} />
+          <Route path="/rentals" element={<RentalsPage />} />
           <Route path="*" element={<h1>404 - Page Not Found</h1>} />{" "}
         </Routes>
         <Footer />

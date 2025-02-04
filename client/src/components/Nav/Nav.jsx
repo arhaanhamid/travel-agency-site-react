@@ -32,23 +32,57 @@ function Nav() {
         <li>
           <Link to="packages">Packages</Link>
         </li>
+
+        {/* <Link to="rentals">Rentals</Link> */}
         <li>
-          <Link to="rentals">Rentals</Link>
+          <div
+            className={`${navCSS.dropdown} relative flex hover:min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12`}
+          >
+            <div className="relative w-full items-center mx-auto max-w-screen-sm">
+              <div id="bouton" className="relative group/bouton w-full">
+                <button className="relative flex items-center gap-4">
+                  Services
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className={`${navCSS.dropdown_svg} w-6 h-6 group-hover/bouton:rotate-90`}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                    />
+                  </svg>
+                </button>
+                <div className="absolute bg-white opacity-0 hidden flex-col group-hover/bouton:flex group-hover/bouton:opacity-100 transition-all">
+                  <Link className="px-4 py-4" to="hotels-page">
+                    <span className="text-[15px] text-gray-600 cursor-pointer">
+                      Hotels
+                    </span>
+                  </Link>
+                  <hr />
+                  <Link className="px-4 py-4" to="houseboats-page">
+                    <span className="text-[15px] text-gray-600 cursor-pointer">
+                      Houseboats
+                    </span>
+                  </Link>
+                  <hr />
+                  <Link className="px-4 py-4" to="cars-page">
+                    <span className="text-[15px] text-gray-600 cursor-pointer">
+                      Transport
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
 
       <div className={navCSS.nav_btns}>
-        {/* <div className={navCSS.search_wrapper}>
-          <i className="ri-search-line"></i>
-          <input
-            placeholder="Search..."
-            name="search"
-            type="text"
-            value={searchText}
-            onChange={handleSearchChange}
-            required
-          />
-        </div> */}
         <div className={navCSS.CallBtn}>
           <i className="ri-phone-line"></i>
           <h4>Contact Us</h4>

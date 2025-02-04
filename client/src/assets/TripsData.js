@@ -6,6 +6,65 @@ import trip05 from "./Trips05.jpg";
 import trip06 from "./Trips06.jpg";
 import trip07 from "./Trips07.jpg";
 import trip08 from "./Trips07.jpg";
+import boat01 from "./boats/boat01.jpg";
+import boat02 from "./boats/boat02.jpg";
+import boat03 from "./boats/boat03.jpg";
+import boat04 from "./boats/boat04.jpg";
+import boat05 from "./boats/boat05.jpg";
+import boat06 from "./boats/boat06.jpg";
+import boat07 from "./boats/boat07.jpg";
+import car01 from "./cars/car01.jpeg";
+import car02 from "./cars/car02.jpeg";
+import car03 from "./cars/car03.jpeg";
+import car04 from "./cars/car04.jpeg";
+import car05 from "./cars/car05.png";
+import car06 from "./cars/car06.png";
+import car07 from "./cars/car07.png";
+import car08 from "./cars/car08.png";
+import car09 from "./cars/car09.png";
+import car10 from "./cars/car10.png";
+import hotel_a_00 from "./hotels/hotel_a_00.jpeg";
+import hotel_a_01 from "./hotels/hotel_a_01.jpeg";
+import hotel_a_02 from "./hotels/hotel_a_02.jpeg";
+import hotel_a_03 from "./hotels/hotel_a_03.jpeg";
+import hotel_a_04 from "./hotels/hotel_a_04.jpeg";
+import hotel_a_05 from "./hotels/hotel_a_05.jpeg";
+import hotel_b_00 from "./hotels/hotel_b_00.jpeg";
+import hotel_b_01 from "./hotels/hotel_b_01.jpeg";
+import hotel_b_02 from "./hotels/hotel_b_02.jpg";
+import hotel_b_03 from "./hotels/hotel_b_03.jpeg";
+import hotel_b_04 from "./hotels/hotel_b_04.jpeg";
+import hotel_b_05 from "./hotels/hotel_b_05.jpg";
+import hotel_c_00 from "./hotels/hotel_c_00.jpg";
+import hotel_c_01 from "./hotels/hotel_c_01.jpg";
+import hotel_c_02 from "./hotels/hotel_c_02.jpg";
+import hotel_c_03 from "./hotels/hotel_c_03.jpg";
+import hotel_c_04 from "./hotels/hotel_c_04.jpeg";
+import hotel_c_05 from "./hotels/hotel_c_05.jpg";
+import hotel_d_00 from "./hotels/hotel_d_00.jpeg";
+import hotel_d_01 from "./hotels/hotel_d_01.jpeg";
+import hotel_d_02 from "./hotels/hotel_d_02.jpeg";
+import hotel_d_03 from "./hotels/hotel_d_03.jpeg";
+import hotel_d_04 from "./hotels/hotel_d_04.jpeg";
+import hotel_d_05 from "./hotels/hotel_d_05.jpeg";
+import hotel_e_00 from "./hotels/hotel_e_00.jpeg";
+import hotel_e_01 from "./hotels/hotel_e_01.jpeg";
+import hotel_e_02 from "./hotels/hotel_e_02.png";
+import hotel_e_03 from "./hotels/hotel_e_03.png";
+import hotel_e_04 from "./hotels/hotel_e_04.png";
+import hotel_e_05 from "./hotels/hotel_e_05.png";
+import hotel_f_00 from "./hotels/hotel_f_00.png";
+import hotel_f_01 from "./hotels/hotel_f_01.png";
+import hotel_f_02 from "./hotels/hotel_f_02.png";
+import hotel_f_03 from "./hotels/hotel_f_03.png";
+import hotel_f_04 from "./hotels/hotel_f_04.png";
+import hotel_f_05 from "./hotels/hotel_f_05.png";
+import hotel_g_00 from "./hotels/hotel_g_00.png";
+import hotel_g_01 from "./hotels/hotel_g_01.png";
+import hotel_g_02 from "./hotels/hotel_g_02.png";
+import hotel_g_03 from "./hotels/hotel_g_03.png";
+import hotel_g_04 from "./hotels/hotel_g_04.png";
+import hotel_g_05 from "./hotels/hotel_g_05.png";
 
 const tripsData = [
   {
@@ -270,224 +329,373 @@ const tripsData = [
   },
 ];
 
-const cars = [
+export default tripsData;
+
+export const hotelsData = [
   {
     id: 1,
-    category: "TAXI",
-    name: "Force Urbania 17 Seater",
-    details: "16 auto 7 3",
-    price: "₹8399 / day",
-    image: "",
+    title: "Shuhul Resort",
+    location: "Raj Bagh, Srinagar",
+    category: "Standard",
+    description:
+      "Shuhul Resort is located in the scenic Raj Bagh area of Srinagar. The resort offers comfortable and well-furnished rooms, equipped with essential amenities to ensure a relaxing stay. Guests can enjoy the peaceful environment and explore nearby attractions. The hotel also provides services such as housekeeping, parking, and a restaurant. Ideal for both business and leisure travelers, it offers excellent value for money.",
+    images: [
+      hotel_a_00,
+      hotel_a_01,
+      hotel_a_02,
+      hotel_a_03,
+      hotel_a_04,
+      hotel_a_05,
+    ],
+    price: "3500",
+    hotelAmenities: [
+      "Free Wi-Fi",
+      "Restaurant",
+      "Room Service",
+      "Parking",
+      "24/7 Front Desk",
+    ],
   },
   {
     id: 2,
-    category: "TAXI",
-    name: "Force Urbania 10 Seater",
-    details: "10 manual 5 5",
-    price: "₹7700 / day",
-    image: "",
+    title: "Paisley Palace",
+    location: "Srinagar",
+    category: "Premium",
+    description:
+      "Paisley Palace is a luxurious 3-star hotel, conveniently located 15 km from Srinagar Airport. The hotel offers premium services, including a fine-dining restaurant, a health club, and conference facilities. The rooms are designed for comfort with modern furnishings, and guests can enjoy a range of recreational activities. It is an ideal choice for travelers seeking comfort, convenience, and luxury in the heart of Srinagar.",
+    images: [
+      hotel_b_00,
+      hotel_b_01,
+      hotel_b_02,
+      hotel_b_03,
+      hotel_b_04,
+      hotel_b_05,
+    ],
+    price: "6500",
+    hotelAmenities: [
+      "Free Wi-Fi",
+      "Fine Dining",
+      "Fitness Center",
+      "Conference Room",
+      "Room Service",
+    ],
   },
   {
     id: 3,
-    category: "TAXI",
-    name: "Tempo Traveller 17 Seater",
-    details: "16 manual 8 3",
-    price: "₹5999 / day",
-    image: "",
+    title: "Lime Wood Inn",
+    location: "Sonwar Bagh, Srinagar",
+    category: "Standard",
+    description:
+      "Lime Wood Inn offers a charming stay in the heart of Sonwar Bagh, Srinagar. The hotel combines comfort with convenience, featuring well-equipped rooms, friendly service, and affordable rates. It is a perfect base for exploring Srinagar’s scenic spots. Guests can enjoy modern amenities such as Wi-Fi, air-conditioning, and room service. The Inn also offers a cozy restaurant serving local and international dishes, ensuring a delightful stay for all visitors.",
+    images: [
+      hotel_c_00,
+      hotel_c_01,
+      hotel_c_02,
+      hotel_c_03,
+      hotel_c_04,
+      hotel_c_05,
+    ],
+    price: "4000",
+    hotelAmenities: [
+      "Free Wi-Fi",
+      "Restaurant",
+      "Air Conditioning",
+      "Room Service",
+      "Parking",
+    ],
   },
   {
     id: 4,
-    category: "TAXI",
-    name: "Tempo Traveller 14 Seater",
-    details: "13 manual 7 3",
-    price: "₹4999 / day",
-    image: "",
+    title: "Hotel German Residency",
+    location: "Near M.A Link Road, Srinagar",
+    category: "Standard",
+    description:
+      "Hotel German Residency provides a warm, comfortable atmosphere for travelers visiting Srinagar. Situated near M.A Link Road, this 3-star hotel is known for its cozy rooms and convenient location. Guests can enjoy quick access to shopping, dining, and cultural attractions. The hotel offers a variety of services, including free Wi-Fi, parking, and room service. The rooms are tastefully furnished, with modern amenities to ensure a relaxing stay for all guests.",
+    images: [
+      hotel_d_00,
+      hotel_d_01,
+      hotel_d_02,
+      hotel_d_03,
+      hotel_d_04,
+      hotel_d_05,
+    ],
+    price: "3200",
+    hotelAmenities: [
+      "Free Wi-Fi",
+      "Restaurant",
+      "Room Service",
+      "Laundry Service",
+      "Parking",
+    ],
   },
   {
     id: 5,
-    category: "TAXI",
-    name: "Toyota Innova Crysta",
-    details: "6 manual 4 4",
-    price: "₹3999 / day",
-    image: "",
+    title: "Hotel Diwan Srinagar",
+    location: "Srinagar",
+    category: "Premium",
+    description:
+      "Hotel Diwan Srinagar offers a perfect blend of traditional Kashmiri architecture and modern luxury. Located in a serene part of Srinagar, it features spacious, elegantly designed rooms with views of the beautiful surroundings. The hotel also offers a fine-dining restaurant and a health club for relaxation. Ideal for business and leisure travelers, it ensures a comfortable stay with premium amenities, including a bar/lounge and event hosting facilities.",
+    images: [
+      hotel_e_00,
+      hotel_e_01,
+      hotel_e_02,
+      hotel_e_03,
+      hotel_e_04,
+      hotel_e_05,
+    ],
+    price: "7500",
+    hotelAmenities: [
+      "Free Wi-Fi",
+      "Fine Dining",
+      "Spa & Wellness",
+      "Bar/Lounge",
+      "Event Facilities",
+    ],
   },
   {
     id: 6,
-    category: "TAXI",
-    name: "Toyota Innova",
-    details: "6 manual 4 4",
-    price: "₹2999 / day",
-    image: "",
+    title: "Hotel City Grace",
+    location: "Srinagar",
+    category: "Budget",
+    description:
+      "Hotel City Grace offers a budget-friendly option for travelers looking for a comfortable and convenient stay in Srinagar. Located in the city center, the hotel provides easy access to popular tourist spots. It features simple yet well-equipped rooms with essential amenities. The hotel’s staff is known for their hospitality, offering services like free Wi-Fi, parking, and room service. A great choice for travelers on a budget without compromising on quality.",
+    images: [
+      hotel_f_00,
+      hotel_f_01,
+      hotel_f_02,
+      hotel_f_03,
+      hotel_f_04,
+      hotel_f_05,
+    ],
+    price: "2500",
+    hotelAmenities: [
+      "Free Wi-Fi",
+      "Parking",
+      "24/7 Assistance",
+      "Room Service",
+      "Laundry Service",
+    ],
   },
   {
     id: 7,
-    category: "TAXI",
-    name: "Toyota Glanza",
-    details: "4 manual 3 4",
-    price: "₹2599 / day",
-    image: "",
-  },
-  {
-    id: 8,
-    category: "TAXI",
-    name: "Honda Amaze",
-    details: "4 manual 3 4",
-    price: "₹2599 / day",
-    image: "",
-  },
-  {
-    id: 9,
-    category: "TAXI",
-    name: "Swift Dzire",
-    details: "4 manual 3 4",
-    price: "₹2499 / day",
-    image: "",
-  },
-  {
-    id: 10,
-    category: "TAXI",
-    name: "Toyota Etios",
-    details: "4 manual 3 4",
-    price: "₹2399 / day",
-    image: "",
-  },
-  {
-    id: 11,
-    category: "4x4",
-    name: "Toyota Fortuner",
-    details: "7 manual 4 4",
-    price: "₹5500 / day",
-    image: "",
-  },
-  {
-    id: 12,
-    category: "4x4",
-    name: "New Mahindra Thar",
-    details: "4 manual 3 3",
-    price: "₹6500 / day",
-    image: "",
-  },
-  {
-    id: 13,
-    category: "Mpv",
-    name: "Toyota Innova",
-    details: "6 manual 4 4",
-    price: "₹6000 / day",
-    image: "",
-  },
-  {
-    id: 14,
-    category: "Self drive",
-    name: "New Scorpio S11",
-    details: "7 manual 4 5",
-    price: "₹6700 / day",
-    image: "",
-  },
-  {
-    id: 15,
-    category: "4x4",
-    name: "Old Mahindra Thar",
-    details: "6 manual 2 3",
-    price: "₹5000 / day",
-    image: "",
-  },
-  {
-    id: 16,
-    category: "Self drive",
-    name: "Hyundai Creta",
-    details: "6 manual 5 4",
-    price: "₹5000 / day",
-    image: "",
-  },
-  {
-    id: 17,
-    category: "Self drive",
-    name: "Xuv 500",
-    details: "7 manual 3 4",
-    price: "₹4300 / day",
-    image: "",
-  },
-  {
-    id: 18,
-    category: "Self drive",
-    name: "Old Mahindra Scorpio",
-    details: "7 manual 5 5",
-    price: "₹4400 / day",
-    image: "",
-  },
-  {
-    id: 19,
-    category: "Compact Suv",
-    name: "Kia Seltos",
-    details: "5 manual 3 4",
-    price: "₹4800 / day",
-    image: "",
-  },
-  {
-    id: 20,
-    category: "Hatchbacks",
-    name: "Maruti Suzuki Wagon R",
-    details: "4 manual 3 4",
-    price: "₹2800 / day",
-    image: "",
-  },
-  {
-    id: 21,
-    category: "Hatchbacks",
-    name: "Maruti Suzuki Baleno",
-    details: "4 manual 3 4",
-    price: "₹3700 / day",
-    image: "",
-  },
-  {
-    id: 22,
-    category: "Hatchbacks",
-    name: "Maruti Suzuki Swift Dzire",
-    details: "4 manual 5 4",
-    price: "₹3500 / day",
-    image: "",
-    discount: "10%",
-  },
-  {
-    id: 23,
-    category: "Hatchbacks",
-    name: "Maruti Suzuki Swift 2024",
-    details: "4 manual 3 4",
-    price: "₹3300 / day",
-    image: "",
-  },
-  {
-    id: 24,
-    category: "Hatchbacks",
-    name: "Maruti Suzuki Alto 800",
-    details: "4 manual 2 4",
-    price: "₹2700 / day",
-    image: "",
-  },
-  {
-    id: 25,
-    category: "Compact Suv",
-    name: "Mahindra Kuv100",
-    details: "5 manual 4 4",
-    price: "₹4000 / day",
-    image: "",
-  },
-  {
-    id: 26,
-    category: "Hatchbacks",
-    name: "Ford Figo",
-    details: "4 manual 2 4",
-    price: "₹3000 / day",
-    image: "",
-  },
-  {
-    id: 27,
-    category: "Hatchbacks",
-    name: "Grand i10",
-    details: "4 manual 2 4",
-    price: "₹3300 / day",
-    image: "",
+    title: "Heritage Luxury Srinagar",
+    location: "Near Srinagar Airport",
+    category: "Premium",
+    description:
+      "Hotel Heritage Luxury offers a premium stay near Srinagar Airport, designed for those seeking a luxurious experience. This 3-star hotel features spacious rooms with modern decor, including air-conditioning, Wi-Fi, and satellite TV. The hotel provides high-end amenities like an on-site restaurant, fitness center, and concierge services. It’s perfect for both short stays and longer visits, ensuring that every guest receives the best service in a tranquil setting.",
+    images: [
+      hotel_g_00,
+      hotel_g_01,
+      hotel_g_02,
+      hotel_g_03,
+      hotel_g_04,
+      hotel_g_05,
+    ],
+    price: "8000",
+    hotelAmenities: [
+      "Free Wi-Fi",
+      "Fitness Center",
+      "Concierge Service",
+      "Fine Dining",
+      "Room Service",
+    ],
   },
 ];
 
-export default tripsData;
+export const houseboats = [
+  {
+    id: 1,
+    title: "Royal Shikara Houseboat",
+    location: "Dal Lake, Srinagar",
+    category: "Luxury",
+    description:
+      "Experience the charm of Kashmiri hospitality at Royal Shikara Houseboat, floating on the serene waters of Dal Lake. This luxury houseboat features elegantly designed rooms with intricate wood carvings, Wi-Fi, and modern amenities. Enjoy breathtaking lake views, traditional Kashmiri meals, and personalized service for a truly memorable stay.",
+    images: [boat01],
+    price: "12000",
+    boatAmenities: [
+      "Free Wi-Fi",
+      "Lake View",
+      "Traditional Dining",
+      "24/7 Room Service",
+    ],
+  },
+  {
+    id: 2,
+    title: "Heavenly Retreat Houseboat",
+    location: "Nigeen Lake, Srinagar",
+    category: "Premium",
+    description:
+      "Nestled in the peaceful waters of Nigeen Lake, Heavenly Retreat Houseboat offers a premium stay with beautifully decorated interiors and a touch of Kashmiri heritage. Each room is well-equipped with modern comforts like air-conditioning, Wi-Fi, and a private balcony overlooking the lake. Enjoy a relaxing stay with warm hospitality and delicious Kashmiri cuisine.",
+    images: [boat02],
+    price: "10000",
+    boatAmenities: [
+      "Wi-Fi",
+      "Lake View",
+      "Private Balcony",
+      "Traditional Wooden Interiors",
+    ],
+  },
+  {
+    id: 3,
+    title: "Floating Paradise Houseboat",
+    location: "Dal Lake, Srinagar",
+    category: "Budget",
+    description:
+      "Floating Paradise Houseboat provides a cozy and affordable stay on Dal Lake, ideal for travelers looking for an authentic houseboat experience. The houseboat offers traditionally designed rooms with wooden paneling, basic amenities, and a stunning sunrise view over the lake. Perfect for budget travelers seeking a peaceful escape.",
+    images: [boat03],
+    price: "5000",
+    boatAmenities: [
+      "Wi-Fi",
+      "Lake View",
+      "Breakfast Included",
+      "24/7 Assistance",
+    ],
+  },
+  {
+    id: 4,
+    title: "Golden Lotus Houseboat",
+    location: "Jhelum River, Srinagar",
+    category: "Mid-range",
+    description:
+      "Golden Lotus Houseboat offers a blend of comfort and tradition on the tranquil Jhelum River. Guests can enjoy spacious rooms with Kashmiri carpets, modern bathrooms, and a relaxing deck area. Ideal for families and couples looking for a unique water-living experience with warm hospitality.",
+    images: [boat04],
+    price: "7500",
+    boatAmenities: [
+      "Wi-Fi",
+      "Lake View",
+      "Deck Area",
+      "Traditional Wooden Interiors",
+    ],
+  },
+  {
+    id: 5,
+    title: "Majestic Waves Houseboat",
+    location: "Dal Lake, Srinagar",
+    category: "Luxury",
+    description:
+      "Majestic Waves Houseboat offers an opulent retreat on Dal Lake, featuring handcrafted wooden interiors, plush bedding, and top-notch amenities. Guests can savor authentic Kashmiri cuisine, enjoy guided shikara rides, and immerse themselves in the breathtaking beauty of the lake.",
+    images: [boat05],
+    price: "14000",
+    boatAmenities: [
+      "Wi-Fi",
+      "Lake View",
+      "Butler Service",
+      "Traditional Kashmiri Decor",
+    ],
+  },
+  {
+    id: 6,
+    title: "Tranquil Shores Houseboat",
+    location: "Nigeen Lake, Srinagar",
+    category: "Premium",
+    description:
+      "Perfectly positioned in the serene Nigeen Lake, Tranquil Shores Houseboat offers a peaceful escape with elegantly designed rooms, modern amenities, and warm hospitality. Guests can relax on the sundeck, enjoy panoramic views, and experience the best of Kashmiri traditions.",
+    images: [boat06],
+    price: "9500",
+    boatAmenities: [
+      "Wi-Fi",
+      "Private Sundeck",
+      "Lake View",
+      "Traditional Wooden Interiors",
+    ],
+  },
+  {
+    id: 7,
+    title: "Sunset Bliss Houseboat",
+    location: "Dal Lake, Srinagar",
+    category: "Mid-range",
+    description:
+      "Sunset Bliss Houseboat is known for its mesmerizing sunset views over Dal Lake. With cozy rooms featuring traditional wooden paneling, modern amenities, and an inviting common area, this houseboat is a perfect choice for travelers seeking comfort and an authentic Kashmiri experience.",
+    images: [boat07],
+    price: "7000",
+    boatAmenities: [
+      "Wi-Fi",
+      "Sunset View",
+      "Lakefront Dining",
+      "24/7 Room Service",
+    ],
+  },
+];
+
+export const carsData = [
+  {
+    id: 1,
+    name: "Maruti Suzuki Swift",
+    price: "650,000",
+    images: [car01],
+    passengers: 5,
+    baggage: 2,
+  },
+  {
+    id: 2,
+    name: "Hyundai Creta",
+    price: "1,100,000",
+    images: [car02],
+    passengers: 5,
+    baggage: 3,
+  },
+  {
+    id: 3,
+    name: "Tata Nexon",
+    price: "850,000",
+    images: [car03],
+    passengers: 5,
+    baggage: 3,
+  },
+  {
+    id: 4,
+    name: "Mahindra Scorpio-N",
+    price: "1,350,000",
+    images: [car04],
+    passengers: 7,
+    baggage: 4,
+  },
+  {
+    id: 5,
+    name: "Kia Seltos",
+    price: "1,200,000",
+    images: [car05],
+    passengers: 5,
+    baggage: 3,
+  },
+  {
+    id: 6,
+    name: "Toyota Innova Crysta",
+    price: "1,900,000",
+    images: [car06],
+    passengers: 7,
+    baggage: 5,
+  },
+  {
+    id: 7,
+    name: "Honda City",
+    price: "1,150,000",
+    images: [car07],
+    passengers: 5,
+    baggage: 3,
+  },
+  {
+    id: 8,
+    name: "Maruti Suzuki Ertiga",
+    price: "1,100,000",
+    images: [car08],
+    passengers: 7,
+    baggage: 4,
+  },
+  {
+    id: 9,
+    name: "MG Hector",
+    price: "1,450,000",
+    images: [car09],
+    passengers: 5,
+    baggage: 4,
+  },
+  {
+    id: 10,
+    name: "Tata Harrier",
+    price: "1,700,000",
+    images: [car10],
+    passengers: 5,
+    baggage: 4,
+  },
+];
