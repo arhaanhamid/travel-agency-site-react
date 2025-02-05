@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import PackageSearch from "./PackageSearch";
-import tripsData from "../../assets/TripsData";
+import { hotelsData } from "../../../assets/GlobalData";
+import Services from "../../Services/Services";
 
-const Hotels = () => {
+const HotelsPage = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getData() {
       try {
-        // In a real scenario, fetch data from an API instead of tripsData
-        const trips = tripsData;
-        setData(trips);
+        // In a real scenario, fetch data from an API instead of hotelsData
+        const res = hotelsData;
+        setData(res);
       } catch (error) {
         console.error("Error fetching data:", error);
         setData([]);
@@ -27,7 +27,7 @@ const Hotels = () => {
     return <div>Loading...</div>; // Optionally display a loading state
   }
 
-  return <PackageSearch data={JSON.stringify(data)} />;
+  return <Services data={JSON.stringify(data)} requestFrom="hotels-page" />;
 };
 
-export default Hotels;
+export default HotelsPage;

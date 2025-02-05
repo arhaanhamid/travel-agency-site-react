@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import PackageSearch from "./PackageSearch";
-import tripsData from "../../assets/TripsData";
+import { boatsData } from "../../../assets/GlobalData";
+import Services from "../../Services/Services";
 
-const Cars = () => {
+const BoatsPage = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getData() {
       try {
-        // In a real scenario, fetch data from an API instead of tripsData
-        const trips = tripsData;
-        setData(trips);
+        // In a real scenario, fetch data from an API instead of boatsData
+        const res = boatsData;
+        setData(res);
       } catch (error) {
         console.error("Error fetching data:", error);
         setData([]);
@@ -27,7 +27,7 @@ const Cars = () => {
     return <div>Loading...</div>; // Optionally display a loading state
   }
 
-  return <PackageSearch data={JSON.stringify(data)} />;
+  return <Services data={JSON.stringify(data)} requestFrom="boats-page" />;
 };
 
-export default Cars;
+export default BoatsPage;

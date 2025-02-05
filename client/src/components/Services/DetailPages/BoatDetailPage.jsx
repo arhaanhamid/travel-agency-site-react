@@ -6,13 +6,13 @@ import "swiper/css/navigation";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
-import tripsData from "../../assets/TripsData";
+import boatData from "../../../assets/GlobalData";
 import {
   LeftSwiperArrow,
   RightSwiperArrow,
 } from "../UIComponents/UIComponents";
 
-const PackageDetailPage = () => {
+const BoatDetailPage = () => {
   const [tripData, setTripData] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -21,7 +21,7 @@ const PackageDetailPage = () => {
   useEffect(() => {
     async function getData() {
       try {
-        const data = tripsData.filter((item) => item.id == packageId);
+        const data = boatData.filter((item) => item.id == packageId);
         setTripData(data[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -179,4 +179,4 @@ const PackageDetailPage = () => {
   );
 };
 
-export default PackageDetailPage;
+export default BoatDetailPage;

@@ -6,11 +6,11 @@ import "swiper/css/navigation";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
-import tripsData from "../../assets/TripsData";
+import hotelData from "../../../assets/GlobalData";
 import {
   LeftSwiperArrow,
   RightSwiperArrow,
-} from "../UIComponents/UIComponents";
+} from "../../UIComponents/UIComponents";
 
 const HotelDetailPage = () => {
   const [tripData, setTripData] = useState("");
@@ -21,7 +21,7 @@ const HotelDetailPage = () => {
   useEffect(() => {
     async function getData() {
       try {
-        const data = tripsData.filter((item) => item.id == packageId);
+        const data = hotelData.filter((item) => item.id == packageId);
         setTripData(data[0]);
       } catch (error) {
         console.error("Error fetching data:", error);

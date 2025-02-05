@@ -30,7 +30,7 @@ function Nav() {
           </HashLink>
         </li>
         <li>
-          <Link to="packages">Packages</Link>
+          <Link to="/services/packages">Packages</Link>
         </li>
 
         {/* <Link to="rentals">Rentals</Link> */}
@@ -58,19 +58,19 @@ function Nav() {
                   </svg>
                 </button>
                 <div className="absolute bg-white opacity-0 hidden flex-col group-hover/bouton:flex group-hover/bouton:opacity-100 transition-all">
-                  <Link className="px-4 py-4" to="hotels-page">
+                  <Link className="px-4 py-4" to="/services/hotels">
                     <span className="text-[15px] text-gray-600 cursor-pointer">
                       Hotels
                     </span>
                   </Link>
                   <hr />
-                  <Link className="px-4 py-4" to="houseboats-page">
+                  <Link className="px-4 py-4" to="/services/boats">
                     <span className="text-[15px] text-gray-600 cursor-pointer">
                       Houseboats
                     </span>
                   </Link>
                   <hr />
-                  <Link className="px-4 py-4" to="cars-page">
+                  <Link className="px-4 py-4" to="/services/cars">
                     <span className="text-[15px] text-gray-600 cursor-pointer">
                       Transport
                     </span>

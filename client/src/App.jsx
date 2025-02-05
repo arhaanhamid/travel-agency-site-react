@@ -5,11 +5,22 @@ import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./ScrollToTop";
 
 const Home = lazy(() => import("./components/Home/Home"));
-const PackagesPage = lazy(() => import("./components/Packages/PackagesPage"));
-const RentalsPage = lazy(() => import("./components/Rentals/RentalsPage"));
 const PackageDetailPage = lazy(
-  () => import("./components/Packages/PackageDetailPage")
+  () => import("./components/Services/DetailPages/PackageDetailPage")
 );
+const ServicesPage = lazy(() => import("./components/Services/ServicesPage"));
+
+const HotelDetailPage = lazy(
+  () => import("./components/Services/DetailPages/HotelDetailPage")
+);
+const CarDetailPage = lazy(
+  () => import("./components/Services/DetailPages/CarDetailPage")
+);
+
+const BoatDetailPage = lazy(
+  () => import("./components/Services/DetailPages/BoatDetailPage")
+);
+const NotFoundPage = lazy(() => import("./NotFoundPage"));
 
 function App() {
   return (
@@ -19,10 +30,18 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/packages" element={<PackagesPage />} />
-          <Route path="/packages/:packageId" element={<PackageDetailPage />} />
-          <Route path="/rentals" element={<RentalsPage />} />
-          <Route path="*" element={<h1>404 - Page Not Found</h1>} />{" "}
+          <Route path="/services/:type" element={<ServicesPage />} />
+          <Route
+            path="/services/packages/:packageId"
+            element={<PackageDetailPage />}
+          />
+          <Route
+            path="/services/hotels/:hotelId"
+            element={<HotelDetailPage />}
+          />
+          <Route path="/services/boats/:boatId" element={<BoatDetailPage />} />
+          <Route path="/services/cars/:carId" element={<CarDetailPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />
       </Suspense>

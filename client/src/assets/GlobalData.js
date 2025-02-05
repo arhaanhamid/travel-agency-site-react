@@ -66,7 +66,7 @@ import hotel_g_03 from "./hotels/hotel_g_03.png";
 import hotel_g_04 from "./hotels/hotel_g_04.png";
 import hotel_g_05 from "./hotels/hotel_g_05.png";
 
-const tripsData = [
+const packagesData = [
   {
     id: 1,
     images: [trip01, trip02, trip03],
@@ -88,29 +88,25 @@ const tripsData = [
         day: "Day 1",
         title: "Arrival in Pahalgam",
         summary: "Check-in and riverside walk",
-        description:
-          "Arrive at Pahalgam • Transfer to hotel • Evening stroll along the Lidder River • Local dinner and overnight stay",
+        desc: "Arrive at Pahalgam • Transfer to hotel • Evening stroll along the Lidder River • Local dinner and overnight stay",
       },
       {
         day: "Day 2",
         title: "Valley Exploration",
         summary: "Explore Betaab and Aru Valleys",
-        description:
-          "Morning visit to Betaab Valley • Picnic lunch in Aru Valley • Leisure time on nature trails • Return by evening",
+        desc: "Morning visit to Betaab Valley • Picnic lunch in Aru Valley • Leisure time on nature trails • Return by evening",
       },
       {
         day: "Day 3",
         title: "Local Culture",
         summary: "Experience local markets and crafts",
-        description:
-          "Visit local handicraft markets • Interact with artisans • Traditional lunch • Evening cultural performance",
+        desc: "Visit local handicraft markets • Interact with artisans • Traditional lunch • Evening cultural performance",
       },
       {
         day: "Day 4",
         title: "Farewell Pahalgam",
         summary: "Relaxation and departure",
-        description:
-          "Spend your final day enjoying a leisurely breakfast and taking a last stroll through the scenic village. Capture the beauty of Pahalgam one last time, and reflect on the unforgettable experiences of your retreat. Bid farewell to the serene landscapes, with memories to cherish forever, as you prepare for your journey home.",
+        desc: "Spend your final day enjoying a leisurely breakfast and taking a last stroll through the scenic village. Capture the beauty of Pahalgam one last time, and reflect on the unforgettable experiences of your retreat. Bid farewell to the serene landscapes, with memories to cherish forever, as you prepare for your journey home.",
       },
     ],
   },
@@ -135,15 +131,13 @@ const tripsData = [
         day: "Day 1",
         title: "Arrival & Glacier Tour",
         summary: "Guided tour to Thajiwas Glacier",
-        description:
-          "Arrive in Sonamarg • Transfer to hotel • Afternoon tour to Thajiwas Glacier • Dinner at a local restaurant",
+        desc: "Arrive in Sonamarg • Transfer to hotel • Afternoon tour to Thajiwas Glacier • Dinner at a local restaurant",
       },
       {
         day: "Day 2",
         title: "Adventure & Return",
         summary: "Local trail exploration and markets",
-        description:
-          "Morning hike on local trails • Visit local bazaars • Check-out and transfer for departure",
+        desc: "Morning hike on local trails • Visit local bazaars • Check-out and transfer for departure",
       },
     ],
   },
@@ -168,22 +162,19 @@ const tripsData = [
         day: "Day 1",
         title: "Arrival & Fort Visit",
         summary: "Explore Bahu Fort and temples",
-        description:
-          "Arrive in Jammu • Transfer to hotel • Visit Bahu Fort and Raghunath Temple • Evening leisure walk",
+        desc: "Arrive in Jammu • Transfer to hotel • Visit Bahu Fort and Raghunath Temple • Evening leisure walk",
       },
       {
         day: "Day 2",
         title: "Cultural Immersion",
         summary: "Museum tours and local markets",
-        description:
-          "Visit the Jammu Museum • Explore bustling bazaars • Enjoy traditional cuisine • Overnight stay",
+        desc: "Visit the Jammu Museum • Explore bustling bazaars • Enjoy traditional cuisine • Overnight stay",
       },
       {
         day: "Day 3",
         title: "Sacred Sites & Departure",
         summary: "Tour local shrines and depart",
-        description:
-          "Morning visit to a revered shrine • Check-out and transfer to airport • Farewell by tour representative for lasting memories.",
+        desc: "Morning visit to a revered shrine • Check-out and transfer to airport • Farewell by tour representative for lasting memories.",
       },
     ],
   },
@@ -329,7 +320,7 @@ const tripsData = [
   },
 ];
 
-export default tripsData;
+export default packagesData;
 
 export const hotelsData = [
   {
@@ -337,8 +328,7 @@ export const hotelsData = [
     title: "Shuhul Resort",
     location: "Raj Bagh, Srinagar",
     category: "Standard",
-    description:
-      "Shuhul Resort is located in the scenic Raj Bagh area of Srinagar. The resort offers comfortable and well-furnished rooms, equipped with essential amenities to ensure a relaxing stay. Guests can enjoy the peaceful environment and explore nearby attractions. The hotel also provides services such as housekeeping, parking, and a restaurant. Ideal for both business and leisure travelers, it offers excellent value for money.",
+    desc: "Shuhul Resort is located in the scenic Raj Bagh area of Srinagar. The resort offers comfortable and well-furnished rooms, equipped with essential amenities to ensure a relaxing stay. Guests can enjoy the peaceful environment and explore nearby attractions. The hotel also provides services such as housekeeping, parking, and a restaurant. Ideal for both business and leisure travelers, it offers excellent value for money.",
     images: [
       hotel_a_00,
       hotel_a_01,
@@ -361,8 +351,7 @@ export const hotelsData = [
     title: "Paisley Palace",
     location: "Srinagar",
     category: "Premium",
-    description:
-      "Paisley Palace is a luxurious 3-star hotel, conveniently located 15 km from Srinagar Airport. The hotel offers premium services, including a fine-dining restaurant, a health club, and conference facilities. The rooms are designed for comfort with modern furnishings, and guests can enjoy a range of recreational activities. It is an ideal choice for travelers seeking comfort, convenience, and luxury in the heart of Srinagar.",
+    desc: "Paisley Palace is a luxurious 3-star hotel, conveniently located 15 km from Srinagar Airport. The hotel offers premium services, including a fine-dining restaurant, a health club, and conference facilities. The rooms are designed for comfort with modern furnishings, and guests can enjoy a range of recreational activities. It is an ideal choice for travelers seeking comfort, convenience, and luxury in the heart of Srinagar.",
     images: [
       hotel_b_00,
       hotel_b_01,
@@ -385,8 +374,7 @@ export const hotelsData = [
     title: "Lime Wood Inn",
     location: "Sonwar Bagh, Srinagar",
     category: "Standard",
-    description:
-      "Lime Wood Inn offers a charming stay in the heart of Sonwar Bagh, Srinagar. The hotel combines comfort with convenience, featuring well-equipped rooms, friendly service, and affordable rates. It is a perfect base for exploring Srinagar’s scenic spots. Guests can enjoy modern amenities such as Wi-Fi, air-conditioning, and room service. The Inn also offers a cozy restaurant serving local and international dishes, ensuring a delightful stay for all visitors.",
+    desc: "Lime Wood Inn offers a charming stay in the heart of Sonwar Bagh, Srinagar. The hotel combines comfort with convenience, featuring well-equipped rooms, friendly service, and affordable rates. It is a perfect base for exploring Srinagar’s scenic spots. Guests can enjoy modern amenities such as Wi-Fi, air-conditioning, and room service. The Inn also offers a cozy restaurant serving local and international dishes, ensuring a delightful stay for all visitors.",
     images: [
       hotel_c_00,
       hotel_c_01,
@@ -409,8 +397,7 @@ export const hotelsData = [
     title: "Hotel German Residency",
     location: "Near M.A Link Road, Srinagar",
     category: "Standard",
-    description:
-      "Hotel German Residency provides a warm, comfortable atmosphere for travelers visiting Srinagar. Situated near M.A Link Road, this 3-star hotel is known for its cozy rooms and convenient location. Guests can enjoy quick access to shopping, dining, and cultural attractions. The hotel offers a variety of services, including free Wi-Fi, parking, and room service. The rooms are tastefully furnished, with modern amenities to ensure a relaxing stay for all guests.",
+    desc: "Hotel German Residency provides a warm, comfortable atmosphere for travelers visiting Srinagar. Situated near M.A Link Road, this 3-star hotel is known for its cozy rooms and convenient location. Guests can enjoy quick access to shopping, dining, and cultural attractions. The hotel offers a variety of services, including free Wi-Fi, parking, and room service. The rooms are tastefully furnished, with modern amenities to ensure a relaxing stay for all guests.",
     images: [
       hotel_d_00,
       hotel_d_01,
@@ -433,8 +420,7 @@ export const hotelsData = [
     title: "Hotel Diwan Srinagar",
     location: "Srinagar",
     category: "Premium",
-    description:
-      "Hotel Diwan Srinagar offers a perfect blend of traditional Kashmiri architecture and modern luxury. Located in a serene part of Srinagar, it features spacious, elegantly designed rooms with views of the beautiful surroundings. The hotel also offers a fine-dining restaurant and a health club for relaxation. Ideal for business and leisure travelers, it ensures a comfortable stay with premium amenities, including a bar/lounge and event hosting facilities.",
+    desc: "Hotel Diwan Srinagar offers a perfect blend of traditional Kashmiri architecture and modern luxury. Located in a serene part of Srinagar, it features spacious, elegantly designed rooms with views of the beautiful surroundings. The hotel also offers a fine-dining restaurant and a health club for relaxation. Ideal for business and leisure travelers, it ensures a comfortable stay with premium amenities, including a bar/lounge and event hosting facilities.",
     images: [
       hotel_e_00,
       hotel_e_01,
@@ -457,8 +443,7 @@ export const hotelsData = [
     title: "Hotel City Grace",
     location: "Srinagar",
     category: "Budget",
-    description:
-      "Hotel City Grace offers a budget-friendly option for travelers looking for a comfortable and convenient stay in Srinagar. Located in the city center, the hotel provides easy access to popular tourist spots. It features simple yet well-equipped rooms with essential amenities. The hotel’s staff is known for their hospitality, offering services like free Wi-Fi, parking, and room service. A great choice for travelers on a budget without compromising on quality.",
+    desc: "Hotel City Grace offers a budget-friendly option for travelers looking for a comfortable and convenient stay in Srinagar. Located in the city center, the hotel provides easy access to popular tourist spots. It features simple yet well-equipped rooms with essential amenities. The hotel’s staff is known for their hospitality, offering services like free Wi-Fi, parking, and room service. A great choice for travelers on a budget without compromising on quality.",
     images: [
       hotel_f_00,
       hotel_f_01,
@@ -481,8 +466,7 @@ export const hotelsData = [
     title: "Heritage Luxury Srinagar",
     location: "Near Srinagar Airport",
     category: "Premium",
-    description:
-      "Hotel Heritage Luxury offers a premium stay near Srinagar Airport, designed for those seeking a luxurious experience. This 3-star hotel features spacious rooms with modern decor, including air-conditioning, Wi-Fi, and satellite TV. The hotel provides high-end amenities like an on-site restaurant, fitness center, and concierge services. It’s perfect for both short stays and longer visits, ensuring that every guest receives the best service in a tranquil setting.",
+    desc: "Hotel Heritage Luxury offers a premium stay near Srinagar Airport, designed for those seeking a luxurious experience. This 3-star hotel features spacious rooms with modern decor, including air-conditioning, Wi-Fi, and satellite TV. The hotel provides high-end amenities like an on-site restaurant, fitness center, and concierge services. It’s perfect for both short stays and longer visits, ensuring that every guest receives the best service in a tranquil setting.",
     images: [
       hotel_g_00,
       hotel_g_01,
@@ -502,14 +486,13 @@ export const hotelsData = [
   },
 ];
 
-export const houseboats = [
+export const boatsData = [
   {
     id: 1,
     title: "Royal Shikara Houseboat",
     location: "Dal Lake, Srinagar",
     category: "Luxury",
-    description:
-      "Experience the charm of Kashmiri hospitality at Royal Shikara Houseboat, floating on the serene waters of Dal Lake. This luxury houseboat features elegantly designed rooms with intricate wood carvings, Wi-Fi, and modern amenities. Enjoy breathtaking lake views, traditional Kashmiri meals, and personalized service for a truly memorable stay.",
+    desc: "Experience the charm of Kashmiri hospitality at Royal Shikara Houseboat, floating on the serene waters of Dal Lake. This luxury houseboat features elegantly designed rooms with intricate wood carvings, Wi-Fi, and modern amenities. Enjoy breathtaking lake views, traditional Kashmiri meals, and personalized service for a truly memorable stay.",
     images: [boat01],
     price: "12000",
     boatAmenities: [
@@ -524,8 +507,7 @@ export const houseboats = [
     title: "Heavenly Retreat Houseboat",
     location: "Nigeen Lake, Srinagar",
     category: "Premium",
-    description:
-      "Nestled in the peaceful waters of Nigeen Lake, Heavenly Retreat Houseboat offers a premium stay with beautifully decorated interiors and a touch of Kashmiri heritage. Each room is well-equipped with modern comforts like air-conditioning, Wi-Fi, and a private balcony overlooking the lake. Enjoy a relaxing stay with warm hospitality and delicious Kashmiri cuisine.",
+    desc: "Nestled in the peaceful waters of Nigeen Lake, Heavenly Retreat Houseboat offers a premium stay with beautifully decorated interiors and a touch of Kashmiri heritage. Each room is well-equipped with modern comforts like air-conditioning, Wi-Fi, and a private balcony overlooking the lake. Enjoy a relaxing stay with warm hospitality and delicious Kashmiri cuisine.",
     images: [boat02],
     price: "10000",
     boatAmenities: [
@@ -540,8 +522,7 @@ export const houseboats = [
     title: "Floating Paradise Houseboat",
     location: "Dal Lake, Srinagar",
     category: "Budget",
-    description:
-      "Floating Paradise Houseboat provides a cozy and affordable stay on Dal Lake, ideal for travelers looking for an authentic houseboat experience. The houseboat offers traditionally designed rooms with wooden paneling, basic amenities, and a stunning sunrise view over the lake. Perfect for budget travelers seeking a peaceful escape.",
+    desc: "Floating Paradise Houseboat provides a cozy and affordable stay on Dal Lake, ideal for travelers looking for an authentic houseboat experience. The houseboat offers traditionally designed rooms with wooden paneling, basic amenities, and a stunning sunrise view over the lake. Perfect for budget travelers seeking a peaceful escape.",
     images: [boat03],
     price: "5000",
     boatAmenities: [
@@ -556,8 +537,7 @@ export const houseboats = [
     title: "Golden Lotus Houseboat",
     location: "Jhelum River, Srinagar",
     category: "Mid-range",
-    description:
-      "Golden Lotus Houseboat offers a blend of comfort and tradition on the tranquil Jhelum River. Guests can enjoy spacious rooms with Kashmiri carpets, modern bathrooms, and a relaxing deck area. Ideal for families and couples looking for a unique water-living experience with warm hospitality.",
+    desc: "Golden Lotus Houseboat offers a blend of comfort and tradition on the tranquil Jhelum River. Guests can enjoy spacious rooms with Kashmiri carpets, modern bathrooms, and a relaxing deck area. Ideal for families and couples looking for a unique water-living experience with warm hospitality.",
     images: [boat04],
     price: "7500",
     boatAmenities: [
@@ -572,8 +552,7 @@ export const houseboats = [
     title: "Majestic Waves Houseboat",
     location: "Dal Lake, Srinagar",
     category: "Luxury",
-    description:
-      "Majestic Waves Houseboat offers an opulent retreat on Dal Lake, featuring handcrafted wooden interiors, plush bedding, and top-notch amenities. Guests can savor authentic Kashmiri cuisine, enjoy guided shikara rides, and immerse themselves in the breathtaking beauty of the lake.",
+    desc: "Majestic Waves Houseboat offers an opulent retreat on Dal Lake, featuring handcrafted wooden interiors, plush bedding, and top-notch amenities. Guests can savor authentic Kashmiri cuisine, enjoy guided shikara rides, and immerse themselves in the breathtaking beauty of the lake.",
     images: [boat05],
     price: "14000",
     boatAmenities: [
@@ -588,8 +567,7 @@ export const houseboats = [
     title: "Tranquil Shores Houseboat",
     location: "Nigeen Lake, Srinagar",
     category: "Premium",
-    description:
-      "Perfectly positioned in the serene Nigeen Lake, Tranquil Shores Houseboat offers a peaceful escape with elegantly designed rooms, modern amenities, and warm hospitality. Guests can relax on the sundeck, enjoy panoramic views, and experience the best of Kashmiri traditions.",
+    desc: "Perfectly positioned in the serene Nigeen Lake, Tranquil Shores Houseboat offers a peaceful escape with elegantly designed rooms, modern amenities, and warm hospitality. Guests can relax on the sundeck, enjoy panoramic views, and experience the best of Kashmiri traditions.",
     images: [boat06],
     price: "9500",
     boatAmenities: [
@@ -604,8 +582,7 @@ export const houseboats = [
     title: "Sunset Bliss Houseboat",
     location: "Dal Lake, Srinagar",
     category: "Mid-range",
-    description:
-      "Sunset Bliss Houseboat is known for its mesmerizing sunset views over Dal Lake. With cozy rooms featuring traditional wooden paneling, modern amenities, and an inviting common area, this houseboat is a perfect choice for travelers seeking comfort and an authentic Kashmiri experience.",
+    desc: "Sunset Bliss Houseboat is known for its mesmerizing sunset views over Dal Lake. With cozy rooms featuring traditional wooden paneling, modern amenities, and an inviting common area, this houseboat is a perfect choice for travelers seeking comfort and an authentic Kashmiri experience.",
     images: [boat07],
     price: "7000",
     boatAmenities: [
@@ -620,7 +597,8 @@ export const houseboats = [
 export const carsData = [
   {
     id: 1,
-    name: "Maruti Suzuki Swift",
+    title: "Maruti Suzuki Swift",
+    location: "Srinagar - Budgam",
     price: "650,000",
     images: [car01],
     passengers: 5,
@@ -628,7 +606,8 @@ export const carsData = [
   },
   {
     id: 2,
-    name: "Hyundai Creta",
+    title: "Hyundai Creta",
+    location: "Srinagar - Chodura",
     price: "1,100,000",
     images: [car02],
     passengers: 5,
@@ -636,7 +615,8 @@ export const carsData = [
   },
   {
     id: 3,
-    name: "Tata Nexon",
+    title: "Tata Nexon",
+    location: "Srinagar",
     price: "850,000",
     images: [car03],
     passengers: 5,
@@ -644,7 +624,8 @@ export const carsData = [
   },
   {
     id: 4,
-    name: "Mahindra Scorpio-N",
+    title: "Mahindra Scorpio-N",
+    location: "Srinagar - Budgam",
     price: "1,350,000",
     images: [car04],
     passengers: 7,
@@ -652,7 +633,8 @@ export const carsData = [
   },
   {
     id: 5,
-    name: "Kia Seltos",
+    title: "Kia Seltos",
+    location: "Srinagar - Jammu",
     price: "1,200,000",
     images: [car05],
     passengers: 5,
@@ -660,7 +642,8 @@ export const carsData = [
   },
   {
     id: 6,
-    name: "Toyota Innova Crysta",
+    title: "Toyota Innova Crysta",
+    location: "Srinagar - Barahmulla",
     price: "1,900,000",
     images: [car06],
     passengers: 7,
@@ -668,7 +651,8 @@ export const carsData = [
   },
   {
     id: 7,
-    name: "Honda City",
+    title: "Honda City",
+    location: "Srinagar - Budgam",
     price: "1,150,000",
     images: [car07],
     passengers: 5,
@@ -676,7 +660,8 @@ export const carsData = [
   },
   {
     id: 8,
-    name: "Maruti Suzuki Ertiga",
+    title: "Maruti Suzuki Ertiga",
+    location: "Srinagar - Anantnag",
     price: "1,100,000",
     images: [car08],
     passengers: 7,
@@ -684,7 +669,8 @@ export const carsData = [
   },
   {
     id: 9,
-    name: "MG Hector",
+    title: "MG Hector",
+    location: "Srinagar - Budgam",
     price: "1,450,000",
     images: [car09],
     passengers: 5,
@@ -692,7 +678,8 @@ export const carsData = [
   },
   {
     id: 10,
-    name: "Tata Harrier",
+    title: "Tata Harrier",
+    location: "Srinagar - Budgam",
     price: "1,700,000",
     images: [car10],
     passengers: 5,

@@ -3,8 +3,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import PackageCard from "../Packages/PackageCard.jsx";
-import tripsData from "../../assets/TripsData.js";
+import TripCard from "./TripCard.jsx";
+import tripsData from "../../assets/GlobalData.js";
 import { LeftSwiperArrow } from "../UIComponents/UIComponents.jsx";
 import { RightSwiperArrow } from "../UIComponents/UIComponents.jsx";
 
@@ -57,7 +57,7 @@ const PopularTrips = () => {
           trips.map((trip, index) =>
             trip.isPopular ? (
               <SwiperSlide key={trip.title || index}>
-                <PackageCard trip={trip} />
+                <TripCard trip={trip} />
               </SwiperSlide>
             ) : (
               ""

@@ -1,6 +1,7 @@
 import Header from "../Header/Header";
 import Memories from "../Memories/Memories";
 import PopularTrips from "../PopularTrips/PopularTrips";
+import Services from "../Services/Services";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
           </h3>
         </div>
       </div>
+      <Services />
       <Header />
       <Memories />
       <PopularTrips />
