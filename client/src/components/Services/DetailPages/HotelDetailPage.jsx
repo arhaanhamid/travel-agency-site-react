@@ -6,32 +6,33 @@ import "swiper/css/navigation";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
-import hotelData from "../../../assets/GlobalData";
+import { hotelsData } from "../../../assets/GlobalData";
+import { iconsData } from "../../../assets/GlobalData";
 import {
   LeftSwiperArrow,
   RightSwiperArrow,
 } from "../../UIComponents/UIComponents";
 
 const HotelDetailPage = () => {
-  const [tripData, setTripData] = useState("");
+  const [hotelData, setHotelData] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const { packageId } = useParams();
+  const { hotelId } = useParams();
 
   useEffect(() => {
     async function getData() {
       try {
-        const data = hotelData.filter((item) => item.id == packageId);
-        setTripData(data[0]);
+        const data = hotelsData.filter((item) => item.id == hotelId);
+        setHotelData(data[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setTripData([]);
+        setHotelData([]);
       } finally {
         setLoading(false);
       }
     }
     getData();
-  }, [packageId]);
+  }, [hotelId]);
 
   if (loading) {
     return (
@@ -71,28 +72,17 @@ const HotelDetailPage = () => {
           loop={true}
           lazy="true"
         >
-          {tripData.images.map((image, index) => {
+          {hotelData.images.map((image, index) => {
             return (
               <SwiperSlide key={index}>
                 <div className="relative max-w-screen-md mb-8 h-64 sm:h-80 md:h-96 mx-auto">
                   <div className="absolute left-0 bottom-0 w-full h-full z-10 bg-gradient-to-t from-black/70 via-transparent"></div>
                   <img
                     src={image}
-                    alt={tripData.title}
+                    alt={hotelData.title}
                     className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg"
                     loading="lazy"
                   />
-                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 text-xs sm:text-sm font-bold uppercase tracking-wide px-3 py-1 bg-black text-gray-200">
-                    {tripData.location}
-                  </span>
-                  <div className="absolute bottom-4 left-4 z-20">
-                    <h5 className="text-sm sm:text-base font-bold text-white">
-                      {tripData.duration}-Day Trip
-                    </h5>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-100 leading-tight">
-                      {tripData.title}
-                    </h2>
-                  </div>
                 </div>
               </SwiperSlide>
             );
@@ -101,78 +91,74 @@ const HotelDetailPage = () => {
           <RightSwiperArrow />
         </Swiper>
 
-        {/* Travel Inclusive Items */}
-        <div className="flex flex-wrap justify-center gap-4 mt-4">
-          {tripData.inclusions.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center border-2 rounded-md min-w-[80px] sm:min-w-[100px] py-2"
-            >
-              <i className={`${item.icon} text-2xl sm:text-[30px]`}></i>
-              <span className="text-xs sm:text-sm mt-1">{item.label}</span>
+        {/* component */}
+        <div className="w-full mx-auto rounded-lg overflow-hidden">
+          {/* Hotel Details */}
+          <div className="p-3 sm:px-5 md:px-8 lg:px-28 flex flex-col gap-5 md:gap-10">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
+              {hotelData.title}
+            </h1>
+
+            <div className="flex items-center mb-4">
+              <span className="bg-green-500 text-white text-sm font-semibold px-2.5 py-0.5 rounded">
+                4.5 ★
+              </span>
+              <span className="text-sm text-gray-500 ml-2">1,234 reviews</span>
             </div>
-          ))}
-        </div>
-        {/* Description */}
-        <div className="mt-12 max-w-screen-md mx-auto text-gray-700 text-base sm:text-lg leading-relaxed">
-          <p className="pb-6">{tripData.desc}</p>
-        </div>
-        {/* Timeline Section */}
-        <div className="mx-auto mt-12 max-w-full">
-          <div className="relative wrap overflow-hidden p-0 sm:p-5">
-            <div className="absolute border-transparent md:border-gray-700 md:border-opacity-20 h-full border left-1/2" />
-            {tripData.timelineData.map((item, index) => {
-              const isRight = index % 2 === 0;
-              const bgColor = isRight ? "bg-gray-400" : "bg-green-500";
-              const textColor = isRight ? "text-gray-800" : "text-white";
-              return (
-                <div
-                  key={index}
-                  className={`mb-8 flex flex-col md:flex-row justify-between items-center w-full ${
-                    !isRight ? "md:flex-row-reverse" : ""
-                  }`}
-                >
-                  {/* This spacer is hidden on small screens */}
-                  <div className="hidden md:block md:w-5/12" />
-                  <div className="z-20 mb-3 mt-5 md:mb-0 md:mt-0 flex items-center bg-gray-800 shadow-xl w-8 h-8 rounded-full ">
-                    <h1 className="mx-auto text-white font-semibold text-lg">
-                      {index + 1}
-                    </h1>
-                  </div>
-                  <div
-                    className={`w-full md:w-5/12 p-4 rounded-lg shadow-xl ${bgColor} ${textColor}`}
-                  >
-                    <h3 className="block mb-4 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal uppercase">
-                      {item.day}
-                    </h3>
-                    <h3 className="block mb-2 font-sans text-2xl antialiased font-bold leading-snug tracking-normal text-blue-gray-900">
-                      {item.title}
-                    </h3>
-                    <p className="block mb-8 font-sans text-base antialiased font-semibold leading-relaxed">
-                      {item.summary}
-                    </p>
-                    <p className="block mb-8 font-sans text-base antialiased font-normal leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+
+            {/* Hotel Inclusive Items */}
+            <div className="text-sm text-gray-700">
+              <h1 className="font-bold">Hotel Amenities:</h1>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {hotelData.amenities.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="flex lg:flex-col lg:items-center gap-2 border-2 rounded-md min-w-[80px] sm:min-w-[100px] py-2"
+                    >
+                      <i
+                        className={`${iconsData[item.label]} text-2xl sm:text-[30px]`}
+                      ></i>
+                      <span className="text-xs sm:text-sm mt-1">
+                        {item.title}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between mt-3">
+              <div>
+                <span className="text-3xl font-bold text-gray-900">
+                  ₹{hotelData.price}
+                  <small className="font-normal text-xs text-gray-600">
+                    /night
+                  </small>
+                </span>
+              </div>
+            </div>
+
+            <div className="flex space-x-4 lg:">
+              <button
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+                onClick={handleBook}
+              >
+                Book Now
+              </button>
+              <button
+                className="flex-1 bg-gray-200 hover:bg-gray-300 border-2 border-solid border-blue-600 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+                onClick={handleInquire}
+              >
+                Inquire More
+              </button>
+            </div>
           </div>
         </div>
-        <div className=" flex items-center justify-evenly w-full mt-20">
-          <button
-            className="h-[60px] md:w-[200px] lg:w-[250px] bg-black hover:bg-white hover:text-black border border-black hover:border-solid rounded-lg"
-            onClick={handleInquire}
-          >
-            Inquire More
-          </button>
-          <button
-            className="h-[60px] md:w-[200px] lg:w-[250px] bg-black hover:bg-white hover:text-black border border-black hover:border-solid rounded-lg"
-            onClick={handleBook}
-          >
-            Book Now
-          </button>
+
+        {/* Description */}
+        <div className="mt-12 p-3 max-w-screen-md mx-auto text-gray-700 text-base sm:text-lg leading-relaxed">
+          <p>{hotelData.desc}</p>
         </div>
       </div>
     </div>

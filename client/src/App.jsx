@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./ScrollToTop";
 
 const Home = lazy(() => import("./components/Home/Home"));
+const LoadingPage = lazy(() => import("./LoadingPage"));
 const PackageDetailPage = lazy(
   () => import("./components/Services/DetailPages/PackageDetailPage")
 );
@@ -25,7 +26,7 @@ const NotFoundPage = lazy(() => import("./NotFoundPage"));
 function App() {
   return (
     <Router className="main">
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<LoadingPage />}>
         <ScrollToTop />
         <Nav />
         <Routes>

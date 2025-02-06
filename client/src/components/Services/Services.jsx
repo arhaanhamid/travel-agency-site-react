@@ -230,7 +230,7 @@ const Services = ({ data }) => {
                   )}
                   <span className="absolute bottom-1 left-1 sm:bottom-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-[#4a4a7d] uppercase tracking-wide">
                     {packages && item.duration + "-Day Trip"}
-                    {hotels || (boats && item.category)}
+                    {(hotels || boats) && item.category}
                     {cars && "Passengers: " + item.passengers}
                   </span>
                 </div>
@@ -241,7 +241,7 @@ const Services = ({ data }) => {
 
                 <div className={`flex justify-between items-end mt-5 h-[50px]`}>
                   <div
-                    className={`flex items-center justify-center font-bold bg-transparent border-2 border-[#4a4a7d] rounded-full text-[0.8rem] h-[40px] py-1 px-2 sm:h-[50px] sm:text-[1rem] md:text-[0.8rem] sm:px-4 hover:bg-[#4a4a7d] text-[#4a4a7d] hover:text-white transition duration-300 cursor-pointer`}
+                    className={`flex items-center justify-center font-bold bg-transparent border-2 border-[#4a4a7d] rounded-full text-[0.8rem] h-[40px] py-1 px-2 sm:h-[50px] sm:text-[1rem] md:text-[0.8rem] lg:px-2 lg:h-[45px] xl:h-[50px] xl:px-4 sm:px-4 hover:bg-[#4a4a7d] text-[#4a4a7d] hover:text-white transition duration-300 cursor-pointer`}
                     onClick={() => handleMoreDetails(item.id)}
                   >
                     {packages && "Discover Trip"}
@@ -255,12 +255,12 @@ const Services = ({ data }) => {
                     <span className="text-[12px] xs:text-xs font-medium text-[#4a4a7d] uppercase">
                       FROM
                     </span>
-                    <span className="text-[1rem] sm:text-[1.4rem] md:text-[1rem] font-bold text-[#4a4a7d]">
-                      ${item.price}{" "}
+                    <span className="text-[1rem] sm:text-[1.4rem] lg:text-[0.8rem] xl:text-[1rem] font-bold text-[#4a4a7d]">
+                      ₹{item.price}{" "}
                       <small className="font-normal text-xs">
                         {packages && "PP"}
-                        {hotels || (boats && "PN")}
-                        {cars && "P/KM"}
+                        {hotels || (boats && "PP")}
+                        {cars && ""}
                       </small>
                     </span>
                   </div>

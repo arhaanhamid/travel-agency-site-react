@@ -7,6 +7,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
 import tripsData from "../../../assets/GlobalData";
+import { iconsData } from "../../../assets/GlobalData";
 import {
   LeftSwiperArrow,
   RightSwiperArrow,
@@ -17,6 +18,7 @@ const PackageDetailPage = () => {
   const [loading, setLoading] = useState(true);
 
   const { packageId } = useParams();
+  console.log(packageId);
 
   useEffect(() => {
     async function getData() {
@@ -82,17 +84,6 @@ const PackageDetailPage = () => {
                     className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg"
                     loading="lazy"
                   />
-                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 text-xs sm:text-sm font-bold uppercase tracking-wide px-3 py-1 bg-black text-gray-200">
-                    {tripData.location}
-                  </span>
-                  <div className="absolute bottom-4 left-4 z-20">
-                    <h5 className="text-sm sm:text-base font-bold text-white">
-                      {tripData.duration}-Day Trip
-                    </h5>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-100 leading-tight">
-                      {tripData.title}
-                    </h2>
-                  </div>
                 </div>
               </SwiperSlide>
             );
@@ -101,24 +92,79 @@ const PackageDetailPage = () => {
           <RightSwiperArrow />
         </Swiper>
 
-        {/* Travel Inclusive Items */}
-        <div className="flex flex-wrap justify-center gap-4 mt-4">
-          {tripData.inclusions.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center border-2 rounded-md min-w-[80px] sm:min-w-[100px] py-2"
-            >
-              <i className={`${item.icon} text-2xl sm:text-[30px]`}></i>
-              <span className="text-xs sm:text-sm mt-1">{item.label}</span>
+        {/* component */}
+        <div className="w-full mx-auto rounded-lg overflow-hidden">
+          {/* Product Details */}
+          <div className="p-3 sm:px-5 md:px-8 lg:px-28 flex flex-col gap-5 md:gap-10">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
+              {tripData.title}
+            </h1>
+
+            {/* <div className="flex items-center mb-4">
+              <span className="bg-green-500 text-white text-sm font-semibold px-2.5 py-0.5 rounded">
+                4.5 ★
+              </span>
+              <span className="text-sm text-gray-500 ml-2">1,234 reviews</span>
+            </div> */}
+
+            {/* Travel Inclusive Items */}
+            <div className="text-sm text-gray-700">
+              <h1 className="font-bold">Package Amenities:</h1>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {tripData.amenities.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="flex lg:flex-col lg:items-center gap-2 border-2 rounded-md min-w-[80px] sm:min-w-[100px] py-2"
+                    >
+                      <i
+                        className={`${iconsData[item.label]} text-2xl sm:text-[30px]`}
+                      ></i>
+                      <span className="text-xs sm:text-sm mt-1">
+                        {item.title}
+                        {item.label == "duration" && "-Day Trip"}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          ))}
+
+            <div className="flex items-center justify-between mt-3">
+              <div>
+                <span className="text-3xl font-bold text-gray-900">
+                  {tripData.price}
+                  <small className="font-normal text-xs">PP</small>
+                </span>
+              </div>
+            </div>
+
+            <div className="flex space-x-4 lg:">
+              <button
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+                onClick={handleBook}
+              >
+                Book Now
+              </button>
+              <button
+                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 border-2 border-solid border-blue-600 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+                onClick={handleInquire}
+              >
+                Inquire More
+              </button>
+            </div>
+          </div>
         </div>
+
         {/* Description */}
-        <div className="mt-12 max-w-screen-md mx-auto text-gray-700 text-base sm:text-lg leading-relaxed">
-          <p className="pb-6">{tripData.desc}</p>
+        <div className="mt-12 p-3 max-w-screen-md mx-auto text-gray-700 text-base sm:text-lg leading-relaxed">
+          <p>{tripData.desc}</p>
         </div>
         {/* Timeline Section */}
         <div className="mx-auto mt-12 max-w-full">
+          <h1 className="text-center font-bold mb-5 shadow uppercase">
+            {`What we're gonna do...`}
+          </h1>
           <div className="relative wrap overflow-hidden p-0 sm:p-5">
             <div className="absolute border-transparent md:border-gray-700 md:border-opacity-20 h-full border left-1/2" />
             {tripData.timelineData.map((item, index) => {
@@ -159,20 +205,6 @@ const PackageDetailPage = () => {
               );
             })}
           </div>
-        </div>
-        <div className=" flex items-center justify-evenly w-full mt-20">
-          <button
-            className="h-[60px] md:w-[200px] lg:w-[250px] bg-black hover:bg-white hover:text-black border border-black hover:border-solid rounded-lg"
-            onClick={handleInquire}
-          >
-            Inquire More
-          </button>
-          <button
-            className="h-[60px] md:w-[200px] lg:w-[250px] bg-black hover:bg-white hover:text-black border border-black hover:border-solid rounded-lg"
-            onClick={handleBook}
-          >
-            Book Now
-          </button>
         </div>
       </div>
     </div>

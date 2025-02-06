@@ -66,6 +66,25 @@ import hotel_g_03 from "./hotels/hotel_g_03.png";
 import hotel_g_04 from "./hotels/hotel_g_04.png";
 import hotel_g_05 from "./hotels/hotel_g_05.png";
 
+export const iconsData = {
+  sightseeing: "ri-glasses-line",
+  hotel: "ri-hotel-line",
+  transport: "ri-taxi-line",
+  duration: "ri-hourglass-line",
+  location: "ri-map-pin-line",
+  freeWiFi: "ri-wifi-line",
+  restaurant: "ri-restaurant-line",
+  roomService: "ri-service-bell-line",
+  parking: "ri-parking-box-line",
+  frontDesk24x7: "ri-user-community-line",
+  fineDining: "ri-restaurant-2-line",
+  fitnessCenter: "ri-boxing-line",
+  butlerService: "ri-team-line",
+  laundryService: "ri-t-shirt-air-line",
+  barLounge: "ri-goblet-2-line",
+  eventFacilities: "ri-megaphone-line",
+};
+
 const packagesData = [
   {
     id: 1,
@@ -76,12 +95,12 @@ const packagesData = [
     desc: "Escape to the enchanting valley of Pahalgam, where the pristine landscapes and tranquil river views create an unforgettable retreat. Immerse yourself in the natural beauty of sprawling meadows, lush forests, and gently flowing rivers. Experience local culture with traditional cuisine and warm hospitality, while enjoying outdoor adventures like trekking and horseback riding. This package offers a blend of relaxation and adventure in the heart of Kashmir, ensuring a rejuvenating experience away from the hustle of city life. Enjoy scenic vistas, crisp mountain air, and a peaceful atmosphere that renews your spirit. Discover the magic of Pahalgam with our curated itinerary.",
     price: "15000",
     isPopular: true,
-    inclusions: [
-      { icon: "ri-glasses-line", label: "Sightseeing" },
-      { icon: "ri-hotel-line", label: "Hotel" },
-      { icon: "ri-taxi-line", label: "Transport" },
-      { icon: "ri-hourglass-line", label: "4-Days" },
-      { icon: "ri-map-pin-line", label: "Pahalgam" },
+    amenities: [
+      { title: "Sightseeing", label: "sightseeing" },
+      { title: "Hotel", label: "hotel" },
+      { title: "Transport", label: "transport" },
+      { title: 4, label: "duration" },
+      { title: "Pahalgam", label: "location" },
     ],
     timelineData: [
       {
@@ -119,12 +138,12 @@ const packagesData = [
     desc: "Embark on an unforgettable journey to the captivating meadows of Sonamarg, where the golden hues of nature and majestic mountain views combine to create a serene escape. In this compact yet exhilarating two-day adventure, you will be immersed in breathtaking landscapes, from vibrant wildflowers to sweeping vistas of snow-capped peaks. Enjoy guided tours to nearby glaciers and explore charming local trails that reveal the region’s rich natural heritage. Indulge in local cuisine and experience the warm hospitality of the locals, making your stay both relaxing and invigorating. Let this escape rejuvenate your soul completely.",
     price: "10000",
     isPopular: false,
-    inclusions: [
-      { icon: "ri-glasses-line", label: "Sightseeing" },
-      { icon: "ri-hotel-line", label: "Hotel" },
-      { icon: "ri-taxi-line", label: "Transport" },
-      { icon: "ri-hourglass-line", label: "2-Days" },
-      { icon: "ri-map-pin-line", label: "Sonamarg" },
+    amenities: [
+      { title: "Sightseeing", label: "sightseeing" },
+      { title: "Hotel", label: "hotel" },
+      { title: "Transport", label: "transport" },
+      { title: 2, label: "duration" },
+      { title: "Sonamarg", label: "location" },
     ],
     timelineData: [
       {
@@ -150,12 +169,12 @@ const packagesData = [
     desc: "Discover the historical and cultural treasures of Jammu on this immersive three-day heritage tour. Journey through ancient forts, majestic temples, and bustling markets that showcase the region's rich traditions. Experience the architectural marvels of Bahu Fort and the spiritual serenity of revered shrines, while indulging in traditional cuisine and local crafts. This package offers an insightful glimpse into the diverse heritage of Jammu, blending history with modern comforts. Enjoy guided tours, engaging narratives from local experts, and moments of quiet reflection amid historical landmarks. Experience a journey that connects the past with the present in unforgettable ways for lasting memories.",
     price: "12000",
     isPopular: false,
-    inclusions: [
-      { icon: "ri-glasses-line", label: "Sightseeing" },
-      { icon: "ri-hotel-line", label: "Hotel" },
-      { icon: "ri-taxi-line", label: "Transport" },
-      { icon: "ri-hourglass-line", label: "3-Days" },
-      { icon: "ri-map-pin-line", label: "Jammu" },
+    amenities: [
+      { title: "Sightseeing", label: "sightseeing" },
+      { title: "Hotel", label: "hotel" },
+      { title: "Transport", label: "transport" },
+      { title: 3, label: "duration" },
+      { title: "Jammu", label: "location" },
     ],
     timelineData: [
       {
@@ -187,12 +206,12 @@ const packagesData = [
     desc: "Embark on a soulful pilgrimage to Katra, home of the revered Vaishno Devi shrine. This two-day journey offers a blend of spiritual devotion and cultural discovery. Begin your experience with a warm welcome, followed by a comprehensive briefing on the sacred trek. Engage in prayers, rituals, and moments of quiet reflection that connect you with ancient traditions. Enjoy comfortable accommodations and local hospitality that enrich your journey. As you traverse scenic paths leading to the holy shrine, you will experience a profound sense of peace and renewal. Let this pilgrimage inspire your heart and soul and create everlasting cherished memories.",
     price: "8000",
     isPopular: true,
-    inclusions: [
-      { icon: "ri-glasses-line", label: "Sightseeing" },
-      { icon: "ri-hotel-line", label: "Hotel" },
-      { icon: "ri-taxi-line", label: "Transport" },
-      { icon: "ri-hourglass-line", label: "2-Days" },
-      { icon: "ri-map-pin-line", label: "Katra" },
+    amenities: [
+      { title: "Sightseeing", label: "sightseeing" },
+      { title: "Hotel", label: "hotel" },
+      { title: "Transport", label: "transport" },
+      { title: 2, label: "duration" },
+      { title: "Katra", label: "location" },
     ],
     timelineData: [
       {
@@ -220,12 +239,12 @@ const packagesData = [
     desc: "Discover the untouched natural beauty of Doodhpathri, where rolling meadows and crystal clear streams provide an idyllic retreat from daily life. In this two-day getaway, explore scenic landscapes, breathe in the fresh mountain air, and witness nature at its most serene. Enjoy leisurely walks through lush meadows, experience local flora and fauna, and unwind amidst breathtaking vistas. This package combines adventure with relaxation, offering guided nature walks, comfortable accommodations, and authentic local experiences. Reconnect with nature and embrace the tranquility of Doodhpathri for a truly rejuvenating escape. Allow the peaceful surroundings to restore your energy and inspire your spirit completely.",
     price: "9500",
     isPopular: false,
-    inclusions: [
-      { icon: "ri-glasses-line", label: "Sightseeing" },
-      { icon: "ri-hotel-line", label: "Hotel" },
-      { icon: "ri-taxi-line", label: "Transport" },
-      { icon: "ri-hourglass-line", label: "2-Days" },
-      { icon: "ri-map-pin-line", label: "Doodhpathri" },
+    amenities: [
+      { title: "Sightseeing", label: "sightseeing" },
+      { title: "Hotel", label: "hotel" },
+      { title: "Transport", label: "transport" },
+      { title: 2, label: "duration" },
+      { title: "Doodhpathri", label: "location" },
     ],
     timelineData: [
       {
@@ -253,12 +272,12 @@ const packagesData = [
     desc: "Experience the wild beauty of Yusmarg, where verdant landscapes and rugged mountain trails invite you to an adventure of a lifetime. Over three days, immerse yourself in nature with guided treks, horseback rides, and camping under the starry sky. This package is designed for adventure enthusiasts seeking an escape into the untouched wilderness of Kashmir. Enjoy breathtaking views, serene natural settings, and thrilling outdoor activities that challenge and inspire. Experience local hospitality, savor traditional cuisine, and create memories as you explore the vibrant, untamed beauty of Yusmarg. Let every moment of this adventure fill you with joy and boundless energy.",
     price: "13000",
     isPopular: true,
-    inclusions: [
-      { icon: "ri-glasses-line", label: "Sightseeing" },
-      { icon: "ri-hotel-line", label: "Hotel" },
-      { icon: "ri-taxi-line", label: "Transport" },
-      { icon: "ri-hourglass-line", label: "3-Days" },
-      { icon: "ri-map-pin-line", label: "Yusmarg" },
+    amenities: [
+      { title: "Sightseeing", label: "sightseeing" },
+      { title: "Hotel", label: "hotel" },
+      { title: "Transport", label: "transport" },
+      { title: 3, label: "duration" },
+      { title: "Yusmarg", label: "location" },
     ],
     timelineData: [
       {
@@ -290,12 +309,12 @@ const packagesData = [
     desc: "Anantnag, the cultural heart of Kashmir, offers a mesmerizing blend of history, spirituality, and natural beauty. This three-day journey takes you through its ancient temples, lush meadows, and pristine rivers. Begin with a visit to Martand Sun Temple, a stunning architectural marvel from the 8th century. Stroll through the bustling streets, rich with local handicrafts and traditional Kashmiri cuisine. Explore Verinag, the source of the Jhelum River, surrounded by enchanting Mughal gardens. Experience the serenity of Aharbal Waterfall, often called the 'Niagara of Kashmir.' This trip promises a perfect mix of heritage, adventure, and tranquility in one of Kashmir’s most vibrant towns.",
     price: "11000",
     isPopular: false,
-    inclusions: [
-      { icon: "ri-glasses-line", label: "Sightseeing" },
-      { icon: "ri-hotel-line", label: "Hotel" },
-      { icon: "ri-taxi-line", label: "Transport" },
-      { icon: "ri-hourglass-line", label: "3-Days" },
-      { icon: "ri-map-pin-line", label: "Anantnag" },
+    amenities: [
+      { title: "Sightseeing", label: "sightseeing" },
+      { title: "Hotel", label: "hotel" },
+      { title: "Transport", label: "transport" },
+      { title: 3, label: "duration" },
+      { title: "Anantnag", label: "location" },
     ],
     timelineData: [
       {
@@ -338,12 +357,11 @@ export const hotelsData = [
       hotel_a_05,
     ],
     price: "3500",
-    hotelAmenities: [
-      "Free Wi-Fi",
-      "Restaurant",
-      "Room Service",
-      "Parking",
-      "24/7 Front Desk",
+    amenities: [
+      { label: "freeWiFi", title: "Free Wifi" },
+      { label: "restaurant", title: "Restaurant" },
+      { label: "parking", title: "Parking" },
+      { label: "eventFacilities", title: "Event Facilities" },
     ],
   },
   {
@@ -361,12 +379,11 @@ export const hotelsData = [
       hotel_b_05,
     ],
     price: "6500",
-    hotelAmenities: [
-      "Free Wi-Fi",
-      "Fine Dining",
-      "Fitness Center",
-      "Conference Room",
-      "Room Service",
+    amenities: [
+      { label: "roomService", title: "Room Service" },
+      { label: "fineDining", title: "Fine Dining" },
+      { label: "laundryService", title: "Laundry Service" },
+      { label: "fitnessCenter", title: "Fitness Center" },
     ],
   },
   {
@@ -384,12 +401,14 @@ export const hotelsData = [
       hotel_c_05,
     ],
     price: "4000",
-    hotelAmenities: [
-      "Free Wi-Fi",
-      "Restaurant",
-      "Air Conditioning",
-      "Room Service",
-      "Parking",
+    amenities: [
+      { label: "frontDesk24x7", title: "Front Desk 24/7" },
+      { label: "butlerService", title: "Butler Service" },
+      {
+        label: "traditionalKashmiriDecor",
+        title: "Traditional Kashmiri Decor",
+      },
+      { label: "barLounge", title: "Bar Lounge" },
     ],
   },
   {
@@ -407,12 +426,10 @@ export const hotelsData = [
       hotel_d_05,
     ],
     price: "3200",
-    hotelAmenities: [
-      "Free Wi-Fi",
-      "Restaurant",
-      "Room Service",
-      "Laundry Service",
-      "Parking",
+    amenities: [
+      { label: "restaurant", title: "Restaurant" },
+      { label: "parking", title: "Parking" },
+      { label: "laundryService", title: "Laundry Service" },
     ],
   },
   {
@@ -430,12 +447,12 @@ export const hotelsData = [
       hotel_e_05,
     ],
     price: "7500",
-    hotelAmenities: [
-      "Free Wi-Fi",
-      "Fine Dining",
-      "Spa & Wellness",
-      "Bar/Lounge",
-      "Event Facilities",
+    amenities: [
+      { label: "freeWiFi", title: "Free Wifi" },
+      { label: "roomService", title: "Room Service" },
+      { label: "fineDining", title: "Fine Dining" },
+      { label: "eventFacilities", title: "Event Facilities" },
+      { label: "barLounge", title: "Bar Lounge" },
     ],
   },
   {
@@ -453,12 +470,12 @@ export const hotelsData = [
       hotel_f_05,
     ],
     price: "2500",
-    hotelAmenities: [
-      "Free Wi-Fi",
-      "Parking",
-      "24/7 Assistance",
-      "Room Service",
-      "Laundry Service",
+    amenities: [
+      { label: "frontDesk24x7", title: "Front Desk 24/7" },
+      { label: "butlerService", title: "Butler Service" },
+      { label: "fitnessCenter", title: "Fitness Center" },
+      { label: "laundryService", title: "Laundry Service" },
+      { label: "barLounge", title: "Bar Lounge" },
     ],
   },
   {
@@ -476,12 +493,11 @@ export const hotelsData = [
       hotel_g_05,
     ],
     price: "8000",
-    hotelAmenities: [
-      "Free Wi-Fi",
-      "Fitness Center",
-      "Concierge Service",
-      "Fine Dining",
-      "Room Service",
+    amenities: [
+      { label: "restaurant", title: "Restaurant" },
+      { label: "parking", title: "Parking" },
+      { label: "freeWiFi", title: "Free Wifi" },
+      { label: "eventFacilities", title: "Event Facilities" },
     ],
   },
 ];
@@ -495,11 +511,11 @@ export const boatsData = [
     desc: "Experience the charm of Kashmiri hospitality at Royal Shikara Houseboat, floating on the serene waters of Dal Lake. This luxury houseboat features elegantly designed rooms with intricate wood carvings, Wi-Fi, and modern amenities. Enjoy breathtaking lake views, traditional Kashmiri meals, and personalized service for a truly memorable stay.",
     images: [boat01],
     price: "12000",
-    boatAmenities: [
-      "Free Wi-Fi",
-      "Lake View",
-      "Traditional Dining",
-      "24/7 Room Service",
+    amenities: [
+      { label: "restaurant", title: "Restaurant" },
+      { label: "parking", title: "Parking" },
+      { label: "freeWiFi", title: "Free Wifi" },
+      { label: "eventFacilities", title: "Event Facilities" },
     ],
   },
   {
@@ -510,11 +526,12 @@ export const boatsData = [
     desc: "Nestled in the peaceful waters of Nigeen Lake, Heavenly Retreat Houseboat offers a premium stay with beautifully decorated interiors and a touch of Kashmiri heritage. Each room is well-equipped with modern comforts like air-conditioning, Wi-Fi, and a private balcony overlooking the lake. Enjoy a relaxing stay with warm hospitality and delicious Kashmiri cuisine.",
     images: [boat02],
     price: "10000",
-    boatAmenities: [
-      "Wi-Fi",
-      "Lake View",
-      "Private Balcony",
-      "Traditional Wooden Interiors",
+    amenities: [
+      { label: "frontDesk24x7", title: "Front Desk 24/7" },
+      { label: "butlerService", title: "Butler Service" },
+      { label: "fitnessCenter", title: "Fitness Center" },
+      { label: "laundryService", title: "Laundry Service" },
+      { label: "barLounge", title: "Bar Lounge" },
     ],
   },
   {
@@ -525,11 +542,12 @@ export const boatsData = [
     desc: "Floating Paradise Houseboat provides a cozy and affordable stay on Dal Lake, ideal for travelers looking for an authentic houseboat experience. The houseboat offers traditionally designed rooms with wooden paneling, basic amenities, and a stunning sunrise view over the lake. Perfect for budget travelers seeking a peaceful escape.",
     images: [boat03],
     price: "5000",
-    boatAmenities: [
-      "Wi-Fi",
-      "Lake View",
-      "Breakfast Included",
-      "24/7 Assistance",
+    amenities: [
+      { label: "freeWiFi", title: "Free Wifi" },
+      { label: "roomService", title: "Room Service" },
+      { label: "fineDining", title: "Fine Dining" },
+      { label: "eventFacilities", title: "Event Facilities" },
+      { label: "barLounge", title: "Bar Lounge" },
     ],
   },
   {
@@ -540,11 +558,10 @@ export const boatsData = [
     desc: "Golden Lotus Houseboat offers a blend of comfort and tradition on the tranquil Jhelum River. Guests can enjoy spacious rooms with Kashmiri carpets, modern bathrooms, and a relaxing deck area. Ideal for families and couples looking for a unique water-living experience with warm hospitality.",
     images: [boat04],
     price: "7500",
-    boatAmenities: [
-      "Wi-Fi",
-      "Lake View",
-      "Deck Area",
-      "Traditional Wooden Interiors",
+    amenities: [
+      { label: "restaurant", title: "Restaurant" },
+      { label: "parking", title: "Parking" },
+      { label: "laundryService", title: "Laundry Service" },
     ],
   },
   {
@@ -555,11 +572,14 @@ export const boatsData = [
     desc: "Majestic Waves Houseboat offers an opulent retreat on Dal Lake, featuring handcrafted wooden interiors, plush bedding, and top-notch amenities. Guests can savor authentic Kashmiri cuisine, enjoy guided shikara rides, and immerse themselves in the breathtaking beauty of the lake.",
     images: [boat05],
     price: "14000",
-    boatAmenities: [
-      "Wi-Fi",
-      "Lake View",
-      "Butler Service",
-      "Traditional Kashmiri Decor",
+    amenities: [
+      { label: "frontDesk24x7", title: "Front Desk 24/7" },
+      { label: "butlerService", title: "Butler Service" },
+      {
+        label: "traditionalKashmiriDecor",
+        title: "Traditional Kashmiri Decor",
+      },
+      { label: "barLounge", title: "Bar Lounge" },
     ],
   },
   {
@@ -570,11 +590,11 @@ export const boatsData = [
     desc: "Perfectly positioned in the serene Nigeen Lake, Tranquil Shores Houseboat offers a peaceful escape with elegantly designed rooms, modern amenities, and warm hospitality. Guests can relax on the sundeck, enjoy panoramic views, and experience the best of Kashmiri traditions.",
     images: [boat06],
     price: "9500",
-    boatAmenities: [
-      "Wi-Fi",
-      "Private Sundeck",
-      "Lake View",
-      "Traditional Wooden Interiors",
+    amenities: [
+      { label: "roomService", title: "Room Service" },
+      { label: "fineDining", title: "Fine Dining" },
+      { label: "laundryService", title: "Laundry Service" },
+      { label: "fitnessCenter", title: "Fitness Center" },
     ],
   },
   {
@@ -585,11 +605,11 @@ export const boatsData = [
     desc: "Sunset Bliss Houseboat is known for its mesmerizing sunset views over Dal Lake. With cozy rooms featuring traditional wooden paneling, modern amenities, and an inviting common area, this houseboat is a perfect choice for travelers seeking comfort and an authentic Kashmiri experience.",
     images: [boat07],
     price: "7000",
-    boatAmenities: [
-      "Wi-Fi",
-      "Sunset View",
-      "Lakefront Dining",
-      "24/7 Room Service",
+    amenities: [
+      { label: "freeWiFi", title: "Free Wifi" },
+      { label: "restaurant", title: "Restaurant" },
+      { label: "parking", title: "Parking" },
+      { label: "eventFacilities", title: "Event Facilities" },
     ],
   },
 ];
@@ -599,90 +619,187 @@ export const carsData = [
     id: 1,
     title: "Maruti Suzuki Swift",
     location: "Srinagar - Budgam",
-    price: "650,000",
+    price: 5500,
     images: [car01],
     passengers: 5,
     baggage: 2,
+    desc: "The Maruti Suzuki Swift is a perfect blend of style and efficiency, designed for both dynamic city driving and scenic escapes across Kashmir. With agile handling, modern safety features, and an economical engine, this compact car promises a smooth ride on busy urban roads as well as winding country lanes. Its comfortable, thoughtfully designed interior makes every journey enjoyable and stress-free, while advanced technology enhances every drive. The Swift is an ideal choice for those who seek reliability combined with performance.",
+    amenities: [
+      { label: "acHeater", title: "Ac/Heater" },
+      { label: "airbag", title: "Airbag" },
+      { label: "chargingPoint", title: "Charging Point" },
+      { label: "familyDriver", title: "Family Friendly Driver" },
+      { label: "musicSystem", title: "Music System" },
+    ],
   },
   {
     id: 2,
     title: "Hyundai Creta",
     location: "Srinagar - Chodura",
-    price: "1,100,000",
+    price: 35000,
     images: [car02],
     passengers: 5,
     baggage: 3,
+    desc: "Experience sophistication and robust performance with the Hyundai Creta, an SUV engineered to handle both bustling city streets and rugged terrain. The spacious interior and state-of-the-art technology ensure a secure and comfortable journey. Every detail, from the ergonomic seating to the intuitive infotainment system, has been meticulously designed to enhance your driving pleasure. Ideal for exploring the diverse landscapes of Kashmir, the Creta combines style, power, and advanced safety features to deliver a truly memorable travel experience.",
+    amenities: [
+      { label: "gpsNavigation", title: "GPS Navigation" },
+      { label: "bluetooth", title: "Bluetooth Connectivity" },
+      { label: "airbag", title: "Airbag" },
+      { label: "acHeater", title: "Ac/Heater" },
+      { label: "localInsight", title: "Local Insight" },
+      { label: "sunroof", title: "Sunroof" },
+    ],
   },
   {
     id: 3,
     title: "Tata Nexon",
     location: "Srinagar",
-    price: "850,000",
+    price: 5000,
     images: [car03],
     passengers: 5,
     baggage: 3,
+    desc: "Discover the dynamic performance of the Tata Nexon, a compact SUV built for both urban adventures and off-road escapades. Its bold design is complemented by advanced safety features and efficient performance that deliver a smooth ride on challenging roads. The modern cabin is spacious and equipped with innovative technology to keep you connected on every journey. Designed with both style and practicality in mind, the Nexon offers a reliable driving experience that adapts perfectly to the diverse landscapes of Kashmir.",
+    amenities: [
+      { label: "cruiseControl", title: "Cruise Control" },
+      { label: "touchscreen", title: "Touchscreen Display" },
+      { label: "rearCamera", title: "Rear Camera" },
+      { label: "airbag", title: "Airbag" },
+      { label: "musicSystem", title: "Music System" },
+      { label: "acHeater", title: "Ac/Heater" },
+    ],
   },
   {
     id: 4,
     title: "Mahindra Scorpio-N",
     location: "Srinagar - Budgam",
-    price: "1,350,000",
+    price: 3500,
     images: [car04],
     passengers: 7,
     baggage: 4,
+    desc: "Conquer challenging roads with the Mahindra Scorpio-N, a robust SUV engineered for superior performance and durability. This powerful vehicle is built to tackle both urban congestion and off-road adventures in the scenic regions of Kashmir. Featuring a spacious interior with modern amenities, advanced safety systems, and a commanding engine, the Scorpio-N ensures stability and comfort on every journey. Its rugged design is harmoniously blended with contemporary technology to provide a secure, exhilarating driving experience without compromising on luxury.",
+    amenities: [
+      { label: "leatherSeats", title: "Leather Seats" },
+      { label: "heatedSeats", title: "Heated Seats" },
+      { label: "gpsNavigation", title: "GPS Navigation" },
+      { label: "rearCamera", title: "Rear Camera" },
+      { label: "acHeater", title: "Ac/Heater" },
+      { label: "airbag", title: "Airbag" },
+      { label: "chargingPoint", title: "Charging Point" },
+    ],
   },
   {
     id: 5,
     title: "Kia Seltos",
     location: "Srinagar - Jammu",
-    price: "1,200,000",
+    price: 2000,
     images: [car05],
     passengers: 5,
     baggage: 3,
+    desc: "Embrace modern luxury with the Kia Seltos, a stylish SUV that perfectly balances innovative design with exceptional performance. Its refined interior, intuitive controls, and versatile features make every journey both comfortable and connected. Ideal for navigating the busy urban centers and serene countryside of Kashmir, the Seltos delivers a smooth, secure ride. With a focus on safety and modern convenience, this vehicle is tailored for drivers who value technology, aesthetics, and efficiency, ensuring a travel experience that is as memorable as it is reliable.",
+    amenities: [
+      { label: "localInsight", title: "Local Insight" },
+      { label: "bluetooth", title: "Bluetooth Connectivity" },
+      { label: "musicSystem", title: "Music System" },
+      { label: "familyDriver", title: "Family Friendly Driver" },
+      { label: "keylessEntry", title: "Keyless Entry" },
+    ],
   },
   {
     id: 6,
     title: "Toyota Innova Crysta",
     location: "Srinagar - Barahmulla",
-    price: "1,900,000",
+    price: 9000,
     images: [car06],
     passengers: 7,
     baggage: 5,
+    desc: "Step into spacious elegance with the Toyota Innova Crysta, a premium vehicle designed for family travel and group adventures across the diverse landscapes of Kashmir. Boasting a roomy, well-appointed cabin and versatile seating configurations, this vehicle ensures comfort and convenience on long journeys. Advanced safety features, modern infotainment, and a robust engine combine to deliver a secure and pleasurable ride. The Innova Crysta is perfect for both leisurely trips and practical daily use, offering a harmonious blend of luxury, performance, and reliability that caters to every travel need.",
+    amenities: [
+      { label: "acHeater", title: "Ac/Heater" },
+      { label: "airbag", title: "Airbag" },
+      { label: "chargingPoint", title: "Charging Point" },
+      { label: "cruiseControl", title: "Cruise Control" },
+      { label: "gpsNavigation", title: "GPS Navigation" },
+      { label: "touchscreen", title: "Touchscreen Display" },
+      { label: "sunroof", title: "Sunroof" },
+    ],
   },
   {
     id: 7,
     title: "Honda City",
     location: "Srinagar - Budgam",
-    price: "1,150,000",
+    price: 1500,
     images: [car07],
     passengers: 5,
     baggage: 3,
+    desc: "Experience the perfect combination of sophistication and efficiency with the Honda City, a sedan that redefines urban commuting. Designed with precision and an emphasis on comfort, this vehicle features a spacious interior, modern safety features, and impressive fuel economy. The sleek exterior and smooth handling make it ideal for navigating the bustling streets and tranquil highways of Kashmir. Every journey becomes more enjoyable thanks to its thoughtful design and advanced technology, ensuring that you travel in both style and confidence.",
+    amenities: [
+      { label: "airbag", title: "Airbag" },
+      { label: "localInsight", title: "Local Insight" },
+      { label: "bluetooth", title: "Bluetooth Connectivity" },
+      { label: "familyDriver", title: "Family Friendly Driver" },
+      { label: "rearCamera", title: "Rear Camera" },
+      { label: "keylessEntry", title: "Keyless Entry" },
+    ],
   },
   {
     id: 8,
     title: "Maruti Suzuki Ertiga",
     location: "Srinagar - Anantnag",
-    price: "1,100,000",
+    price: 1000,
     images: [car08],
     passengers: 7,
     baggage: 4,
+    desc: "Discover practicality and versatility with the Maruti Suzuki Ertiga, a multi-purpose vehicle designed to accommodate both family outings and daily commutes. With a spacious cabin, flexible seating arrangements, and modern amenities, the Ertiga ensures every trip is comfortable and convenient. Its efficient performance, coupled with robust safety features, makes it an ideal choice for exploring the varied landscapes of Kashmir. Enjoy a reliable, economical ride that doesn’t compromise on comfort or style, making each journey as enjoyable as it is practical.",
+    amenities: [
+      { label: "acHeater", title: "Ac/Heater" },
+      { label: "airbag", title: "Airbag" },
+      { label: "gpsNavigation", title: "GPS Navigation" },
+      { label: "leatherSeats", title: "Leather Seats" },
+      { label: "heatedSeats", title: "Heated Seats" },
+      { label: "musicSystem", title: "Music System" },
+      { label: "touchscreen", title: "Touchscreen Display" },
+      { label: "chargingPoint", title: "Charging Point" },
+    ],
   },
   {
     id: 9,
     title: "MG Hector",
     location: "Srinagar - Budgam",
-    price: "1,450,000",
+    price: 4500,
     images: [car09],
     passengers: 5,
     baggage: 4,
+    desc: "Elevate your driving experience with the MG Hector, a bold SUV that blends striking design with advanced technology and luxurious comfort. Engineered for dynamic performance, this vehicle features a spacious cabin, state-of-the-art infotainment system, and robust safety features that ensure a secure ride. Whether traversing urban avenues or exploring the scenic routes of Kashmir, the Hector delivers exceptional power and refinement. Its premium materials and innovative design make every journey not only safe but also remarkably enjoyable and stylish.",
+    amenities: [
+      { label: "acHeater", title: "Ac/Heater" },
+      { label: "airbag", title: "Airbag" },
+      { label: "familyDriver", title: "Family Friendly Driver" },
+      { label: "cruiseControl", title: "Cruise Control" },
+      { label: "rearCamera", title: "Rear Camera" },
+      { label: "keylessEntry", title: "Keyless Entry" },
+      { label: "localInsight", title: "Local Insight" },
+      { label: "bluetooth", title: "Bluetooth Connectivity" },
+    ],
   },
   {
     id: 10,
     title: "Tata Harrier",
     location: "Srinagar - Budgam",
-    price: "1,700,000",
+    price: 7000,
     images: [car10],
     passengers: 5,
     baggage: 4,
+    desc: "Redefine your adventures with the Tata Harrier, a sophisticated SUV that epitomizes power, style, and modern innovation. With a commanding presence and an impeccably designed interior, this vehicle offers advanced safety features, luxurious comfort, and state-of-the-art technology for an unparalleled driving experience. Whether maneuvering through urban landscapes or exploring rugged terrains, the Harrier delivers a smooth and confident ride. Every detail, from its bold exterior to its ergonomic cabin, has been crafted to ensure that every journey across the majestic vistas of Kashmir is both extraordinary and memorable.",
+    amenities: [
+      { label: "acHeater", title: "Ac/Heater" },
+      { label: "airbag", title: "Airbag" },
+      { label: "chargingPoint", title: "Charging Point" },
+      { label: "gpsNavigation", title: "GPS Navigation" },
+      { label: "sunroof", title: "Sunroof" },
+      { label: "leatherSeats", title: "Leather Seats" },
+      { label: "touchscreen", title: "Touchscreen Display" },
+      { label: "cruiseControl", title: "Cruise Control" },
+      { label: "rearCamera", title: "Rear Camera" },
+    ],
   },
 ];
