@@ -1,4 +1,6 @@
 import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 import { useEffect, useState } from "react";
 import Services from "./Services";
 import { hotelsData } from "../../assets/GlobalData";
@@ -8,6 +10,8 @@ import packagesData from "../../assets/GlobalData";
 
 const ServicesPage = () => {
   const { type } = useParams();
+  const query = new URLSearchParams(useLocation().search);
+  const defaultLoc = query.get("loc");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -51,7 +55,7 @@ const ServicesPage = () => {
   if (error) return <div>Error: {error}</div>;
 
   // Pass the fetched data to your Services component
-  return <Services data={JSON.stringify(data)} />;
+  return <Services data={JSON.stringify(data)} defaultLoc={defaultLoc} />;
 };
 
 export default ServicesPage;

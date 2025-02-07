@@ -5,7 +5,7 @@ import Skeleton from "../Skeleton";
 import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
 
-const Services = ({ data }) => {
+const Services = ({ data, defaultLoc = "" }) => {
   const curLocation = useLocation();
   const packages = curLocation.pathname == "/services/packages";
   const hotels = curLocation.pathname == "/services/hotels";
@@ -38,7 +38,7 @@ const Services = ({ data }) => {
 
   const [searchText, setSearchText] = useState("");
   const [duration, setDuration] = useState("");
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState(defaultLoc);
   const [sortBy, setSortBy] = useState("");
 
   const [filters, setFilters] = useState({
@@ -46,6 +46,10 @@ const Services = ({ data }) => {
     location: "",
     sortBy: "",
   });
+
+  useEffect(() => {
+    applyFilters;
+  }, []);
 
   // When the Apply Filters button is clicked, update the filters state.
   const applyFilters = () => {

@@ -6,7 +6,7 @@ const PackageCard = ({ trip, requestFrom }) => {
 
   // Handler for navigation
   const handleDiscoverTrip = () => {
-    navigate(`/packages/${trip.id}`);
+    navigate(`/services/packages/${trip.id}`);
   };
   return (
     <div className="h-[600px] w-full relative overflow-hidden rounded-none md:rounded-lg shadow transition hover:shadow-lg">

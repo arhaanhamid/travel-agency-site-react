@@ -8,16 +8,18 @@
   position: fixed;
   top: 0;
   z-index: 999;
-  background: linear-gradient(
+  /* background: linear-gradient(
     to top,
     rgba(17, 24, 39, 0.6),
     rgba(17, 24, 39, 0.3)
-  );
+  ); */
+  background-color: white;
+  color: rgb(100, 100, 100);
 }
 
 .Nav_wrapper .logo a {
   font-size: 28px;
-  color: white;
+  /* color: white; */
   font-weight: 800;
 }
 
@@ -29,7 +31,7 @@
 .Nav_wrapper ul li a {
   font-size: 16px;
   font-weight: 500;
-  color: white;
+  /* color: white; */
   position: relative; /* Needed for pseudo-element */
   transition: color 0.5s ease-in-out;
   text-decoration: none; /* Remove default underline */
@@ -61,47 +63,10 @@
   align-items: center;
 }
 
-.nav_btns .search_wrapper {
-  width: 200px;
-  height: 38px;
-  display: flex;
-  position: relative;
-  color: white;
-}
-
-.nav_btns .search_wrapper input {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 0 30px;
-  color: white;
-}
-
-.nav_btns .search_wrapper i {
-  position: absolute;
-  left: 8px;
-  top: 8px;
-}
-
-.nav_btns .CallBtn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
 .nav_btns .CallBtn i {
   font-size: 20px;
+  font-weight: normal;
   color: rgb(0, 168, 107);
-}
-
-.nav_btns .CallBtn h4 {
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
 }
 
 #bars {
@@ -115,7 +80,7 @@
 }
 
 #bars:hover {
-  background-color: #1e1e1e;
+  background-color: rgb(100, 100, 100);
   color: #fff;
 }
 
@@ -137,15 +102,8 @@
   .Nav_wrapper ul li button {
     font-size: 13px;
   }
-  .Nav_wrapper ul li .dropdown_svg {
-    width: 20px;
-    height: 20px;
-  }
   .Nav_wrapper {
     padding: 0 2%;
-  }
-  .dropdown {
-    width: 100px;
   }
 }
 
@@ -156,16 +114,14 @@
 
   .Nav_wrapper ul {
     position: absolute;
-    top: 125%;
+    top: 0%;
     left: 0;
-    background: linear-gradient(
-      to top,
-      rgba(17, 24, 39, 0.6),
-      rgba(17, 24, 39, 0.3)
-    );
+    margin-top: 80px;
+    background-color: white;
     transition: 1.2s;
 
     width: 0%;
+    height: 100vh;
     border: none;
     overflow: hidden;
   }
@@ -173,8 +129,13 @@
   .Nav_wrapper ul li {
     display: block;
     margin: 15px 0;
-    padding: 8px 0;
+    padding: 10px 0;
     padding-left: 8% !important;
+    border-bottom: 1px solid gray;
+  }
+  .Nav_wrapper ul li a {
+    font-size: 16px;
+    font-weight: bold;
   }
   .dropdown {
     display: block;
@@ -185,20 +146,8 @@
     border-width: 1px;
     width: 100%;
   }
-
   .Nav_wrapper {
     padding: 0 2%;
-  }
-}
-
-@media screen and (max-width: 580px) {
-  .nav_btns .search_wrapper {
-    display: none;
-  }
-}
-@media screen and (max-width: 580px) {
-  .nav_btns .CallBtn {
-    display: none;
   }
 }
 
