@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./ScrollToTop";
+import TestPage from "./TestPage";
 
 const Home = lazy(() => import("./components/Home/Home"));
 const LoadingPage = lazy(() => import("./LoadingPage"));
@@ -42,6 +43,7 @@ function App() {
           />
           <Route path="/services/boats/:boatId" element={<BoatDetailPage />} />
           <Route path="/services/cars/:carId" element={<CarDetailPage />} />
+          <Route path="/testpage" element={<TestPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />

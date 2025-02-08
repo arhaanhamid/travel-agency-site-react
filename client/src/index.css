@@ -15,6 +15,10 @@
   font-family: "Nunito";
 }
 
+.footer * {
+  @apply text-xs sm:text-sm md:text-base;
+}
+
 .main {
   background-color: #fff;
   margin: auto;

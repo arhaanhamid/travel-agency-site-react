@@ -17,9 +17,13 @@ function Nav() {
   ];
   return (
     <div className={navCSS.Nav_wrapper}>
-      <div className={navCSS.logo}>
-        <Link to="/" onClick={menuHandler}>
-          AchievementTravels
+      <div>
+        <Link to="/testpage" onClick={menuHandler}>
+          <span className="text-[18px] lg:text-[22px] font-bold lg:font-extrabold flex text-center leading-3">
+            Achievement
+            <br className="hidden sm:block lg:hidden" />
+            Travels
+          </span>
         </Link>
       </div>
 
@@ -52,11 +56,11 @@ function Nav() {
             <div className="relative w-full items-center mx-auto max-w-screen-sm">
               <div
                 id="bouton"
-                className="relative group w-full"
+                className="relative group  w-[100px]"
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}
               >
-                <a className="relative w-[100px] flex items-center gap-4 cursor-pointer">
+                <a className="relative flex items-center gap-1 cursor-pointer">
                   Services
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +68,7 @@ function Nav() {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className={` w-6 h-6 lg:w-4 lg:h-4 transition-transform duration-200 ${isOpen ? "rotate-90" : ""}`}
+                    className={` w-3 h-3 lg:w-4 lg:h-4 ${isOpen ? "rotate-90" : ""}`}
                   >
                     <path
                       strokeLinecap="round"
@@ -102,7 +106,7 @@ function Nav() {
 
       <div className={navCSS.nav_btns}>
         <div
-          className={`${navCSS.CallBtn} hidden sm:flex items-center gap-2 text-sm font-bold`}
+          className={`${navCSS.CallBtn} hidden sm:flex sm:flex-col lg:flex-row items-center gap-0 lg:gap-2 text-center text-[12px] lg:text-[14px] font-bold`}
         >
           <i className="ri-phone-line"></i>
           Contact Us
