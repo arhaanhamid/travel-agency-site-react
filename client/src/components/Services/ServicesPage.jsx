@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import Services from "./Services";
-import { hotelsData } from "../../assets/GlobalData";
+import { activitiesData, hotelsData } from "../../assets/GlobalData";
 import { carsData } from "../../assets/GlobalData";
 import { boatsData } from "../../assets/GlobalData";
 import packagesData from "../../assets/GlobalData";
@@ -29,6 +29,9 @@ const ServicesPage = () => {
       } else if (type === "boats") {
         // apiUrl = "https://your-api.com/boats";
         setData(boatsData);
+      } else if (type === "activities") {
+        // apiUrl = "https://your-api.com/activities";
+        setData(activitiesData);
       } else if (type === "cars") {
         // apiUrl = "https://your-api.com/cars";
         setData(carsData);

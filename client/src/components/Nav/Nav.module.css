@@ -8,8 +8,7 @@
   position: fixed;
   top: 0;
   z-index: 999;
-  /* background-color: rgb(255, 255, 255); */
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   color: rgb(100, 100, 100);
 }
 
@@ -74,13 +73,22 @@
   color: #fff;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (min-width: 1500px) {
   .Nav_wrapper ul li {
-    margin: 0 15px;
+    margin: 0 20px;
   }
   .Nav_wrapper ul li a {
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 700;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .Nav_wrapper ul li {
+    margin: 0 10px;
+  }
+  .Nav_wrapper ul li a {
+    font-size: 16px;
+    font-weight: 600;
   }
 }
 @media screen and (max-width: 1024px) {

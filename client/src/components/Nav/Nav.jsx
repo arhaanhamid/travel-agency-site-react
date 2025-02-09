@@ -14,6 +14,7 @@ function Nav() {
     { name: "Hotels", to: "/services/hotels" },
     { name: "Houseboats", to: "/services/boats" },
     { name: "Transport", to: "/services/cars" },
+    { name: "Activities", to: "/services/activities" },
   ];
   return (
     <div className={navCSS.Nav_wrapper}>

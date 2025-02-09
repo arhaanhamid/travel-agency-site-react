@@ -1,122 +1,123 @@
 import { Suspense, useEffect, useMemo, useState } from "react";
-import { useLocation } from "react-router-dom";
-
+import { useLocation, useNavigate } from "react-router-dom";
 import Skeleton from "../Skeleton";
 import styles from "./styles.module.css";
-import { useNavigate } from "react-router-dom";
 import FilterSidebar from "./FilterSidebar";
 
 const Services = ({ data, defaultLoc = "" }) => {
-  const curLocation = useLocation();
-  const packages = curLocation.pathname == "/services/packages";
-  const hotels = curLocation.pathname == "/services/hotels";
-  const cars = curLocation.pathname == "/services/cars";
-  const boats = curLocation.pathname == "/services/boats";
-  const activePage = packages
-    ? "packages"
-    : hotels
-      ? "hotels"
-      : cars
-        ? "cars"
-        : boats
-          ? "boats"
-          : null;
-  const [servicesData, setServicesData] = useState([]);
-
+  const location = useLocation();
   const navigate = useNavigate();
+  const activePage = location.pathname.split("/")[2]; // Get active page from URL
 
   // Handler for navigation
   const handleMoreDetails = (id) => {
-    navigate(`${curLocation.pathname}/${id}`);
+    navigate(`${location.pathname}/${id}`);
   };
 
-  useEffect(() => {
-    try {
-      if (data) {
-        const parsedData = JSON.parse(data);
+  const [servicesData, setServicesData] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
-        if (Array.isArray(parsedData) && parsedData.length > 0) {
+  // Filter states
+  const [selectedDestinations, setSelectedDestinations] = useState([]);
+  const [priceRange, setPriceRange] = useState([100, 50000]);
+  const [durationRange, setDurationRange] = useState([1, 30]);
+  const [selectedActivities, setSelectedActivities] = useState([]);
+  const [sortOption, setSortOption] = useState("Latest");
+
+  const handleSearchChange = (e) => setSearchText(e.target.value);
+
+  //Useeffect to parse incoming data to proper JSON
+  useEffect(() => {
+    if (data) {
+      try {
+        const parsedData = JSON.parse(data);
+        if (Array.isArray(parsedData)) {
           setServicesData(parsedData);
+          // Initialize price range based on data
+          // const prices = parsedData.map(item => Number(item.price));
+          // setPriceRange([Math.min(...prices), Math.max(...prices)]);
         }
+      } catch (error) {
+        console.error("Error parsing data:", error);
       }
-    } catch (error) {
-      console.error("Invalid JSON data:", error);
     }
   }, [data]);
 
-  const locations = servicesData.map((item) => item.location);
-
-  const [searchText, setSearchText] = useState("");
-  const [duration, setDuration] = useState("");
-  const [location, setLocation] = useState(defaultLoc);
-  const [sortBy, setSortBy] = useState("");
-
-  const [filters, setFilters] = useState({
-    duration: "",
-    location: "",
-    sortBy: "",
-  });
-
-  useEffect(() => {
-    applyFilters;
-  }, []);
-
-  // When the Apply Filters button is clicked, update the filters state.
-  const applyFilters = () => {
-    setFilters({ duration, location, sortBy });
-    console.log({ searchText, duration, location, sortBy });
-  };
-
-  // Compute the final filtered (and sorted) trips using useMemo
   const filteredTrips = useMemo(() => {
-    let filtered = servicesData;
+    let filtered = [...servicesData];
 
-    // // Live search filtering based on trip title
+    // Search filter
     if (searchText) {
       const regex = new RegExp(searchText, "i");
       filtered = filtered.filter((item) => regex.test(item.title));
     }
 
-    // // Apply duration filter if provided.
-    // // Assuming the filter is to show trips with a duration less than or equal to the entered days.
-    // if (filters.duration) {
-    //   filtered = filtered.filter(
-    //     (item) => item.duration <= Number(filters.duration)
-    //   );
-    // }
+    // Destination filter
+    if (selectedDestinations.length > 0) {
+      filtered = filtered.filter((item) =>
+        selectedDestinations.includes(item.location)
+      );
+    }
 
-    // // Apply location filter if provided.
-    // if (filters.location) {
-    //   filtered = filtered.filter((item) => item.location === filters.location);
-    // }
+    // Price filter
+    filtered = filtered.filter((item) => {
+      const price = Number(item.price);
+      return price >= priceRange[0] && price <= priceRange[1];
+    });
 
-    // // Apply sorting if provided.
-    // if (filters.sortBy) {
-    //   // Create a shallow copy before sorting.
-    //   filtered = [...filtered];
+    // Duration filter (packages only)
+    if (activePage === "packages") {
+      filtered = filtered.filter((item) => {
+        const duration = Number(item.duration);
+        return duration >= durationRange[0] && duration <= durationRange[1];
+      });
+    }
 
-    //   switch (filters.sortBy) {
-    //     case "price-high":
-    //       filtered.sort((a, b) => b.price - a.price);
-    //       break;
-    //     case "price-low":
-    //       filtered.sort((a, b) => a.price - b.price);
-    //       break;
-    //     case "duration-high":
-    //       filtered.sort((a, b) => b.duration - a.duration);
-    //       break;
-    //     case "duration-low":
-    //       filtered.sort((a, b) => a.duration - b.duration);
-    //       break;
-    //     default:
-    //       break;
-    //   }
-    // }
+    // Activity filter
+    if (selectedActivities.length > 0) {
+      filtered = filtered.filter((item) =>
+        selectedActivities.includes(item.title)
+      );
+    }
+
+    // Sorting
+    switch (sortOption) {
+      case "Price: Low to High":
+        filtered.sort((a, b) => a.price - b.price);
+        break;
+      case "Price: High to Low":
+        filtered.sort((a, b) => b.price - a.price);
+        break;
+      case "Days: Low to High":
+        filtered.sort((a, b) => a.duration - b.duration);
+        break;
+      case "Days: High to Low":
+        filtered.sort((a, b) => b.duration - a.duration);
+        break;
+      case "Name: A - Z":
+        filtered.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+      case "Name: Z - A":
+        filtered.sort((a, b) => b.title.localeCompare(a.title));
+        break;
+      case "Latest":
+        filtered.reverse();
+        break;
+      default:
+        break;
+    }
 
     return filtered;
-  }, [servicesData, searchText, filters]);
-
-  const handleSearchChange = (e) => setSearchText(e.target.value);
+  }, [
+    servicesData,
+    searchText,
+    selectedDestinations,
+    priceRange,
+    durationRange,
+    selectedActivities,
+    sortOption,
+    activePage,
+  ]);
 
   // Returns a random rotation transform between -5deg and 5deg.
   function randomRotate() {
@@ -126,7 +127,7 @@ const Services = ({ data, defaultLoc = "" }) => {
 
   return (
     <div className="flex flex-col w-auto py-[120px] mx-auto gap-10">
-      {/* SEARCH INPUT */}
+      {/* Search Input */}
       <div className="flex items-center bg-stone-200 border rounded-lg overflow-hidden flex-1 md:w-[70%] xl:w-[50%] mx-auto">
         <input
           placeholder="Search..."
@@ -145,19 +146,28 @@ const Services = ({ data, defaultLoc = "" }) => {
           ></i>
         )}
       </div>
-
+      <hr className="h-1 bg-gray-100" />
       {/* Filter Sidebar and Grid Items */}
-      <div className="flex flex-row">
-        <div className="md:w-[30%] lg:w-[25%] xl:w-[20%]">
+      <div className="flex flex-row lg:gap-10">
+        <div className="md:w-[30%] lg:w-[25%] xl:w-[18%]">
           <FilterSidebar
             servicesData={servicesData}
-            setServicesData={setServicesData}
             activePage={activePage}
+            selectedDestinations={selectedDestinations}
+            setSelectedDestinations={setSelectedDestinations}
+            priceRange={priceRange}
+            setPriceRange={setPriceRange}
+            durationRange={durationRange}
+            setDurationRange={setDurationRange}
+            selectedActivities={selectedActivities}
+            setSelectedActivities={setSelectedActivities}
+            sortOption={sortOption}
+            setSortOption={setSortOption}
           />
         </div>
 
         {/* Grid layout for service items */}
-        <div className="md:w-[70%] lg:w-[75%] xl:w-[80%] grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-[10px] px-[10px]">
+        <div className="md:w-[70%] lg:w-[75%] xl:w-[82%] h-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 px-[10px] gap-x-[20px] gap-y-[60px]">
           {filteredTrips.length > 0 ? (
             filteredTrips.map((item, index) => (
               <Suspense fallback={<Skeleton />} key={item.id}>
@@ -167,15 +177,18 @@ const Services = ({ data, defaultLoc = "" }) => {
                 >
                   <div className="relative">
                     <img src={item.images[0]} alt={`Card ${index} `} />
-                    {!boats && (
+                    {activePage !== "boats" && (
                       <span className="absolute top-1 left-1 sm:top-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-[#4a4a7d] uppercase tracking-wide">
                         {item.location}
                       </span>
                     )}
                     <span className="absolute bottom-1 left-1 sm:bottom-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-[#4a4a7d] uppercase tracking-wide">
-                      {packages && item.duration + "-Day Trip"}
-                      {(hotels || boats) && item.category}
-                      {cars && "Passengers: " + item.passengers}
+                      {activePage == "packages" && item.duration + "-Day Trip"}
+                      {activePage == "activities" &&
+                        item.duration + "-Day Activity"}
+                      {(activePage == "hotels" || activePage == "boats") &&
+                        item.category}
+                      {activePage == "cars" && "Passengers: " + item.passengers}
                     </span>
                   </div>
                   <h2>{item.title}</h2>
@@ -190,10 +203,11 @@ const Services = ({ data, defaultLoc = "" }) => {
                       className={`flex items-center justify-center font-bold bg-transparent border-2 border-[#4a4a7d] rounded-full text-[0.8rem] h-[40px] py-1 px-2 sm:h-[50px] sm:text-[1rem] md:text-[0.8rem] lg:px-2 lg:h-[45px] xl:h-[50px] xl:px-4 sm:px-4 hover:bg-[#4a4a7d] text-[#4a4a7d] hover:text-white transition duration-300 cursor-pointer`}
                       onClick={() => handleMoreDetails(item.id)}
                     >
-                      {packages && "Discover Trip"}
-                      {hotels && "Discover Hotel"}
-                      {boats && "Discover Boat"}
-                      {cars && "Discover Car"}
+                      {activePage == "packages" && "Discover Trip"}
+                      {activePage == "hotels" && "Discover Hotel"}
+                      {activePage == "boats" && "Discover Boat"}
+                      {activePage == "cars" && "Discover Car"}
+                      {activePage == "activities" && "Discover Activity"}
                     </div>
                     <div
                       className={`flex flex-col items-center justify-between h-full text-base `}
@@ -204,9 +218,10 @@ const Services = ({ data, defaultLoc = "" }) => {
                       <span className="text-[1rem] sm:text-[1.4rem] lg:text-[0.8rem] xl:text-[1rem] font-bold text-[#4a4a7d]">
                         ₹{item.price}{" "}
                         <small className="font-normal text-xs">
-                          {packages && "PP"}
-                          {hotels || (boats && "PP")}
-                          {cars && ""}
+                          {activePage == "packages" && "PP"}
+                          {activePage == "hotels" ||
+                            (activePage == "boats" && "PP")}
+                          {activePage == "cars" && ""}
                         </small>
                       </span>
                     </div>

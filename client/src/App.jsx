@@ -18,9 +18,11 @@ const HotelDetailPage = lazy(
 const CarDetailPage = lazy(
   () => import("./components/Services/DetailPages/CarDetailPage")
 );
-
 const BoatDetailPage = lazy(
   () => import("./components/Services/DetailPages/BoatDetailPage")
+);
+const ActivityDetailPage = lazy(
+  () => import("./components/Services/DetailPages/ActivityDetailPage")
 );
 const NotFoundPage = lazy(() => import("./NotFoundPage"));
 
@@ -40,6 +42,10 @@ function App() {
           <Route
             path="/services/hotels/:hotelId"
             element={<HotelDetailPage />}
+          />
+          <Route
+            path="/services/activities/:activityId"
+            element={<ActivityDetailPage />}
           />
           <Route path="/services/boats/:boatId" element={<BoatDetailPage />} />
           <Route path="/services/cars/:carId" element={<CarDetailPage />} />
