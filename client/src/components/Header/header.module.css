@@ -6,6 +6,15 @@
   z-index: 1;
   animation: anim_change_img 5s infinite linear alternate;
 }
+.image {
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.image:hover {
+  transform: scale(1.1);
+}
 
 @keyframes anim_change_img {
   0% {

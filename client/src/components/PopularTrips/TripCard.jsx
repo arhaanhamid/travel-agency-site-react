@@ -13,7 +13,7 @@ const PackageCard = ({ trip, requestFrom }) => {
       <img
         src={trip.images[0]}
         alt={trip.title}
-        className="absolute left-0 top-0 w-full h-full z-0 object-cover"
+        className="absolute left-0 top-0 w-full h-full z-0 object-cover transition-transform duration-500 ease-in-out hover:scale-125"
         loading="lazy"
       />
       <span className="absolute top-3 left-3 sm:top-4 sm:left-4 text-xs sm:text-sm font-semibold flex items-center px-3 py-1 bg-gray-800 text-white uppercase tracking-wide">

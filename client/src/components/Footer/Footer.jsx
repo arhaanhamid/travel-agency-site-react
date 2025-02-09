@@ -1,3 +1,5 @@
+import logo from "./../../assets/logo.png";
+
 function Footer() {
   const socialIcons = [
     {
@@ -78,9 +80,9 @@ function Footer() {
 
   return (
     <footer className="footer bg-stone-100 text-stone-800 dark:bg-stone-900 dark:text-stone-100">
-      <div className="mx-auto max-w-7xl px-6 py-12">
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 py-6 sm:py-8 lg:py-12">
         {/* Main Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-5 ">
           {/* Section 1: Destinations */}
           <div>
             <h2 className="font-bold lg:font-extrabold mb-2">Destinations</h2>
@@ -124,22 +126,18 @@ function Footer() {
             <h2 className="font-bold lg:font-extrabold text-lg mb-2">
               About Us
             </h2>
+            <img src={logo} alt="logo" className="h-10 mb-4 sm:h-16" />
             <ul className="space-y-2 text-sm">
               <li>Why choose us?</li>
               <li>Our Team</li>
               <li>Work with us</li>
             </ul>
-            <div className="mt-6">
-              <h3 className="mb-4 text-xl font-bold uppercase tracking-wider">
-                AchievementTravels
-              </h3>
-              <address className="not-italic text-sm space-y-2">
-                <p>sales@adamasnabudar.com</p>
-                <p>US Toll Free: +1-800-894-9762</p>
-                <p>Australia Toll Free: +800-704-042</p>
-                <p>Ireland: +353-1-288-4255</p>
-              </address>
-            </div>
+            <address className="not-italic text-sm mt-5">
+              <p>info@achievementtravels.com</p>
+              <p>US Toll Free: +1-800-894-9762</p>
+              <p>Australia Toll Free: +800-704-042</p>
+              <p>Ireland: +353-1-288-4255</p>
+            </address>
           </div>
         </div>
 

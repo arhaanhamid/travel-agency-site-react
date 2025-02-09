@@ -60,8 +60,8 @@ function Header() {
                 >
                   <img
                     src={item.images[0]}
-                    alt="Destination 1"
-                    className="w-full h-full"
+                    alt={item.title}
+                    className={`${headerCSS.image} w-full h-full rounded-[12px]`}
                   />
                   <span className="text-xs font-bold text-gray-700">
                     {item.location}

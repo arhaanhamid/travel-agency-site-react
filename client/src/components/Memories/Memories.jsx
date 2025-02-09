@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import memoriesCSS from "./../Memories/Memories.module.css";
 import MemoriesImg1 from "./../../assets/travelport1.jpg";
 import MemoriesImg2 from "./../../assets/travelport2.jpg";
@@ -7,22 +6,47 @@ import MemoriesImg4 from "./../../assets/travelport3.jpg";
 import MemoriesImg5 from "./../../assets/travelport5.jpg";
 import MemoriesImg6 from "./../../assets/travelport6.jpg";
 import MemoriesImg7 from "./../../assets/travelport7.jpg";
+import { useNavigate } from "react-router-dom";
 
 function Memories() {
-  const targetRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleDiscoverTrip = (type) => {
+    switch (type) {
+      case "small":
+        navigate(`/services/packages/`);
+        break;
+      case "cheap":
+        navigate(`/services/packages/`);
+        break;
+      case "random":
+        navigate(`/services/packages/`);
+        break;
+      case "expert":
+        navigate(`/services/packages/`);
+        break;
+      case "religious":
+        navigate(`/services/packages/`);
+        break;
+      case "solo":
+        navigate(`/services/packages/`);
+        break;
+      case "private":
+        navigate(`/services/packages/`);
+        break;
+      default:
+        navigate(`/services/packages/`);
+        break;
+    }
+  };
   return (
     <div id="memories" className={`${memoriesCSS.Memories_wrapper} section `}>
       <div className={memoriesCSS.MemoriesCard}>
         <img src={MemoriesImg1} alt="Memories-img" />
 
-        <div
-          onClick={() =>
-            targetRef.current.scrollIntoView({ behavior: "smooth" })
-          }
-          className={memoriesCSS.content}
-        >
-          <h3>Small Groups Depurtures</h3>
-          <a href="#">View Tours</a>
+        <div className={memoriesCSS.content}>
+          <h3>Small Groups Departures</h3>
+          <span onClick={() => handleDiscoverTrip("small")}>View Tours</span>
         </div>
       </div>
       <div className={memoriesCSS.MemoriesCard}>
@@ -30,7 +54,7 @@ function Memories() {
 
         <div className={memoriesCSS.content}>
           <h3>Affordable Dreams</h3>
-          <a href="#">View Tours</a>
+          <span onClick={() => handleDiscoverTrip("cheap")}>View Tours</span>
         </div>
       </div>
       <div className={memoriesCSS.MemoriesCard}>
@@ -38,7 +62,7 @@ function Memories() {
 
         <div className={memoriesCSS.content}>
           <h3>Undiscover Tours</h3>
-          <a href="#">View Tours</a>
+          <span onClick={() => handleDiscoverTrip("random")}>View Tours</span>
         </div>
       </div>
       <div className={memoriesCSS.MemoriesCard}>
@@ -49,7 +73,7 @@ function Memories() {
             Let Our Experts Pan <br />
             Your 2024 Jouney
           </h3>
-          <a href="#">View Tours</a>
+          <span onClick={() => handleDiscoverTrip("expert")}>View Tours</span>
         </div>
       </div>
       <div className={memoriesCSS.MemoriesCard}>
@@ -57,7 +81,9 @@ function Memories() {
 
         <div className={memoriesCSS.content}>
           <h3>Religious Tours</h3>
-          <a href="#">View Tours</a>
+          <span onClick={() => handleDiscoverTrip("religious")}>
+            View Tours
+          </span>
         </div>
       </div>
       <div className={memoriesCSS.MemoriesCard}>
@@ -65,7 +91,7 @@ function Memories() {
 
         <div className={memoriesCSS.content}>
           <h3>Solo Travel</h3>
-          <a href="#">View Tours</a>
+          <span onClick={() => handleDiscoverTrip("solo")}>View Tours</span>
         </div>
       </div>
       <div className={memoriesCSS.MemoriesCard}>
@@ -73,7 +99,7 @@ function Memories() {
 
         <div className={memoriesCSS.content}>
           <h3>Private Touring</h3>
-          <a href="#">View Tours</a>
+          <span onClick={() => handleDiscoverTrip("private")}>View Tours</span>
         </div>
       </div>
     </div>

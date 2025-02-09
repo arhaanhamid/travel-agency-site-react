@@ -1,10 +1,14 @@
 import React, { useRef, useState } from "react";
 import navCSS from "./../Nav/Nav.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import logo from "./../../assets/logo.png";
 
 function Nav() {
+  const location = useLocation();
+
   const [isOpen, setIsOpen] = useState(false);
+
   const menu = useRef();
   const menuHandler = () => {
     menu.current.classList.toggle(navCSS.activeMenu);
@@ -17,14 +21,12 @@ function Nav() {
     { name: "Activities", to: "/services/activities" },
   ];
   return (
-    <div className={navCSS.Nav_wrapper}>
+    <div
+      className={`navbar ${navCSS.Nav_wrapper} ${location.pathname === "/" ? "bg-[rgba(0,0,0,0.3)] text-white" : "bg-white text-gray-500"}`}
+    >
       <div>
         <Link to="/testpage" onClick={menuHandler}>
-          <span className="text-[18px] lg:text-[22px] font-bold lg:font-extrabold flex text-center leading-3">
-            Achievement
-            <br className="hidden sm:block lg:hidden" />
-            Travels
-          </span>
+          <img src={logo} alt="logo" className="h-[70px]" />
         </Link>
       </div>
 
@@ -52,7 +54,7 @@ function Nav() {
 
         <li>
           <div
-            className={`${navCSS.dropdown} relative flex hover:min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12`}
+            className={`${navCSS.dropdown} relative flex hover:min-h-screen flex-col justify-center overflow-visible py-6 sm:py-12`}
           >
             <div className="relative w-full items-center mx-auto max-w-screen-sm">
               <div
@@ -80,7 +82,7 @@ function Nav() {
                 </a>
 
                 <div
-                  className={`absolute bg-white py-1 opacity-0 hidden flex-col group-hover:flex group-hover:opacity-100 max-h-60 overflow-y-auto ${isOpen ? "opacity-100 flex" : "opacity-0 hidden"}`}
+                  className={`absolute bg-white my-0.5 border-2 rounded-lg px-2 py-1 opacity-0 hidden flex-col group-hover:flex group-hover:opacity-100 max-h-60 overflow-y-auto ${isOpen ? "opacity-100 flex" : "opacity-0 hidden"}`}
                 >
                   {dropdownItems.map((item, index) => (
                     <React.Fragment key={index}>

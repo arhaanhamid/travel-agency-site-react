@@ -8,8 +8,6 @@
   position: fixed;
   top: 0;
   z-index: 999;
-  background-color: rgb(255, 255, 255);
-  color: rgb(100, 100, 100);
 }
 
 .Nav_wrapper ul li {
@@ -54,7 +52,7 @@
 
 .nav_btns .CallBtn i {
   font-size: 20px;
-  font-weight: normal;
+  /* font-weight: normal; */
   color: rgb(0, 168, 107);
 }
 
@@ -68,7 +66,9 @@
   display: none;
 }
 
-#bars:hover {
+#bars:hover,
+#bars:focus,
+#bars:active {
   background-color: rgb(100, 100, 100);
   color: #fff;
 }
@@ -79,7 +79,7 @@
   }
   .Nav_wrapper ul li a {
     font-size: 18px;
-    font-weight: 700;
+    /* font-weight: 700; */
   }
 }
 @media screen and (max-width: 1500px) {
@@ -88,32 +88,36 @@
   }
   .Nav_wrapper ul li a {
     font-size: 16px;
-    font-weight: 600;
+    /* font-weight: 600; */
   }
 }
 @media screen and (max-width: 1024px) {
+  .Nav_wrapper {
+    padding: 3%;
+  }
   .Nav_wrapper ul li {
     margin: 0px 5px;
-    padding: 0px 5px;
+    padding: 0px 0px;
   }
   .Nav_wrapper ul li a {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 13px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .Nav_wrapper ul li {
+  /* .Nav_wrapper ul li {
     margin: 0px 0;
     padding: 0px 5px;
   }
   .Nav_wrapper ul li a {
     font-size: 14px;
-    font-weight: 500;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 640px) { */
+  .Nav_wrapper {
+    padding: 5%;
+  }
   #bars {
     display: block;
   }
@@ -124,6 +128,7 @@
     left: 0;
     margin-top: 80px;
     background-color: white;
+    color: gray;
     transition: 1.2s;
 
     width: 0%;
@@ -141,7 +146,7 @@
   }
   .Nav_wrapper ul li a {
     font-size: 16px;
-    font-weight: bold;
+    /* font-weight: bold; */
   }
   .dropdown {
     display: block;
@@ -151,9 +156,6 @@
   .Nav_wrapper .activeMenu {
     border-width: 1px;
     width: 100%;
-  }
-  .Nav_wrapper {
-    padding: 0 2%;
   }
 }
 

@@ -7,6 +7,7 @@ const FilterSidebar = ({
   activePage,
   selectedDestinations,
   setSelectedDestinations,
+  defaultLoc,
   priceRange,
   setPriceRange,
   durationRange,
@@ -94,6 +95,14 @@ const FilterSidebar = ({
     setShowMoreDestinations(false);
     setShowMoreActivities(false);
   };
+
+  useEffect(() => {
+    if (defaultLoc) {
+      setSelectedDestinations(() => [defaultLoc]);
+    } else {
+      setSelectedDestinations([]);
+    }
+  }, []);
 
   const DESTINATION_DISPLAY_COUNT = 5;
   const ACTIVITY_DISPLAY_COUNT = 5;

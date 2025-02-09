@@ -16,9 +16,12 @@ const Services = ({ data, defaultLoc = "" }) => {
 
   const [servicesData, setServicesData] = useState([]);
   const [searchText, setSearchText] = useState("");
-
   // Filter states
-  const [selectedDestinations, setSelectedDestinations] = useState([]);
+  const [selectedDestinations, setSelectedDestinations] = useState([
+    defaultLoc,
+  ]);
+  console.log(defaultLoc);
+  console.log(selectedDestinations);
   const [priceRange, setPriceRange] = useState([100, 50000]);
   const [durationRange, setDurationRange] = useState([1, 30]);
   const [selectedActivities, setSelectedActivities] = useState([]);
@@ -155,6 +158,7 @@ const Services = ({ data, defaultLoc = "" }) => {
             activePage={activePage}
             selectedDestinations={selectedDestinations}
             setSelectedDestinations={setSelectedDestinations}
+            defaultLoc={defaultLoc}
             priceRange={priceRange}
             setPriceRange={setPriceRange}
             durationRange={durationRange}
