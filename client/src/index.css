@@ -21,6 +21,9 @@
   font-family: "Montserrat", "Poppins", "sans-serif";
   @apply uppercase;
 }
+.testimonials * {
+  font-family: "Montserrat", "Poppins", "sans-serif";
+}
 
 .footer * {
   @apply text-xs sm:text-sm md:text-base;

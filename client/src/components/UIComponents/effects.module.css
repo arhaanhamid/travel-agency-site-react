@@ -1,12 +1,14 @@
 .rotate_infinite {
   animation: rotate 5s linear infinite;
 }
+
 .rotate_hover_parent {
   z-index: 11;
 }
-
 .rotate_hover_parent:hover .rotate_hover {
   animation: rotate 5s linear infinite;
+}
+@media screen and (max-width: 768px) {
 }
 
 @keyframes rotate {

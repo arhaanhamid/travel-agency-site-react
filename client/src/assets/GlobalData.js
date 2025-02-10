@@ -887,3 +887,39 @@ export const activitiesData = [
     price: 5000,
   },
 ];
+
+export const testimonialsData = [
+  {
+    id: 1,
+    name: "Adil Bashir",
+    desc: `I had a lovely conversation with Mr. Eisenhart, and he
+                  couldn't say enough about how wonderful their trip was. They
+                  were very pleased with their guide in Ireland, Bill. They said
+                  that he was absolutely wonderful. They said that their
+                  full-day Connemara music tour was outstanding. Highlight of
+                  the trip. Their guide for their walking tour in Dublin,
+                  Frankie, was very good—particularly with engaging the kids.
+                  They all really enjoyed the bike ride, falconry, and the
+                  surfing lesson. Thank you so much for your help in putting
+                  this trip together. Mr. Eisenhart really couldn't stop gushing
+                  about how this was a trip of a lifetime.`,
+  },
+  {
+    id: 2,
+    name: "Muneer Rashid",
+    desc: `It was a wonderful trip, we all loved Scotland, and Fiona!
+                  Thank you for everything, it was perfectly planned, and
+                  timed!!`,
+  },
+  {
+    id: 3,
+    name: "Arhaan Hameed",
+    desc: `I just wanted to thank you for planning the most spectacular trip to Ireland. As you
+know, this was a very special trip for my family and it truly could not have went
+better! You not only kept us within budget, you provided accommodations and
+activities that were perfect and so well suited for our family. Everything was
+absolutely flawless. We loved our driver John so much and would highly
+recommend him. I also appreciated the quick responses from you / your team
+anytime we had a question.`,
+  },
+];
