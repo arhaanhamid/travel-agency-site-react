@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import headerCSS from "./../Header/Header.module.css";
+import headerCSS from "./header.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
