@@ -906,7 +906,7 @@ export const testimonialsData = [
   },
   {
     id: 2,
-    name: "Muneer Rashid",
+    name: "Muneer Sheikh",
     desc: `It was a wonderful trip, we all loved Scotland, and Fiona!
                   Thank you for everything, it was perfectly planned, and
                   timed!!`,
