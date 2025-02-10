@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Header from "../Header/Header";
 import Memories from "../Memories/Memories";
 import PopularTrips from "../PopularTrips/PopularTrips";
@@ -6,12 +6,6 @@ import bg_vid from "./../../assets/hero_bg_vid.mp4";
 import Testimonials from "../Testimonials/Testimonials";
 
 const Home = () => {
-  const [videoError, setVideoError] = useState(false);
-
-  const handleVideoError = () => {
-    setVideoError(true);
-  };
-
   return (
     <div className="main">
       {/* Hero Section */}
@@ -19,22 +13,18 @@ const Home = () => {
         {/* Background Image (only on mobile) */}
         <div className="blur-overlay md:hidden"></div>
         {/* Background Video (only on desktop) */}
-        {videoError ? (
-          <div className="blur-overlay"></div>
-        ) : (
-          // <div className="blur-overlay"></div>
-          <video
-            onError={handleVideoError}
-            className="hidden md:block absolute top-0 left-0 w-full h-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src={bg_vid} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        )}
+
+        <video
+          preload="auto"
+          className="hidden md:block absolute top-0 left-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src={bg_vid} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
         {/* Blackish Overlay */}
         <div className="absolute inset-0 bg-black opacity-30"></div>
