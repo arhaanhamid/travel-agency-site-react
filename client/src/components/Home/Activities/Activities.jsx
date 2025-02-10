@@ -2,9 +2,17 @@ import { useEffect } from "react";
 import styles from "./style.module.css";
 
 import { activitiesData } from "../../../assets/GlobalData";
+import { useNavigate } from "react-router-dom";
 
 const Activities = () => {
-  function handleDiscoverActivity() {}
+  const navigate = useNavigate(); // useNavigate hook to handle navigation
+
+  function handleNavigate(type) {
+    type === "all"
+      ? navigate(`/services/activities`)
+      : navigate(`/services/activities/${type}`);
+  }
+
   useEffect(() => {
     const nextDom = document.getElementById("next");
     const prevDom = document.getElementById("prev");
@@ -86,6 +94,8 @@ const Activities = () => {
           {activitiesData.map((activity) => (
             <div className={`${styles.item}`} key={activity.id}>
               <img src={activity.images[0]} alt={activity.title} />
+              <div className="absolute inset-0 bg-black opacity-30"></div>
+
               <div className={`${styles.content}`}>
                 <div className={`${styles.author} uppercase`}>
                   {activity.location}
@@ -98,10 +108,12 @@ const Activities = () => {
                   {activity.desc}
                 </div>
                 <div className={`${styles.buttons}`}>
-                  <button className="" onClick={handleDiscoverActivity}>
-                    Book Now
+                  <button onClick={() => handleNavigate(activity.id)}>
+                    View Details
                   </button>
-                  <button>View Details</button>
+                  <button onClick={() => handleNavigate("all")}>
+                    All Activities
+                  </button>
                 </div>
               </div>
             </div>
@@ -112,6 +124,7 @@ const Activities = () => {
           {activitiesData.map((activity) => (
             <div className={`${styles.item}`} key={activity.id}>
               <img src={activity.images[0]} alt={activity.title} />
+
               <div className={`${styles.content}`}>
                 <div className={`${styles.title}`}>{activity.title}</div>
                 {/* <div className={`${styles.description} line-clamp-1`}>

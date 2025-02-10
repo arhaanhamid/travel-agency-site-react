@@ -13,6 +13,14 @@ import boat04 from "./boats/boat04.jpg";
 import boat05 from "./boats/boat05.jpg";
 import boat06 from "./boats/boat06.jpg";
 import boat07 from "./boats/boat07.jpg";
+import garden from "./garden.jpg";
+import gondola from "./gondola.jpg";
+import hiking from "./hiking.jpg";
+import houseboat from "./houseboat.jpg";
+import shikara from "./shikara.jpg";
+import skiing from "./skiing.jpg";
+import trekking from "./trekking.jpg";
+import wildlife from "./wildlife.jpg";
 import car01 from "./cars/car01.jpeg";
 import car02 from "./cars/car02.jpeg";
 import car03 from "./cars/car03.jpeg";
@@ -810,7 +818,7 @@ export const activitiesData = [
     title: "Shikara Ride",
     location: "Srinagar",
     desc: "A Shikara ride on Dal Lake or Nigeen Lake in Srinagar offers a tranquil and picturesque experience. These beautifully decorated wooden boats take tourists through the serene waters, providing stunning views of the surrounding mountains, floating gardens, and houseboats. The ride is an excellent way to soak in the traditional Kashmiri lifestyle as vendors sell handicrafts, saffron, and hot Kahwa from their boats. It’s a must-try activity for couples, families, and solo travelers looking for a peaceful escape in the heart of Kashmir.",
-    images: [trip01, trip02],
+    images: [shikara],
     duration: 3,
     price: 5000,
   },
@@ -819,7 +827,7 @@ export const activitiesData = [
     title: "Trekking",
     location: "Sonmarg",
     desc: "Kashmir is home to some of the most breathtaking trekking routes in India. From the famous Kashmir Great Lakes Trek to the challenging Tarsar Marsar Trek, adventure seekers can explore pristine alpine lakes, lush green meadows, and snow-covered peaks. Pahalgam offers stunning trails through Aru Valley and Kolahoi Glacier, while Sonmarg serves as a gateway to treks like the Thajiwas Glacier trek. Trekking in Kashmir is an unforgettable experience for nature lovers and adventure enthusiasts alike.",
-    images: [trip04, trip03],
+    images: [trekking],
     duration: 3,
     price: 20000,
   },
@@ -828,7 +836,7 @@ export const activitiesData = [
     title: "Gondola Ride",
     location: "Yusmarg",
     desc: "The Gulmarg Gondola, one of the highest cable cars in the world, takes tourists up to 13,780 feet, offering breathtaking views of snow-clad mountains. It operates in two phases: the first reaches Kongdori Station, while the second takes you to Apharwat Peak, a paradise for skiers and snowboarders in winter. The ride provides a mesmerizing bird’s-eye view of the lush meadows in summer and a snow-covered wonderland in winter, making it a must-try activity in Kashmir.",
-    images: [trip06, trip04],
+    images: [gondola],
     duration: 3,
     price: 7000,
   },
@@ -837,7 +845,7 @@ export const activitiesData = [
     title: "Skiing & Snowboarding",
     location: "Gulmarg",
     desc: "Gulmarg is the ultimate winter sports destination in India, offering world-class skiing and snowboarding experiences. With powdery snow, vast slopes, and professional ski instructors, it’s an ideal place for both beginners and experts. The Apharwat Peak, accessed via the Gondola, provides thrilling descents for adventure enthusiasts. Tourists can rent skiing equipment and take lessons to enjoy the exhilarating sport amidst the breathtaking landscapes of the Himalayas.",
-    images: [trip07, trip08],
+    images: [skiing],
     duration: 3,
     price: 15000,
   },
@@ -846,7 +854,7 @@ export const activitiesData = [
     title: "Houseboat Stay",
     location: "Srinagar",
     desc: "Staying in a traditional Kashmiri houseboat on Dal Lake or Nigeen Lake is a unique and luxurious experience. These beautifully crafted wooden houseboats feature intricate carvings, cozy rooms, and stunning views of the lake. Guests can enjoy the peaceful surroundings, relish authentic Kashmiri cuisine, and wake up to the soothing sound of water. Many houseboats also offer Shikara rides and guided tours, making the stay an unforgettable part of any Kashmir trip.",
-    images: [trip01, trip02],
+    images: [houseboat],
     duration: 3,
     price: 10000,
   },
@@ -855,7 +863,7 @@ export const activitiesData = [
     title: "Hiking",
     location: "Pahalgam",
     desc: "For those who enjoy shorter yet scenic adventures, hiking in Kashmir is the perfect activity. Places like Betaab Valley and Aru Valley in Pahalgam offer gentle trails through lush greenery, while Yusmarg’s pine-covered meadows provide an ideal hiking experience. Sonmarg is another great destination, where tourists can hike to Thajiwas Glacier and enjoy panoramic views of the Himalayas. Whether you’re a beginner or a seasoned hiker, Kashmir has trails to suit every level of experience.",
-    images: [trip04, trip03],
+    images: [hiking],
     duration: 3,
     price: 5000,
   },
@@ -864,25 +872,16 @@ export const activitiesData = [
     title: "Exploring Mughal Gardens",
     location: "Srinagar",
     desc: "The Mughal Gardens in Srinagar, including Shalimar Bagh, Nishat Bagh, and Chashme Shahi, are a testament to Persian-style landscaping and the grandeur of the Mughal era. These gardens feature beautifully designed terraces, flowing fountains, and a variety of vibrant flowers that create a serene and picturesque environment. Visitors can take leisurely walks, enjoy a picnic, or simply admire the stunning views of Dal Lake and the surrounding mountains.",
-    images: [trip06, trip04],
+    images: [garden],
     duration: 3,
     price: 5000,
   },
   {
     id: 8,
-    title: "River Rafting",
-    location: "Sonmarg",
-    desc: "Adventure seekers can enjoy thrilling white-water rafting on the Lidder River in Pahalgam or the Sind River in Sonmarg. The rapids range from easy to moderate, making it a fun experience for beginners and experienced rafters alike. The journey takes you through stunning landscapes, with lush valleys, towering cliffs, and the pristine waters of Kashmir’s rivers enhancing the adventure. It’s an adrenaline-packed activity that combines excitement with natural beauty.",
-    images: [trip07, trip08],
-    duration: 3,
-    price: 5000,
-  },
-  {
-    id: 9,
     title: "Wildlife Spotting",
     location: "Dachigam National Park",
     desc: "Dachigam National Park, located just outside Srinagar, is home to a diverse range of wildlife, including the rare Hangul (Kashmiri stag), Himalayan black bear, and leopards. The park’s stunning landscapes feature dense forests, meadows, and flowing streams, making it a perfect spot for nature lovers and wildlife photographers. Visitors can explore the park through guided treks and safaris, offering a chance to witness Kashmir’s rich biodiversity up close.",
-    images: [trip01, trip05],
+    images: [wildlife],
     duration: 3,
     price: 5000,
   },
