@@ -18,9 +18,9 @@
 
 @keyframes anim_change_img {
   0% {
-    background: url(./../../assets/landscape-Panorama-02.jpg);
+    background: url(../../../assets/landscape-Panorama-02.jpg);
   }
   100% {
-    background: url(./../../assets/landscape-Panorama-03.jpg);
+    background: url(../../../assets/landscape-Panorama-03.jpg);
   }
 }

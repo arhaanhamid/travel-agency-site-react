@@ -4,9 +4,9 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import TripCard from "./TripCard.jsx";
-import tripsData from "../../assets/GlobalData.js";
-import { LeftSwiperArrow } from "../UIComponents/UIComponents.jsx";
-import { RightSwiperArrow } from "../UIComponents/UIComponents.jsx";
+import tripsData from "../../../assets/GlobalData.js";
+import { LeftSwiperArrow } from "../../UIComponents/UIComponents.jsx";
+import { RightSwiperArrow } from "../../UIComponents/UIComponents.jsx";
 
 import { useEffect, useState } from "react";
 

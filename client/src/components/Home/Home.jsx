@@ -1,13 +1,13 @@
-import { useRef, useState } from "react";
-import Header from "../Header/Header";
-import Memories from "../Memories/Memories";
-import PopularTrips from "../PopularTrips/PopularTrips";
+import Header from "./Header/Header";
+import Memories from "./Memories/Memories";
+import PopularTrips from "./PopularTrips/PopularTrips";
 import bg_vid from "./../../assets/hero_bg_vid.mp4";
-import Testimonials from "../Testimonials/Testimonials";
+import Testimonials from "./Testimonials/Testimonials";
+import Activities from "./Activities/Activities";
 
 const Home = () => {
   return (
-    <div className="main">
+    <div className="main bg-gray-200">
       {/* Hero Section */}
       <div className="hero-section relative flex items-center justify-center h-screen overflow-hidden">
         {/* Background Image (only on mobile) */}
@@ -54,6 +54,7 @@ const Home = () => {
       <Header />
       <Memories />
       <PopularTrips />
+      <Activities />
       <Testimonials />
     </div>
   );

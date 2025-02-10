@@ -2,10 +2,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import { testimonialsData } from "../../assets/GlobalData.js";
+import { testimonialsData } from "./../../../assets/GlobalData";
+
 import { useEffect, useState } from "react";
-import { LeftSwiperArrow } from "./../UIComponents/UIComponents";
-import { RightSwiperArrow } from "./../UIComponents/UIComponents";
+import { LeftSwiperArrow } from "./../../UIComponents/UIComponents";
+import { RightSwiperArrow } from "./../../UIComponents/UIComponents";
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);

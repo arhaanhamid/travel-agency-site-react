@@ -79,7 +79,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="footer pt-5 bg-stone-100 text-stone-800 dark:bg-stone-900 dark:text-stone-100">
+    <footer className="footer pt-5 bg-stone-900 text-stone-100">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 py-6 sm:py-8 lg:py-12">
         {/* Main Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-5 ">
@@ -160,7 +160,7 @@ function Footer() {
             ))}
           </div>
           <p className="text-sm text-stone-500">
-            © {new Date().getFullYear()} TALOGED EXPERIENCES. All rights
+            © {new Date().getFullYear()} AchievementTravels. All rights
             reserved.
           </p>
         </div>
