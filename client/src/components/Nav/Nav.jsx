@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import navCSS from "./../Nav/Nav.module.css";
+import navCSS from "./nav.module.css";
 import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import logo from "./../../assets/logo.png";

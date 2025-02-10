@@ -1,4 +1,4 @@
-import memoriesCSS from "./../Memories/Memories.module.css";
+import memoriesCSS from "./memories.module.css";
 import MemoriesImg1 from "./../../assets/travelport1.jpg";
 import MemoriesImg2 from "./../../assets/travelport2.jpg";
 import MemoriesImg3 from "./../../assets/travelport4.jpg";
