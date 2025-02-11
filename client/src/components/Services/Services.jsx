@@ -20,8 +20,6 @@ const Services = ({ data, defaultLoc = "" }) => {
   const [selectedDestinations, setSelectedDestinations] = useState([
     defaultLoc,
   ]);
-  console.log(defaultLoc);
-  console.log(selectedDestinations);
   const [priceRange, setPriceRange] = useState([100, 50000]);
   const [durationRange, setDurationRange] = useState([1, 30]);
   const [selectedActivities, setSelectedActivities] = useState([]);

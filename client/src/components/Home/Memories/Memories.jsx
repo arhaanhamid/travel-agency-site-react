@@ -40,7 +40,7 @@ function Memories() {
     }
   };
   return (
-    <div id="memories" className={`${memoriesCSS.Memories_wrapper} section `}>
+    <div id="memories" className={`${memoriesCSS.Memories_wrapper} `}>
       <div className={memoriesCSS.MemoriesCard}>
         <img src={MemoriesImg1} alt="Memories-img" />
 

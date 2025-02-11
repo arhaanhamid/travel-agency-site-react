@@ -1,20 +1,20 @@
 import { useEffect, useRef } from "react";
 import styles from "./style.module.css";
-import { activitiesData } from "../../../assets/GlobalData";
+import packagesData from "../../../assets/GlobalData";
 import { useNavigate } from "react-router-dom";
 
-const Activities = () => {
+const PopularPackages = () => {
+  const navigate = useNavigate();
   const carouselRef = useRef(null);
   const sliderRef = useRef(null);
   const thumbnailRef = useRef(null);
   const nextButtonRef = useRef(null);
   const prevButtonRef = useRef(null);
 
-  const navigate = useNavigate();
   function handleNavigate(type) {
     type === "all"
-      ? navigate(`/services/activities`)
-      : navigate(`/services/activities/${type}`);
+      ? navigate(`/services/packages`)
+      : navigate(`/services/packages/${type}`);
   }
 
   useEffect(() => {
@@ -82,26 +82,26 @@ const Activities = () => {
       <div ref={carouselRef} className={`${styles.carousel}`}>
         {/* slider list */}
         <div ref={sliderRef} className={`${styles.list}`}>
-          {activitiesData.map((activity) => (
-            <div className={`${styles.item}`} key={activity.id}>
-              <img src={activity.images[0]} alt={activity.title} />
+          {packagesData.map((item) => (
+            <div className={`${styles.item}`} key={item.id}>
+              <img src={item.images[0]} alt={item.title} />
               <div className="absolute inset-0 bg-black opacity-30"></div>
-              <div className={`${styles.content}`}>
+              <div
+                className={`${styles.content} flex flex-col md:gap-2 pr-[30%] md:pl-10 lg:pl-28`}
+              >
                 <div className={`${styles.author} uppercase`}>
-                  {activity.location}
+                  {item.location}
                 </div>
-                <div className={`${styles.title} uppercase`}>
-                  {activity.title}
+                <div className={`${styles.title} uppercase md:text-5xl`}>
+                  {item.title}
                 </div>
-                <div className={`${styles.des} line-clamp-6`}>
-                  {activity.desc}
-                </div>
+                <div className={`${styles.des} line-clamp-6`}>{item.desc}</div>
                 <div className={`${styles.buttons}`}>
-                  <button onClick={() => handleNavigate(activity.id)}>
+                  <button onClick={() => handleNavigate(item.id)}>
                     View Details
                   </button>
                   <button onClick={() => handleNavigate("all")}>
-                    All Activities
+                    All Packages
                   </button>
                 </div>
               </div>
@@ -110,7 +110,7 @@ const Activities = () => {
         </div>
         {/* thumbnail list */}
         <div ref={thumbnailRef} className={`${styles.thumbnail}`}>
-          {activitiesData.map((activity) => (
+          {packagesData.map((activity) => (
             <div className={`${styles.item}`} key={activity.id}>
               <img src={activity.images[0]} alt={activity.title} />
               <div className={`${styles.content}`}>
@@ -137,4 +137,4 @@ const Activities = () => {
   );
 };
 
-export default Activities;
+export default PopularPackages;

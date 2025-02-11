@@ -8,7 +8,6 @@ a {
 /* carousel */
 .carousel {
   height: 100vh;
-  /* margin-top: 80px; */
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -31,10 +30,10 @@ a {
   position: absolute;
   top: 8%;
   width: 100%;
-  max-width: 80%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-right: 30%;
+  max-width: 90%;
+  /* padding: 0 20px 0 50px; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   box-sizing: border-box;
   color: #fff;
   text-shadow: 0 5px 10px #0004;
@@ -45,7 +44,7 @@ a {
 }
 .carousel .list .item .title,
 .carousel .list .item .topic {
-  font-size: 5em;
+  /* font-size: 5em; */
   font-weight: bold;
   line-height: 1em;
 }
@@ -131,10 +130,10 @@ a {
   /* width: 40px;
   height: 40px; */
   border-radius: 50%;
-  background-color: rgba(128, 128, 128, 0.705);
+  background-color: rgba(255, 255, 255, 0.8);
   /* border: 2px solid black; */
   border: none;
-  color: #fff;
+  color: rgb(100, 100, 100);
   font-family: monospace;
   font-weight: bold;
   transition: 300ms;
@@ -295,9 +294,15 @@ a {
     opacity: 0;
   }
 }
-@media screen and (max-width: 678px) {
+@media screen and (max-width: 768px) {
+  .carousel .list .item .buttons {
+    flex-direction: column;
+  }
   .carousel .list .item .content {
-    padding-right: 0;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   .carousel .list .item .content .title {
     font-size: 30px;

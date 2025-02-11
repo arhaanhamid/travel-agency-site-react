@@ -9,6 +9,7 @@ export default {
         fraunces: ["Fraunces", "serif"],
         nunito: ["Nunito", "serif"],
         poppins: ["Poppins", "serif"],
+        montserrat: ["Montserrat", "sans-serif"], // add this line
       },
     },
   },

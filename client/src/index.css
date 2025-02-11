@@ -61,12 +61,12 @@
 }
 
 button {
-  height: 42px;
+  /* height: 42px;
   width: 150px;
   border-radius: 30px;
   background: linear-gradient(270deg, rgb(255, 75, 55) rgb(156, 16, 0));
   color: #fff;
   border: none;
   font-size: 16px;
-  cursor: pointer;
+  cursor: pointer; */
 }

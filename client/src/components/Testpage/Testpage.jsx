@@ -1,210 +1,449 @@
-import { useEffect } from "react";
+import { useRef, useEffect } from "react";
 import styles from "./style.module.css";
-import img1 from "./image/img1.jpg";
-import img2 from "./image/img2.jpg";
-import img3 from "./image/img3.jpg";
-import img4 from "./image/img4.jpg";
+import img1 from "./images/img1.png";
+import img2 from "./images/img2.png";
+import img3 from "./images/img3.png";
+import img4 from "./images/img4.png";
+import img5 from "./images/img5.png";
+import img6 from "./images/img6.png";
 
 const Testpage = () => {
-  useEffect(() => {
-    const nextDom = document.getElementById("next");
-    const prevDom = document.getElementById("prev");
+  // References for carousel elements
+  const carouselRef = useRef(null);
+  const listRef = useRef(null);
+  const nextButtonRef = useRef(null);
+  const prevButtonRef = useRef(null);
+  const backButtonRef = useRef(null);
+  const unAcceptClickRef = useRef(null);
 
-    const carouselDom = document.querySelector(`.${styles.carousel}`);
-    if (!carouselDom) return;
+  // Function to perform the slide transition
+  const showSlider = (type) => {
+    // Disable the buttons until the animation is complete
+    if (nextButtonRef.current && prevButtonRef.current) {
+      nextButtonRef.current.style.pointerEvents = "none";
+      prevButtonRef.current.style.pointerEvents = "none";
+    }
+    const carousel = carouselRef.current;
+    const listHTML = listRef.current;
+    if (!carousel || !listHTML) return;
 
-    const sliderDom = carouselDom.querySelector(`.${styles.list}`);
-    const thumbnailBorderDom = document.querySelector(`.${styles.thumbnail}`);
-    const thumbnailItemsDom = thumbnailBorderDom.querySelectorAll(
-      `.${styles.item}`
-    );
+    // Remove any animation classes
+    carousel.classList.remove(styles.next, styles.prev);
 
-    // Initial setup: move the first thumbnail item to the end (or as required)
-    if (thumbnailItemsDom.length > 0) {
-      thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+    // Get all slide items by using the module’s item class
+    const items = listHTML.querySelectorAll(`.${styles.item}`);
+
+    if (type === "next") {
+      // Move the first slide to the end, then add the "next" class
+      listHTML.appendChild(items[0]);
+      carousel.classList.add(styles.next);
+    } else {
+      // Move the last slide to the beginning, then add the "prev" class
+      listHTML.prepend(items[items.length - 1]);
+      carousel.classList.add(styles.prev);
     }
 
-    let timeRunning = 3000;
-    let timeAutoNext = 700000;
-
-    let runTimeOut;
-    let runNextAuto = setTimeout(() => {
-      nextDom.click();
-    }, timeAutoNext);
-
-    // Function to show slider
-    function showSlider(type) {
-      const SliderItemsDom = sliderDom.querySelectorAll(`.${styles.item}`);
-      const thumbnailItemsDom = thumbnailBorderDom.querySelectorAll(
-        `.${styles.item}`
-      );
-
-      if (type === "next") {
-        sliderDom.appendChild(SliderItemsDom[0]);
-        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-        carouselDom.classList.add(styles.next); // If you need to animate, you might consider adding a CSS module class.
-      } else {
-        sliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
-        thumbnailBorderDom.prepend(
-          thumbnailItemsDom[thumbnailItemsDom.length - 1]
-        );
-        carouselDom.classList.add(styles.prev);
+    // Re-enable the buttons after 2000ms (as in your original code)
+    clearTimeout(unAcceptClickRef.current);
+    unAcceptClickRef.current = setTimeout(() => {
+      if (nextButtonRef.current && prevButtonRef.current) {
+        nextButtonRef.current.style.pointerEvents = "auto";
+        prevButtonRef.current.style.pointerEvents = "auto";
       }
-      clearTimeout(runTimeOut);
-      runTimeOut = setTimeout(() => {
-        carouselDom.classList.remove(styles.next);
-        carouselDom.classList.remove(styles.prev);
-      }, timeRunning);
+    }, 2000);
+  };
 
-      clearTimeout(runNextAuto);
-      runNextAuto = setTimeout(() => {
-        nextDom.click();
-      }, timeAutoNext);
-    }
+  // Called when a "SEE MORE" button is clicked
+  const handleSeeMore = () => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+    // Remove any slide animation classes and show details
+    carousel.classList.remove(styles.next, styles.prev);
+    carousel.classList.add(styles.showDetail);
+  };
 
-    // Attach event handlers
-    nextDom.onclick = function () {
-      showSlider("next");
-    };
+  // Called when the "See All" (back) button is clicked
+  const handleBack = () => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+    carousel.classList.remove(styles.showDetail);
+  };
 
-    prevDom.onclick = function () {
-      showSlider("prev");
-    };
-
-    // Cleanup timeouts when the component unmounts
+  // Clear timeout on unmount
+  useEffect(() => {
     return () => {
-      clearTimeout(runTimeOut);
-      clearTimeout(runNextAuto);
+      clearTimeout(unAcceptClickRef.current);
     };
-  }, []); // Empty dependency array ensures this runs once after mount
+  }, []);
 
   return (
-    <div className={`${styles.font_poppins} text-[12px]`}>
-      {/* carousel */}
-      <div className={`${styles.carousel}`}>
-        {/* list item */}
-        <div className={`${styles.list}`}>
-          <div className={`${styles.item}`}>
+    <>
+      {/* Header */}
+      <header className={styles.header}>
+        <div className={styles.logo}>Lundev</div>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/">Info</a>
+          <a href="/">Contact</a>
+        </nav>
+      </header>
+
+      {/* Carousel */}
+      <div ref={carouselRef} className={styles.carousel}>
+        <div ref={listRef} className={styles.list}>
+          {/* Slide Item 1 */}
+          <div className={styles.item}>
             <img src={img1} alt="img1" />
-            <div className={`${styles.content}`}>
-              <div className={`${styles.author}`}>LUNDEV</div>
-              <div className={`${styles.title}`}>DESIGN SLIDER</div>
-              <div className={`${styles.topic}`}>ANIMAL</div>
-              <div className={`${styles.des}`}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-                sequi, rem magnam nesciunt minima placeat, itaque eum neque
-                officiis unde, eaque optio ratione aliquid assumenda facere ab
-                et quasi ducimus aut doloribus non numquam. Explicabo,
-                laboriosam nisi reprehenderit tempora at laborum natus unde. Ut,
-                exercitationem eum aperiam illo illum laudantium?
+            <div className={styles.introduce}>
+              <div className={styles.title}>DESIGN SLIDER</div>
+              <div className={styles.topic}>Aerphone</div>
+              <div className={styles.des}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Officia, laborum cumque dignissimos quidem atque et eligendi
+                aperiam voluptates beatae maxime.
               </div>
-              <div className={`${styles.buttons}`}>
-                <button>SEE MORE</button>
-                <button>SUBSCRIBE</button>
+              <button className={styles.seeMore} onClick={handleSeeMore}>
+                SEE MORE &#8599;
+              </button>
+            </div>
+            <div className={styles.detail}>
+              <div className={styles.title}>Aerphone GHTK</div>
+              <div className={styles.des}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
+                reiciendis suscipit nobis nulla animi, modi explicabo quod
+                corrupti impedit illo, accusantium in eaque nam quia adipisci
+                aut distinctio porro eligendi. Reprehenderit nostrum
+                consequuntur ea! Accusamus architecto dolores modi ducimus
+                facilis quas voluptatibus! Tempora ratione accusantium magnam
+                nulla tenetur autem beatae.
+              </div>
+              <div className={styles.specifications}>
+                <div>
+                  <p>Used Time</p>
+                  <p>6 hours</p>
+                </div>
+                <div>
+                  <p>Charging port</p>
+                  <p>Type-C</p>
+                </div>
+                <div>
+                  <p>Compatible</p>
+                  <p>Android</p>
+                </div>
+                <div>
+                  <p>Bluetooth</p>
+                  <p>5.3</p>
+                </div>
+                <div>
+                  <p>Controlled</p>
+                  <p>Touch</p>
+                </div>
+              </div>
+              <div className={styles.checkout}>
+                <button>ADD TO CART</button>
+                <button>CHECKOUT</button>
               </div>
             </div>
           </div>
-          <div className={`${styles.item}`}>
+
+          {/* Slide Item 2 */}
+          <div className={styles.item}>
             <img src={img2} alt="img2" />
-            <div className={`${styles.content}`}>
-              <div className={`${styles.author}`}>LUNDEV</div>
-              <div className={`${styles.title}`}>DESIGN SLIDER</div>
-              <div className={`${styles.topic}`}>ANIMAL</div>
-              <div className={`${styles.des}`}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-                sequi, rem magnam nesciunt minima placeat, itaque eum neque
-                officiis unde, eaque optio ratione aliquid assumenda facere ab
-                et quasi ducimus aut doloribus non numquam. Explicabo,
-                laboriosam nisi reprehenderit tempora at laborum natus unde. Ut,
-                exercitationem eum aperiam illo illum laudantium?
+            <div className={styles.introduce}>
+              <div className={styles.title}>DESIGN SLIDER</div>
+              <div className={styles.topic}>Aerphone</div>
+              <div className={styles.des}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Officia, laborum cumque dignissimos quidem atque et eligendi
+                aperiam voluptates beatae maxime.
               </div>
-              <div className={`${styles.buttons}`}>
-                <button>SEE MORE</button>
-                <button>SUBSCRIBE</button>
+              <button className={styles.seeMore} onClick={handleSeeMore}>
+                SEE MORE &#8599;
+              </button>
+            </div>
+            <div className={styles.detail}>
+              <div className={styles.title}>Aerphone GHTK</div>
+              <div className={styles.des}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
+                reiciendis suscipit nobis nulla animi, modi explicabo quod
+                corrupti impedit illo, accusantium in eaque nam quia adipisci
+                aut distinctio porro eligendi. Reprehenderit nostrum
+                consequuntur ea! Accusamus architecto dolores modi ducimus
+                facilis quas voluptatibus! Tempora ratione accusantium magnam
+                nulla tenetur autem beatae.
+              </div>
+              <div className={styles.specifications}>
+                <div>
+                  <p>Used Time</p>
+                  <p>6 hours</p>
+                </div>
+                <div>
+                  <p>Charging port</p>
+                  <p>Type-C</p>
+                </div>
+                <div>
+                  <p>Compatible</p>
+                  <p>Android</p>
+                </div>
+                <div>
+                  <p>Bluetooth</p>
+                  <p>5.3</p>
+                </div>
+                <div>
+                  <p>Controlled</p>
+                  <p>Touch</p>
+                </div>
+              </div>
+              <div className={styles.checkout}>
+                <button>ADD TO CART</button>
+                <button>CHECKOUT</button>
               </div>
             </div>
           </div>
-          <div className={`${styles.item}`}>
+
+          {/* Slide Item 3 */}
+          <div className={styles.item}>
             <img src={img3} alt="img3" />
-            <div className={`${styles.content}`}>
-              <div className={`${styles.author}`}>LUNDEV</div>
-              <div className={`${styles.title}`}>DESIGN SLIDER</div>
-              <div className={`${styles.topic}`}>ANIMAL</div>
-              <div className={`${styles.des}`}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-                sequi, rem magnam nesciunt minima placeat, itaque eum neque
-                officiis unde, eaque optio ratione aliquid assumenda facere ab
-                et quasi ducimus aut doloribus non numquam. Explicabo,
-                laboriosam nisi reprehenderit tempora at laborum natus unde. Ut,
-                exercitationem eum aperiam illo illum laudantium?
+            <div className={styles.introduce}>
+              <div className={styles.title}>DESIGN SLIDER</div>
+              <div className={styles.topic}>Aerphone</div>
+              <div className={styles.des}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Officia, laborum cumque dignissimos quidem atque et eligendi
+                aperiam voluptates beatae maxime.
               </div>
-              <div className={`${styles.buttons}`}>
-                <button>SEE MORE</button>
-                <button>SUBSCRIBE</button>
+              <button className={styles.seeMore} onClick={handleSeeMore}>
+                SEE MORE &#8599;
+              </button>
+            </div>
+            <div className={styles.detail}>
+              <div className={styles.title}>Aerphone GHTK</div>
+              <div className={styles.des}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
+                reiciendis suscipit nobis nulla animi, modi explicabo quod
+                corrupti impedit illo, accusantium in eaque nam quia adipisci
+                aut distinctio porro eligendi. Reprehenderit nostrum
+                consequuntur ea! Accusamus architecto dolores modi ducimus
+                facilis quas voluptatibus! Tempora ratione accusantium magnam
+                nulla tenetur autem beatae.
+              </div>
+              <div className={styles.specifications}>
+                <div>
+                  <p>Used Time</p>
+                  <p>6 hours</p>
+                </div>
+                <div>
+                  <p>Charging port</p>
+                  <p>Type-C</p>
+                </div>
+                <div>
+                  <p>Compatible</p>
+                  <p>Android</p>
+                </div>
+                <div>
+                  <p>Bluetooth</p>
+                  <p>5.3</p>
+                </div>
+                <div>
+                  <p>Controlled</p>
+                  <p>Touch</p>
+                </div>
+              </div>
+              <div className={styles.checkout}>
+                <button>ADD TO CART</button>
+                <button>CHECKOUT</button>
               </div>
             </div>
           </div>
-          <div className={`${styles.item}`}>
+
+          {/* Slide Item 4 */}
+          <div className={styles.item}>
             <img src={img4} alt="img4" />
-            <div className={`${styles.content}`}>
-              <div className={`${styles.author}`}>LUNDEV</div>
-              <div className={`${styles.title}`}>DESIGN SLIDER</div>
-              <div className={`${styles.topic}`}>ANIMAL</div>
-              <div className={`${styles.des}`}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-                sequi, rem magnam nesciunt minima placeat, itaque eum neque
-                officiis unde, eaque optio ratione aliquid assumenda facere ab
-                et quasi ducimus aut doloribus non numquam. Explicabo,
-                laboriosam nisi reprehenderit tempora at laborum natus unde. Ut,
-                exercitationem eum aperiam illo illum laudantium?
+            <div className={styles.introduce}>
+              <div className={styles.title}>DESIGN SLIDER</div>
+              <div className={styles.topic}>Aerphone</div>
+              <div className={styles.des}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Officia, laborum cumque dignissimos quidem atque et eligendi
+                aperiam voluptates beatae maxime.
               </div>
-              <div className={`${styles.buttons}`}>
-                <button>SEE MORE</button>
-                <button>SUBSCRIBE</button>
+              <button className={styles.seeMore} onClick={handleSeeMore}>
+                SEE MORE &#8599;
+              </button>
+            </div>
+            <div className={styles.detail}>
+              <div className={styles.title}>Aerphone GHTK</div>
+              <div className={styles.des}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
+                reiciendis suscipit nobis nulla animi, modi explicabo quod
+                corrupti impedit illo, accusantium in eaque nam quia adipisci
+                aut distinctio porro eligendi. Reprehenderit nostrum
+                consequuntur ea! Accusamus architecto dolores modi ducimus
+                facilis quas voluptatibus! Tempora ratione accusantium magnam
+                nulla tenetur autem beatae.
+              </div>
+              <div className={styles.specifications}>
+                <div>
+                  <p>Used Time</p>
+                  <p>6 hours</p>
+                </div>
+                <div>
+                  <p>Charging port</p>
+                  <p>Type-C</p>
+                </div>
+                <div>
+                  <p>Compatible</p>
+                  <p>Android</p>
+                </div>
+                <div>
+                  <p>Bluetooth</p>
+                  <p>5.3</p>
+                </div>
+                <div>
+                  <p>Controlled</p>
+                  <p>Touch</p>
+                </div>
+              </div>
+              <div className={styles.checkout}>
+                <button>ADD TO CART</button>
+                <button>CHECKOUT</button>
+              </div>
+            </div>
+          </div>
+
+          {/* Slide Item 5 */}
+          <div className={styles.item}>
+            <img src={img5} alt="img5" />
+            <div className={styles.introduce}>
+              <div className={styles.title}>DESIGN SLIDER</div>
+              <div className={styles.topic}>Aerphone</div>
+              <div className={styles.des}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Officia, laborum cumque dignissimos quidem atque et eligendi
+                aperiam voluptates beatae maxime.
+              </div>
+              <button className={styles.seeMore} onClick={handleSeeMore}>
+                SEE MORE &#8599;
+              </button>
+            </div>
+            <div className={styles.detail}>
+              <div className={styles.title}>Aerphone GHTK</div>
+              <div className={styles.des}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
+                reiciendis suscipit nobis nulla animi, modi explicabo quod
+                corrupti impedit illo, accusantium in eaque nam quia adipisci
+                aut distinctio porro eligendi. Reprehenderit nostrum
+                consequuntur ea! Accusamus architecto dolores modi ducimus
+                facilis quas voluptatibus! Tempora ratione accusantium magnam
+                nulla tenetur autem beatae.
+              </div>
+              <div className={styles.specifications}>
+                <div>
+                  <p>Used Time</p>
+                  <p>6 hours</p>
+                </div>
+                <div>
+                  <p>Charging port</p>
+                  <p>Type-C</p>
+                </div>
+                <div>
+                  <p>Compatible</p>
+                  <p>Android</p>
+                </div>
+                <div>
+                  <p>Bluetooth</p>
+                  <p>5.3</p>
+                </div>
+                <div>
+                  <p>Controlled</p>
+                  <p>Touch</p>
+                </div>
+              </div>
+              <div className={styles.checkout}>
+                <button>ADD TO CART</button>
+                <button>CHECKOUT</button>
+              </div>
+            </div>
+          </div>
+
+          {/* Slide Item 6 */}
+          <div className={styles.item}>
+            <img src={img6} alt="img6" />
+            <div className={styles.introduce}>
+              <div className={styles.title}>DESIGN SLIDER</div>
+              <div className={styles.topic}>Aerphone</div>
+              <div className={styles.des}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Officia, laborum cumque dignissimos quidem atque et eligendi
+                aperiam voluptates beatae maxime.
+              </div>
+              <button className={styles.seeMore} onClick={handleSeeMore}>
+                SEE MORE &#8599;
+              </button>
+            </div>
+            <div className={styles.detail}>
+              <div className={styles.title}>Aerphone GHTK</div>
+              <div className={styles.des}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
+                reiciendis suscipit nobis nulla animi, modi explicabo quod
+                corrupti impedit illo, accusantium in eaque nam quia adipisci
+                aut distinctio porro eligendi. Reprehenderit nostrum
+                consequuntur ea! Accusamus architecto dolores modi ducimus
+                facilis quas voluptatibus! Tempora ratione accusantium magnam
+                nulla tenetur autem beatae.
+              </div>
+              <div className={styles.specifications}>
+                <div>
+                  <p>Used Time</p>
+                  <p>6 hours</p>
+                </div>
+                <div>
+                  <p>Charging port</p>
+                  <p>Type-C</p>
+                </div>
+                <div>
+                  <p>Compatible</p>
+                  <p>Android</p>
+                </div>
+                <div>
+                  <p>Bluetooth</p>
+                  <p>5.3</p>
+                </div>
+                <div>
+                  <p>Controlled</p>
+                  <p>Touch</p>
+                </div>
+              </div>
+              <div className={styles.checkout}>
+                <button>ADD TO CART</button>
+                <button>CHECKOUT</button>
               </div>
             </div>
           </div>
         </div>
-        {/* list thumbnail */}
-        <div className={`${styles.thumbnail}`}>
-          <div className={`${styles.item}`}>
-            <img src={img1} alt="img1 thumbnail" />
-            <div className={`${styles.content}`}>
-              <div className={`${styles.title}`}>Name Slider</div>
-              <div className={`${styles.description}`}>Description</div>
-            </div>
-          </div>
-          <div className={`${styles.item}`}>
-            <img src={img2} alt="img2 thumbnail" />
-            <div className={`${styles.content}`}>
-              <div className={`${styles.title}`}>Name Slider</div>
-              <div className={`${styles.description}`}>Description</div>
-            </div>
-          </div>
-          <div className={`${styles.item}`}>
-            <img src={img3} alt="img3 thumbnail" />
-            <div className={`${styles.content}`}>
-              <div className={`${styles.title}`}>Name Slider</div>
-              <div className={`${styles.description}`}>Description</div>
-            </div>
-          </div>
-          <div className={`${styles.item}`}>
-            <img src={img4} alt="img4 thumbnail" />
-            <div className={`${styles.content}`}>
-              <div className={`${styles.title}`}>Name Slider</div>
-              <div className={`${styles.description}`}>Description</div>
-            </div>
-          </div>
+
+        {/* Navigation arrows */}
+        <div className={styles.arrows}>
+          <button
+            id="prev"
+            ref={prevButtonRef}
+            onClick={() => showSlider("prev")}
+          >
+            {"<"}
+          </button>
+          <button
+            id="next"
+            ref={nextButtonRef}
+            onClick={() => showSlider("next")}
+          >
+            {">"}
+          </button>
+          <button id="back" ref={backButtonRef} onClick={handleBack}>
+            See All &#8599;
+          </button>
         </div>
-        {/* next/prev */}
-        <div className={`${styles.arrows}`}>
-          <button id="prev">-</button>
-          <button id="next">+</button>
-        </div>
-        {/* time running */}
-        <div className={`${styles.time}`}></div>
       </div>
-    </div>
+    </>
   );
 };
 
