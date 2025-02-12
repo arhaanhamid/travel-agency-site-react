@@ -79,13 +79,15 @@ function Footer() {
   ];
 
   return (
-    <footer className="footer pt-5 bg-stone-900 text-stone-100">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 py-6 sm:py-8 lg:py-12">
+    <footer className="footer bg-stone-900 text-stone-100">
+      <div className="mx-auto md:mx-10 lg:mx-16 max-w-7xl px-2 sm:px-6 py-4 sm:py-6 md:py-10">
         {/* Main Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 sm:gap-5 ">
+        <div className="md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-1 sm:gap-5 md:gap-20 ">
           {/* Section 1: Destinations */}
-          <div>
-            <h2 className="font-bold lg:font-extrabold mb-2">Destinations</h2>
+          <div className="hidden md:flex md:flex-col">
+            <h2 className="uppercase font-montserrat font-bold lg:font-semibold lg:text-[13px] tracking-[1px] text-lg mb-2 md:mb-3 lg:mb-5">
+              Destinations
+            </h2>
             <ul className="space-y-2">
               <li>Gulmarg</li>
               <li>Sonmarg</li>
@@ -95,8 +97,8 @@ function Footer() {
           </div>
 
           {/* Section 2: Tailored Experience */}
-          <div>
-            <h2 className="font-bold lg:font-extrabold text-lg mb-2">
+          <div className="hidden md:flex md:flex-col">
+            <h2 className="uppercase font-montserrat font-bold lg:font-semibold lg:text-[13px] tracking-[1px] text-lg mb-2 md:mb-3 lg:mb-5">
               Tailored Experience
             </h2>
             <ul className="space-y-2 text-sm">
@@ -110,8 +112,8 @@ function Footer() {
           </div>
 
           {/* Section 3: Private Rentals */}
-          <div>
-            <h2 className="font-bold lg:font-extrabold text-lg mb-2">
+          <div className="hidden md:flex md:flex-col">
+            <h2 className="uppercase font-montserrat font-bold lg:font-semibold lg:text-[13px] tracking-[1px] text-lg mb-2 md:mb-3 lg:mb-5">
               Private Rentals
             </h2>
             <ul className="space-y-2 text-sm">
@@ -121,23 +123,31 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Section 4: About & Contact */}
-          <div>
-            <h2 className="font-bold lg:font-extrabold text-lg mb-2">
+          {/* Section 4: About */}
+          <div className="hidden md:flex md:flex-col">
+            <h2 className="uppercase font-montserrat font-bold lg:font-semibold lg:text-[13px] tracking-[1px] text-lg mb-2 md:mb-3 lg:mb-5">
               About Us
             </h2>
-            <img src={logo} alt="logo" className="h-10 mb-4 sm:h-16" />
             <ul className="space-y-2 text-sm">
               <li>Why choose us?</li>
               <li>Our Team</li>
               <li>Work with us</li>
             </ul>
-            <address className="not-italic text-sm mt-5">
-              <p>info@achievementtravels.com</p>
-              <p>US Toll Free: +1-800-894-9762</p>
-              <p>Australia Toll Free: +800-704-042</p>
-              <p>Ireland: +353-1-288-4255</p>
-            </address>
+          </div>
+
+          {/* Section 5: About & Contact */}
+          <div className="flex flex-col items-center text-center md:items-start md:text-start md:row-start-1 md:col-start-3 xl:col-start-5">
+            <img
+              src={logo}
+              alt="logo"
+              className="h-16 sm:h-20 mb-5 md:h-16 md:mb-4 "
+            />
+            <ul className="space-y-2 text-sm">
+              <li>info@achievementtravels.com</li>
+              <li>US Toll Free: +1-800-894-9762</li>
+              <li>Australia Toll Free: +800-704-042</li>
+              <li>Ireland: +353-1-288-4255</li>
+            </ul>
           </div>
         </div>
 

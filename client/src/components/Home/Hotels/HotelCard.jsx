@@ -42,7 +42,7 @@ const HotelCard = ({ hotel }) => {
           >
             Discover hotel
           </div>
-          <div
+          {/* <div
             className={`flex flex-col items-center justify-between lg:py-2 h-full`}
           >
             <span className="text-[12px] lg:text-[10px] xl:text-[12px] uppercase">
@@ -54,7 +54,7 @@ const HotelCard = ({ hotel }) => {
                 NIGHT
               </small>
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

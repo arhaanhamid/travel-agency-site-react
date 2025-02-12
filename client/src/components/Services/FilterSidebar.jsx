@@ -131,7 +131,9 @@ const FilterSidebar = ({
         className={`${styles.bars} flex items-center justify-center md:hidden`}
         onClick={menuHandler}
       >
-        +
+        <i
+          className={`ri-arrow-right-wide-line text-lg md:text-xl ${isSidebarActive && "rotate-180"}`}
+        ></i>
       </div>
 
       {/* Filter Menu Sidebar*/}

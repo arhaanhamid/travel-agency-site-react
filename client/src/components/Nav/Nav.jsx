@@ -1,25 +1,57 @@
-import React, { useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import navCSS from "./nav.module.css";
-import { Link, useLocation } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "./../../assets/logo.png";
+import Dropdown from "./Dropdown";
+import packagesData from "../../assets/GlobalData";
 
 function Nav() {
+  const navigate = useNavigate();
   const location = useLocation();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState({
+    services: false,
+    destinations: false,
+  });
+
+  useEffect(() => {
+    // Remove the activeMenu class if it exists
+    if (menu.current && menu.current.classList.contains(navCSS.activeMenu)) {
+      menu.current.classList.remove(navCSS.activeMenu);
+    }
+  }, [location]);
 
   const menu = useRef();
   const menuHandler = () => {
     menu.current.classList.toggle(navCSS.activeMenu);
   };
 
-  const dropdownItems = [
+  const services = [
     { name: "Hotels", to: "/services/hotels" },
     { name: "Houseboats", to: "/services/boats" },
     { name: "Transport", to: "/services/cars" },
     { name: "Activities", to: "/services/activities" },
   ];
+
+  const destinations = useMemo(() => {
+    if (packagesData.length > 0) {
+      const loc_address = packagesData.map((item) => {
+        return (
+          item.location && {
+            name: item.location,
+            to: `services/packages?loc=${item.location}`,
+          }
+        );
+      });
+      return loc_address;
+    }
+    return [];
+  }, [packagesData]);
+
+  function navigateContact() {
+    navigate("/contact");
+  }
+
   return (
     <div
       className={`navbar ${navCSS.Nav_wrapper} ${location.pathname === "/" ? "bg-[rgba(0,0,0,0.3)] text-white" : "bg-white text-gray-500"}`}
@@ -37,86 +69,45 @@ function Nav() {
           </Link>
         </li>
         <li>
-          <HashLink smooth to="/#popular_trips" onClick={menuHandler}>
-            Popular Trips
-          </HashLink>
-        </li>
-        <li>
-          <HashLink smooth to="/#memories" onClick={menuHandler}>
-            Memories
-          </HashLink>
-        </li>
-        <li>
           <Link to="/services/packages" onClick={menuHandler}>
             Packages
           </Link>
         </li>
+        <li>
+          <Dropdown
+            isOpen={isOpen.destinations}
+            setIsOpen={setIsOpen}
+            menuHandler={menuHandler}
+            dropdownItems={destinations}
+            name={"destinations"}
+          />
+        </li>
 
         <li>
-          <div
-            className={`${navCSS.dropdown} relative flex hover:min-h-screen flex-col justify-center overflow-visible py-6 sm:py-12`}
-          >
-            <div className="relative w-full items-center max-w-screen-sm">
-              <div
-                id="bouton"
-                className="relative group  w-[100px]"
-                onMouseEnter={() => setIsOpen(true)}
-                onMouseLeave={() => setIsOpen(false)}
-              >
-                <a className="relative flex items-center gap-1 cursor-pointer">
-                  Services
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className={` w-3 h-3 lg:w-4 lg:h-4 ${isOpen ? "rotate-90" : ""}`}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                    />
-                  </svg>
-                </a>
-
-                <div
-                  className={`absolute left-[-20%] top-full mt-0.5 min-w-full bg-white border border-gray-200 shadow-lg flex flex-col transition-opacity duration-300 ease-in-out ${
-                    isOpen
-                      ? "opacity-100 pointer-events-auto"
-                      : "opacity-0 pointer-events-none"
-                  }`}
-                >
-                  {dropdownItems.map((item, index) => (
-                    <React.Fragment key={index}>
-                      <Link
-                        className="block w-full px-4 py-2"
-                        to={item.to}
-                        onClick={menuHandler}
-                      >
-                        <span className="text-[15px] text-gray-600">
-                          {item.name}
-                        </span>
-                      </Link>
-                      {index !== dropdownItems.length - 1 && (
-                        <hr className="border-gray-200" />
-                      )}
-                    </React.Fragment>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+          <Dropdown
+            isOpen={isOpen.services}
+            setIsOpen={setIsOpen}
+            menuHandler={menuHandler}
+            dropdownItems={services}
+            name={"services"}
+          />
+        </li>
+        <li>
+          <Link to="/about" onClick={menuHandler}>
+            About Us
+          </Link>
         </li>
       </ul>
 
       <div className={navCSS.nav_btns}>
         <div
-          className={`${navCSS.CallBtn} hidden sm:flex sm:flex-col lg:flex-row items-center gap-0 lg:gap-2 text-center text-[12px] lg:text-[14px] font-bold`}
+          className={`${navCSS.CallBtn} flex md:flex-col lg:flex-row items-center text-center gap-2 md:gap-0 lg:gap-2 font-semibold  cursor-pointer hover:scale-110 transition-all duration-300`}
+          onClick={navigateContact}
         >
           <i className="ri-phone-line"></i>
-          Contact Us
+          <span className="hidden sm:flex text-[14px] md:text-[12px]">
+            Contact Us
+          </span>
         </div>
         <i
           className="ri-menu-2-line"

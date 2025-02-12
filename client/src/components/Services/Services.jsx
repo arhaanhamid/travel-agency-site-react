@@ -147,7 +147,7 @@ const Services = ({ data, defaultLoc = "" }) => {
           ></i>
         )}
       </div>
-      <div className="border-b-2 border-gray-300 md:mt-10 md:mb-3 "> </div>
+      <div className="border-b-2 border-gray-300 mt-10 mb-5 md:mb-3 "> </div>
       {/* Filter Sidebar and Grid Items */}
       <div className="flex flex-row lg:gap-10">
         <div className="md:w-[30%] lg:w-[25%] xl:w-[18%]">
@@ -199,10 +199,10 @@ const Services = ({ data, defaultLoc = "" }) => {
                   </p>
 
                   <div
-                    className={`flex justify-between items-end mt-5 h-[50px]`}
+                    className={`flex items-center justify-center mt-5 h-[50px]`}
                   >
                     <div
-                      className={`flex items-center justify-center font-bold bg-transparent border-2 border-[#4a4a7d] rounded-full text-[0.8rem] h-[40px] py-1 px-2 sm:h-[50px] sm:text-[1rem] md:text-[0.8rem] lg:px-2 lg:h-[45px] xl:h-[50px] xl:px-4 sm:px-4 hover:bg-[#4a4a7d] text-[#4a4a7d] hover:text-white transition duration-300 cursor-pointer`}
+                      className={`w-full flex items-center justify-center font-bold bg-transparent border-2 border-[#4a4a7d] rounded-full text-[0.8rem] h-[40px] py-1 px-2 sm:h-[50px] sm:text-[1rem] md:text-[0.8rem] lg:px-2 lg:h-[45px] xl:h-[50px] xl:px-4 sm:px-4 hover:bg-[#4a4a7d] text-[#4a4a7d] hover:text-white transition duration-300 cursor-pointer`}
                       onClick={() => handleMoreDetails(item.id)}
                     >
                       {activePage == "packages" && "Discover Trip"}
@@ -211,7 +211,7 @@ const Services = ({ data, defaultLoc = "" }) => {
                       {activePage == "cars" && "Discover Car"}
                       {activePage == "activities" && "Discover Activity"}
                     </div>
-                    <div
+                    {/* <div
                       className={`flex flex-col items-center justify-between h-full text-base `}
                     >
                       <span className="text-[12px] xs:text-xs font-medium text-[#4a4a7d] uppercase">
@@ -226,7 +226,7 @@ const Services = ({ data, defaultLoc = "" }) => {
                           {activePage == "cars" && ""}
                         </small>
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </Suspense>

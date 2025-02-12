@@ -6,6 +6,8 @@ import ScrollToTop from "./ScrollToTop";
 import Testpage from "./components/Testpage/Testpage";
 
 const Home = lazy(() => import("./components/Home/Home"));
+const About = lazy(() => import("./components/About/About"));
+const Contact = lazy(() => import("./components/Contact/Contact"));
 const LoadingPage = lazy(() => import("./LoadingPage"));
 const PackageDetailPage = lazy(
   () => import("./components/Services/DetailPages/PackageDetailPage")
@@ -34,6 +36,8 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/services/:type" element={<ServicesPage />} />
           <Route
             path="/services/packages/:packageId"
