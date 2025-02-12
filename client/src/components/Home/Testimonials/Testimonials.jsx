@@ -14,7 +14,7 @@ const Testimonials = () => {
     setTestimonials(testimonialsData); // Force state update to trigger re-render
   }, []);
   return (
-    <section className="testimonials relative bg-gray-200 pb-32 sm:px-10 md:px-16 lg:px-36 xl:px-80">
+    <section className="testimonials relative  pb-32 sm:px-10 md:px-16 lg:px-36 xl:px-80">
       <h1 className="text-[30px] md:text-[40px] xl:text-[50px] text-center text-blue-500">
         What our clients say
       </h1>

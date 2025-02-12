@@ -127,9 +127,9 @@ const Services = ({ data, defaultLoc = "" }) => {
   }
 
   return (
-    <div className="flex flex-col w-auto py-[120px] mx-auto gap-10">
+    <div className="flex flex-col w-auto py-[120px] mx-auto">
       {/* Search Input */}
-      <div className="flex items-center bg-stone-200 border rounded-lg overflow-hidden flex-1 md:w-[70%] xl:w-[50%] mx-auto">
+      <div className="flex items-center bg-white border rounded-lg overflow-hidden flex-1 md:w-[70%] xl:w-[50%] mx-auto">
         <input
           placeholder="Search..."
           className="bg-transparent h-10 sm:h-12 px-3 sm:px-4 py-1 sm:py-2 w-full text-black text-sm sm:text-base placeholder-gray-400 outline-none"
@@ -147,7 +147,7 @@ const Services = ({ data, defaultLoc = "" }) => {
           ></i>
         )}
       </div>
-      <hr className="h-1 bg-gray-100" />
+      <div className="border-b-2 border-gray-300 md:mt-10 md:mb-3 "> </div>
       {/* Filter Sidebar and Grid Items */}
       <div className="flex flex-row lg:gap-10">
         <div className="md:w-[30%] lg:w-[25%] xl:w-[18%]">

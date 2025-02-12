@@ -97,11 +97,17 @@ const Activities = () => {
                   {activity.desc}
                 </div>
                 <div className={`${styles.buttons}`}>
-                  <button onClick={() => handleNavigate(activity.id)}>
+                  <button
+                    onClick={() => handleNavigate(activity.id)}
+                    className="px-2 py-1 md:px-4 md:py-2 font-semibold uppercase text-xs max-w-[150px]"
+                  >
                     View Details
                   </button>
-                  <button onClick={() => handleNavigate("all")}>
-                    All Activities
+                  <button
+                    onClick={() => handleNavigate("all")}
+                    className="px-2 py-1 md:px-4 md:py-2 font-semibold uppercase text-xs max-w-[150px]"
+                  >
+                    All Packages
                   </button>
                 </div>
               </div>

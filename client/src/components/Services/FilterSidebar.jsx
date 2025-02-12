@@ -137,7 +137,7 @@ const FilterSidebar = ({
       {/* Filter Menu Sidebar*/}
       <div
         ref={filterMenu}
-        className={`${styles.filterMenu} border-2 md:border-gray-300  rounded-[5px] md:min-w-full md:p-5`}
+        className={`${styles.filterMenu} border-r-2 md:border-gray-300 rounded-[5px] md:min-w-full md:p-5`}
       >
         {/* Header */}
         <div className="flex justify-between items-center">

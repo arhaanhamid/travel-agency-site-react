@@ -63,7 +63,7 @@ const Boats = () => {
   }, []);
 
   return (
-    <div ref={carouselRef} className={`${styles.carousel}`}>
+    <div ref={carouselRef} className={`${styles.carousel} xl:py-20`}>
       <div ref={listRef} className={styles.list}>
         {boatsData.map((boat) => (
           <div className={`${styles.item} `} key={boat.id}>

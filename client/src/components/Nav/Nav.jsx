@@ -56,7 +56,7 @@ function Nav() {
           <div
             className={`${navCSS.dropdown} relative flex hover:min-h-screen flex-col justify-center overflow-visible py-6 sm:py-12`}
           >
-            <div className="relative w-full items-center mx-auto max-w-screen-sm">
+            <div className="relative w-full items-center max-w-screen-sm">
               <div
                 id="bouton"
                 className="relative group  w-[100px]"
@@ -82,12 +82,16 @@ function Nav() {
                 </a>
 
                 <div
-                  className={`absolute bg-white my-0.5 border-2 rounded-lg px-2 py-1 opacity-0 hidden flex-col group-hover:flex group-hover:opacity-100 max-h-60 overflow-y-auto ${isOpen ? "opacity-100 flex" : "opacity-0 hidden"}`}
+                  className={`absolute left-[-20%] top-full mt-0.5 min-w-full bg-white border border-gray-200 shadow-lg flex flex-col transition-opacity duration-300 ease-in-out ${
+                    isOpen
+                      ? "opacity-100 pointer-events-auto"
+                      : "opacity-0 pointer-events-none"
+                  }`}
                 >
                   {dropdownItems.map((item, index) => (
                     <React.Fragment key={index}>
                       <Link
-                        className="px-2 py-2"
+                        className="block w-full px-4 py-2"
                         to={item.to}
                         onClick={menuHandler}
                       >
@@ -96,7 +100,7 @@ function Nav() {
                         </span>
                       </Link>
                       {index !== dropdownItems.length - 1 && (
-                        <hr className="border-gray-600" />
+                        <hr className="border-gray-200" />
                       )}
                     </React.Fragment>
                   ))}

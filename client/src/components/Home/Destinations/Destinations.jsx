@@ -14,11 +14,11 @@ function Destinations() {
   }
 
   return (
-    <div className="w-full flex flex-col gap-7 px-[0%] sm:px-[4%] md:px-[8%]">
+    <div className="w-full h-screen flex flex-col">
       <div
-        className={`relative h-[300px] sm:h-[480px] w-full flex justify-start items-center p-6 sm:p-14 rounded-none sm:rounded-[18px] overflow-hidden ${styles.imageContainer}`}
+        className={`relative h-[480px] sm:h-[500px] xl:h-[550px] w-full flex justify-start items-center p-6 sm:p-14 overflow-hidden ${styles.imageContainer}`}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-40 rounded-[18px]"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <h2 className="font-montserrat relative text-white text-2xl sm:text-3xl md:text-4xl leading-[40px] sm:leading-[60px]  md:leading-[75px]">
           Explore The World, <br /> One Unforgettable Journey
         </h2>
@@ -31,7 +31,7 @@ function Destinations() {
         loop={true}
         autoplay={{ delay: 1500 }}
         modules={[Autoplay]}
-        className="w-[80%] md:w-[90%] -mt-20 md:-mt-28"
+        className="w-[80%] md:w-[70%] -mt-20 md:-mt-28"
         breakpoints={{
           0: {
             slidesPerView: 1,
@@ -51,7 +51,7 @@ function Destinations() {
           return (
             <SwiperSlide key={item.id}>
               <div
-                className={`${styles.slide} p-2 bg-white`}
+                className={`${styles.slide} p-2 bg-white overflow-hidden`}
                 onClick={() => handleNavigate(item)}
               >
                 <img
