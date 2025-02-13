@@ -4,6 +4,7 @@ import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./ScrollToTop";
 import Testpage from "./components/Testpage/Testpage";
+import FixedComponents from "./FixedComponents";
 
 const Home = lazy(() => import("./components/Home/Home"));
 const About = lazy(() => import("./components/About/About"));
@@ -57,6 +58,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />
+        <FixedComponents />
       </Suspense>
     </Router>
   );

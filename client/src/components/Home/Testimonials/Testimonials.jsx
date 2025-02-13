@@ -7,14 +7,20 @@ import { testimonialsData } from "./../../../assets/GlobalData";
 import { useEffect, useState } from "react";
 import { LeftSwiperArrow } from "./../../UIComponents/UIComponents";
 import { RightSwiperArrow } from "./../../UIComponents/UIComponents";
+import { useLocation } from "react-router-dom";
 
 const Testimonials = () => {
+  const location = useLocation();
+  const contactPadding = "mt-10 md:mt-20 sm:px-2 md:px-4 lg:px-8 xl:px-28";
+
   const [testimonials, setTestimonials] = useState([]);
   useEffect(() => {
     setTestimonials(testimonialsData); // Force state update to trigger re-render
   }, []);
   return (
-    <section className="testimonials relative  pb-32 sm:px-10 md:px-16 lg:px-36 xl:px-80">
+    <section
+      className={`testimonials relative pb-32 ${location.pathname === "/contact" ? contactPadding : "sm:px-10 md:px-16 lg:px-36 xl:px-80"}`}
+    >
       <h1 className="text-[30px] md:text-[40px] xl:text-[50px] text-center text-blue-500">
         What our clients say
       </h1>
