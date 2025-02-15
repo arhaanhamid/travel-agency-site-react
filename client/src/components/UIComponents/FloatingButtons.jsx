@@ -1,9 +1,9 @@
-const FixedComponents = () => {
+const FloatingButtons = () => {
   const phoneNumber = +911234657890;
   return (
     <section>
       {/* Social Links */}
-      <div className="floatingButtons fixed right-0 top-1/2 transform -translate-y-1/2 space-y-4">
+      <div className="floatingButtons fixed right-0 top-[30%] transform -translate-y-1/2 space-y-4">
         <a
           href={`https://wa.me/${phoneNumber}`}
           target="_blank"
@@ -23,4 +23,4 @@ const FixedComponents = () => {
   );
 };
 
-export default FixedComponents;
+export default FloatingButtons;

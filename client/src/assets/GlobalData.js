@@ -73,6 +73,9 @@ import hotel_g_02 from "./hotels/hotel_g_02.png";
 import hotel_g_03 from "./hotels/hotel_g_03.png";
 import hotel_g_04 from "./hotels/hotel_g_04.png";
 import hotel_g_05 from "./hotels/hotel_g_05.png";
+import team01 from "./team01.jpg";
+import team02 from "./team02.jpg";
+import team03 from "./team03.jpg";
 
 export const iconsData = {
   sightseeing: "ri-glasses-line",
@@ -920,5 +923,48 @@ activities that were perfect and so well suited for our family. Everything was
 absolutely flawless. We loved our driver John so much and would highly
 recommend him. I also appreciated the quick responses from you / your team
 anytime we had a question.`,
+  },
+];
+
+export const teamsData = [
+  {
+    id: 1,
+    name: "Arhaan Hameed",
+    title: "CEO",
+    image: team01,
+    desc: `I just wanted to thank you for planning the most spectacular trip to Ireland. As you
+            know, this was a very special trip for my family and it truly could not have went
+            better! You not only kept us within budget, you provided accommodations and
+            activities that were perfect and so well suited for our family. Everything was
+            absolutely flawless. We loved our driver John so much and would highly
+            recommend him. I also appreciated the quick responses from you / your team
+            anytime we had a question.`,
+  },
+
+  {
+    id: 2,
+    name: "Muneer Sheikh",
+    title: "CTO",
+    image: team02,
+    desc: `It was a wonderful trip, we all loved Scotland, and Fiona!
+          Thank you for everything, it was perfectly planned, and
+          timed!!`,
+  },
+  {
+    id: 3,
+    name: "Adil Bashir",
+    title: "Graphic Designer",
+    image: team03,
+    desc: `I had a lovely conversation with Mr. Eisenhart, and he
+            couldn't say enough about how wonderful their trip was. They
+            were very pleased with their guide in Ireland, Bill. They said
+            that he was absolutely wonderful. They said that their
+            full-day Connemara music tour was outstanding. Highlight of
+            the trip. Their guide for their walking tour in Dublin,
+            Frankie, was very good—particularly with engaging the kids.
+            They all really enjoyed the bike ride, falconry, and the
+            surfing lesson. Thank you so much for your help in putting
+            this trip together. Mr. Eisenhart really couldn't stop gushing
+            about how this was a trip of a lifetime.`,
   },
 ];
