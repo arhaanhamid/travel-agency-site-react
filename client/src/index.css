@@ -30,6 +30,9 @@
 .about * {
   font-family: "Montserrat", "Poppins", "sans-serif";
 }
+.inquiryForm * {
+  font-family: "Montserrat", "Poppins", "sans-serif";
+}
 
 .footer * {
   @apply text-xs sm:text-sm md:text-xs;

@@ -7,7 +7,6 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
 import { activitiesData } from "../../../assets/GlobalData";
-// import { iconsData } from "../../../assets/GlobalData";
 import {
   LeftSwiperArrow,
   RightSwiperArrow,

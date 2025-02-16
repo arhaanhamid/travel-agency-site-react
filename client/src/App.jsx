@@ -9,6 +9,7 @@ import FloatingButtons from "./components/UIComponents/FloatingButtons";
 const Home = lazy(() => import("./components/Home/Home"));
 const About = lazy(() => import("./components/About/About"));
 const Contact = lazy(() => import("./components/Contact/Contact"));
+const FormPage = lazy(() => import("./components/Forms/FormPage"));
 const LoadingPage = lazy(() => import("./LoadingPage"));
 const PackageDetailPage = lazy(
   () => import("./components/Services/DetailPages/PackageDetailPage")
@@ -40,6 +41,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/services/:type" element={<ServicesPage />} />
+          <Route path="/forms" element={<FormPage />} />
           <Route
             path="/services/packages/:packageId"
             element={<PackageDetailPage />}
