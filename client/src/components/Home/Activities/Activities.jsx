@@ -87,13 +87,13 @@ const Activities = () => {
               <img src={activity.images[0]} alt={activity.title} />
               <div className="absolute inset-0 bg-black opacity-30"></div>
               <div className={`${styles.content}`}>
-                <div className={`${styles.author} uppercase`}>
+                <div className={`${styles.author} uppercase mb-2`}>
                   {activity.location}
                 </div>
-                <div className={`${styles.title} uppercase`}>
+                <div className={`${styles.title} uppercase mb-5`}>
                   {activity.title}
                 </div>
-                <div className={`${styles.des} line-clamp-6`}>
+                <div className={`${styles.des} line-clamp-6 mb-10`}>
                   {activity.desc}
                 </div>
                 <div className={`${styles.buttons}`}>

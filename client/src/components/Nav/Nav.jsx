@@ -101,7 +101,7 @@ function Nav() {
 
       <div className={navCSS.nav_btns}>
         <div
-          className={`${navCSS.CallBtn} flex md:flex-col lg:flex-row items-center text-center gap-2 md:gap-0 lg:gap-2 font-semibold  cursor-pointer hover:scale-110 transition-all duration-300`}
+          className={`${navCSS.CallBtn} flex md:flex-col lg:flex-row items-center text-center gap-2 md:gap-0 lg:gap-2 font-semibold cursor-pointer hover:scale-110 hover:text-indigo-500 transition-all duration-300`}
           onClick={navigateContact}
         >
           <i className="ri-phone-line"></i>

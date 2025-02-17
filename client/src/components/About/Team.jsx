@@ -17,7 +17,7 @@ const Team = () => {
     <section
       className={`about relative px-5 sm:px-10 md:px-16 lg:px-10 xl:px-20 md:py-10`}
     >
-      <h1 className="text-3xl md:text-[40px] xl:text-[50px] text-center text-blue-500 mb-10 lg:mb-20">
+      <h1 className="text-3xl md:text-[40px] xl:text-[50px] text-center text-indigo-500 mb-10 lg:mb-20">
         Our Team
       </h1>
 
@@ -44,10 +44,10 @@ const Team = () => {
             <SwiperSlide key={item.id || index}>
               <div className="relative grid grid-cols-1 lg:grid-cols-2 lg:place-items-center lg:gap-16 xl:gap-20">
                 <div className="flex flex-col">
-                  <h4 className="text-[26px] font-semibold xl:text-[32px] text-center lg:text-start text-blue-500">
+                  <h4 className="text-[26px] font-semibold xl:text-[32px] text-center lg:text-start text-indigo-500">
                     {item.name}
                   </h4>
-                  <h5 className="text-[12px] font-semibold xl:text-[32px] text-center lg:text-start text-blue-500">
+                  <h5 className="text-[12px] font-semibold xl:text-[32px] text-center lg:text-start text-indigo-500">
                     {item.title}
                   </h5>
                   <p className="text-sm mt-5 text-center lg:text-start text-gray-700 leading-7">

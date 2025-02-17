@@ -8,13 +8,13 @@ const FloatingButtons = () => {
           href={`https://wa.me/${phoneNumber}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="block p-2 md:p-3 bg-blue-700 text-white rounded-l-lg hover:bg-blue-800 transition-colors z-10"
+          className="block p-2 md:p-3 bg-indigo-600 text-white rounded-l-lg hover:bg-indigo-800 transition-colors z-10"
         >
           <i className="ri-whatsapp-line text-xl cursor-pointer"></i>
         </a>
         <a
           href={`tel:+${phoneNumber}`}
-          className="block p-2 md:p-3 bg-blue-700 text-white rounded-l-lg hover:bg-blue-800 transition-colors z-10"
+          className="block p-2 md:p-3 bg-indigo-600 text-white rounded-l-lg hover:bg-indigo-800 transition-colors z-10"
         >
           <i className="ri-phone-line text-xl cursor-pointer"></i>
         </a>

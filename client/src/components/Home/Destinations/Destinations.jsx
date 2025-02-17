@@ -19,7 +19,7 @@ function Destinations() {
         className={`relative h-[480px] sm:h-[500px] xl:h-[550px] w-full flex justify-start items-center p-6 sm:p-14 overflow-hidden ${styles.imageContainer}`}
       >
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        <h2 className="font-montserrat relative text-white text-2xl sm:text-3xl md:text-4xl leading-[40px] sm:leading-[60px]  md:leading-[75px]">
+        <h2 className="relative text-white text-2xl sm:text-3xl md:text-4xl leading-[40px] sm:leading-[60px]  md:leading-[75px]">
           Explore The World, <br /> One Unforgettable Journey
         </h2>
       </div>
@@ -51,7 +51,7 @@ function Destinations() {
           return (
             <SwiperSlide key={item.id}>
               <div
-                className={`${styles.slide} p-2 bg-white overflow-hidden`}
+                className={`${styles.slide} p-2 m-2 bg-white overflow-hidden`}
                 onClick={() => handleNavigate(item)}
               >
                 <img
@@ -59,7 +59,7 @@ function Destinations() {
                   alt={item.title}
                   className={`${styles.image} w-full h-full rounded-[12px]`}
                 />
-                <span className="text-xs font-montserrat uppercase font-semibold text-gray-700">
+                <span className="text-xs uppercase font-semibold text-gray-700 tracking-[1px]">
                   {item.location}
                 </span>
               </div>

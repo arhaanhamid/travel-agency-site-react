@@ -30,7 +30,7 @@ const Contact = () => {
       <div className="relative -mt-20 max-w-[90%] md:max-w-[80%] mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-lg py-10">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl md:text-4xl text-gray-800 mb-8">
+          <h1 className="text-3xl md:text-4xl text-indigo-500 mb-8">
             Get in Touch
           </h1>
           <p className="text-gray-600 text-sm max-w-2xl mx-auto">
@@ -45,7 +45,7 @@ const Contact = () => {
           <div className="md:space-y-10 text-center">
             {/* Contact Cards */}
             <div className="p-4 md:p-8 lg:py-8 lg:px-2 xl:px-8 rounded-lg shadow-md">
-              <h3 className="text-lg md:text-xl lg:text-lg text-gray-800 mb-2 lg:mb-4 flex items-center justify-center lg:justify-start gap-1">
+              <h3 className="text-lg md:text-xl lg:text-lg text-indigo-500 mb-2 lg:mb-4 flex items-center justify-center lg:justify-start gap-1">
                 <i className="ri-map-pin-line"></i>Head Office
               </h3>
               <p className="text-gray-600 text-xs md:text-sm lg:text-start lg:text-xs">
@@ -56,7 +56,7 @@ const Contact = () => {
             </div>
 
             <div className="p-4 md:p-8 lg:py-8 lg:px-2 xl:px-8 rounded-lg shadow-md">
-              <h3 className="text-lg md:text-xl lg:text-lg text-gray-800 mb-2 lg:mb-4 flex items-center justify-center lg:justify-start gap-1">
+              <h3 className="text-lg md:text-xl lg:text-lg text-indigo-500 mb-2 lg:mb-4 flex items-center justify-center lg:justify-start gap-1">
                 <i className="ri-phone-line"></i>Phone
               </h3>
               <p className="text-gray-600 text-xs md:text-sm lg:text-start lg:text-xs">
@@ -72,7 +72,7 @@ const Contact = () => {
             </div>
 
             <div className="p-4 md:p-8 lg:py-8 lg:px-2 xl:px-8 rounded-lg shadow-md">
-              <h3 className="text-lg md:text-xl lg:text-lg text-gray-800 mb-2 lg:mb-4 flex items-center justify-center lg:justify-start gap-1">
+              <h3 className="text-lg md:text-xl lg:text-lg text-indigo-500 mb-2 lg:mb-4 flex items-center justify-center lg:justify-start gap-1">
                 <i className="ri-mail-line"></i>Email
               </h3>
               <p className="text-gray-600 text-xs md:text-sm lg:text-start lg:text-xs">
@@ -92,7 +92,7 @@ const Contact = () => {
           <div className="lg:col-span-2 space-y-8">
             {/* Inquiry Form */}
             <div className="bg-white p-8 rounded-lg shadow-md">
-              <h2 className="text-2xl text-gray-800 mb-6">Send an Inquiry</h2>
+              <h2 className="text-2xl text-indigo-500 mb-6">Send an Inquiry</h2>
               <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-gray-700 text-sm font-medium mb-2">
@@ -100,7 +100,7 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-2 border border-gray-400 outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
                   />
                 </div>
                 <div>
@@ -109,7 +109,7 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-2 border border-gray-400 outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
                   />
                 </div>
                 <div className="md:col-span-2">
@@ -125,7 +125,7 @@ const Contact = () => {
                     onChange={(phone) => setPhone(phone)}
                     containerClass="w-full"
                     containerStyle={{ width: "100%" }} // Override container inline style
-                    inputClass="w-full md:min-w-full px-4 py-5 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                    inputClass="w-full md:min-w-full px-4 py-5 border border-gray-400 !rounded-none outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
                     inputStyle={{ width: "100%" }} // Override input inline style
                     dropdownClass="z-50" // Ensure dropdown appears on top
                   />
@@ -136,7 +136,7 @@ const Contact = () => {
                   </label>
                   <input
                     type="email"
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-2 border border-gray-400 outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
                   />
                 </div>
                 <div className="md:col-span-2">
@@ -145,10 +145,10 @@ const Contact = () => {
                   </label>
                   <textarea
                     rows="5"
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-2 border border-gray-400 outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
                   ></textarea>
                 </div>
-                <button className="md:col-span-2 bg-blue-700 text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition-colors">
+                <button className="md:col-span-2 bg-indigo-700 text-white px-8 py-3 hover:bg-indigo-800 transition-colors duration-300">
                   Send Message
                 </button>
               </form>

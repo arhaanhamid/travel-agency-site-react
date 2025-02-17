@@ -34,7 +34,7 @@ const About = () => {
             />
           </div>
           <div>
-            <h1 className="text-3xl md:text-[40px] xl:text-[50px] text-center text-blue-500 mb-10">
+            <h1 className="text-3xl md:text-[40px] xl:text-[50px] text-center text-indigo-500 mb-10">
               Why Choose Us?
             </h1>
             <p className="text-gray-600 text-center text-sm md:text-base leading-relaxed md:leading-[28px] max-w-3xl px-5 mx-auto">
@@ -63,7 +63,7 @@ const About = () => {
             />
           </div>
           <div className="flex flex-col sm:px-10 md:px-16 lg:px-1 place-self-center">
-            <h1 className="text-3xl md:text-[40px] xl:text-[50px] text-center lg:text-start text-blue-500 mb-10">
+            <h1 className="text-3xl md:text-[40px] xl:text-[50px] text-center lg:text-start text-indigo-500 mb-10">
               Work With Us
             </h1>
             <p className="text-sm text-center lg:text-start text-gray-700 leading-7">
@@ -74,7 +74,7 @@ const About = () => {
             </p>
             <a
               href="mailto:info@achievementtravels.com"
-              className="text-center lg:text-start underline underline-offset-8 text-blue-500 text-lg mt-5 transition-all duration-300 hover:no-underline hover:scale-105"
+              className="text-center lg:text-start underline underline-offset-8 text-indigo-500 text-lg mt-5 transition-all duration-300 hover:no-underline hover:scale-105"
             >
               Join Us at AchievementTravels
             </a>

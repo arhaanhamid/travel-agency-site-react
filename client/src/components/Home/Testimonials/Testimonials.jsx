@@ -19,9 +19,9 @@ const Testimonials = () => {
   }, []);
   return (
     <section
-      className={`testimonials relative pb-32 ${location.pathname === "/contact" ? contactPadding : "sm:px-10 md:px-16 lg:px-36 xl:px-80"}`}
+      className={`relative pb-32 ${location.pathname === "/contact" ? contactPadding : "sm:px-10 md:px-16 lg:px-36 xl:px-80"}`}
     >
-      <h1 className="text-[30px] md:text-[40px] xl:text-[50px] text-center text-blue-500">
+      <h1 className="text-[30px] md:text-[40px] xl:text-[50px] text-center text-indigo-500">
         What our clients say
       </h1>
 
@@ -47,17 +47,17 @@ const Testimonials = () => {
           testimonials.map((item, index) => (
             <SwiperSlide key={item.id || index}>
               <div className="content relative p-10">
-                <span className="absolute top-0 left-2 text-[70px] text-blue-500">
+                <span className="absolute top-0 left-2 text-[70px] text-indigo-500">
                   “
                 </span>
                 <p className="text-sm text-center text-gray-700 leading-7">
                   {item.desc}
                 </p>
-                <span className="absolute bottom-0 right-2 rotate-180 text-[70px] text-blue-500">
+                <span className="absolute bottom-0 right-2 rotate-180 text-[70px] text-indigo-500">
                   “
                 </span>
               </div>
-              <h4 className="text-[26px] xl:text-[32px] text-center text-blue-500">
+              <h4 className="text-[26px] xl:text-[32px] text-center text-indigo-500">
                 {item.name}
               </h4>
             </SwiperSlide>

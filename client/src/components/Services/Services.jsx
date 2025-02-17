@@ -122,32 +122,32 @@ const Services = ({ data, defaultLoc = "" }) => {
 
   // Returns a random rotation transform between -5deg and 5deg.
   function randomRotate() {
-    const deg = Math.random() * (3 - -3) + -3;
+    const deg = Math.random() * (2 - -2) + -2;
     return `rotate(${deg}deg)`;
   }
 
   return (
     <div className="flex flex-col w-auto py-[120px] mx-auto">
       {/* Search Input */}
-      <div className="flex items-center bg-white border rounded-lg overflow-hidden flex-1 md:w-[70%] xl:w-[50%] mx-auto">
+      <div className="flex items-center overflow-hidden flex-1 md:w-[70%] xl:w-[50%] mx-auto">
         <input
           placeholder="Search..."
-          className="bg-transparent h-10 sm:h-12 px-3 sm:px-4 py-1 sm:py-2 w-full text-black text-sm sm:text-base placeholder-gray-400 outline-none"
+          className="bg-gray-200 h-10 sm:h-12 px-3 sm:px-4 py-1 sm:py-2 w-full text-black text-sm sm:text-base placeholder-gray-400 outline-none"
           name="search"
           type="text"
           value={searchText}
           onChange={handleSearchChange}
           required
         />
-        <i className="ri-search-2-line w-10 h-10 sm:w-12 sm:h-12 p-2 sm:p-3 text-gray-400"></i>
+        <i className="ri-search-2-line w-10 h-10 sm:w-12 sm:h-12 p-2 sm:p-3 bg-gray-200 text-gray-400"></i>
         {searchText && (
           <i
-            className="ri-close-large-line w-10 h-10 sm:w-12 sm:h-12 p-2 sm:p-3  text-gray-400 cursor-pointer"
+            className="ri-close-large-line w-10 h-10 sm:w-12 sm:h-12 p-2 sm:p-3 bg-gray-200 text-gray-400 cursor-pointer"
             onClick={() => setSearchText("")}
           ></i>
         )}
       </div>
-      <div className="border-b-2 border-gray-300 mt-10 mb-5 md:mb-3 "> </div>
+      <div className="border-b-2 border-indigo-200 mt-10 mb-5 md:mb-3 "> </div>
       {/* Filter Sidebar and Grid Items */}
       <div className="flex flex-row lg:gap-10">
         <div className="md:w-[30%] lg:w-[25%] xl:w-[18%]">
@@ -180,11 +180,11 @@ const Services = ({ data, defaultLoc = "" }) => {
                   <div className="relative">
                     <img src={item.images[0]} alt={`Card ${index} `} />
                     {activePage !== "boats" && (
-                      <span className="absolute top-1 left-1 sm:top-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-[#4a4a7d] uppercase tracking-wide">
+                      <span className="absolute top-1 left-1 sm:top-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
                         {item.location}
                       </span>
                     )}
-                    <span className="absolute bottom-1 left-1 sm:bottom-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-[#4a4a7d] uppercase tracking-wide">
+                    <span className="absolute bottom-1 left-1 sm:bottom-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
                       {activePage == "packages" && item.duration + "-Day Trip"}
                       {activePage == "activities" &&
                         item.duration + "-Day Activity"}
@@ -194,7 +194,7 @@ const Services = ({ data, defaultLoc = "" }) => {
                     </span>
                   </div>
                   <h2>{item.title}</h2>
-                  <p className="line-clamp-5 text-xs/relaxed sm:text-sm/relaxed text-white/95 font-nunito">
+                  <p className="line-clamp-5 text-xs/relaxed sm:text-sm/relaxed text-white/95">
                     {item.desc}
                   </p>
 
@@ -202,7 +202,7 @@ const Services = ({ data, defaultLoc = "" }) => {
                     className={`flex items-center justify-center mt-5 h-[50px]`}
                   >
                     <div
-                      className={`w-full flex items-center justify-center font-bold bg-transparent border-2 border-[#4a4a7d] rounded-full text-[0.8rem] h-[40px] py-1 px-2 sm:h-[50px] sm:text-[1rem] md:text-[0.8rem] lg:px-2 lg:h-[45px] xl:h-[50px] xl:px-4 sm:px-4 hover:bg-[#4a4a7d] text-[#4a4a7d] hover:text-white transition duration-300 cursor-pointer`}
+                      className={`w-full flex items-center justify-center font-bold bg-transparent border-2 border-indigo-900 rounded-full text-[0.8rem] h-[40px] py-1 px-2 sm:h-[50px] sm:text-[1rem] md:text-[0.8rem] lg:px-2 lg:h-[45px] xl:h-[50px] xl:px-4 sm:px-4 hover:bg-indigo-900 text-indigo-900 hover:text-white transition duration-300 cursor-pointer`}
                       onClick={() => handleMoreDetails(item.id)}
                     >
                       {activePage == "packages" && "Discover Trip"}
@@ -214,10 +214,10 @@ const Services = ({ data, defaultLoc = "" }) => {
                     {/* <div
                       className={`flex flex-col items-center justify-between h-full text-base `}
                     >
-                      <span className="text-[12px] xs:text-xs font-medium text-[#4a4a7d] uppercase">
+                      <span className="text-[12px] xs:text-xs font-medium text-indigo-900 uppercase">
                         FROM
                       </span>
-                      <span className="text-[1rem] sm:text-[1.4rem] lg:text-[0.8rem] xl:text-[1rem] font-bold text-[#4a4a7d]">
+                      <span className="text-[1rem] sm:text-[1.4rem] lg:text-[0.8rem] xl:text-[1rem] font-bold text-indigo-900">
                         ₹{item.price}{" "}
                         <small className="font-normal text-xs">
                           {activePage == "packages" && "PP"}

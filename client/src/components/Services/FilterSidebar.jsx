@@ -159,13 +159,13 @@ const FilterSidebar = ({
           <select
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
-            className="w-full border border-gray-300 text-sm rounded p-1 focus:outline-none focus:border-green-500"
+            className="w-full border border-gray-300 text-sm rounded p-1 focus:outline-none focus:border-indigo-500"
           >
             {sortOptions.map((option, idx) => (
               <option
                 key={idx}
                 value={option}
-                className="text-green-500  text-sm"
+                className="text-indigo-500  text-sm"
               >
                 {option}
               </option>
@@ -226,7 +226,7 @@ const FilterSidebar = ({
           {destinations.length > DESTINATION_DISPLAY_COUNT && (
             <button
               onClick={() => setShowMoreDestinations((prev) => !prev)}
-              className="text-left w-auto mt-2 text-xs font-bold text-green-500 hover:underline"
+              className="text-left w-auto mt-2 text-xs font-bold text-indigo-500 hover:underline"
             >
               {showMoreDestinations ? "Show Less" : "Show More"}
             </button>
@@ -290,7 +290,7 @@ const FilterSidebar = ({
           {activitiesData.length > ACTIVITY_DISPLAY_COUNT && (
             <button
               onClick={() => setShowMoreActivities((prev) => !prev)}
-              className="text-left w-auto mt-2 text-xs font-bold text-green-500 hover:underline"
+              className="text-left w-auto mt-2 text-xs font-bold text-indigo-500 hover:underline"
             >
               {showMoreActivities ? "Show Less" : "Show More"}
             </button>
@@ -314,7 +314,7 @@ const FilterSidebar = ({
                 <div
                   key={key}
                   {...restProps}
-                  className="h-0.5 bg-green-500 rounded-full"
+                  className="h-0.5 bg-indigo-500 rounded-full"
                 >
                   {children}
                 </div>
@@ -326,7 +326,7 @@ const FilterSidebar = ({
                 <div
                   key={key}
                   {...restProps}
-                  className="h-4 w-4 bg-green-500 border-2 border-green-500 rounded-full shadow-md focus:outline-none"
+                  className="h-4 w-4 bg-indigo-500 border-2 border-indigo-500 rounded-full shadow-md focus:outline-none"
                 />
               );
             }}
@@ -353,7 +353,7 @@ const FilterSidebar = ({
                 <div
                   key={key}
                   {...restProps}
-                  className="h-0.5 bg-green-500 rounded-full"
+                  className="h-0.5 bg-indigo-500 rounded-full"
                 >
                   {children}
                 </div>
@@ -365,7 +365,7 @@ const FilterSidebar = ({
                 <div
                   key={key}
                   {...restProps}
-                  className="h-4 w-4 bg-green-500 border-2 border-green-500 rounded-full shadow-md focus:outline-none"
+                  className="h-4 w-4 bg-indigo-500 border-2 border-indigo-500 rounded-full shadow-md focus:outline-none"
                 />
               );
             }}

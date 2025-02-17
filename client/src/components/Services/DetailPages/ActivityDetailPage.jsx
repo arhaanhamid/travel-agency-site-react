@@ -11,10 +11,16 @@ import {
   LeftSwiperArrow,
   RightSwiperArrow,
 } from "../../UIComponents/UIComponents";
+import Modal from "../../UIComponents/Modal";
 
 const ActivityDetailPage = () => {
   const [activityData, setActivityData] = useState("");
   const [loading, setLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState({
+    book: false,
+    inquire: false,
+    subject: "",
+  });
 
   const { activityId } = useParams();
 
@@ -39,14 +45,6 @@ const ActivityDetailPage = () => {
         Loading...
       </div>
     );
-  }
-
-  function handleInquire() {
-    alert("Package Inquiry Form Here");
-  }
-
-  function handleBook() {
-    alert("Package Booking Form Here");
   }
 
   return (
@@ -127,7 +125,7 @@ const ActivityDetailPage = () => {
               </div>
             </div> */}
 
-            <div className="flex items-center justify-between mt-3">
+            {/* <div className="flex items-center justify-between mt-3">
               <div>
                 <span className="text-3xl font-bold text-gray-900">
                   ₹{activityData.price}
@@ -136,18 +134,30 @@ const ActivityDetailPage = () => {
                   </small>
                 </span>
               </div>
-            </div>
+            </div> */}
 
             <div className="flex space-x-4 lg:">
               <button
-                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
-                onClick={handleBook}
+                className="flex-1 bg-indigo-600 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+                onClick={() =>
+                  setIsOpen((prev) => ({
+                    ...prev,
+                    subject: activityData.title,
+                    book: true,
+                  }))
+                }
               >
                 Book Now
               </button>
               <button
-                className="flex-1 bg-gray-200 hover:bg-gray-300 border-2 border-solid border-blue-600 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
-                onClick={handleInquire}
+                className="flex-1 bg-gray-200 hover:bg-indigo-700 text-indigo-700 hover:text-gray-200 border-2 border-solid border-indigo-600 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+                onClick={() =>
+                  setIsOpen((prev) => ({
+                    ...prev,
+                    subject: activityData.title,
+                    inquire: true,
+                  }))
+                }
               >
                 Inquire More
               </button>
@@ -160,6 +170,7 @@ const ActivityDetailPage = () => {
           <p>{activityData.desc}</p>
         </div>
       </div>
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} requestFrom="activity" />
     </div>
   );
 };

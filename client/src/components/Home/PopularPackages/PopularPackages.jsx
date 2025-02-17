@@ -78,7 +78,7 @@ const PopularPackages = () => {
   }, []);
 
   return (
-    <div className={`${styles.font_poppins} text-[12px]`}>
+    <div className={`fontMont text-[12px]`}>
       <div ref={carouselRef} className={`${styles.carousel}`}>
         {/* slider list */}
         <div ref={sliderRef} className={`${styles.list}`}>

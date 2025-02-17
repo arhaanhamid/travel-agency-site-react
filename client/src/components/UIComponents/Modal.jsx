@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import {
   Dialog,
   DialogPanel,
@@ -6,24 +6,19 @@ import {
   Transition,
   TransitionChild,
 } from "@headlessui/react";
+import FormPage from "../Forms/FormPage";
 
-const Testpage = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const Modal = ({ isOpen, setIsOpen, requestFrom }) => {
+  const showModal = isOpen.inquire || isOpen.book;
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
-      <button
-        onClick={() => setIsOpen(true)}
-        className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 focus:outline-none transition duration-300"
-      >
-        Modal Trigger
-      </button>
-
-      <Transition show={isOpen} as={Fragment}>
+    <div className="">
+      <Transition show={showModal} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 z-50 overflow-y-auto"
-          onClose={() => setIsOpen(false)}
+          className="fixed inset-0 z-50 overflow-y-auto fontMont"
+          onClose={() =>
+            setIsOpen((prev) => ({ ...prev, inquire: false, book: false }))
+          }
         >
           <TransitionChild
             as={Fragment}
@@ -37,7 +32,7 @@ const Testpage = () => {
             <div className="fixed inset-0 bg-black bg-opacity-70" />
           </TransitionChild>
 
-          <div className="min-h-screen flex items-center justify-center p-4">
+          <div className="min-h-screen flex items-center justify-center mb-[40px] sm:mb-[60px] md:mb-[80px] mt-[120px] sm:mt-[140px] md:mt-[160px]">
             <TransitionChild
               as={Fragment}
               enter="ease-out duration-300"
@@ -47,13 +42,31 @@ const Testpage = () => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="w-full max-w-md transform rounded-lg bg-white p-6 shadow-xl transition-all">
-                <div className="flex justify-between items-center pb-4">
-                  <DialogTitle className="text-lg font-medium text-gray-900">
-                    Modal Header
+              <DialogPanel className="w-full max-w-3xl transform bg-white shadow-xl transition-all">
+                {/* header */}
+                <div className="flex justify-between items-center px-4 sm:px-6 md:px-8 py-5">
+                  <DialogTitle>
+                    {/* {isOpen.inquire ? "Inquiry Form" : "Booking Form"} */}
+                    {/* Subject Label */}
+                    {isOpen.subject && (
+                      <div className="">
+                        <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-[1px] text-indigo-600">
+                          {isOpen.subject}
+                        </h1>
+                        <p className="text-xs sm:text-sm font-normal text-gray-600">
+                          {`Please fill out the ${isOpen.inquire ? "inquiry form" : "booking form"} details below to proceed.`}
+                        </p>
+                      </div>
+                    )}
                   </DialogTitle>
                   <button
-                    onClick={() => setIsOpen(false)}
+                    onClick={() =>
+                      setIsOpen((prev) => ({
+                        ...prev,
+                        inquire: false,
+                        book: false,
+                      }))
+                    }
                     className="text-gray-500 hover:text-gray-700 focus:outline-none"
                   >
                     <span className="sr-only">Close</span>
@@ -72,6 +85,12 @@ const Testpage = () => {
                     </svg>
                   </button>
                 </div>
+                <hr className="h-1 bg-gray-300" />
+
+                {/* body */}
+                <div>
+                  <FormPage isOpen={isOpen} requestFrom={requestFrom} />
+                </div>
               </DialogPanel>
             </TransitionChild>
           </div>
@@ -81,4 +100,4 @@ const Testpage = () => {
   );
 };
 
-export default Testpage;
+export default Modal;

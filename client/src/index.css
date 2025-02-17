@@ -14,12 +14,20 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  font-family: "Nunito";
+  font-family: "Montserrat", "Nunito", "Poppins", "sans-serif";
 }
 
 .navbar * {
-  font-family: "Montserrat", "Poppins", "sans-serif";
   @apply uppercase;
+}
+.fontMont * {
+  font-family: "Montserrat", "Poppins", "sans-serif";
+}
+.fontPoppins * {
+  font-family: "Poppins", "sans-serif";
+}
+.fontFraunces * {
+  font-family: "Fraunces", "Poppins", "sans-serif";
 }
 .testimonials * {
   font-family: "Montserrat", "Poppins", "sans-serif";
@@ -28,9 +36,6 @@
   font-family: "Montserrat", "Poppins", "sans-serif";
 }
 .about * {
-  font-family: "Montserrat", "Poppins", "sans-serif";
-}
-.inquiryForm * {
   font-family: "Montserrat", "Poppins", "sans-serif";
 }
 
