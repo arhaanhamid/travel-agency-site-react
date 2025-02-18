@@ -1,11 +1,3 @@
-import trip01 from "./Trips01.jpg";
-import trip02 from "./Trips02.jpg";
-import trip03 from "./Trips03.jpg";
-import trip04 from "./Trips04.jpg";
-import trip05 from "./Trips05.jpg";
-import trip06 from "./Trips06.jpg";
-import trip07 from "./Trips07.jpg";
-import trip08 from "./Trips07.jpg";
 import boat01 from "./boats/boat01.jpg";
 import boat02 from "./boats/boat02.jpg";
 import boat03 from "./boats/boat03.jpg";
@@ -13,14 +5,6 @@ import boat04 from "./boats/boat04.jpg";
 import boat05 from "./boats/boat05.jpg";
 import boat06 from "./boats/boat06.jpg";
 import boat07 from "./boats/boat07.jpg";
-import garden from "./garden.jpg";
-import gondola from "./gondola.jpg";
-import hiking from "./hiking.jpg";
-import houseboat from "./houseboat.jpg";
-import shikara from "./shikara.jpg";
-import skiing from "./skiing.jpg";
-import trekking from "./trekking.jpg";
-import wildlife from "./wildlife.jpg";
 import car01 from "./cars/car01.jpeg";
 import car02 from "./cars/car02.jpeg";
 import car03 from "./cars/car03.jpeg";
@@ -34,48 +18,43 @@ import car10 from "./cars/car10.png";
 import hotel_a_00 from "./hotels/hotel_a_00.jpeg";
 import hotel_a_01 from "./hotels/hotel_a_01.jpeg";
 import hotel_a_02 from "./hotels/hotel_a_02.jpeg";
-import hotel_a_03 from "./hotels/hotel_a_03.jpeg";
-import hotel_a_04 from "./hotels/hotel_a_04.jpeg";
-import hotel_a_05 from "./hotels/hotel_a_05.jpeg";
 import hotel_b_00 from "./hotels/hotel_b_00.jpeg";
 import hotel_b_01 from "./hotels/hotel_b_01.jpeg";
 import hotel_b_02 from "./hotels/hotel_b_02.jpg";
-import hotel_b_03 from "./hotels/hotel_b_03.jpeg";
-import hotel_b_04 from "./hotels/hotel_b_04.jpeg";
-import hotel_b_05 from "./hotels/hotel_b_05.jpg";
 import hotel_c_00 from "./hotels/hotel_c_00.jpg";
 import hotel_c_01 from "./hotels/hotel_c_01.jpg";
 import hotel_c_02 from "./hotels/hotel_c_02.jpg";
-import hotel_c_03 from "./hotels/hotel_c_03.jpg";
-import hotel_c_04 from "./hotels/hotel_c_04.jpeg";
-import hotel_c_05 from "./hotels/hotel_c_05.jpg";
 import hotel_d_00 from "./hotels/hotel_d_00.jpeg";
 import hotel_d_01 from "./hotels/hotel_d_01.jpeg";
 import hotel_d_02 from "./hotels/hotel_d_02.jpeg";
-import hotel_d_03 from "./hotels/hotel_d_03.jpeg";
-import hotel_d_04 from "./hotels/hotel_d_04.jpeg";
-import hotel_d_05 from "./hotels/hotel_d_05.jpeg";
 import hotel_e_00 from "./hotels/hotel_e_00.jpeg";
 import hotel_e_01 from "./hotels/hotel_e_01.jpeg";
 import hotel_e_02 from "./hotels/hotel_e_02.png";
-import hotel_e_03 from "./hotels/hotel_e_03.png";
-import hotel_e_04 from "./hotels/hotel_e_04.png";
-import hotel_e_05 from "./hotels/hotel_e_05.png";
 import hotel_f_00 from "./hotels/hotel_f_00.png";
 import hotel_f_01 from "./hotels/hotel_f_01.png";
 import hotel_f_02 from "./hotels/hotel_f_02.png";
-import hotel_f_03 from "./hotels/hotel_f_03.png";
-import hotel_f_04 from "./hotels/hotel_f_04.png";
-import hotel_f_05 from "./hotels/hotel_f_05.png";
 import hotel_g_00 from "./hotels/hotel_g_00.png";
 import hotel_g_01 from "./hotels/hotel_g_01.png";
 import hotel_g_02 from "./hotels/hotel_g_02.png";
-import hotel_g_03 from "./hotels/hotel_g_03.png";
-import hotel_g_04 from "./hotels/hotel_g_04.png";
-import hotel_g_05 from "./hotels/hotel_g_05.png";
-import team01 from "./team01.jpg";
-import team02 from "./team02.jpg";
-import team03 from "./team03.jpg";
+import trip01 from "./packages/Trips01.jpg";
+import trip02 from "./packages/Trips02.jpg";
+import trip03 from "./packages/Trips03.jpg";
+import trip04 from "./packages/Trips04.jpg";
+import trip05 from "./packages/Trips05.jpg";
+import trip06 from "./packages/Trips06.jpg";
+import trip07 from "./packages/Trips07.jpg";
+import trip08 from "./packages/Trips08.jpg";
+import garden from "./activities/garden.jpg";
+import gondola from "./activities/gondola.jpg";
+import hiking from "./activities/hiking.jpg";
+import houseboat from "./activities/houseboat.jpg";
+import shikara from "./activities/shikara.jpg";
+import skiing from "./activities/skiing.jpg";
+import trekking from "./activities/trekking.jpg";
+import wildlife from "./activities/wildlife.jpg";
+import team01 from "./team/team01.jpg";
+import team02 from "./team/team02.jpg";
+import team03 from "./team/team03.jpg";
 
 export const iconsData = {
   sightseeing: "ri-glasses-line",
@@ -359,14 +338,7 @@ export const hotelsData = [
     location: "Raj Bagh, Srinagar",
     category: "Standard",
     desc: "Shuhul Resort is located in the scenic Raj Bagh area of Srinagar. The resort offers comfortable and well-furnished rooms, equipped with essential amenities to ensure a relaxing stay. Guests can enjoy the peaceful environment and explore nearby attractions. The hotel also provides services such as housekeeping, parking, and a restaurant. Ideal for both business and leisure travelers, it offers excellent value for money.",
-    images: [
-      hotel_a_00,
-      hotel_a_01,
-      hotel_a_02,
-      hotel_a_03,
-      hotel_a_04,
-      hotel_a_05,
-    ],
+    images: [hotel_a_00, hotel_a_01, hotel_a_02],
     price: "3500",
     amenities: [
       { label: "freeWiFi", title: "Free Wifi" },
@@ -381,14 +353,7 @@ export const hotelsData = [
     location: "Srinagar",
     category: "Premium",
     desc: "Paisley Palace is a luxurious 3-star hotel, conveniently located 15 km from Srinagar Airport. The hotel offers premium services, including a fine-dining restaurant, a health club, and conference facilities. The rooms are designed for comfort with modern furnishings, and guests can enjoy a range of recreational activities. It is an ideal choice for travelers seeking comfort, convenience, and luxury in the heart of Srinagar.",
-    images: [
-      hotel_b_00,
-      hotel_b_01,
-      hotel_b_02,
-      hotel_b_03,
-      hotel_b_04,
-      hotel_b_05,
-    ],
+    images: [hotel_b_00, hotel_b_01, hotel_b_02],
     price: "6500",
     amenities: [
       { label: "roomService", title: "Room Service" },
@@ -403,14 +368,7 @@ export const hotelsData = [
     location: "Sonwar Bagh, Srinagar",
     category: "Standard",
     desc: "Lime Wood Inn offers a charming stay in the heart of Sonwar Bagh, Srinagar. The hotel combines comfort with convenience, featuring well-equipped rooms, friendly service, and affordable rates. It is a perfect base for exploring Srinagar’s scenic spots. Guests can enjoy modern amenities such as Wi-Fi, air-conditioning, and room service. The Inn also offers a cozy restaurant serving local and international dishes, ensuring a delightful stay for all visitors.",
-    images: [
-      hotel_c_00,
-      hotel_c_01,
-      hotel_c_02,
-      hotel_c_03,
-      hotel_c_04,
-      hotel_c_05,
-    ],
+    images: [hotel_c_00, hotel_c_01, hotel_c_02],
     price: "4000",
     amenities: [
       { label: "frontDesk24x7", title: "Front Desk 24/7" },
@@ -428,14 +386,7 @@ export const hotelsData = [
     location: "Near M.A Link Road, Srinagar",
     category: "Standard",
     desc: "Hotel German Residency provides a warm, comfortable atmosphere for travelers visiting Srinagar. Situated near M.A Link Road, this 3-star hotel is known for its cozy rooms and convenient location. Guests can enjoy quick access to shopping, dining, and cultural attractions. The hotel offers a variety of services, including free Wi-Fi, parking, and room service. The rooms are tastefully furnished, with modern amenities to ensure a relaxing stay for all guests.",
-    images: [
-      hotel_d_00,
-      hotel_d_01,
-      hotel_d_02,
-      hotel_d_03,
-      hotel_d_04,
-      hotel_d_05,
-    ],
+    images: [hotel_d_00, hotel_d_01, hotel_d_02],
     price: "3200",
     amenities: [
       { label: "restaurant", title: "Restaurant" },
@@ -449,14 +400,7 @@ export const hotelsData = [
     location: "Srinagar",
     category: "Premium",
     desc: "Hotel Diwan Srinagar offers a perfect blend of traditional Kashmiri architecture and modern luxury. Located in a serene part of Srinagar, it features spacious, elegantly designed rooms with views of the beautiful surroundings. The hotel also offers a fine-dining restaurant and a health club for relaxation. Ideal for business and leisure travelers, it ensures a comfortable stay with premium amenities, including a bar/lounge and event hosting facilities.",
-    images: [
-      hotel_e_00,
-      hotel_e_01,
-      hotel_e_02,
-      hotel_e_03,
-      hotel_e_04,
-      hotel_e_05,
-    ],
+    images: [hotel_e_00, hotel_e_01, hotel_e_02],
     price: "7500",
     amenities: [
       { label: "freeWiFi", title: "Free Wifi" },
@@ -472,14 +416,7 @@ export const hotelsData = [
     location: "Srinagar",
     category: "Budget",
     desc: "Hotel City Grace offers a budget-friendly option for travelers looking for a comfortable and convenient stay in Srinagar. Located in the city center, the hotel provides easy access to popular tourist spots. It features simple yet well-equipped rooms with essential amenities. The hotel’s staff is known for their hospitality, offering services like free Wi-Fi, parking, and room service. A great choice for travelers on a budget without compromising on quality.",
-    images: [
-      hotel_f_00,
-      hotel_f_01,
-      hotel_f_02,
-      hotel_f_03,
-      hotel_f_04,
-      hotel_f_05,
-    ],
+    images: [hotel_f_00, hotel_f_01, hotel_f_02],
     price: "2500",
     amenities: [
       { label: "frontDesk24x7", title: "Front Desk 24/7" },
@@ -495,14 +432,7 @@ export const hotelsData = [
     location: "Near Srinagar Airport",
     category: "Premium",
     desc: "Hotel Heritage Luxury offers a premium stay near Srinagar Airport, designed for those seeking a luxurious experience. This 3-star hotel features spacious rooms with modern decor, including air-conditioning, Wi-Fi, and satellite TV. The hotel provides high-end amenities like an on-site restaurant, fitness center, and concierge services. It’s perfect for both short stays and longer visits, ensuring that every guest receives the best service in a tranquil setting.",
-    images: [
-      hotel_g_00,
-      hotel_g_01,
-      hotel_g_02,
-      hotel_g_03,
-      hotel_g_04,
-      hotel_g_05,
-    ],
+    images: [hotel_g_00, hotel_g_01, hotel_g_02],
     price: "8000",
     amenities: [
       { label: "restaurant", title: "Restaurant" },

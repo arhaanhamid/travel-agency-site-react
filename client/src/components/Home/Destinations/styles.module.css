@@ -5,7 +5,7 @@
     rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .imageContainer {
-  background: url(./../../assets/landscape-Panorama-02.jpg);
+  background: url(./../../assets/destinations_panaroma_02.jpg);
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -24,9 +24,9 @@
 
 @keyframes anim_change_img {
   0% {
-    background: url(../../../assets/landscape-Panorama-02.jpg);
+    background: url(../../../assets/destinations_panaroma_02.jpg);
   }
   100% {
-    background: url(../../../assets/landscape-Panorama-03.jpg);
+    background: url(../../../assets/destinations_panaroma_01.jpg);
   }
 }

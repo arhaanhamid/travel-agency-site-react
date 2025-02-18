@@ -4,7 +4,6 @@ import { boatsData } from "../../../assets/GlobalData";
 import { useNavigate } from "react-router-dom";
 
 const Boats = () => {
-  // References for carousel elements
   const carouselRef = useRef(null);
   const listRef = useRef(null);
   const nextButtonRef = useRef(null);
@@ -33,7 +32,7 @@ const Boats = () => {
     carousel.classList.remove(styles.next, styles.prev);
 
     // Get all slide items by using the module’s item class
-    const items = listHTML.querySelectorAll(`.${styles.item}`);
+    const items = listHTML.querySelectorAll(`.${styles.sliderItem}`);
 
     if (type === "next") {
       // Move the first slide to the end, then add the "next" class
@@ -66,7 +65,7 @@ const Boats = () => {
     <div ref={carouselRef} className={`${styles.carousel} xl:py-20`}>
       <div ref={listRef} className={styles.list}>
         {boatsData.map((boat) => (
-          <div className={`${styles.item} `} key={boat.id}>
+          <div className={`${styles.sliderItem} `} key={boat.id}>
             <img
               src={boat.images[0]}
               alt={boat.title}

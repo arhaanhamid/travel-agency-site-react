@@ -1,3 +1,29 @@
+:root {
+  --sliderItem1-transform: translateX(-100%) translateY(-5%) scale(1.5);
+  --sliderItem1-filter: blur(30px);
+  --sliderItem1-zIndex: 11;
+  --sliderItem1-opacity: 0;
+
+  --sliderItem2-transform: translateX(0);
+  --sliderItem2-filter: blur(0px);
+  --sliderItem2-zIndex: 10;
+  --sliderItem2-opacity: 1;
+
+  --sliderItem3-transform: translate(50%, 10%) scale(0.8);
+  --sliderItem3-filter: blur(10px);
+  --sliderItem3-zIndex: 9;
+  --sliderItem3-opacity: 1;
+
+  --sliderItem4-transform: translate(90%, 20%) scale(0.5);
+  --sliderItem4-filter: blur(30px);
+  --sliderItem4-zIndex: 8;
+  --sliderItem4-opacity: 1;
+
+  --sliderItem5-transform: translate(120%, 30%) scale(0.3);
+  --sliderItem5-filter: blur(40px);
+  --sliderItem5-zIndex: 7;
+  --sliderItem5-opacity: 0;
+}
 .carousel {
   /* background-color: red; */
   min-height: 100vh;
@@ -15,7 +41,7 @@
   transform: translateX(-50%);
 }
 
-.carousel .list .item {
+.carousel .list .sliderItem {
   position: absolute;
   left: 0%;
   width: 70%;
@@ -27,21 +53,30 @@
     width 0.5s;
 }
 
-.carousel .list .item:nth-child(n + 6) {
+.carousel .list .sliderItem:nth-child(n + 6) {
   opacity: 0;
 }
 
-.carousel .list .item:nth-child(2) {
+.carousel .list .sliderItem:nth-child(2) {
   z-index: 10;
   transform: translateX(0);
 }
+.carousel .list .sliderItem img {
+  /* width: 50%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  border-radius: 15px;
+  transform: translateY(-50%);
+  transition: right 1.5s; */
+}
 
-.carousel .list .item .introduce {
+.carousel .list .sliderItem .introduce {
   opacity: 0;
   pointer-events: none;
 }
 
-.carousel .list .item:nth-child(2) .introduce {
+.carousel .list .sliderItem:nth-child(2) .introduce {
   opacity: 1;
   pointer-events: auto;
   width: 400px;
@@ -51,49 +86,49 @@
   transition: opacity 0.5s;
 }
 
-.carousel .list .item .introduce .seeMore {
+.carousel .list .sliderItem .introduce .seeMore {
   border: none;
   border-bottom: 1px solid #555;
   background-color: transparent;
   transition: background 0.5s;
 }
 
-.carousel .list .item .introduce .seeMore:hover {
+.carousel .list .sliderItem .introduce .seeMore:hover {
   background: #eee;
 }
 
-.carousel .list .item:nth-child(1) {
-  transform: var(--item1-transform);
-  filter: var(--item1-filter);
-  z-index: var(--item1-zIndex);
-  opacity: var(--item1-opacity);
+.carousel .list .sliderItem:nth-child(1) {
+  transform: var(--sliderItem1-transform);
+  filter: var(--sliderItem1-filter);
+  z-index: var(--sliderItem1-zIndex);
+  opacity: var(--sliderItem1-opacity);
   pointer-events: none;
 }
 
-.carousel .list .item:nth-child(3) {
-  transform: var(--item3-transform);
-  filter: var(--item3-filter);
-  z-index: var(--item3-zIndex);
+.carousel .list .sliderItem:nth-child(3) {
+  transform: var(--sliderItem3-transform);
+  filter: var(--sliderItem3-filter);
+  z-index: var(--sliderItem3-zIndex);
 }
 
-.carousel .list .item:nth-child(4) {
-  transform: var(--item4-transform);
-  filter: var(--item4-filter);
-  z-index: var(--item4-zIndex);
+.carousel .list .sliderItem:nth-child(4) {
+  transform: var(--sliderItem4-transform);
+  filter: var(--sliderItem4-filter);
+  z-index: var(--sliderItem4-zIndex);
 }
 
-.carousel .list .item:nth-child(5) {
-  transform: var(--item5-transform);
-  filter: var(--item5-filter);
-  opacity: var(--item5-opacity);
+.carousel .list .sliderItem:nth-child(5) {
+  transform: var(--sliderItem5-transform);
+  filter: var(--sliderItem5-filter);
+  opacity: var(--sliderItem5-opacity);
   pointer-events: none;
 }
 
 /* Animation for text in the second slide */
-.carousel .list .item:nth-child(2) .introduce .title,
-.carousel .list .item:nth-child(2) .introduce .topic,
-.carousel .list .item:nth-child(2) .introduce .des,
-.carousel .list .item:nth-child(2) .introduce .seeMore {
+.carousel .list .sliderItem:nth-child(2) .introduce .title,
+.carousel .list .sliderItem:nth-child(2) .introduce .topic,
+.carousel .list .sliderItem:nth-child(2) .introduce .des,
+.carousel .list .sliderItem:nth-child(2) .introduce .seeMore {
   opacity: 0;
   animation: showContent 0.5s 1s ease-in-out 1 forwards;
 }
@@ -110,120 +145,120 @@
   }
 }
 
-.carousel .list .item:nth-child(2) .introduce .topic {
+.carousel .list .sliderItem:nth-child(2) .introduce .topic {
   animation-delay: 1.2s;
 }
 
-.carousel .list .item:nth-child(2) .introduce .des {
+.carousel .list .sliderItem:nth-child(2) .introduce .des {
   animation-delay: 1.4s;
 }
 
-.carousel .list .item:nth-child(2) .introduce .seeMore {
+.carousel .list .sliderItem:nth-child(2) .introduce .seeMore {
   animation-delay: 1.6s;
 }
 
 /* Next slide animations */
-.carousel.next .item:nth-child(1) {
+.carousel.next .sliderItem:nth-child(1) {
   animation: transformFromPosition2 0.5s ease-in-out 1 forwards;
 }
 
 @keyframes transformFromPosition2 {
   from {
-    transform: var(--item2-transform);
-    filter: var(--item2-filter);
-    opacity: var(--item2-opacity);
+    transform: var(--sliderItem2-transform);
+    filter: var(--sliderItem2-filter);
+    opacity: var(--sliderItem2-opacity);
   }
 }
 
-.carousel.next .item:nth-child(2) {
+.carousel.next .sliderItem:nth-child(2) {
   animation: transformFromPosition3 0.7s ease-in-out 1 forwards;
 }
 
 @keyframes transformFromPosition3 {
   from {
-    transform: var(--item3-transform);
-    filter: var(--item3-filter);
-    opacity: var(--item3-opacity);
+    transform: var(--sliderItem3-transform);
+    filter: var(--sliderItem3-filter);
+    opacity: var(--sliderItem3-opacity);
   }
 }
 
-.carousel.next .item:nth-child(3) {
+.carousel.next .sliderItem:nth-child(3) {
   animation: transformFromPosition4 0.9s ease-in-out 1 forwards;
 }
 
 @keyframes transformFromPosition4 {
   from {
-    transform: var(--item4-transform);
-    filter: var(--item4-filter);
-    opacity: var(--item4-opacity);
+    transform: var(--sliderItem4-transform);
+    filter: var(--sliderItem4-filter);
+    opacity: var(--sliderItem4-opacity);
   }
 }
 
-.carousel.next .item:nth-child(4) {
+.carousel.next .sliderItem:nth-child(4) {
   animation: transformFromPosition5 1.1s ease-in-out 1 forwards;
 }
 
 @keyframes transformFromPosition5 {
   from {
-    transform: var(--item5-transform);
-    filter: var(--item5-filter);
-    opacity: var(--item5-opacity);
+    transform: var(--sliderItem5-transform);
+    filter: var(--sliderItem5-filter);
+    opacity: var(--sliderItem5-opacity);
   }
 }
 
 /* Previous slide animations */
-.carousel.prev .list .item:nth-child(5) {
+.carousel.prev .list .sliderItem:nth-child(5) {
   animation: transformFromPosition4 0.5s ease-in-out 1 forwards;
 }
 
-.carousel.prev .list .item:nth-child(4) {
+.carousel.prev .list .sliderItem:nth-child(4) {
   animation: transformFromPosition3 0.7s ease-in-out 1 forwards;
 }
 
-.carousel.prev .list .item:nth-child(3) {
+.carousel.prev .list .sliderItem:nth-child(3) {
   animation: transformFromPosition2 0.9s ease-in-out 1 forwards;
 }
 
-.carousel.prev .list .item:nth-child(2) {
+.carousel.prev .list .sliderItem:nth-child(2) {
   animation: transformFromPosition1 1.1s ease-in-out 1 forwards;
 }
 
 @keyframes transformFromPosition1 {
   from {
-    transform: var(--item1-transform);
-    filter: var(--item1-filter);
-    opacity: var(--item1-opacity);
+    transform: var(--sliderItem1-transform);
+    filter: var(--sliderItem1-filter);
+    opacity: var(--sliderItem1-opacity);
   }
 }
 
 /* Detail view (hidden by default) */
-.carousel .list .item .detail {
+.carousel .list .sliderItem .detail {
   opacity: 0;
   pointer-events: none;
 }
 
 /* When showing details */
-.carousel.showDetail .list .item:nth-child(3),
-.carousel.showDetail .list .item:nth-child(4) {
+.carousel.showDetail .list .sliderItem:nth-child(3),
+.carousel.showDetail .list .sliderItem:nth-child(4) {
   left: 100%;
   opacity: 0;
   pointer-events: none;
 }
 
-.carousel.showDetail .list .item:nth-child(2) {
+.carousel.showDetail .list .sliderItem:nth-child(2) {
   width: 100%;
 }
 
-.carousel.showDetail .list .item:nth-child(2) .introduce {
+.carousel.showDetail .list .sliderItem:nth-child(2) .introduce {
   opacity: 0;
   pointer-events: none;
 }
 
-.carousel.showDetail .list .item:nth-child(2) img {
+.carousel.showDetail .list .sliderItem:nth-child(2) img {
   right: 60%;
 }
 
-.carousel.showDetail .list .item:nth-child(2) .detail {
+.carousel.showDetail .list .sliderItem:nth-child(2) .detail {
   opacity: 1;
   width: 50%;
   position: absolute;
@@ -234,15 +269,20 @@
   pointer-events: auto;
 }
 
-.carousel.showDetail .list .item:nth-child(2) .detail .title {
+.carousel.showDetail .list .sliderItem:nth-child(2) .detail .title {
   /* font-size: 4em; */
 }
 
-.carousel.showDetail .list .item:nth-child(2) .detail .specifications {
+.carousel.showDetail .list .sliderItem:nth-child(2) .detail .specifications {
   /* border-top: 1px solid #5553; */
 }
 
-.carousel.showDetail .list .item:nth-child(2) .detail .specifications div {
+.carousel.showDetail
+  .list
+  .sliderItem:nth-child(2)
+  .detail
+  .specifications
+  div {
   width: 90px;
   text-align: center;
   flex-shrink: 0;
@@ -250,7 +290,7 @@
 
 .carousel.showDetail
   .list
-  .item:nth-child(2)
+  .sliderItem:nth-child(2)
   .detail
   .specifications
   div
@@ -258,11 +298,11 @@
   font-weight: bold;
 }
 
-.carousel.showDetail .list .item:nth-child(2) .detail .des {
+.carousel.showDetail .list .sliderItem:nth-child(2) .detail .des {
   animation-delay: 1.2s;
 }
 
-.carousel.showDetail .list .item:nth-child(2) .detail .specifications {
+.carousel.showDetail .list .sliderItem:nth-child(2) .detail .specifications {
   animation-delay: 1.4s;
 }
 
@@ -288,13 +328,13 @@
 
 /* Responsive adjustments */
 @media screen and (max-width: 991px) {
-  .carousel .list .item {
+  .carousel .list .sliderItem {
     width: 90%;
   }
-  .carousel.showDetail .list .item:nth-child(2) .detail .specifications {
+  .carousel.showDetail .list .sliderItem:nth-child(2) .detail .specifications {
     overflow: auto;
   }
-  .carousel.showDetail .list .item:nth-child(2) .detail .title {
+  .carousel.showDetail .list .sliderItem:nth-child(2) .detail .title {
     font-size: 2em;
   }
 }
@@ -303,7 +343,7 @@
   .carousel {
     height: 600px;
   }
-  .carousel .list .item {
+  .carousel .list .sliderItem {
     width: 100%;
     font-size: 10px;
   }
@@ -311,14 +351,14 @@
   .carousel .list {
     height: 100%;
   }
-  .carousel .list .item:nth-child(2) .introduce {
+  .carousel .list .sliderItem:nth-child(2) .introduce {
     width: 50%;
   }
 
-  .carousel .list .item img {
+  .carousel .list .sliderItem img {
     width: 40%;
   }
-  .carousel.showDetail .list .item:nth-child(2) .detail {
+  .carousel.showDetail .list .sliderItem:nth-child(2) .detail {
     backdrop-filter: blur(10px);
     font-size: small;
   }

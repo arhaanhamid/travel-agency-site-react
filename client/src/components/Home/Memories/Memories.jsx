@@ -1,11 +1,11 @@
 import memoriesCSS from "./memories.module.css";
-import MemoriesImg1 from "../../../assets/travelport1.jpg";
-import MemoriesImg2 from "../../../assets/travelport2.jpg";
-import MemoriesImg3 from "../../../assets/travelport4.jpg";
-import MemoriesImg4 from "../../../assets/travelport3.jpg";
-import MemoriesImg5 from "../../../assets/travelport5.jpg";
-import MemoriesImg6 from "../../../assets/travelport6.jpg";
-import MemoriesImg7 from "../../../assets/travelport7.jpg";
+import MemoriesImg1 from "../../../assets/memories/travelport1.jpg";
+import MemoriesImg2 from "../../../assets/memories/travelport2.jpg";
+import MemoriesImg3 from "../../../assets/memories/travelport4.jpg";
+import MemoriesImg4 from "../../../assets/memories/travelport3.jpg";
+import MemoriesImg5 from "../../../assets/memories/travelport5.jpg";
+import MemoriesImg6 from "../../../assets/memories/travelport6.jpg";
+import MemoriesImg7 from "../../../assets/memories/travelport7.jpg";
 import { useNavigate } from "react-router-dom";
 
 function Memories() {
