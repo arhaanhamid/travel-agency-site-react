@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./ScrollToTop";
-import Testpage from "./components/Testpage/Testpage";
+import Testpage from "./Testpage/Testpage";
 import FloatingButtons from "./components/UIComponents/FloatingButtons";
 
 const Home = lazy(() => import("./components/Home/Home"));
