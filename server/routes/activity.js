@@ -36,6 +36,21 @@ router.post("/", async (req, res) => {
   }
 });
 
+// POST Bulk create a new activities
+router.post("/insertBulk", async (req, res) => {
+  try {
+    const insertedActivities = await Activity.insertMany(req.body);
+    console.log("Activites inserted successfully:", insertedActivities);
+    res
+      .status(201)
+      .json({ message: "Activities inserted", data: insertedActivities });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error creating activities", error: error.message });
+  }
+});
+
 // PUT: Update an activity by ID
 router.put("/:id", async (req, res) => {
   try {

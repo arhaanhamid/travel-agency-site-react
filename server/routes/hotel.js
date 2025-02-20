@@ -36,6 +36,19 @@ router.post("/", async (req, res) => {
   }
 });
 
+// POST Bulk create a new Hotels
+router.post("/insertBulk", async (req, res) => {
+  try {
+    const insertedHotels = await Hotel.insertMany(req.body);
+    console.log("Hotels inserted successfully:", insertedHotels);
+    res.status(201).json({ message: "Hotels inserted", data: insertedHotels });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error creating Hotels", error: error.message });
+  }
+});
+
 // PUT: Update a hotel by ID
 router.put("/:id", async (req, res) => {
   try {

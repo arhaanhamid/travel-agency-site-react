@@ -38,6 +38,19 @@ router.post("/", async (req, res) => {
   }
 });
 
+// POST Bulk create a new Teams
+router.post("/insertBulk", async (req, res) => {
+  try {
+    const insertedTeams = await Team.insertMany(req.body);
+    console.log("Teams inserted successfully:", insertedTeams);
+    res.status(201).json({ message: "Teams inserted", data: insertedTeams });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error creating Teams", error: error.message });
+  }
+});
+
 // PUT: Update a team member by ID
 router.put("/:id", async (req, res) => {
   try {

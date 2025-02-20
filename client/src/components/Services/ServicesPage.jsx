@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import Services from "./Services";
-import { activitiesData, hotelsData } from "../../assets/GlobalData";
-import { carsData } from "../../assets/GlobalData";
-import { boatsData } from "../../assets/GlobalData";
-import packagesData from "../../assets/GlobalData";
+import { activitiesData, hotelsData } from "../../../public/assets/GlobalData";
+import { carsData } from "../../../public/assets/GlobalData";
+import { boatsData } from "../../../public/assets/GlobalData";
+import packagesData from "../../../public/assets/GlobalData";
 
 const ServicesPage = () => {
   const { type } = useParams();

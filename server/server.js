@@ -4,7 +4,7 @@ dotenv.config();
 import express, { json } from "express";
 import { connect } from "mongoose";
 import cors from "cors";
-import packagesRoutes from "./routes/tripPackages.js";
+import packagesRoutes from "./routes/packages.js";
 import transportRoutes from "./routes/transport.js";
 import testimonialRoutes from "./routes/testimonial.js";
 import teamRoutes from "./routes/team.js";
@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(json());
 
-app.use("/api/package", packagesRoutes);
+app.use("/api/packages", packagesRoutes);
 app.use("/api/activity", activityRoutes);
 app.use("/api/boat", boatRoutes);
 app.use("/api/hotel", hotelRoutes);

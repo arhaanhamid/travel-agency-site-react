@@ -1,13 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import navCSS from "./nav.module.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logo from "./../../assets/logo.png";
 import Dropdown from "./Dropdown";
-import packagesData from "../../assets/GlobalData";
+import ErrorPage from "../../ErrorPage";
+import api from "../../api";
 
 function Nav() {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const [packages, setPackages] = useState([]);
+  const [error, setError] = useState(null);
 
   const [isOpen, setIsOpen] = useState({
     services: false,
@@ -34,8 +37,8 @@ function Nav() {
   ];
 
   const destinations = useMemo(() => {
-    if (packagesData.length > 0) {
-      const loc_address = packagesData.map((item) => {
+    if (packages.length > 0) {
+      const loc_address = packages.map((item) => {
         return (
           item.location && {
             name: item.location,
@@ -46,11 +49,27 @@ function Nav() {
       return loc_address;
     }
     return [];
-  }, [packagesData]);
+  }, [packages]);
 
   function navigateContact() {
     navigate("/contact");
   }
+
+  //useeffect to get Package data from db
+  useEffect(() => {
+    async function fetchPackages() {
+      console.log("Fetching Packages Data...");
+      try {
+        const response = await api.get("packages");
+        setPackages(response.data);
+      } catch (err) {
+        console.log(err);
+        setError("Failed to load Package data");
+      }
+    }
+    fetchPackages();
+  }, []);
+  if (error) return <ErrorPage />;
 
   return (
     <div
@@ -58,7 +77,7 @@ function Nav() {
     >
       <div>
         <Link to="/testpage" onClick={menuHandler}>
-          <img src={logo} alt="logo" className="h-[70px]" />
+          <img src="../../assets/logo.png" alt="logo" className="h-[70px]" />
         </Link>
       </div>
 

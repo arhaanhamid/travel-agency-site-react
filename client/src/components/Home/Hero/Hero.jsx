@@ -1,5 +1,3 @@
-import bg_vid from "../../../assets/hero_bg_vid.mp4";
-
 const Hero = () => {
   return (
     <div className="hero-section fontFraunces relative flex items-center justify-center h-screen overflow-hidden">
@@ -15,7 +13,7 @@ const Hero = () => {
         muted
         playsInline
       >
-        <source src={bg_vid} type="video/mp4" />
+        <source src={"/assets/hero_bg_vid.mp4"} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

@@ -2,17 +2,34 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import { teamsData } from "../../assets/GlobalData";
+// import { teamsData } from "../../../public/assets/GlobalData";
 
 import { useEffect, useState } from "react";
 import { LeftSwiperArrow } from "../../components/UIComponents/UIComponents";
 import { RightSwiperArrow } from "../../components/UIComponents/UIComponents";
+import ErrorPage from "../../ErrorPage";
+import api from "../../api";
 
 const Team = () => {
   const [teams, setTeams] = useState([]);
+  const [error, setError] = useState(null);
+
+  //useeffect to get team data from db
   useEffect(() => {
-    setTeams(teamsData); // Force state update to trigger re-render
+    async function fetchTeam() {
+      console.log("Fetching Team Data...");
+      try {
+        const response = await api.get("team");
+        setTeams(response.data);
+      } catch (err) {
+        console.log(err);
+        setError("Failed to load team data");
+      }
+    }
+    fetchTeam();
   }, []);
+  if (error) return <ErrorPage />;
+
   return (
     <section
       className={`about relative px-5 sm:px-10 md:px-16 lg:px-10 xl:px-20 md:py-10`}

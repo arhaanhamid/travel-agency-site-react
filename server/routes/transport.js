@@ -39,6 +39,21 @@ router.post("/", async (req, res) => {
   }
 });
 
+// POST Bulk create a new Transports
+router.post("/insertBulk", async (req, res) => {
+  try {
+    const insertedTransports = await Transport.insertMany(req.body);
+    console.log("Transports inserted successfully:", insertedTransports);
+    res
+      .status(201)
+      .json({ message: "Transports inserted", data: insertedTransports });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error creating Transports", error: error.message });
+  }
+});
+
 // PUT: Update a transport option by ID
 router.put("/:id", async (req, res) => {
   try {

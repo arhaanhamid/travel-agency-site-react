@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import styles from "./style.module.css";
-import packagesData from "../../../assets/GlobalData";
+import packagesData from "../../../../public/assets/GlobalData";
 import { useNavigate } from "react-router-dom";
 
 const PopularPackages = () => {

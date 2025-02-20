@@ -4,7 +4,7 @@ const router = Router();
 import TripPackage from "../models/TripPackage.js";
 
 // GET all packages
-router.get("/abc", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const tripPackages = await TripPackage.find();
     res.json(tripPackages);
@@ -25,7 +25,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // POST create a new package
-router.post("/abcc", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const newPackage = new TripPackage(req.body);
     const savedPackage = await newPackage.save();
@@ -34,6 +34,21 @@ router.post("/abcc", async (req, res) => {
     res
       .status(500)
       .json({ message: "Error creating package", error: error.message });
+  }
+});
+
+// POST Bulk create a new Packages
+router.post("/insertBulk", async (req, res) => {
+  try {
+    const insertedPackages = await TripPackage.insertMany(req.body);
+    console.log("Packages inserted successfully:", insertedPackages);
+    res
+      .status(201)
+      .json({ message: "Packages inserted", data: insertedPackages });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error creating Packages", error: error.message });
   }
 });
 

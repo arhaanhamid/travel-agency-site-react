@@ -6,8 +6,8 @@ import "swiper/css/navigation";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
-import { hotelsData } from "../../../assets/GlobalData";
-import { iconsData } from "../../../assets/GlobalData";
+import { hotelsData } from "../../../../public/assets/GlobalData";
+import { iconsData } from "../../../../public/assets/GlobalData";
 import {
   LeftSwiperArrow,
   RightSwiperArrow,

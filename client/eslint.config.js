@@ -36,4 +36,10 @@ export default [
       "react/prop-types": "off", // Disable prop-types rule
     },
   },
+  // {
+  //   env: {
+  //     browser: true,
+  //     node: true,
+  //   },
+  // },
 ];

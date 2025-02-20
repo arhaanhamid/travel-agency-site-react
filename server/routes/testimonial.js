@@ -41,6 +41,21 @@ router.post("/", async (req, res) => {
   }
 });
 
+// POST Bulk create a new Testimonials
+router.post("/insertBulk", async (req, res) => {
+  try {
+    const insertedTestimonials = await Testimonial.insertMany(req.body);
+    console.log("Testimonials inserted successfully:", insertedTestimonials);
+    res
+      .status(201)
+      .json({ message: "Testimonials inserted", data: insertedTestimonials });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error creating Testimonials", error: error.message });
+  }
+});
+
 // PUT: Update a testimonial by ID
 router.put("/:id", async (req, res) => {
   try {

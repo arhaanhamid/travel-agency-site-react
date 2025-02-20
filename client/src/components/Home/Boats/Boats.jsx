@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import styles from "./style.module.css";
-import { boatsData } from "../../../assets/GlobalData";
+import { boatsData } from "../../../../public/assets/GlobalData";
 import { useNavigate } from "react-router-dom";
 
 const Boats = () => {

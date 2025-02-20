@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import styles from "./style.module.css";
-import { activitiesData } from "../../../assets/GlobalData";
+import { activitiesData } from "../../../../public/assets/GlobalData";
 import { useNavigate } from "react-router-dom";
 
 const Activities = () => {

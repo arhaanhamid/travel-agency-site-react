@@ -4,7 +4,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import HotelCard from "./HotelCard.jsx";
-import { hotelsData } from "../../../assets/GlobalData.js";
+import { hotelsData } from "../../../../public/assets/GlobalData.js";
 import { LeftSwiperArrow } from "../../UIComponents/UIComponents.jsx";
 import { RightSwiperArrow } from "../../UIComponents/UIComponents.jsx";
 

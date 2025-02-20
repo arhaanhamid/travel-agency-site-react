@@ -1,12 +1,14 @@
 import memoriesCSS from "./memories.module.css";
-import MemoriesImg1 from "../../../assets/memories/travelport1.jpg";
-import MemoriesImg2 from "../../../assets/memories/travelport2.jpg";
-import MemoriesImg3 from "../../../assets/memories/travelport4.jpg";
-import MemoriesImg4 from "../../../assets/memories/travelport3.jpg";
-import MemoriesImg5 from "../../../assets/memories/travelport5.jpg";
-import MemoriesImg6 from "../../../assets/memories/travelport6.jpg";
-import MemoriesImg7 from "../../../assets/memories/travelport7.jpg";
 import { useNavigate } from "react-router-dom";
+const memoriesImages = {
+  memoriesImg1: "/assets/memories/travelport1.jpg",
+  memoriesImg2: "/assets/memories/travelport2.jpg",
+  memoriesImg3: "/assets/memories/travelport4.jpg",
+  memoriesImg4: "/assets/memories/travelport3.jpg",
+  memoriesImg5: "/assets/memories/travelport5.jpg",
+  memoriesImg6: "/assets/memories/travelport6.jpg",
+  memoriesImg7: "/assets/memories/travelport7.jpg",
+};
 
 function Memories() {
   const navigate = useNavigate();
@@ -42,7 +44,7 @@ function Memories() {
   return (
     <div id="memories" className={`${memoriesCSS.Memories_wrapper} `}>
       <div className={memoriesCSS.MemoriesCard}>
-        <img src={MemoriesImg1} alt="Memories-img" />
+        <img src={memoriesImages.memoriesImg1} alt="Memories-img" />
 
         <div className={memoriesCSS.content}>
           <h3>Small Groups Departures</h3>
@@ -50,7 +52,7 @@ function Memories() {
         </div>
       </div>
       <div className={memoriesCSS.MemoriesCard}>
-        <img src={MemoriesImg2} alt="Memories-img" />
+        <img src={memoriesImages.memoriesImg2} alt="Memories-img" />
 
         <div className={memoriesCSS.content}>
           <h3>Affordable Dreams</h3>
@@ -58,7 +60,7 @@ function Memories() {
         </div>
       </div>
       <div className={memoriesCSS.MemoriesCard}>
-        <img src={MemoriesImg3} alt="Memories-img" />
+        <img src={memoriesImages.memoriesImg3} alt="Memories-img" />
 
         <div className={memoriesCSS.content}>
           <h3>Undiscover Tours</h3>
@@ -66,7 +68,7 @@ function Memories() {
         </div>
       </div>
       <div className={memoriesCSS.MemoriesCard}>
-        <img src={MemoriesImg4} alt="Memories-img" />
+        <img src={memoriesImages.memoriesImg4} alt="Memories-img" />
 
         <div className={memoriesCSS.content}>
           <h3>
@@ -77,7 +79,7 @@ function Memories() {
         </div>
       </div>
       <div className={memoriesCSS.MemoriesCard}>
-        <img src={MemoriesImg5} alt="Memories-img" />
+        <img src={memoriesImages.memoriesImg5} alt="Memories-img" />
 
         <div className={memoriesCSS.content}>
           <h3>Religious Tours</h3>
@@ -87,7 +89,7 @@ function Memories() {
         </div>
       </div>
       <div className={memoriesCSS.MemoriesCard}>
-        <img src={MemoriesImg6} alt="Memories-img" />
+        <img src={memoriesImages.memoriesImg6} alt="Memories-img" />
 
         <div className={memoriesCSS.content}>
           <h3>Solo Travel</h3>
@@ -95,7 +97,7 @@ function Memories() {
         </div>
       </div>
       <div className={memoriesCSS.MemoriesCard}>
-        <img src={MemoriesImg7} alt="Memories-img" />
+        <img src={memoriesImages.memoriesImg7} alt="Memories-img" />
 
         <div className={memoriesCSS.content}>
           <h3>Private Touring</h3>

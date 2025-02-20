@@ -1,5 +1,3 @@
-import herobg from "../../assets/landscape-Panorama-03.jpg";
-import heroImage from "../../assets/hero_bg.jpg";
 import Team from "./Team";
 const About = () => {
   return (
@@ -8,7 +6,7 @@ const About = () => {
       <div className="relative w-full h-96">
         <img
           className="absolute h-full w-full object-cover object-[70%]"
-          src={herobg}
+          src="/assets/destinations_panaroma_03.jpg"
           alt="hero background"
         />
         <div className="absolute inset-0 h-full w-full bg-black/50"></div>
@@ -28,7 +26,7 @@ const About = () => {
         <div className="flex flex-col lg:grid lg:grid-cols-2 lg:place-items-center lg:h-screen gap-10 sm:gap-14 lg:gap-5 sm:px-10 md:sm:px-16 lg:sm:px-8">
           <div className="h-[600px] w-full relative overflow-hidden rounded-none md:rounded-lg shadow transition hover:shadow-lg">
             <img
-              src={heroImage}
+              src="/assets/hero_bg.jpg"
               alt="hero_image"
               className="absolute px-1 left-0 top-0 w-full h-full z-0 object-cover"
             />
@@ -56,7 +54,7 @@ const About = () => {
         <div className="flex flex-col lg:grid lg:grid-cols-2 h-screen py-auto my-auto lg:mx-10 lg:gap-10">
           <div className="h-[250px] sm:h-[350px] md:h-[450px] lg:h-[600px] lg:w-full mb-10 w-full relative overflow-hidden rounded-none md:rounded-lg flex items-center justify-center">
             <img
-              src={heroImage}
+              src="/assets/hero_bg.jpg"
               alt="hero_image"
               className="px-1 w-auto h-full z-0 object-cover transition-transform duration-300 ease-in-out hover:scale-125"
               loading="lazy"

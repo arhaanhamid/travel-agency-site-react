@@ -2,7 +2,6 @@ import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Testimonials from "../Home/Testimonials/Testimonials";
-import herobg from "../../assets/landscape-Panorama-04.jpg";
 const Contact = () => {
   const [phone, setPhone] = useState("");
 
@@ -12,7 +11,7 @@ const Contact = () => {
       <div className="relative w-full h-96">
         <img
           className="absolute h-full w-full object-cover object-[70%]"
-          src={herobg}
+          src="/assets/destinations_panaroma_03.jpg"
           alt="hero background"
         />
         <div className="absolute inset-0 h-full w-full bg-black/50"></div>

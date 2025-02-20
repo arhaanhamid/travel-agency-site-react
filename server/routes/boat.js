@@ -36,6 +36,19 @@ router.post("/", async (req, res) => {
   }
 });
 
+// POST Bulk create a new Boats
+router.post("/insertBulk", async (req, res) => {
+  try {
+    const insertedBoats = await Boat.insertMany(req.body);
+    console.log("Boats inserted successfully:", insertedBoats);
+    res.status(201).json({ message: "Boats inserted", data: insertedBoats });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error creating Boats", error: error.message });
+  }
+});
+
 // PUT: Update a boat by ID
 router.put("/:id", async (req, res) => {
   try {

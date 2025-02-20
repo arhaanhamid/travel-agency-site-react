@@ -1,5 +1,3 @@
-import logo from "./../../assets/logo.png";
-
 function Footer() {
   const socialIcons = [
     {
@@ -138,7 +136,7 @@ function Footer() {
           {/* Section 5: About & Contact */}
           <div className="flex flex-col items-center text-center md:items-start md:text-start md:row-start-1 md:col-start-3 xl:col-start-5">
             <img
-              src={logo}
+              src="../../assets/logo.png"
               alt="logo"
               className="h-16 sm:h-20 mb-5 md:h-16 md:mb-4 "
             />

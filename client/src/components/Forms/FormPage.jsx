@@ -1,11 +1,15 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Range } from "react-range";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import packagesData from "../../assets/GlobalData";
+import api from "../../api";
+import ErrorPage from "../../ErrorPage";
 
 const FormPage = ({ isOpen, requestFrom }) => {
+  const [packages, setPackages] = useState([]);
+  const [error, setError] = useState(null);
+
   const inquiryForm = isOpen.inquire;
   const bookingForm = isOpen.book;
   const generalInquiry = false;
@@ -41,9 +45,9 @@ const FormPage = ({ isOpen, requestFrom }) => {
   });
 
   // State to store validation errors
-  const [errors, setErrors] = useState({});
+  const [errors, setFormErrors] = useState({});
 
-  const locations = packagesData.map((pkg) => pkg.location);
+  const locations = packages.map((pkg) => pkg.location);
   const months = [
     "January",
     "February",
@@ -170,11 +174,11 @@ const FormPage = ({ isOpen, requestFrom }) => {
     e.preventDefault();
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+      setFormErrors(validationErrors);
       // Optionally, scroll to the first error or show a global message
       return;
     }
-    setErrors({});
+    setFormErrors({});
     // Proceed with POST request here since validation passed
     console.log("Submitting form data:", formData);
   };
@@ -188,6 +192,23 @@ const FormPage = ({ isOpen, requestFrom }) => {
         ? "border-red-500 focus:ring-red-500"
         : "border-gray-300 focus:ring-indigo-500"
     }`;
+
+  //useEffect to get Packages data from db
+  useEffect(() => {
+    async function fetchPackages() {
+      console.log("Fetching Packages Data...");
+      try {
+        const response = await api.get("packages");
+        setPackages(response.data);
+      } catch (err) {
+        console.log(err);
+        setError("Failed to load Packages data");
+      }
+    }
+    fetchPackages();
+  }, []);
+
+  if (error) return <ErrorPage />;
 
   return (
     <div className="fontMont min-h-screen bg-gray-200">

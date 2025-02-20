@@ -1,60 +1,12 @@
-import boat01 from "./boats/boat01.jpg";
-import boat02 from "./boats/boat02.jpg";
-import boat03 from "./boats/boat03.jpg";
-import boat04 from "./boats/boat04.jpg";
-import boat05 from "./boats/boat05.jpg";
-import boat06 from "./boats/boat06.jpg";
-import boat07 from "./boats/boat07.jpg";
-import car01 from "./cars/car01.jpeg";
-import car02 from "./cars/car02.jpeg";
-import car03 from "./cars/car03.jpeg";
-import car04 from "./cars/car04.jpeg";
-import car05 from "./cars/car05.png";
-import car06 from "./cars/car06.png";
-import car07 from "./cars/car07.png";
-import car08 from "./cars/car08.png";
-import car09 from "./cars/car09.png";
-import car10 from "./cars/car10.png";
-import hotel_a_00 from "./hotels/hotel_a_00.jpeg";
-import hotel_a_01 from "./hotels/hotel_a_01.jpeg";
-import hotel_a_02 from "./hotels/hotel_a_02.jpeg";
-import hotel_b_00 from "./hotels/hotel_b_00.jpeg";
-import hotel_b_01 from "./hotels/hotel_b_01.jpeg";
-import hotel_b_02 from "./hotels/hotel_b_02.jpg";
-import hotel_c_00 from "./hotels/hotel_c_00.jpg";
-import hotel_c_01 from "./hotels/hotel_c_01.jpg";
-import hotel_c_02 from "./hotels/hotel_c_02.jpg";
-import hotel_d_00 from "./hotels/hotel_d_00.jpeg";
-import hotel_d_01 from "./hotels/hotel_d_01.jpeg";
-import hotel_d_02 from "./hotels/hotel_d_02.jpeg";
-import hotel_e_00 from "./hotels/hotel_e_00.jpeg";
-import hotel_e_01 from "./hotels/hotel_e_01.jpeg";
-import hotel_e_02 from "./hotels/hotel_e_02.png";
-import hotel_f_00 from "./hotels/hotel_f_00.png";
-import hotel_f_01 from "./hotels/hotel_f_01.png";
-import hotel_f_02 from "./hotels/hotel_f_02.png";
-import hotel_g_00 from "./hotels/hotel_g_00.png";
-import hotel_g_01 from "./hotels/hotel_g_01.png";
-import hotel_g_02 from "./hotels/hotel_g_02.png";
-import trip01 from "./packages/Trips01.jpg";
-import trip02 from "./packages/Trips02.jpg";
-import trip03 from "./packages/Trips03.jpg";
-import trip04 from "./packages/Trips04.jpg";
-import trip05 from "./packages/Trips05.jpg";
-import trip06 from "./packages/Trips06.jpg";
-import trip07 from "./packages/Trips07.jpg";
-import trip08 from "./packages/Trips08.jpg";
-import garden from "./activities/garden.jpg";
-import gondola from "./activities/gondola.jpg";
-import hiking from "./activities/hiking.jpg";
-import houseboat from "./activities/houseboat.jpg";
-import shikara from "./activities/shikara.jpg";
-import skiing from "./activities/skiing.jpg";
-import trekking from "./activities/trekking.jpg";
-import wildlife from "./activities/wildlife.jpg";
-import team01 from "./team/team01.jpg";
-import team02 from "./team/team02.jpg";
-import team03 from "./team/team03.jpg";
+export const memoriesImages = {
+  memoriesImg1: "/assets/memories/travelport1.jpg",
+  memoriesImg2: "/assets/memories/travelport2.jpg",
+  memoriesImg3: "/assets/memories/travelport4.jpg",
+  memoriesImg4: "/assets/memories/travelport3.jpg",
+  memoriesImg5: "/assets/memories/travelport5.jpg",
+  memoriesImg6: "/assets/memories/travelport6.jpg",
+  memoriesImg7: "/assets/memories/travelport7.jpg",
+};
 
 export const iconsData = {
   sightseeing: "ri-glasses-line",
@@ -78,7 +30,11 @@ export const iconsData = {
 const packagesData = [
   {
     id: 1,
-    images: [trip01, trip02, trip03],
+    images: [
+      "/assets/packages/Trips01.jpg",
+      "/assets/packages/Trips02.jpg",
+      "/assets/packages/Trips03.jpg",
+    ],
     location: "Pahalgam",
     duration: "4",
     title: "Pahalgam Serenity Retreat",
@@ -121,7 +77,11 @@ const packagesData = [
   },
   {
     id: 2,
-    images: [trip04, trip05, trip06],
+    images: [
+      "/assets/packages/Trips04.jpg",
+      "/assets/packages/Trips05.jpg",
+      "/assets/packages/Trips06.jpg",
+    ],
     location: "Sonamarg",
     duration: "2",
     title: "Sonamarg Meadow Escape",
@@ -152,7 +112,11 @@ const packagesData = [
   },
   {
     id: 3,
-    images: [trip07, trip08, trip01],
+    images: [
+      "/assets/packages/Trips07.jpg",
+      "/assets/packages/Trips08.jpg",
+      "/assets/packages/Trips01.jpg",
+    ],
     location: "Jammu",
     duration: "3",
     title: "Jammu Heritage Tour",
@@ -189,7 +153,11 @@ const packagesData = [
   },
   {
     id: 4,
-    images: [trip03, trip05, trip07],
+    images: [
+      "/assets/packages/Trips03.jpg",
+      "/assets/packages/Trips05.jpg",
+      "/assets/packages/Trips07.jpg",
+    ],
     location: "Katra",
     duration: "2",
     title: "Katra Pilgrimage Journey",
@@ -222,7 +190,11 @@ const packagesData = [
   },
   {
     id: 5,
-    images: [trip01, trip03, trip02],
+    images: [
+      "/assets/packages/Trips01.jpg",
+      "/assets/packages/Trips03.jpg",
+      "/assets/packages/Trips02.jpg",
+    ],
     location: "Doodhpathri",
     duration: "2",
     title: "Doodhpathri Nature Escape",
@@ -255,7 +227,11 @@ const packagesData = [
   },
   {
     id: 6,
-    images: [trip04, trip06, trip01],
+    images: [
+      "/assets/packages/Trips04.jpg",
+      "/assets/packages/Trips06.jpg",
+      "/assets/packages/Trips01.jpg",
+    ],
     location: "Yusmarg",
     duration: "3",
     title: "Yusmarg Adventure Trail",
@@ -274,25 +250,32 @@ const packagesData = [
         day: "Day 1",
         title: "Arrival & Orientation",
         summary: "Check-in and adventure briefing",
-        description: `Arrive in Yusmarg • Transfer to hotel • Safety briefing and itinerary overview • Evening campfire and local stories`,
+        description:
+          "Arrive in Yusmarg • Transfer to hotel • Safety briefing and itinerary overview • Evening campfire and local stories",
       },
       {
         day: "Day 2",
         title: "Adventure Activities",
         summary: "Trekking, horseback riding, and exploration",
-        description: `Morning trek on scenic trails • Horseback riding session • Lunch at a local eatery • Afternoon leisure exploration`,
+        description:
+          "Morning trek on scenic trails • Horseback riding session • Lunch at a local eatery • Afternoon leisure exploration",
       },
       {
         day: "Day 3",
         title: "Departure",
         summary: "Farewell and transfer",
-        description: `Morning free time for relaxation • Check-out and transfer for departure • Farewell by tour representative`,
+        description:
+          "Morning free time for relaxation • Check-out and transfer for departure • Farewell by tour representative",
       },
     ],
   },
   {
     id: 7,
-    images: [trip08, trip03, trip07],
+    images: [
+      "/assets/packages/Trips08.jpg",
+      "/assets/packages/Trips03.jpg",
+      "/assets/packages/Trips07.jpg",
+    ],
     location: "Anantnag",
     duration: "3",
     title: "Anantnag Cultural Voyage",
@@ -311,19 +294,22 @@ const packagesData = [
         day: "Day 1",
         title: "Arrival & Local Tour",
         summary: "Discover historical landmarks",
-        description: `Arrive in Anantnag • Transfer to hotel • Guided tour of historical sites • Traditional dinner and overnight stay`,
+        description:
+          "Arrive in Anantnag • Transfer to hotel • Guided tour of historical sites • Traditional dinner and overnight stay",
       },
       {
         day: "Day 2",
         title: "Cultural Exploration",
         summary: "Visit museums and bustling markets",
-        description: `Morning visit to local museums • Explore vibrant bazaars • Taste regional cuisine • Evening cultural performance`,
+        description:
+          "Morning visit to local museums • Explore vibrant bazaars • Taste regional cuisine • Evening cultural performance",
       },
       {
         day: "Day 3",
         title: "Departure",
         summary: "Farewell tour and transfer",
-        description: `Morning free time for last-minute sightseeing • Check-out and transfer to airport • Farewell by tour representative`,
+        description:
+          "Morning free time for last-minute sightseeing • Check-out and transfer to airport • Farewell by tour representative",
       },
     ],
   },
@@ -338,7 +324,11 @@ export const hotelsData = [
     location: "Raj Bagh, Srinagar",
     category: "Standard",
     desc: "Shuhul Resort is located in the scenic Raj Bagh area of Srinagar. The resort offers comfortable and well-furnished rooms, equipped with essential amenities to ensure a relaxing stay. Guests can enjoy the peaceful environment and explore nearby attractions. The hotel also provides services such as housekeeping, parking, and a restaurant. Ideal for both business and leisure travelers, it offers excellent value for money.",
-    images: [hotel_a_00, hotel_a_01, hotel_a_02],
+    images: [
+      "/assets/hotels/hotel_a_00.jpeg",
+      "/assets/hotels/hotel_a_01.jpeg",
+      "/assets/hotels/hotel_a_02.jpeg",
+    ],
     price: "3500",
     amenities: [
       { label: "freeWiFi", title: "Free Wifi" },
@@ -353,7 +343,11 @@ export const hotelsData = [
     location: "Srinagar",
     category: "Premium",
     desc: "Paisley Palace is a luxurious 3-star hotel, conveniently located 15 km from Srinagar Airport. The hotel offers premium services, including a fine-dining restaurant, a health club, and conference facilities. The rooms are designed for comfort with modern furnishings, and guests can enjoy a range of recreational activities. It is an ideal choice for travelers seeking comfort, convenience, and luxury in the heart of Srinagar.",
-    images: [hotel_b_00, hotel_b_01, hotel_b_02],
+    images: [
+      "/assets/hotels/hotel_b_00.jpeg",
+      "/assets/hotels/hotel_b_01.jpeg",
+      "/assets/hotels/hotel_b_02.jpg",
+    ],
     price: "6500",
     amenities: [
       { label: "roomService", title: "Room Service" },
@@ -368,7 +362,11 @@ export const hotelsData = [
     location: "Sonwar Bagh, Srinagar",
     category: "Standard",
     desc: "Lime Wood Inn offers a charming stay in the heart of Sonwar Bagh, Srinagar. The hotel combines comfort with convenience, featuring well-equipped rooms, friendly service, and affordable rates. It is a perfect base for exploring Srinagar’s scenic spots. Guests can enjoy modern amenities such as Wi-Fi, air-conditioning, and room service. The Inn also offers a cozy restaurant serving local and international dishes, ensuring a delightful stay for all visitors.",
-    images: [hotel_c_00, hotel_c_01, hotel_c_02],
+    images: [
+      "/assets/hotels/hotel_c_00.jpg",
+      "/assets/hotels/hotel_c_01.jpg",
+      "/assets/hotels/hotel_c_02.jpg",
+    ],
     price: "4000",
     amenities: [
       { label: "frontDesk24x7", title: "Front Desk 24/7" },
@@ -386,7 +384,11 @@ export const hotelsData = [
     location: "Near M.A Link Road, Srinagar",
     category: "Standard",
     desc: "Hotel German Residency provides a warm, comfortable atmosphere for travelers visiting Srinagar. Situated near M.A Link Road, this 3-star hotel is known for its cozy rooms and convenient location. Guests can enjoy quick access to shopping, dining, and cultural attractions. The hotel offers a variety of services, including free Wi-Fi, parking, and room service. The rooms are tastefully furnished, with modern amenities to ensure a relaxing stay for all guests.",
-    images: [hotel_d_00, hotel_d_01, hotel_d_02],
+    images: [
+      "/assets/hotels/hotel_d_00.jpeg",
+      "/assets/hotels/hotel_d_01.jpeg",
+      "/assets/hotels/hotel_d_02.jpeg",
+    ],
     price: "3200",
     amenities: [
       { label: "restaurant", title: "Restaurant" },
@@ -400,7 +402,11 @@ export const hotelsData = [
     location: "Srinagar",
     category: "Premium",
     desc: "Hotel Diwan Srinagar offers a perfect blend of traditional Kashmiri architecture and modern luxury. Located in a serene part of Srinagar, it features spacious, elegantly designed rooms with views of the beautiful surroundings. The hotel also offers a fine-dining restaurant and a health club for relaxation. Ideal for business and leisure travelers, it ensures a comfortable stay with premium amenities, including a bar/lounge and event hosting facilities.",
-    images: [hotel_e_00, hotel_e_01, hotel_e_02],
+    images: [
+      "/assets/hotels/hotel_e_00.jpeg",
+      "/assets/hotels/hotel_e_01.jpeg",
+      "/assets/hotels/hotel_e_02.png",
+    ],
     price: "7500",
     amenities: [
       { label: "freeWiFi", title: "Free Wifi" },
@@ -416,7 +422,11 @@ export const hotelsData = [
     location: "Srinagar",
     category: "Budget",
     desc: "Hotel City Grace offers a budget-friendly option for travelers looking for a comfortable and convenient stay in Srinagar. Located in the city center, the hotel provides easy access to popular tourist spots. It features simple yet well-equipped rooms with essential amenities. The hotel’s staff is known for their hospitality, offering services like free Wi-Fi, parking, and room service. A great choice for travelers on a budget without compromising on quality.",
-    images: [hotel_f_00, hotel_f_01, hotel_f_02],
+    images: [
+      "/assets/hotels/hotel_f_00.png",
+      "/assets/hotels/hotel_f_01.png",
+      "/assets/hotels/hotel_f_02.png",
+    ],
     price: "2500",
     amenities: [
       { label: "frontDesk24x7", title: "Front Desk 24/7" },
@@ -432,7 +442,11 @@ export const hotelsData = [
     location: "Near Srinagar Airport",
     category: "Premium",
     desc: "Hotel Heritage Luxury offers a premium stay near Srinagar Airport, designed for those seeking a luxurious experience. This 3-star hotel features spacious rooms with modern decor, including air-conditioning, Wi-Fi, and satellite TV. The hotel provides high-end amenities like an on-site restaurant, fitness center, and concierge services. It’s perfect for both short stays and longer visits, ensuring that every guest receives the best service in a tranquil setting.",
-    images: [hotel_g_00, hotel_g_01, hotel_g_02],
+    images: [
+      "/assets/hotels/hotel_g_00.png",
+      "/assets/hotels/hotel_g_01.png",
+      "/assets/hotels/hotel_g_02.png",
+    ],
     price: "8000",
     amenities: [
       { label: "restaurant", title: "Restaurant" },
@@ -450,7 +464,7 @@ export const boatsData = [
     location: "Dal Lake, Srinagar",
     category: "Luxury",
     desc: "Experience the charm of Kashmiri hospitality at Royal Shikara Houseboat, floating on the serene waters of Dal Lake. This luxury houseboat features elegantly designed rooms with intricate wood carvings, Wi-Fi, and modern amenities. Enjoy breathtaking lake views, traditional Kashmiri meals, and personalized service for a truly memorable stay.",
-    images: [boat01],
+    images: ["/assets/boats/boat01.jpg"],
     price: "12000",
     amenities: [
       { label: "restaurant", title: "Restaurant" },
@@ -465,7 +479,7 @@ export const boatsData = [
     location: "Nigeen Lake, Srinagar",
     category: "Premium",
     desc: "Nestled in the peaceful waters of Nigeen Lake, Heavenly Retreat Houseboat offers a premium stay with beautifully decorated interiors and a touch of Kashmiri heritage. Each room is well-equipped with modern comforts like air-conditioning, Wi-Fi, and a private balcony overlooking the lake. Enjoy a relaxing stay with warm hospitality and delicious Kashmiri cuisine.",
-    images: [boat02],
+    images: ["/assets/boats/boat02.jpg"],
     price: "10000",
     amenities: [
       { label: "frontDesk24x7", title: "Front Desk 24/7" },
@@ -481,7 +495,7 @@ export const boatsData = [
     location: "Dal Lake, Srinagar",
     category: "Budget",
     desc: "Floating Paradise Houseboat provides a cozy and affordable stay on Dal Lake, ideal for travelers looking for an authentic houseboat experience. The houseboat offers traditionally designed rooms with wooden paneling, basic amenities, and a stunning sunrise view over the lake. Perfect for budget travelers seeking a peaceful escape.",
-    images: [boat03],
+    images: ["/assets/boats/boat03.jpg"],
     price: "5000",
     amenities: [
       { label: "freeWiFi", title: "Free Wifi" },
@@ -497,7 +511,7 @@ export const boatsData = [
     location: "Jhelum River, Srinagar",
     category: "Mid-range",
     desc: "Golden Lotus Houseboat offers a blend of comfort and tradition on the tranquil Jhelum River. Guests can enjoy spacious rooms with Kashmiri carpets, modern bathrooms, and a relaxing deck area. Ideal for families and couples looking for a unique water-living experience with warm hospitality.",
-    images: [boat04],
+    images: ["/assets/boats/boat04.jpg"],
     price: "7500",
     amenities: [
       { label: "restaurant", title: "Restaurant" },
@@ -511,7 +525,7 @@ export const boatsData = [
     location: "Dal Lake, Srinagar",
     category: "Luxury",
     desc: "Majestic Waves Houseboat offers an opulent retreat on Dal Lake, featuring handcrafted wooden interiors, plush bedding, and top-notch amenities. Guests can savor authentic Kashmiri cuisine, enjoy guided shikara rides, and immerse themselves in the breathtaking beauty of the lake.",
-    images: [boat05],
+    images: ["/assets/boats/boat05.jpg"],
     price: "14000",
     amenities: [
       { label: "frontDesk24x7", title: "Front Desk 24/7" },
@@ -529,7 +543,7 @@ export const boatsData = [
     location: "Nigeen Lake, Srinagar",
     category: "Premium",
     desc: "Perfectly positioned in the serene Nigeen Lake, Tranquil Shores Houseboat offers a peaceful escape with elegantly designed rooms, modern amenities, and warm hospitality. Guests can relax on the sundeck, enjoy panoramic views, and experience the best of Kashmiri traditions.",
-    images: [boat06],
+    images: ["/assets/boats/boat06.jpg"],
     price: "9500",
     amenities: [
       { label: "roomService", title: "Room Service" },
@@ -544,7 +558,7 @@ export const boatsData = [
     location: "Dal Lake, Srinagar",
     category: "Mid-range",
     desc: "Sunset Bliss Houseboat is known for its mesmerizing sunset views over Dal Lake. With cozy rooms featuring traditional wooden paneling, modern amenities, and an inviting common area, this houseboat is a perfect choice for travelers seeking comfort and an authentic Kashmiri experience.",
-    images: [boat07],
+    images: ["/assets/boats/boat07.jpg"],
     price: "7000",
     amenities: [
       { label: "freeWiFi", title: "Free Wifi" },
@@ -561,7 +575,7 @@ export const carsData = [
     title: "Maruti Suzuki Swift",
     location: "Srinagar - Budgam",
     price: 5500,
-    images: [car01],
+    images: ["/assets/cars/car01.jpeg"],
     passengers: 5,
     baggage: 2,
     desc: "The Maruti Suzuki Swift is a perfect blend of style and efficiency, designed for both dynamic city driving and scenic escapes across Kashmir. With agile handling, modern safety features, and an economical engine, this compact car promises a smooth ride on busy urban roads as well as winding country lanes. Its comfortable, thoughtfully designed interior makes every journey enjoyable and stress-free, while advanced technology enhances every drive. The Swift is an ideal choice for those who seek reliability combined with performance.",
@@ -578,7 +592,7 @@ export const carsData = [
     title: "Hyundai Creta",
     location: "Srinagar - Chodura",
     price: 35000,
-    images: [car02],
+    images: ["/assets/cars/car02.jpeg"],
     passengers: 5,
     baggage: 3,
     desc: "Experience sophistication and robust performance with the Hyundai Creta, an SUV engineered to handle both bustling city streets and rugged terrain. The spacious interior and state-of-the-art technology ensure a secure and comfortable journey. Every detail, from the ergonomic seating to the intuitive infotainment system, has been meticulously designed to enhance your driving pleasure. Ideal for exploring the diverse landscapes of Kashmir, the Creta combines style, power, and advanced safety features to deliver a truly memorable travel experience.",
@@ -596,7 +610,7 @@ export const carsData = [
     title: "Tata Nexon",
     location: "Srinagar",
     price: 5000,
-    images: [car03],
+    images: ["/assets/cars/car09.png"],
     passengers: 5,
     baggage: 3,
     desc: "Discover the dynamic performance of the Tata Nexon, a compact SUV built for both urban adventures and off-road escapades. Its bold design is complemented by advanced safety features and efficient performance that deliver a smooth ride on challenging roads. The modern cabin is spacious and equipped with innovative technology to keep you connected on every journey. Designed with both style and practicality in mind, the Nexon offers a reliable driving experience that adapts perfectly to the diverse landscapes of Kashmir.",
@@ -614,7 +628,7 @@ export const carsData = [
     title: "Mahindra Scorpio-N",
     location: "Srinagar - Budgam",
     price: 3500,
-    images: [car04],
+    images: ["/assets/cars/car03.jpeg"],
     passengers: 7,
     baggage: 4,
     desc: "Conquer challenging roads with the Mahindra Scorpio-N, a robust SUV engineered for superior performance and durability. This powerful vehicle is built to tackle both urban congestion and off-road adventures in the scenic regions of Kashmir. Featuring a spacious interior with modern amenities, advanced safety systems, and a commanding engine, the Scorpio-N ensures stability and comfort on every journey. Its rugged design is harmoniously blended with contemporary technology to provide a secure, exhilarating driving experience without compromising on luxury.",
@@ -633,7 +647,7 @@ export const carsData = [
     title: "Kia Seltos",
     location: "Srinagar - Jammu",
     price: 2000,
-    images: [car05],
+    images: ["/assets/cars/car04.jpeg"],
     passengers: 5,
     baggage: 3,
     desc: "Embrace modern luxury with the Kia Seltos, a stylish SUV that perfectly balances innovative design with exceptional performance. Its refined interior, intuitive controls, and versatile features make every journey both comfortable and connected. Ideal for navigating the busy urban centers and serene countryside of Kashmir, the Seltos delivers a smooth, secure ride. With a focus on safety and modern convenience, this vehicle is tailored for drivers who value technology, aesthetics, and efficiency, ensuring a travel experience that is as memorable as it is reliable.",
@@ -650,7 +664,7 @@ export const carsData = [
     title: "Toyota Innova Crysta",
     location: "Srinagar - Barahmulla",
     price: 9000,
-    images: [car06],
+    images: ["/assets/cars/car05.png"],
     passengers: 7,
     baggage: 5,
     desc: "Step into spacious elegance with the Toyota Innova Crysta, a premium vehicle designed for family travel and group adventures across the diverse landscapes of Kashmir. Boasting a roomy, well-appointed cabin and versatile seating configurations, this vehicle ensures comfort and convenience on long journeys. Advanced safety features, modern infotainment, and a robust engine combine to deliver a secure and pleasurable ride. The Innova Crysta is perfect for both leisurely trips and practical daily use, offering a harmonious blend of luxury, performance, and reliability that caters to every travel need.",
@@ -669,7 +683,7 @@ export const carsData = [
     title: "Honda City",
     location: "Srinagar - Budgam",
     price: 1500,
-    images: [car07],
+    images: ["/assets/cars/car06.png"],
     passengers: 5,
     baggage: 3,
     desc: "Experience the perfect combination of sophistication and efficiency with the Honda City, a sedan that redefines urban commuting. Designed with precision and an emphasis on comfort, this vehicle features a spacious interior, modern safety features, and impressive fuel economy. The sleek exterior and smooth handling make it ideal for navigating the bustling streets and tranquil highways of Kashmir. Every journey becomes more enjoyable thanks to its thoughtful design and advanced technology, ensuring that you travel in both style and confidence.",
@@ -687,7 +701,7 @@ export const carsData = [
     title: "Maruti Suzuki Ertiga",
     location: "Srinagar - Anantnag",
     price: 1000,
-    images: [car08],
+    images: ["/assets/cars/car07.png"],
     passengers: 7,
     baggage: 4,
     desc: "Discover practicality and versatility with the Maruti Suzuki Ertiga, a multi-purpose vehicle designed to accommodate both family outings and daily commutes. With a spacious cabin, flexible seating arrangements, and modern amenities, the Ertiga ensures every trip is comfortable and convenient. Its efficient performance, coupled with robust safety features, makes it an ideal choice for exploring the varied landscapes of Kashmir. Enjoy a reliable, economical ride that doesn’t compromise on comfort or style, making each journey as enjoyable as it is practical.",
@@ -707,7 +721,7 @@ export const carsData = [
     title: "MG Hector",
     location: "Srinagar - Budgam",
     price: 4500,
-    images: [car09],
+    images: ["/assets/cars/car08.png"],
     passengers: 5,
     baggage: 4,
     desc: "Elevate your driving experience with the MG Hector, a bold SUV that blends striking design with advanced technology and luxurious comfort. Engineered for dynamic performance, this vehicle features a spacious cabin, state-of-the-art infotainment system, and robust safety features that ensure a secure ride. Whether traversing urban avenues or exploring the scenic routes of Kashmir, the Hector delivers exceptional power and refinement. Its premium materials and innovative design make every journey not only safe but also remarkably enjoyable and stylish.",
@@ -727,7 +741,7 @@ export const carsData = [
     title: "Tata Harrier",
     location: "Srinagar - Budgam",
     price: 7000,
-    images: [car10],
+    images: ["/assets/cars/car10.png"],
     passengers: 5,
     baggage: 4,
     desc: "Redefine your adventures with the Tata Harrier, a sophisticated SUV that epitomizes power, style, and modern innovation. With a commanding presence and an impeccably designed interior, this vehicle offers advanced safety features, luxurious comfort, and state-of-the-art technology for an unparalleled driving experience. Whether maneuvering through urban landscapes or exploring rugged terrains, the Harrier delivers a smooth and confident ride. Every detail, from its bold exterior to its ergonomic cabin, has been crafted to ensure that every journey across the majestic vistas of Kashmir is both extraordinary and memorable.",
@@ -751,7 +765,7 @@ export const activitiesData = [
     title: "Shikara Ride",
     location: "Srinagar",
     desc: "A Shikara ride on Dal Lake or Nigeen Lake in Srinagar offers a tranquil and picturesque experience. These beautifully decorated wooden boats take tourists through the serene waters, providing stunning views of the surrounding mountains, floating gardens, and houseboats. The ride is an excellent way to soak in the traditional Kashmiri lifestyle as vendors sell handicrafts, saffron, and hot Kahwa from their boats. It’s a must-try activity for couples, families, and solo travelers looking for a peaceful escape in the heart of Kashmir.",
-    images: [shikara],
+    images: ["/assets/activities/shikara.jpg"],
     duration: 3,
     price: 5000,
   },
@@ -760,7 +774,7 @@ export const activitiesData = [
     title: "Trekking",
     location: "Sonmarg",
     desc: "Kashmir is home to some of the most breathtaking trekking routes in India. From the famous Kashmir Great Lakes Trek to the challenging Tarsar Marsar Trek, adventure seekers can explore pristine alpine lakes, lush green meadows, and snow-covered peaks. Pahalgam offers stunning trails through Aru Valley and Kolahoi Glacier, while Sonmarg serves as a gateway to treks like the Thajiwas Glacier trek. Trekking in Kashmir is an unforgettable experience for nature lovers and adventure enthusiasts alike.",
-    images: [trekking],
+    images: ["/assets/activities/trekking.jpg"],
     duration: 3,
     price: 20000,
   },
@@ -769,7 +783,7 @@ export const activitiesData = [
     title: "Gondola Ride",
     location: "Yusmarg",
     desc: "The Gulmarg Gondola, one of the highest cable cars in the world, takes tourists up to 13,780 feet, offering breathtaking views of snow-clad mountains. It operates in two phases: the first reaches Kongdori Station, while the second takes you to Apharwat Peak, a paradise for skiers and snowboarders in winter. The ride provides a mesmerizing bird’s-eye view of the lush meadows in summer and a snow-covered wonderland in winter, making it a must-try activity in Kashmir.",
-    images: [gondola],
+    images: ["/assets/activities/gondola.jpg"],
     duration: 3,
     price: 7000,
   },
@@ -778,7 +792,7 @@ export const activitiesData = [
     title: "Skiing & Snowboarding",
     location: "Gulmarg",
     desc: "Gulmarg is the ultimate winter sports destination in India, offering world-class skiing and snowboarding experiences. With powdery snow, vast slopes, and professional ski instructors, it’s an ideal place for both beginners and experts. The Apharwat Peak, accessed via the Gondola, provides thrilling descents for adventure enthusiasts. Tourists can rent skiing equipment and take lessons to enjoy the exhilarating sport amidst the breathtaking landscapes of the Himalayas.",
-    images: [skiing],
+    images: ["/assets/activities/skiing.jpg"],
     duration: 3,
     price: 15000,
   },
@@ -787,7 +801,7 @@ export const activitiesData = [
     title: "Houseboat Stay",
     location: "Srinagar",
     desc: "Staying in a traditional Kashmiri houseboat on Dal Lake or Nigeen Lake is a unique and luxurious experience. These beautifully crafted wooden houseboats feature intricate carvings, cozy rooms, and stunning views of the lake. Guests can enjoy the peaceful surroundings, relish authentic Kashmiri cuisine, and wake up to the soothing sound of water. Many houseboats also offer Shikara rides and guided tours, making the stay an unforgettable part of any Kashmir trip.",
-    images: [houseboat],
+    images: ["/assets/activities/houseboat.jpg"],
     duration: 3,
     price: 10000,
   },
@@ -796,7 +810,7 @@ export const activitiesData = [
     title: "Hiking",
     location: "Pahalgam",
     desc: "For those who enjoy shorter yet scenic adventures, hiking in Kashmir is the perfect activity. Places like Betaab Valley and Aru Valley in Pahalgam offer gentle trails through lush greenery, while Yusmarg’s pine-covered meadows provide an ideal hiking experience. Sonmarg is another great destination, where tourists can hike to Thajiwas Glacier and enjoy panoramic views of the Himalayas. Whether you’re a beginner or a seasoned hiker, Kashmir has trails to suit every level of experience.",
-    images: [hiking],
+    images: ["/assets/activities/hiking.jpg"],
     duration: 3,
     price: 5000,
   },
@@ -805,7 +819,7 @@ export const activitiesData = [
     title: "Exploring Mughal Gardens",
     location: "Srinagar",
     desc: "The Mughal Gardens in Srinagar, including Shalimar Bagh, Nishat Bagh, and Chashme Shahi, are a testament to Persian-style landscaping and the grandeur of the Mughal era. These gardens feature beautifully designed terraces, flowing fountains, and a variety of vibrant flowers that create a serene and picturesque environment. Visitors can take leisurely walks, enjoy a picnic, or simply admire the stunning views of Dal Lake and the surrounding mountains.",
-    images: [garden],
+    images: ["/assets/activities/garden.jpg"],
     duration: 3,
     price: 5000,
   },
@@ -814,7 +828,7 @@ export const activitiesData = [
     title: "Wildlife Spotting",
     location: "Dachigam National Park",
     desc: "Dachigam National Park, located just outside Srinagar, is home to a diverse range of wildlife, including the rare Hangul (Kashmiri stag), Himalayan black bear, and leopards. The park’s stunning landscapes feature dense forests, meadows, and flowing streams, making it a perfect spot for nature lovers and wildlife photographers. Visitors can explore the park through guided treks and safaris, offering a chance to witness Kashmir’s rich biodiversity up close.",
-    images: [wildlife],
+    images: ["/assets/activities/wildlife.jpg"],
     duration: 3,
     price: 5000,
   },
@@ -824,17 +838,7 @@ export const testimonialsData = [
   {
     id: 1,
     name: "Adil Bashir",
-    desc: `I had a lovely conversation with Mr. Eisenhart, and he
-                  couldn't say enough about how wonderful their trip was. They
-                  were very pleased with their guide in Ireland, Bill. They said
-                  that he was absolutely wonderful. They said that their
-                  full-day Connemara music tour was outstanding. Highlight of
-                  the trip. Their guide for their walking tour in Dublin,
-                  Frankie, was very good—particularly with engaging the kids.
-                  They all really enjoyed the bike ride, falconry, and the
-                  surfing lesson. Thank you so much for your help in putting
-                  this trip together. Mr. Eisenhart really couldn't stop gushing
-                  about how this was a trip of a lifetime.`,
+    desc: `I had a lovely conversation with Mr. Eisenhart, and he couldn't say enough about how wonderful their trip was. They were very pleased with their guide in Ireland, Bill. They said that he was absolutely wonderful. They said that their full-day Connemara music tour was outstanding. Highlight of the trip. Their guide for their walking tour in Dublin, Frankie, was very good—particularly with engaging the kids. They all really enjoyed the bike ride, falconry, and the surfing lesson. Thank you so much for your help in putting this trip together. Mr. Eisenhart really couldn't stop gushing about how this was a trip of a lifetime.`,
   },
   {
     id: 2,
@@ -861,7 +865,7 @@ export const teamsData = [
     id: 1,
     name: "Arhaan Hameed",
     title: "CEO",
-    image: team01,
+    image: "/assets/team/team01.jpg",
     desc: `I just wanted to thank you for planning the most spectacular trip to Ireland. As you
             know, this was a very special trip for my family and it truly could not have went
             better! You not only kept us within budget, you provided accommodations and
@@ -875,7 +879,7 @@ export const teamsData = [
     id: 2,
     name: "Muneer Sheikh",
     title: "CTO",
-    image: team02,
+    image: "/assets/team/team02.jpg",
     desc: `It was a wonderful trip, we all loved Scotland, and Fiona!
           Thank you for everything, it was perfectly planned, and
           timed!!`,
@@ -884,7 +888,7 @@ export const teamsData = [
     id: 3,
     name: "Adil Bashir",
     title: "Graphic Designer",
-    image: team03,
+    image: "/assets/team/team03.jpg",
     desc: `I had a lovely conversation with Mr. Eisenhart, and he
             couldn't say enough about how wonderful their trip was. They
             were very pleased with their guide in Ireland, Bill. They said
