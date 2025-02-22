@@ -1,9 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./style.module.css";
-import { activitiesData } from "../../../../public/assets/GlobalData";
+// import { activities } from "../../../../public/assets/GlobalData";
 import { useNavigate } from "react-router-dom";
+import ErrorPage from "../../../ErrorPage";
+import LoadingPage from "../../../LoadingPage";
+import api from "../../../api";
 
 const Activities = () => {
+  const [activities, setActivities] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const carouselRef = useRef(null);
   const sliderRef = useRef(null);
   const thumbnailRef = useRef(null);
@@ -77,13 +84,31 @@ const Activities = () => {
     };
   }, []);
 
+  //useeffect to get Activities data from db
+  useEffect(() => {
+    async function fetchActivities() {
+      try {
+        const response = await api.get("activities");
+        setActivities(response.data);
+      } catch (err) {
+        console.log("Failed to load data", err);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchActivities();
+  }, []);
+
+  if (error) return <ErrorPage />;
+  if (loading) return <LoadingPage />;
   return (
     <div className={`${styles.font_poppins} text-[12px]`}>
       <div ref={carouselRef} className={`${styles.carousel}`}>
         {/* slider list */}
         <div ref={sliderRef} className={`${styles.list}`}>
-          {activitiesData.map((activity) => (
-            <div className={`${styles.item}`} key={activity.id}>
+          {activities.map((activity) => (
+            <div className={`${styles.item}`} key={activity._id}>
               <img src={activity.images[0]} alt={activity.title} />
               <div className="absolute inset-0 bg-black opacity-30"></div>
               <div className={`${styles.content}`}>
@@ -98,7 +123,7 @@ const Activities = () => {
                 </div>
                 <div className={`${styles.buttons}`}>
                   <button
-                    onClick={() => handleNavigate(activity.id)}
+                    onClick={() => handleNavigate(activity._id)}
                     className="px-2 py-1 md:px-4 md:py-2 font-semibold uppercase text-xs max-w-[150px]"
                   >
                     View Details
@@ -116,8 +141,8 @@ const Activities = () => {
         </div>
         {/* thumbnail list */}
         <div ref={thumbnailRef} className={`${styles.thumbnail}`}>
-          {activitiesData.map((activity) => (
-            <div className={`${styles.item}`} key={activity.id}>
+          {activities.map((activity) => (
+            <div className={`${styles.item}`} key={activity._id}>
               <img src={activity.images[0]} alt={activity.title} />
               <div className={`${styles.content}`}>
                 <div className={`${styles.title}`}>{activity.title}</div>

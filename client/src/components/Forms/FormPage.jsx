@@ -5,10 +5,12 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import api from "../../api";
 import ErrorPage from "../../ErrorPage";
+import LoadingPage from "../../LoadingPage";
 
 const FormPage = ({ isOpen, requestFrom }) => {
   const [packages, setPackages] = useState([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const inquiryForm = isOpen.inquire;
   const bookingForm = isOpen.book;
@@ -128,22 +130,22 @@ const FormPage = ({ isOpen, requestFrom }) => {
     } else {
       // Remove any non-digit characters
       const phoneDigits = formData.clientDetails.phone.replace(/\D/g, "");
-      if (phoneDigits.length !== 10) {
-        newErrors.phone = "* Phone number must be exactly 10 digits";
+      if (phoneDigits.length < 12 || phoneDigits.length > 15) {
+        newErrors.phone = "* Invalid phone number";
       }
     }
 
     // Validate travel date fields
-    if (!formData.date.day) {
+    if (!isOpen.inquire && !formData.date.day) {
       newErrors.day = "* Day is required";
     }
-    if (!formData.date.month) {
+    if (!isOpen.inquire && !formData.date.month) {
       newErrors.month = "* Month is required";
     }
-    if (!formData.date.year) {
+    if (!isOpen.inquire && !formData.date.year) {
       newErrors.year = "* Year is required";
     }
-    if (!formData.date.nights) {
+    if (!isOpen.inquire && !formData.date.nights) {
       newErrors.nights = "* Number of nights is required";
     }
     if (!formData.party.adults) {
@@ -172,18 +174,36 @@ const FormPage = ({ isOpen, requestFrom }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setFormErrors(validationErrors);
-      // Optionally, scroll to the first error or show a global message
-      return;
-    }
-    setFormErrors({});
-    // Proceed with POST request here since validation passed
-    console.log("Submitting form data:", formData);
-  };
 
-  // --- End Validation Logic ---
+    async function submitForm() {
+      try {
+        const response = await api.post("form/submit-form", {
+          ...formData,
+          requestFrom,
+        });
+
+        console.log("Form submitted successfully:", response.data);
+        alert("Form submitted successfully!");
+      } catch (error) {
+        console.error(
+          "Submission error:",
+          error.response ? error.response.data : error
+        );
+        alert("Error submitting form.");
+      }
+    }
+
+    // const validationErrors = validateForm();
+    // if (Object.keys(validationErrors).length > 0) {
+    //   setFormErrors(validationErrors);
+    //   // Optionally, scroll to the first error or show a global message
+    //   return;
+    // }
+
+    console.log("Submitting form data:", formData);
+    submitForm();
+    setFormErrors({});
+  };
 
   // Function to conditionally combine classes
   const inputClass = (defaultClasses, errorKey) =>
@@ -196,19 +216,21 @@ const FormPage = ({ isOpen, requestFrom }) => {
   //useEffect to get Packages data from db
   useEffect(() => {
     async function fetchPackages() {
-      console.log("Fetching Packages Data...");
       try {
         const response = await api.get("packages");
         setPackages(response.data);
       } catch (err) {
-        console.log(err);
-        setError("Failed to load Packages data");
+        console.log("Failed to load data", err);
+        setError(true);
+      } finally {
+        setLoading(false);
       }
     }
     fetchPackages();
   }, []);
 
   if (error) return <ErrorPage />;
+  if (loading) return <LoadingPage />;
 
   return (
     <div className="fontMont min-h-screen bg-gray-200">
@@ -736,6 +758,8 @@ const FormPage = ({ isOpen, requestFrom }) => {
                     borderRadius: "0",
                   }}
                   dropdownClass="z-50"
+                  // disableCountryCode={true}
+                  countryCodeEditable={false}
                 />
                 {errors.phone && (
                   <p className="text-red-500 text-xs mt-1">{errors.phone}</p>

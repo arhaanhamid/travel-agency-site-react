@@ -1,9 +1,17 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import styles from "./style.module.css";
-import { boatsData } from "../../../../public/assets/GlobalData";
+// import { boats } from "../../../../public/assets/GlobalData";
 import { useNavigate } from "react-router-dom";
+import ErrorPage from "../../../ErrorPage";
+import LoadingPage from "../../../LoadingPage";
+
+import api from "../../../api";
 
 const Boats = () => {
+  const [boats, setBoats] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const carouselRef = useRef(null);
   const listRef = useRef(null);
   const nextButtonRef = useRef(null);
@@ -61,11 +69,30 @@ const Boats = () => {
     };
   }, []);
 
+  //useeffect to get Boats data from db
+  useEffect(() => {
+    async function fetchBoats() {
+      try {
+        const response = await api.get("boats");
+        setBoats(response.data);
+      } catch (err) {
+        console.log("Failed to load data", err);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchBoats();
+  }, []);
+
+  if (error) return <ErrorPage />;
+  if (loading) return <LoadingPage />;
+
   return (
     <div ref={carouselRef} className={`${styles.carousel} xl:py-20`}>
       <div ref={listRef} className={styles.list}>
-        {boatsData.map((boat) => (
-          <div className={`${styles.sliderItem} `} key={boat.id}>
+        {boats.map((boat) => (
+          <div className={`${styles.sliderItem} `} key={boat._id}>
             <img
               src={boat.images[0]}
               alt={boat.title}
@@ -93,7 +120,7 @@ const Boats = () => {
               >
                 <button
                   className={`${styles.seeMore} w-max mt-[20px] p-[5px] text-xs sm:text-sm uppercase font-bold tracking-[2px]`}
-                  onClick={() => handleNavigate(boat.id)}
+                  onClick={() => handleNavigate(boat._id)}
                 >
                   VIEW DETAILS
                 </button>

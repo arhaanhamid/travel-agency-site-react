@@ -8,8 +8,8 @@ const FilterSidebar = ({
   selectedDestinations,
   setSelectedDestinations,
   defaultLoc,
-  priceRange,
-  setPriceRange,
+  // priceRange,
+  // setPriceRange,
   durationRange,
   setDurationRange,
   selectedActivities,
@@ -88,7 +88,7 @@ const FilterSidebar = ({
 
   const clearAllFilters = () => {
     setSelectedDestinations([]);
-    setPriceRange([100, 50000]);
+    // setPriceRange([100, 50000]);
     setDurationRange([1, 7]);
     setSelectedActivities([]);
     setSortOption("Latest");
@@ -299,7 +299,7 @@ const FilterSidebar = ({
         <hr className={`my-3 ${activePage === "activities" ? "" : "hidden"}`} />
 
         {/* Price Range Filter */}
-        <div className="my-6">
+        {/* <div className="my-6">
           <h3 className="text-md font-semibold mb-6">Price</h3>
           <Range
             step={100}
@@ -336,7 +336,7 @@ const FilterSidebar = ({
             <span className="text-xs">${priceRange[1]}</span>
           </div>
         </div>
-        <hr className="my-3" />
+        <hr className="my-3" /> */}
         {/* Duration Range Filter */}
         <div className="my-6">
           <h3 className="text-md font-semibold mb-6">Duration</h3>

@@ -43,19 +43,19 @@ function App() {
           <Route path="/services/:type" element={<ServicesPage />} />
           <Route path="/forms" element={<FormPage />} />
           <Route
-            path="/services/packages/:packageId"
+            path="/services/packages/:dataId"
             element={<PackageDetailPage />}
           />
           <Route
-            path="/services/hotels/:hotelId"
+            path="/services/hotels/:dataId"
             element={<HotelDetailPage />}
           />
           <Route
-            path="/services/activities/:activityId"
+            path="/services/activities/:dataId"
             element={<ActivityDetailPage />}
           />
-          <Route path="/services/boats/:boatId" element={<BoatDetailPage />} />
-          <Route path="/services/cars/:carId" element={<CarDetailPage />} />
+          <Route path="/services/boats/:dataId" element={<BoatDetailPage />} />
+          <Route path="/services/cars/:dataId" element={<CarDetailPage />} />
           <Route path="/testpage" element={<Testpage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

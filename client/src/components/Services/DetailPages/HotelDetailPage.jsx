@@ -6,16 +6,21 @@ import "swiper/css/navigation";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
-import { hotelsData } from "../../../../public/assets/GlobalData";
+// import { hotelsData } from "../../../../public/assets/GlobalData";
 import { iconsData } from "../../../../public/assets/GlobalData";
 import {
   LeftSwiperArrow,
   RightSwiperArrow,
 } from "../../UIComponents/UIComponents";
 import Modal from "../../UIComponents/Modal";
+import ErrorPage from "../../../ErrorPage";
+import LoadingPage from "../../../LoadingPage";
+import api from "../../../api";
 
 const HotelDetailPage = () => {
-  const [hotelData, setHotelData] = useState("");
+  const [data, setData] = useState("");
+  const [error, setError] = useState(false);
+
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState({
     book: false,
@@ -23,30 +28,27 @@ const HotelDetailPage = () => {
     subject: "",
   });
 
-  const { hotelId } = useParams();
+  const { dataId } = useParams();
 
+  //useeffect to get data from db
   useEffect(() => {
-    async function getData() {
+    async function fetchData() {
       try {
-        const data = hotelsData.filter((item) => item.id == hotelId);
-        setHotelData(data[0]);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setHotelData([]);
+        const response = await api.get(`hotels/${dataId}`);
+        setData(response.data);
+      } catch (err) {
+        console.log("Error fetching data:", err);
+        setError(true);
+        setData("");
       } finally {
         setLoading(false);
       }
     }
-    getData();
-  }, [hotelId]);
+    fetchData();
+  }, [dataId]);
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        Loading...
-      </div>
-    );
-  }
+  if (error) return <ErrorPage />;
+  if (loading) return <LoadingPage />;
 
   return (
     <div className=" bg-gray-200">
@@ -70,14 +72,14 @@ const HotelDetailPage = () => {
           loop={true}
           lazy="true"
         >
-          {hotelData.images.map((image, index) => {
+          {data.images.map((image, index) => {
             return (
               <SwiperSlide key={index}>
                 <div className="relative max-w-screen-md mb-8 h-64 sm:h-80 md:h-96 mx-auto">
                   <div className="absolute left-0 bottom-0 w-full h-full z-10 bg-gradient-to-t from-black/70 via-transparent"></div>
                   <img
                     src={image}
-                    alt={hotelData.title}
+                    alt={data.title}
                     className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg"
                     loading="lazy"
                   />
@@ -94,7 +96,7 @@ const HotelDetailPage = () => {
           {/* Hotel Details */}
           <div className="p-3 sm:px-5 md:px-8 lg:px-28 flex flex-col gap-5 md:gap-10">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
-              {hotelData.title}
+              {data.title}
             </h1>
 
             <div className="flex items-center mb-4">
@@ -108,7 +110,7 @@ const HotelDetailPage = () => {
             <div className="text-sm text-gray-700">
               <h1 className="font-bold">Hotel Amenities:</h1>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {hotelData.amenities.map((item, index) => {
+                {data.amenities.map((item, index) => {
                   return (
                     <div
                       key={index}
@@ -129,7 +131,7 @@ const HotelDetailPage = () => {
             {/* <div className="flex items-center justify-between mt-3">
               <div>
                 <span className="text-3xl font-bold text-gray-900">
-                  ₹{hotelData.price}
+                  ₹{data.price}
                   <small className="font-normal text-xs text-gray-600">
                     /night
                   </small>
@@ -143,7 +145,7 @@ const HotelDetailPage = () => {
                 onClick={() =>
                   setIsOpen((prev) => ({
                     ...prev,
-                    subject: hotelData.title,
+                    subject: data.title,
                     book: true,
                   }))
                 }
@@ -155,7 +157,7 @@ const HotelDetailPage = () => {
                 onClick={() =>
                   setIsOpen((prev) => ({
                     ...prev,
-                    subject: hotelData.title,
+                    subject: data.title,
                     inquire: true,
                   }))
                 }
@@ -168,7 +170,7 @@ const HotelDetailPage = () => {
 
         {/* Description */}
         <div className="mt-12 p-3 max-w-screen-md mx-auto text-gray-700 text-base sm:text-lg leading-relaxed">
-          <p>{hotelData.desc}</p>
+          <p>{data.desc}</p>
         </div>
       </div>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} requestFrom="hotel" />

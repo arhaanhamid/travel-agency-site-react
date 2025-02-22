@@ -1,9 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./style.module.css";
-import packagesData from "../../../../public/assets/GlobalData";
+// import packages from "../../../../public/assets/GlobalData";
 import { useNavigate } from "react-router-dom";
+import ErrorPage from "../../../ErrorPage";
+import LoadingPage from "../../../LoadingPage";
+import api from "../../../api";
 
 const PopularPackages = () => {
+  const [packages, setPackages] = useState([]);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
   const carouselRef = useRef(null);
   const sliderRef = useRef(null);
@@ -77,13 +84,32 @@ const PopularPackages = () => {
     };
   }, []);
 
+  //useeffect to get Packages data from db
+  useEffect(() => {
+    async function fetchPackages() {
+      try {
+        const response = await api.get("packages");
+        setPackages(response.data);
+      } catch (err) {
+        console.log("Failed to load data", err);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPackages();
+  }, []);
+
+  if (error) return <ErrorPage />;
+  if (loading) return <LoadingPage />;
+
   return (
     <div className={`fontMont text-[12px]`}>
       <div ref={carouselRef} className={`${styles.carousel}`}>
         {/* slider list */}
         <div ref={sliderRef} className={`${styles.list}`}>
-          {packagesData.map((item) => (
-            <div className={`${styles.item}`} key={item.id}>
+          {packages.map((item) => (
+            <div className={`${styles.item}`} key={item._id}>
               <img src={item.images[0]} alt={item.title} />
               <div className="absolute inset-0 bg-black opacity-30"></div>
               <div
@@ -98,7 +124,7 @@ const PopularPackages = () => {
                 <div className={`${styles.des} line-clamp-6`}>{item.desc}</div>
                 <div className={`${styles.buttons}`}>
                   <button
-                    onClick={() => handleNavigate(item.id)}
+                    onClick={() => handleNavigate(item._id)}
                     className="px-2 py-1 md:px-4 md:py-2 font-semibold uppercase text-xs max-w-[150px]"
                   >
                     View Details
@@ -116,8 +142,8 @@ const PopularPackages = () => {
         </div>
         {/* thumbnail list */}
         <div ref={thumbnailRef} className={`${styles.thumbnail}`}>
-          {packagesData.map((activity) => (
-            <div className={`${styles.item}`} key={activity.id}>
+          {packages.map((activity) => (
+            <div className={`${styles.item}`} key={activity._id}>
               <img src={activity.images[0]} alt={activity.title} />
               <div className={`${styles.content}`}>
                 <div className={`${styles.title}`}>{activity.title}</div>

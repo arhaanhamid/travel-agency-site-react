@@ -21,7 +21,6 @@ router.get("/:id", async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch packages" });
   }
-  res.json({ message: `Get package with id ${req.params.id}` });
 });
 
 // POST create a new package

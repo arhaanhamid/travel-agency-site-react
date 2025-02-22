@@ -3,6 +3,7 @@ import navCSS from "./nav.module.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Dropdown from "./Dropdown";
 import ErrorPage from "../../ErrorPage";
+import LoadingPage from "../../LoadingPage";
 import api from "../../api";
 
 function Nav() {
@@ -11,6 +12,7 @@ function Nav() {
 
   const [packages, setPackages] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const [isOpen, setIsOpen] = useState({
     services: false,
@@ -58,18 +60,20 @@ function Nav() {
   //useeffect to get Package data from db
   useEffect(() => {
     async function fetchPackages() {
-      console.log("Fetching Packages Data...");
       try {
         const response = await api.get("packages");
         setPackages(response.data);
       } catch (err) {
-        console.log(err);
-        setError("Failed to load Package data");
+        console.log("Failed to load data", err);
+        setError(true);
+      } finally {
+        setLoading(false);
       }
     }
     fetchPackages();
   }, []);
   if (error) return <ErrorPage />;
+  if (loading) return <LoadingPage />;
 
   return (
     <div

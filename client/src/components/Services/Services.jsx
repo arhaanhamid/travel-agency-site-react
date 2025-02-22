@@ -11,6 +11,7 @@ const Services = ({ data, defaultLoc = "" }) => {
 
   // Handler for navigation
   const handleMoreDetails = (id) => {
+    console.log(id);
     navigate(`${location.pathname}/${id}`);
   };
 
@@ -172,7 +173,7 @@ const Services = ({ data, defaultLoc = "" }) => {
         <div className="md:w-[70%] lg:w-[75%] xl:w-[82%] h-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 px-[10px] gap-x-[20px] gap-y-[60px]">
           {filteredTrips.length > 0 ? (
             filteredTrips.map((item, index) => (
-              <Suspense fallback={<Skeleton />} key={item.id}>
+              <Suspense fallback={<Skeleton />} key={item._id}>
                 <div
                   className={`${styles.card}`}
                   style={{ transform: randomRotate() }}
@@ -203,7 +204,7 @@ const Services = ({ data, defaultLoc = "" }) => {
                   >
                     <div
                       className={`w-full flex items-center justify-center font-bold bg-transparent border-2 border-indigo-900 rounded-full text-[0.8rem] h-[40px] py-1 px-2 sm:h-[50px] sm:text-[1rem] md:text-[0.8rem] lg:px-2 lg:h-[45px] xl:h-[50px] xl:px-4 sm:px-4 hover:bg-indigo-900 text-indigo-900 hover:text-white transition duration-300 cursor-pointer`}
-                      onClick={() => handleMoreDetails(item.id)}
+                      onClick={() => handleMoreDetails(item._id)}
                     >
                       {activePage == "packages" && "Discover Trip"}
                       {activePage == "hotels" && "Discover Hotel"}

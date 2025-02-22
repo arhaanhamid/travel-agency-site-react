@@ -13,9 +13,4 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-// api.interceptors.request.use((config) => {
-//   console.log("Request URL:", config.baseURL + config.url);
-//   return config;
-// });
-
 export default api;

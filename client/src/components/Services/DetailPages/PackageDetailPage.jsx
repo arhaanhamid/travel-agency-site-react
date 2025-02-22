@@ -6,16 +6,20 @@ import "swiper/css/navigation";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import { useParams } from "react-router-dom";
-import tripsData from "../../../../public/assets/GlobalData";
+// import tripsData from "../../../../public/assets/GlobalData";
 import { iconsData } from "../../../../public/assets/GlobalData";
 import {
   LeftSwiperArrow,
   RightSwiperArrow,
 } from "../../UIComponents/UIComponents";
 import Modal from "../../UIComponents/Modal";
+import ErrorPage from "../../../ErrorPage";
+import LoadingPage from "../../../LoadingPage";
+import api from "../../../api";
 
 const PackageDetailPage = () => {
-  const [tripData, setTripData] = useState("");
+  const [data, setData] = useState("");
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState({
     book: false,
@@ -23,37 +27,28 @@ const PackageDetailPage = () => {
     subject: "",
   });
 
-  const { packageId } = useParams();
+  const { dataId } = useParams();
+  console.log(dataId);
 
+  //useeffect to get data from db
   useEffect(() => {
-    async function getData() {
+    async function fetchData() {
       try {
-        const data = tripsData.filter((item) => item.id == packageId);
-        setTripData(data[0]);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setTripData([]);
+        const response = await api.get(`packages/${dataId}`);
+        setData(response.data);
+      } catch (err) {
+        console.log("Error fetching data:", err);
+        setError(true);
+        setData("");
       } finally {
         setLoading(false);
       }
     }
-    getData();
-  }, [packageId]);
+    fetchData();
+  }, [dataId]);
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        Loading...
-      </div>
-    );
-  }
-  // function handleInquire() {
-  //   return <Modal />;
-  // }
-
-  // function handleBook() {
-  //   return <Modal />;
-  // }
+  if (error) return <ErrorPage />;
+  if (loading) return <LoadingPage />;
 
   return (
     <div className=" bg-gray-200">
@@ -77,14 +72,14 @@ const PackageDetailPage = () => {
           loop={true}
           lazy="true"
         >
-          {tripData.images.map((image, index) => {
+          {data.images.map((image, index) => {
             return (
               <SwiperSlide key={index}>
                 <div className="relative max-w-screen-md mb-8 h-64 sm:h-80 md:h-96 mx-auto">
                   <div className="absolute left-0 bottom-0 w-full h-full z-10 bg-gradient-to-t from-black/70 via-transparent"></div>
                   <img
                     src={image}
-                    alt={tripData.title}
+                    alt={data.title}
                     className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg"
                     loading="lazy"
                   />
@@ -101,7 +96,7 @@ const PackageDetailPage = () => {
           {/* Product Details */}
           <div className="p-3 sm:px-5 md:px-8 lg:px-28 flex flex-col gap-5 md:gap-10">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
-              {tripData.title}
+              {data.title}
             </h1>
 
             {/* <div className="flex items-center mb-4">
@@ -115,7 +110,7 @@ const PackageDetailPage = () => {
             <div className="text-sm text-gray-700">
               <h1 className="font-bold">Package Amenities:</h1>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {tripData.amenities.map((item, index) => {
+                {data.amenities.map((item, index) => {
                   return (
                     <div
                       key={index}
@@ -137,7 +132,7 @@ const PackageDetailPage = () => {
             {/* <div className="flex items-center justify-between mt-3">
               <div>
                 <span className="text-3xl font-bold text-gray-900">
-                  {tripData.price}
+                  {data.price}
                   <small className="font-normal text-xs">PP</small>
                 </span>
               </div>
@@ -149,7 +144,7 @@ const PackageDetailPage = () => {
                 onClick={() =>
                   setIsOpen((prev) => ({
                     ...prev,
-                    subject: tripData.title,
+                    subject: data.title,
                     book: true,
                   }))
                 }
@@ -161,7 +156,7 @@ const PackageDetailPage = () => {
                 onClick={() =>
                   setIsOpen((prev) => ({
                     ...prev,
-                    subject: tripData.title,
+                    subject: data.title,
                     inquire: true,
                   }))
                 }
@@ -174,7 +169,7 @@ const PackageDetailPage = () => {
 
         {/* Description */}
         <div className="mt-12 p-3 max-w-screen-md mx-auto text-gray-700 text-base sm:text-lg leading-relaxed">
-          <p>{tripData.desc}</p>
+          <p>{data.desc}</p>
         </div>
         {/* Timeline Section */}
         <div className="mx-auto mt-12 max-w-full">
@@ -183,7 +178,7 @@ const PackageDetailPage = () => {
           </h1>
           <div className="relative wrap overflow-hidden p-0 sm:p-5">
             <div className="absolute border-transparent md:border-gray-700 md:border-opacity-20 h-full border left-1/2" />
-            {tripData.timelineData.map((item, index) => {
+            {data.timelineData.map((item, index) => {
               const isRight = index % 2 === 0;
               const bgColor = isRight ? "bg-gray-400" : "bg-green-500";
               const textColor = isRight ? "text-gray-800" : "text-white";

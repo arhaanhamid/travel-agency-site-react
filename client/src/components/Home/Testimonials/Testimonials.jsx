@@ -2,21 +2,44 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import { testimonialsData } from "../../../../public/assets/GlobalData";
+// import { testimonialsData } from "../../../../public/assets/GlobalData";
 
 import { useEffect, useState } from "react";
 import { LeftSwiperArrow } from "./../../UIComponents/UIComponents";
 import { RightSwiperArrow } from "./../../UIComponents/UIComponents";
 import { useLocation } from "react-router-dom";
+import ErrorPage from "../../../ErrorPage";
+import LoadingPage from "../../../LoadingPage";
+
+import api from "../../../api";
 
 const Testimonials = () => {
+  const [testimonials, setTestimonials] = useState([]);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   const location = useLocation();
   const contactPadding = "mt-10 md:mt-20 sm:px-2 md:px-4 lg:px-8 xl:px-28";
 
-  const [testimonials, setTestimonials] = useState([]);
+  //useeffect to get Testimonials data from db
   useEffect(() => {
-    setTestimonials(testimonialsData); // Force state update to trigger re-render
+    async function fetchTestimonials() {
+      try {
+        const response = await api.get("testimonials");
+        setTestimonials(response.data);
+      } catch (err) {
+        console.log("Failed to load data", err);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchTestimonials();
   }, []);
+
+  if (error) return <ErrorPage />;
+  if (loading) return <LoadingPage />;
+
   return (
     <section
       className={`relative pb-32 ${location.pathname === "/contact" ? contactPadding : "sm:px-10 md:px-16 lg:px-36 xl:px-80"}`}
@@ -45,7 +68,7 @@ const Testimonials = () => {
       >
         {testimonials.length > 0 ? (
           testimonials.map((item, index) => (
-            <SwiperSlide key={item.id || index}>
+            <SwiperSlide key={item._id || index}>
               <div className="content relative p-10">
                 <span className="absolute top-0 left-2 text-[70px] text-indigo-500">
                   “

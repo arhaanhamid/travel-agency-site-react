@@ -3,59 +3,56 @@ import { useLocation } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import Services from "./Services";
-import { activitiesData, hotelsData } from "../../../public/assets/GlobalData";
-import { carsData } from "../../../public/assets/GlobalData";
-import { boatsData } from "../../../public/assets/GlobalData";
-import packagesData from "../../../public/assets/GlobalData";
+// import packagesData, { activitiesData, hotelsData, carsData, boatsData } from "../../../public/assets/GlobalData";
+import ErrorPage from "../../ErrorPage";
+import LoadingPage from "../../LoadingPage";
+import api from "../../api";
 
 const ServicesPage = () => {
   const { type } = useParams();
   const query = new URLSearchParams(useLocation().search);
   const defaultLoc = query.get("loc");
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  //useeffect to get data from db depending on the type
   useEffect(() => {
-    const fetchData = async () => {
-      // let apiUrl;
+    async function fetchData() {
+      let apiUrl;
+
       // Decide which API endpoint to call based on "type"
       if (type === "packages") {
-        // apiUrl = "https://your-api.com/hotels";
-        setData(packagesData);
+        apiUrl = "packages";
       } else if (type === "hotels") {
-        // apiUrl = "https://your-api.com/hotels";
-        setData(hotelsData);
+        apiUrl = "hotels";
       } else if (type === "boats") {
-        // apiUrl = "https://your-api.com/boats";
-        setData(boatsData);
+        apiUrl = "boats";
       } else if (type === "activities") {
-        // apiUrl = "https://your-api.com/activities";
-        setData(activitiesData);
+        apiUrl = "activities";
       } else if (type === "cars") {
-        // apiUrl = "https://your-api.com/cars";
-        setData(carsData);
+        apiUrl = "cars";
       } else {
-        setError("Invalid service type");
-        setLoading(false);
+        console.log("Invalid service type");
+        setError(true);
         return;
       }
 
       try {
-        // const response = await fetch(apiUrl);
-        // const result = await response.json();
-        // setData(result);
+        const response = await api.get(apiUrl);
+        setData(response.data);
       } catch (err) {
-        setError(err.message);
+        console.log("Failed to load data", err);
+        setError(true);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
-    };
-
+    }
     fetchData();
   }, [type]);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (error) return <ErrorPage />;
+  if (loading) return <LoadingPage />;
 
   // Pass the fetched data to your Services component
   return <Services data={JSON.stringify(data)} defaultLoc={defaultLoc} />;

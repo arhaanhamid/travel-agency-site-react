@@ -4,14 +4,41 @@ import styles from "./styles.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
-import tripsData from "../../../../public/assets/GlobalData";
+import ErrorPage from "../../../ErrorPage";
+import LoadingPage from "../../../LoadingPage";
+
+import { useEffect, useState } from "react";
+import api from "../../../api";
 
 function Destinations() {
+  const [packagesData, setPackages] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate(); // useNavigate hook to handle navigation
 
   function handleNavigate(item) {
     navigate(`/services/packages?loc=${item.location}`);
   }
+
+  //useeffect to get Packages data from db
+  useEffect(() => {
+    async function fetchPackages() {
+      try {
+        const response = await api.get("packages");
+        setPackages(response.data);
+      } catch (err) {
+        console.log("Failed to load data", err);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPackages();
+  }, []);
+
+  if (error) return <ErrorPage />;
+  if (loading) return <LoadingPage />;
 
   return (
     <div className="w-full h-screen flex flex-col">
@@ -47,9 +74,9 @@ function Destinations() {
           },
         }}
       >
-        {tripsData.map((item) => {
+        {packagesData.map((item) => {
           return (
-            <SwiperSlide key={item.id}>
+            <SwiperSlide key={item._id}>
               <div
                 className={`${styles.slide} p-2 m-2 bg-white overflow-hidden`}
                 onClick={() => handleNavigate(item)}

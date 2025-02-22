@@ -5,7 +5,7 @@ const HotelCard = ({ hotel }) => {
 
   // Handler for navigation
   const handleDiscoverHotel = () => {
-    navigate(`/services/hotels/${hotel.id}`);
+    navigate(`/services/hotels/${hotel._id}`);
   };
   return (
     <div className="h-[600px] w-full relative overflow-hidden rounded-none md:rounded-lg shadow transition hover:shadow-lg">
