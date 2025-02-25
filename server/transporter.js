@@ -1,7 +1,9 @@
+import dotenv from "dotenv";
+dotenv.config();
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.zoho.com",
+  host: "smtp.zoho.in",
   port: 465, // For SSL; use 587 for TLS if needed
   secure: true, // true for port 465; false for port 587
   auth: {
