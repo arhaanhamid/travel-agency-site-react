@@ -18,7 +18,7 @@ const Team = () => {
   useEffect(() => {
     async function fetchTeam() {
       try {
-        const response = await api.get("team");
+        const response = await api.get("teams");
         setTeams(response.data);
         setLoading(false);
       } catch (err) {

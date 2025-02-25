@@ -1,5 +1,17 @@
+import { useLocation } from "react-router-dom";
 import Team from "./Team";
+import { useEffect } from "react";
 const About = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
   return (
     <section className="about mt-[80px]">
       {/* Hero Section */}
@@ -23,7 +35,10 @@ const About = () => {
       {/* Main Container */}
       <div className="relative flex flex-col -mt-20 max-w-[90%] md:max-w-[80%] mx-auto bg-white rounded-lg pb-10 gap-20">
         {/* Why Choose Us Section */}
-        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:place-items-center lg:h-screen gap-10 sm:gap-14 lg:gap-5 sm:px-10 md:sm:px-16 lg:sm:px-8">
+        <div
+          id="whychooseus"
+          className="flex flex-col lg:grid lg:grid-cols-2 lg:place-items-center lg:h-screen gap-10 sm:gap-14 lg:gap-5 sm:px-10 md:sm:px-16 lg:sm:px-8"
+        >
           <div className="h-[600px] w-full relative overflow-hidden rounded-none md:rounded-lg shadow transition hover:shadow-lg">
             <img
               src="/assets/hero_bg.jpg"
@@ -48,10 +63,14 @@ const About = () => {
         </div>
 
         {/* Our Team Section */}
+        <div id="ourteam"></div>
         <Team />
 
         {/* Work With Us Section */}
-        <div className="flex flex-col lg:grid lg:grid-cols-2 h-screen py-auto my-auto lg:mx-10 lg:gap-10">
+        <div
+          id="workwithus"
+          className="flex flex-col lg:grid lg:grid-cols-2 h-screen py-auto my-auto lg:mx-10 lg:gap-10"
+        >
           <div className="h-[250px] sm:h-[350px] md:h-[450px] lg:h-[600px] lg:w-full mb-10 w-full relative overflow-hidden rounded-none md:rounded-lg flex items-center justify-center">
             <img
               src="/assets/hero_bg.jpg"

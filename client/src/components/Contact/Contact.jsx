@@ -1,9 +1,111 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Testimonials from "../Home/Testimonials/Testimonials";
+import api from "../../api";
+import ErrorPage from "../../ErrorPage";
+import LoadingPage from "../../LoadingPage";
+
 const Contact = () => {
-  const [phone, setPhone] = useState("");
+  const [formData, setFormData] = useState({
+    fName: "",
+    lName: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
+  console.log(formData);
+
+  const handleFormDetails = useCallback((e) => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }, []);
+
+  // --- Validation Logic ---
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Validate client details
+    if (!formData.fName.trim()) {
+      newErrors.fName = "* First name is required";
+    }
+    if (!formData.lName.trim()) {
+      newErrors.lName = "* Last name is required";
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = "* Message is required";
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "* Email is required";
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        newErrors.email = "* Invalid email address";
+      }
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = "* Phone number is required";
+    } else {
+      // Remove any non-digit characters
+      const phoneDigits = formData.phone.replace(/\D/g, "");
+      if (phoneDigits.length !== 12) {
+        newErrors.phone = "* Invalid phone number";
+      }
+    }
+    return newErrors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    async function submitForm() {
+      try {
+        const response = await api.post("form/submit-form", {
+          ...formData,
+          requestFrom: "contact",
+        });
+
+        console.log("Form submitted successfully:", response.data);
+        alert("Form submitted successfully!");
+      } catch (error) {
+        console.error(
+          "Submission error:",
+          error.response ? error.response.data : error
+        );
+        // alert("Error submitting form.");
+        setError(true);
+      }
+    }
+
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setFormErrors(validationErrors);
+      // Optionally, scroll to the first error or show a global message
+      return;
+    }
+
+    console.log("Submitting form data:", formData);
+    submitForm();
+    setFormErrors({});
+  };
+
+  // Function to conditionally combine classes
+  const inputClass = (defaultClasses, errorKey) =>
+    `${defaultClasses} ${
+      formErrors[errorKey]
+        ? "border-red-500 focus:ring-red-500"
+        : "border-gray-300 focus:ring-indigo-500"
+    }`;
+
+  if (error) return <ErrorPage />;
+  if (loading) return <LoadingPage />;
 
   return (
     <section className="contact mt-[80px]">
@@ -92,15 +194,28 @@ const Contact = () => {
             {/* Inquiry Form */}
             <div className="bg-white p-8 rounded-lg shadow-md">
               <h2 className="text-2xl text-indigo-500 mb-6">Send an Inquiry</h2>
-              <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form
+                onSubmit={handleSubmit}
+                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              >
                 <div>
                   <label className="block text-gray-700 text-sm font-medium mb-2">
-                    First Name *
+                    First Name
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-2 border border-gray-400 outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                    name="fName"
+                    value={formData.fName}
+                    onChange={handleFormDetails}
+                    className={inputClass(
+                      "w-full px-4 py-2 border border-gray-400 outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300,"
+                    )}
                   />
+                  {formErrors.fName && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {formErrors.fName}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-gray-700 text-sm font-medium mb-2">
@@ -108,8 +223,18 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-2 border border-gray-400 outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                    name="lName"
+                    value={formData.lName}
+                    onChange={handleFormDetails}
+                    className={inputClass(
+                      "w-full px-4 py-2 border border-gray-400 outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                    )}
                   />
+                  {formErrors.lName && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {formErrors.lName}
+                    </p>
+                  )}
                 </div>
                 <div className="md:col-span-2">
                   <label
@@ -120,14 +245,25 @@ const Contact = () => {
                   </label>
                   <PhoneInput
                     country={"in"}
-                    value={phone}
-                    onChange={(phone) => setPhone(phone)}
+                    name="phone"
+                    value={formData.phone}
+                    onChange={(phone) =>
+                      handleFormDetails({
+                        target: { name: "phone", value: phone },
+                      })
+                    }
                     containerClass="w-full"
                     containerStyle={{ width: "100%" }} // Override container inline style
                     inputClass="w-full md:min-w-full px-4 py-5 border border-gray-400 !rounded-none outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
                     inputStyle={{ width: "100%" }} // Override input inline style
                     dropdownClass="z-50" // Ensure dropdown appears on top
+                    countryCodeEditable={false}
                   />
+                  {formErrors.phone && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {formErrors.phone}
+                    </p>
+                  )}
                 </div>
                 <div className="md:col-span-2">
                   <label className="block text-gray-700 text-sm font-medium mb-2">
@@ -135,8 +271,18 @@ const Contact = () => {
                   </label>
                   <input
                     type="email"
-                    className="w-full px-4 py-2 border border-gray-400 outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleFormDetails}
+                    className={inputClass(
+                      "w-full px-4 py-2 border border-gray-400 outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                    )}
                   />
+                  {formErrors.email && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {formErrors.email}
+                    </p>
+                  )}
                 </div>
                 <div className="md:col-span-2">
                   <label className="block text-gray-700 text-sm font-medium mb-2">
@@ -144,10 +290,23 @@ const Contact = () => {
                   </label>
                   <textarea
                     rows="5"
-                    className="w-full px-4 py-2 border border-gray-400 outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleFormDetails}
+                    className={inputClass(
+                      "w-full px-4 py-2 border border-gray-400 outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                    )}
                   ></textarea>
+                  {formErrors.message && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {formErrors.message}
+                    </p>
+                  )}
                 </div>
-                <button className="md:col-span-2 bg-indigo-700 text-white px-8 py-3 hover:bg-indigo-800 transition-colors duration-300">
+                <button
+                  type="submit"
+                  className="md:col-span-2 bg-indigo-700 text-white px-8 py-3 hover:bg-indigo-800 transition-colors duration-300"
+                >
                   Send Message
                 </button>
               </form>

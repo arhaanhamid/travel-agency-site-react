@@ -130,7 +130,7 @@ const FormPage = ({ isOpen, requestFrom }) => {
     } else {
       // Remove any non-digit characters
       const phoneDigits = formData.clientDetails.phone.replace(/\D/g, "");
-      if (phoneDigits.length < 12 || phoneDigits.length > 15) {
+      if (phoneDigits.length !== 12) {
         newErrors.phone = "* Invalid phone number";
       }
     }
@@ -193,12 +193,12 @@ const FormPage = ({ isOpen, requestFrom }) => {
       }
     }
 
-    // const validationErrors = validateForm();
-    // if (Object.keys(validationErrors).length > 0) {
-    //   setFormErrors(validationErrors);
-    //   // Optionally, scroll to the first error or show a global message
-    //   return;
-    // }
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setFormErrors(validationErrors);
+      // Optionally, scroll to the first error or show a global message
+      return;
+    }
 
     console.log("Submitting form data:", formData);
     submitForm();

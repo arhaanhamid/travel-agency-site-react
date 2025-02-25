@@ -13,8 +13,9 @@ router.post("/submit-form", async (req, res) => {
 
     //send email
     const mailOptions = {
-      from: process.env.ZOHO_EMAIL, // sender address
-      to: process.env.ZOHO_RECEIVE_EMAIL, // your email to notify
+      from: process.env.ZOHO_EMAIL,
+      // to: process.env.ZOHO_RECEIVE_EMAIL,
+      to: "suhamhamid321@gmail.com",
       subject: "New Form Submission",
       text: `You have a new form submission:\n\n${JSON.stringify(req.body, null, 2)}`,
       // Optionally, you can also use HTML:
