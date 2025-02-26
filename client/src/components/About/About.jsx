@@ -31,7 +31,7 @@ const About = () => {
           </p>
         </div>
       </div>
-      {/* px-4 sm:px-6 lg:px-8 */}
+
       {/* Main Container */}
       <div className="relative flex flex-col -mt-20 max-w-[90%] md:max-w-[80%] mx-auto bg-white rounded-lg pb-10 gap-20">
         {/* Why Choose Us Section */}
@@ -39,18 +39,18 @@ const About = () => {
           id="whychooseus"
           className="flex flex-col lg:grid lg:grid-cols-2 lg:place-items-center lg:h-screen gap-10 sm:gap-14 lg:gap-5 sm:px-10 md:sm:px-16 lg:sm:px-8"
         >
-          <div className="h-[600px] w-full relative overflow-hidden rounded-none md:rounded-lg shadow transition hover:shadow-lg">
+          <div className="h-[600px] w-full relative overflow-hidden rounded-none md:rounded-lg shadow transition hover:shadow-lg lazyLoadLeft">
             <img
               src="/assets/hero_bg.jpg"
               alt="hero_image"
               className="absolute px-1 left-0 top-0 w-full h-full z-0 object-cover"
             />
           </div>
-          <div>
-            <h1 className="text-3xl md:text-[40px] xl:text-[50px] text-center text-indigo-500 mb-10">
+          <div className="lazyLoadRight">
+            <h1 className="text-3xl md:text-[40px] xl:text-[50px] text-center text-indigo-500 mb-10 lazyLoadRight">
               Why Choose Us?
             </h1>
-            <p className="text-gray-600 text-center text-sm md:text-base leading-relaxed md:leading-[28px] max-w-3xl px-5 mx-auto">
+            <p className="text-gray-600 text-center text-sm md:text-base leading-relaxed md:leading-[28px] max-w-3xl px-5 mx-auto lazyLoadRight">
               We are a leading travel agency committed to making your travel
               dreams come true. With years of experience, personalized service,
               and unique travel experiences, we ensure every journey is
@@ -63,15 +63,16 @@ const About = () => {
         </div>
 
         {/* Our Team Section */}
-        <div id="ourteam"></div>
-        <Team />
+        <div id="ourteam" className="lazyLoadDown">
+          <Team />
+        </div>
 
         {/* Work With Us Section */}
         <div
           id="workwithus"
           className="flex flex-col lg:grid lg:grid-cols-2 h-screen py-auto my-auto lg:mx-10 lg:gap-10"
         >
-          <div className="h-[250px] sm:h-[350px] md:h-[450px] lg:h-[600px] lg:w-full mb-10 w-full relative overflow-hidden rounded-none md:rounded-lg flex items-center justify-center">
+          <div className="h-[250px] sm:h-[350px] md:h-[450px] lg:h-[600px] lg:w-full mb-10 w-full relative overflow-hidden rounded-none md:rounded-lg flex items-center justify-center lazyLoadLeft">
             <img
               src="/assets/hero_bg.jpg"
               alt="hero_image"
@@ -79,11 +80,11 @@ const About = () => {
               loading="lazy"
             />
           </div>
-          <div className="flex flex-col sm:px-10 md:px-16 lg:px-1 place-self-center">
-            <h1 className="text-3xl md:text-[40px] xl:text-[50px] text-center lg:text-start text-indigo-500 mb-10">
+          <div className="flex flex-col sm:px-10 md:px-16 lg:px-1 place-self-center lazyLoadRight">
+            <h1 className="text-3xl md:text-[40px] xl:text-[50px] text-center lg:text-start text-indigo-500 mb-10 lazyLoadRight">
               Work With Us
             </h1>
-            <p className="text-sm text-center lg:text-start text-gray-700 leading-7">
+            <p className="text-sm text-center lg:text-start text-gray-700 leading-7 lazyLoadRight">
               We love collaborating with talented individuals who share our
               passion for travel. Interested in a partnership or joining the
               team? <br />
@@ -91,7 +92,7 @@ const About = () => {
             </p>
             <a
               href="mailto:info@achievementtravels.com"
-              className="text-center lg:text-start underline underline-offset-8 text-indigo-500 text-lg mt-5 transition-all duration-300 hover:no-underline hover:scale-105"
+              className="text-center lg:text-start underline underline-offset-8 text-indigo-500 text-lg mt-5 transition-all duration-300 hover:no-underline hover:scale-105 lazyLoadRight"
             >
               Join Us at AchievementTravels
             </a>

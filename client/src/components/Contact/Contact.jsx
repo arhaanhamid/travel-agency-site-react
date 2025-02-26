@@ -130,7 +130,7 @@ const Contact = () => {
       {/* Main Container */}
       <div className="relative -mt-20 max-w-[90%] md:max-w-[80%] mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-lg py-10">
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 lazyLoadDown">
           <h1 className="text-3xl md:text-4xl text-indigo-500 mb-8">
             Get in Touch
           </h1>
@@ -145,22 +145,22 @@ const Contact = () => {
           {/* Left Column - Contact Info */}
           <div className="md:space-y-10 text-center">
             {/* Contact Cards */}
-            <div className="p-4 md:p-8 lg:py-8 lg:px-2 xl:px-8 rounded-lg shadow-md">
-              <h3 className="text-lg md:text-xl lg:text-lg text-indigo-500 mb-2 lg:mb-4 flex items-center justify-center lg:justify-start gap-1">
+            <div className="p-4 md:p-8 lg:py-8 lg:px-2 xl:px-8 rounded-lg shadow-md lazyLoadLeft">
+              <h3 className="text-lg md:text-xl lg:text-lg text-indigo-500 mb-2 lg:mb-4 flex items-center justify-center lg:justify-start gap-1 lazyLoadLeft">
                 <i className="ri-map-pin-line"></i>Head Office
               </h3>
-              <p className="text-gray-600 text-xs md:text-sm lg:text-start lg:text-xs">
+              <p className="text-gray-600 text-xs md:text-sm lg:text-start lg:text-xs lazyLoadLeft">
                 Brane, Nishat
                 <br />
                 Jammu and Kashmir, India
               </p>
             </div>
 
-            <div className="p-4 md:p-8 lg:py-8 lg:px-2 xl:px-8 rounded-lg shadow-md">
-              <h3 className="text-lg md:text-xl lg:text-lg text-indigo-500 mb-2 lg:mb-4 flex items-center justify-center lg:justify-start gap-1">
+            <div className="p-4 md:p-8 lg:py-8 lg:px-2 xl:px-8 rounded-lg shadow-md lazyLoadLeft">
+              <h3 className="text-lg md:text-xl lg:text-lg text-indigo-500 mb-2 lg:mb-4 flex items-center justify-center lg:justify-start gap-1 lazyLoadLeft">
                 <i className="ri-phone-line"></i>Phone
               </h3>
-              <p className="text-gray-600 text-xs md:text-sm lg:text-start lg:text-xs">
+              <p className="text-gray-600 text-xs md:text-sm lg:text-start lg:text-xs lazyLoadLeft">
                 <a
                   href={`tel:+911234567890`}
                   className="text-gray-600 text-xs md:text-sm lg:text-start lg:text-xs hover:underline"
@@ -172,11 +172,11 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="p-4 md:p-8 lg:py-8 lg:px-2 xl:px-8 rounded-lg shadow-md">
-              <h3 className="text-lg md:text-xl lg:text-lg text-indigo-500 mb-2 lg:mb-4 flex items-center justify-center lg:justify-start gap-1">
+            <div className="p-4 md:p-8 lg:py-8 lg:px-2 xl:px-8 rounded-lg shadow-md lazyLoadLeft">
+              <h3 className="text-lg md:text-xl lg:text-lg text-indigo-500 mb-2 lg:mb-4 flex items-center justify-center lg:justify-start gap-1 lazyLoadLeft">
                 <i className="ri-mail-line"></i>Email
               </h3>
-              <p className="text-gray-600 text-xs md:text-sm lg:text-start lg:text-xs">
+              <p className="text-gray-600 text-xs md:text-sm lg:text-start lg:text-xs lazyLoadLeft">
                 <a
                   href="mailto:info@achievementtravels.com"
                   className="text-gray-600 text-xs md:text-sm lg:text-start lg:text-xs hover:underline"
@@ -192,7 +192,7 @@ const Contact = () => {
           {/* Right Column - Form & Map */}
           <div className="lg:col-span-2 space-y-8">
             {/* Inquiry Form */}
-            <div className="bg-white p-8 rounded-lg shadow-md">
+            <div className="bg-white p-8 rounded-lg shadow-md lazyLoadRight">
               <h2 className="text-2xl text-indigo-500 mb-6">Send an Inquiry</h2>
               <form
                 onSubmit={handleSubmit}
@@ -315,7 +315,7 @@ const Contact = () => {
         </div>
 
         {/* Map Section */}
-        <div className="p-8 rounded-lg shadow-md">
+        <div className="p-8 rounded-lg shadow-md lazyLoadDown">
           <h2 className="text-2xl text-gray-800 mb-6">Our Location</h2>
           <div className="aspect-w-16 aspect-h-9">
             <iframe

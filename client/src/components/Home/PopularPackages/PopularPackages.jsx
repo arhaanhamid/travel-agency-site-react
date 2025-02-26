@@ -104,7 +104,7 @@ const PopularPackages = () => {
   if (loading) return <LoadingPage />;
 
   return (
-    <div className={`fontMont text-[12px]`}>
+    <div className={`fontMont text-[12px] lazyLoadLeft`}>
       <div ref={carouselRef} className={`${styles.carousel}`}>
         {/* slider list */}
         <div ref={sliderRef} className={`${styles.list}`}>
@@ -112,6 +112,7 @@ const PopularPackages = () => {
             <div className={`${styles.item}`} key={item._id}>
               <img src={item.images[0]} alt={item.title} />
               <div className="absolute inset-0 bg-black opacity-30"></div>
+
               <div
                 className={`${styles.content} flex flex-col md:gap-2 pr-[30%] md:pl-10 lg:pl-28`}
               >
@@ -142,11 +143,15 @@ const PopularPackages = () => {
         </div>
         {/* thumbnail list */}
         <div ref={thumbnailRef} className={`${styles.thumbnail}`}>
-          {packages.map((activity) => (
-            <div className={`${styles.item}`} key={activity._id}>
-              <img src={activity.images[0]} alt={activity.title} />
+          {packages.map((item) => (
+            <div
+              onClick={() => handleNavigate(item._id)}
+              className={`${styles.item} cursor-pointer`}
+              key={item._id}
+            >
+              <img src={item.images[0]} alt={item.title} />
               <div className={`${styles.content}`}>
-                <div className={`${styles.title}`}>{activity.title}</div>
+                <div className={`${styles.title}`}>{item.title}</div>
               </div>
             </div>
           ))}

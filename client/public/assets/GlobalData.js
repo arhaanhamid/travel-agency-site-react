@@ -834,21 +834,27 @@ export const activitiesData = [
   },
 ];
 
-export const testimonialsData = [
+export const testimonials = [
   {
     id: 1,
     name: "Adil Bashir",
+    image: "/assets/packages/Trips01.jpg",
+    designation: "CEO",
     desc: `I had a lovely conversation with Mr. Eisenhart, and he couldn't say enough about how wonderful their trip was. They were very pleased with their guide in Ireland, Bill. They said that he was absolutely wonderful. They said that their full-day Connemara music tour was outstanding. Highlight of the trip. Their guide for their walking tour in Dublin, Frankie, was very good—particularly with engaging the kids. They all really enjoyed the bike ride, falconry, and the surfing lesson. Thank you so much for your help in putting this trip together. Mr. Eisenhart really couldn't stop gushing about how this was a trip of a lifetime.`,
   },
   {
     id: 2,
     name: "Muneer Sheikh",
+    designation: "CEO",
+    image: "/assets/packages/Trips02.jpg",
     desc: `It was a wonderful trip, we all loved Scotland, and Fiona!
-                  Thank you for everything, it was perfectly planned, and
-                  timed!!`,
+    Thank you for everything, it was perfectly planned, and
+    timed!!`,
   },
   {
     id: 3,
+    designation: "CEO",
+    image: "/assets/packages/Trips03.jpg",
     name: "Arhaan Hameed",
     desc: `I just wanted to thank you for planning the most spectacular trip to Ireland. As you
 know, this was a very special trip for my family and it truly could not have went
@@ -900,5 +906,26 @@ export const teamsData = [
             surfing lesson. Thank you so much for your help in putting
             this trip together. Mr. Eisenhart really couldn't stop gushing
             about how this was a trip of a lifetime.`,
+  },
+];
+
+export const timelineData = [
+  {
+    day: "Day 1",
+    title: "Arrival & Fort Visit",
+    summary: "Explore Bahu Fort and temples",
+    desc: "Arrive in Jammu • Transfer to hotel • Visit Bahu Fort and Raghunath Temple • Evening leisure walk",
+  },
+  {
+    day: "Day 2",
+    title: "Cultural Immersion",
+    summary: "Museum tours and local markets",
+    desc: "Visit the Jammu Museum • Explore bustling bazaars • Enjoy traditional cuisine • Overnight stay",
+  },
+  {
+    day: "Day 3",
+    title: "Sacred Sites & Departure",
+    summary: "Tour local shrines and depart",
+    desc: "Morning visit to a revered shrine • Check-out and transfer to airport • Farewell by tour representative for lasting memories.",
   },
 ];

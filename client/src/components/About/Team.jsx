@@ -63,7 +63,7 @@ const Team = () => {
         {teams.length > 0 ? (
           teams.map((item, index) => (
             <SwiperSlide key={item.id || index}>
-              <div className="relative grid grid-cols-1 lg:grid-cols-2 lg:place-items-center lg:gap-16 xl:gap-20">
+              <div className="relative grid grid-cols-1 lg:grid-cols-2 lg:place-items-center lg:gap-16 xl:gap-20 lazyLoadRight">
                 <div className="flex flex-col">
                   <h4 className="text-[26px] font-semibold xl:text-[32px] text-center lg:text-start text-indigo-500">
                     {item.name}

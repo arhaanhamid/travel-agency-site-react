@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import api from "../../api";
 import ErrorPage from "../../ErrorPage";
 
 function Footer() {
-  const navigate = useNavigate();
   const [packagesData, setPackages] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -107,7 +106,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="footer bg-stone-900 text-stone-100">
+    <footer className="footer relative z-10 bg-stone-900 text-stone-100">
       <div className="mx-auto md:mx-10 lg:mx-16 max-w-7xl px-2 sm:px-6 py-4 sm:py-6 md:py-10">
         {/* Main Grid */}
         <div className="md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-1 sm:gap-5 md:gap-20 ">

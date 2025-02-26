@@ -37,7 +37,7 @@ const Hotels = () => {
   if (loading) return <LoadingPage />;
 
   return (
-    <section className="relative py-16 bg-gray-200 min-h-[800px] flex flex-col gap-10 md:gap-5 md:flex-row lg:flex-row">
+    <section className="relative py-16 bg-gray-200 min-h-[800px] flex flex-col gap-10 md:gap-5 md:flex-row lg:flex-row lazyLoadRight">
       <div className="sm:pl-8 md:pl-6 lg:pl-12 xl:pl-24 w-full md:w-[40%] lg:w-[40%]">
         <div className="flex h-[600px] items-end p-6 sm:p-8 md:p-10 lg:p-10">
           <div className="max-w-md">

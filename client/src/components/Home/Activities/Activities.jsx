@@ -103,7 +103,7 @@ const Activities = () => {
   if (error) return <ErrorPage />;
   if (loading) return <LoadingPage />;
   return (
-    <div className={`${styles.font_poppins} text-[12px]`}>
+    <div className={`${styles.font_poppins} text-[12px] lazyLoadLeft`}>
       <div ref={carouselRef} className={`${styles.carousel}`}>
         {/* slider list */}
         <div ref={sliderRef} className={`${styles.list}`}>

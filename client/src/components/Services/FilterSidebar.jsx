@@ -76,8 +76,8 @@ const FilterSidebar = ({
 
   // Sort options
   const sortOptions = [
-    "Price: Low to High",
-    "Price: High to Low",
+    // "Price: Low to High",
+    // "Price: High to Low",
     ...(activePage === "packages"
       ? ["Days: Low to High", "Days: High to Low"]
       : []),
@@ -139,7 +139,7 @@ const FilterSidebar = ({
       {/* Filter Menu Sidebar*/}
       <div
         ref={filterMenu}
-        className={`${styles.filterMenu} border-r-2 md:border-gray-300 rounded-[5px] md:min-w-full md:p-5`}
+        className={`${styles.filterMenu} border-r-2 h-full md:border-gray-300 rounded-[5px] md:min-w-full md:p-5`}
       >
         {/* Header */}
         <div className="flex justify-between items-center">

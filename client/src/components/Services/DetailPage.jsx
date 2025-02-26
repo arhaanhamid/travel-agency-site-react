@@ -5,17 +5,23 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+import { iconsData } from "../../../public/assets/GlobalData";
 import {
   LeftSwiperArrow,
   RightSwiperArrow,
-} from "../../UIComponents/UIComponents";
-import Modal from "../../UIComponents/Modal";
-import ErrorPage from "../../../ErrorPage";
-import LoadingPage from "../../../LoadingPage";
-import api from "../../../api";
+} from "../UIComponents/UIComponents";
+import Modal from "../UIComponents/Modal";
+import ErrorPage from "../../ErrorPage";
+import LoadingPage from "../../LoadingPage";
+import api from "../../api";
+import { Timeline } from "../ui/Timeline";
+import { Meteors } from "../ui/MeteorEffect";
 
-const ActivityDetailPage = () => {
+const DetailPage = () => {
+  const location = useLocation();
+  const activePage = location.pathname.split("/")[2]; // Get active page from URL
+
   const [data, setData] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -31,7 +37,7 @@ const ActivityDetailPage = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await api.get(`activities/${dataId}`);
+        const response = await api.get(`${activePage}/${dataId}`);
         setData(response.data);
       } catch (err) {
         console.log("Error fetching data:", err);
@@ -42,14 +48,15 @@ const ActivityDetailPage = () => {
       }
     }
     fetchData();
-  }, [dataId]);
+  }, [activePage, dataId]);
 
   if (error) return <ErrorPage />;
   if (loading) return <LoadingPage />;
 
   return (
-    <div className=" bg-gray-200">
-      <div className="relative max-w-screen-lg mx-auto py-24 sm:py-24 md:py-124 lg:py-24 px-1">
+    <div className="bg-gray-900">
+      <Meteors number={111} />
+      <div className="relative bg-gray-200 max-w-screen-lg mx-auto py-24 sm:py-24 md:py-124 lg:py-24 px-1">
         {/* Image Section */}
         <Swiper
           spaceBetween={20}
@@ -90,55 +97,56 @@ const ActivityDetailPage = () => {
 
         {/* component */}
         <div className="w-full mx-auto rounded-lg overflow-hidden">
-          {/* Hotel Details */}
+          {/* Product Details */}
           <div className="p-3 sm:px-5 md:px-8 lg:px-28 flex flex-col gap-5 md:gap-10">
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-indigo-600">
               {data.title}
             </h1>
 
-            <div className="flex items-center mb-4">
+            {/* <div className="flex items-center mb-4">
               <span className="bg-green-500 text-white text-sm font-semibold px-2.5 py-0.5 rounded">
                 4.5 ★
               </span>
               <span className="text-sm text-gray-500 ml-2">1,234 reviews</span>
-            </div>
-
-            {/* Hotel Inclusive Items */}
-            {/* <div className="text-sm text-gray-700">
-              <h1 className="font-bold">Hotel Amenities:</h1>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {data.amenities.map((item, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="flex lg:flex-col lg:items-center gap-2 border-2 rounded-md min-w-[80px] sm:min-w-[100px] py-2"
-                    >
-                      <i
-                        className={`${iconsData[item.label]} text-2xl sm:text-[30px]`}
-                      ></i>
-                      <span className="text-xs sm:text-sm mt-1">
-                        {item.title}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
             </div> */}
+
+            {/* Travel Inclusive Items */}
+            {activePage !== "activities" && (
+              <div className="text-sm text-gray-700">
+                <h1 className="font-bold">Package Amenities:</h1>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                  {data.amenities.map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="flex lg:flex-col lg:items-center gap-2 border-2 rounded-md min-w-[80px] sm:min-w-[100px] py-2"
+                      >
+                        <i
+                          className={`${iconsData[item.label]} text-2xl sm:text-[30px]`}
+                        ></i>
+                        <span className="text-xs sm:text-sm mt-1">
+                          {item.title}
+                          {item.label == "duration" && "-Day Trip"}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
             {/* <div className="flex items-center justify-between mt-3">
               <div>
                 <span className="text-3xl font-bold text-gray-900">
-                  ₹{data.price}
-                  <small className="font-normal text-xs text-gray-600">
-                    /night
-                  </small>
+                  {data.price}
+                  <small className="font-normal text-xs">PP</small>
                 </span>
               </div>
             </div> */}
 
-            <div className="flex space-x-4 lg:">
+            <div className="flex space-x-4">
               <button
-                className="flex-1 bg-indigo-600 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+                className="flex-1 h-16 bg-indigo-600 hover:bg-indigo-800 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline transition duration-300"
                 onClick={() =>
                   setIsOpen((prev) => ({
                     ...prev,
@@ -150,7 +158,7 @@ const ActivityDetailPage = () => {
                 Book Now
               </button>
               <button
-                className="flex-1 bg-gray-200 hover:bg-indigo-700 text-indigo-700 hover:text-gray-200 border-2 border-solid border-indigo-600 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+                className="flex-1 h-16 bg-gray-200 hover:bg-indigo-700 text-indigo-700 hover:text-gray-200 border-2 border-solid border-indigo-600 font-bold py-2 px-4 focus:outline-none focus:shadow-outline transition duration-300"
                 onClick={() =>
                   setIsOpen((prev) => ({
                     ...prev,
@@ -169,10 +177,17 @@ const ActivityDetailPage = () => {
         <div className="mt-12 p-3 max-w-screen-md mx-auto text-gray-700 text-base sm:text-lg leading-relaxed">
           <p>{data.desc}</p>
         </div>
+
+        {/* Timeline Section */}
+        {activePage === "packages" && (
+          <div className="mx-auto mt-12 max-w-full">
+            <Timeline data={data.timelineData} />
+          </div>
+        )}
       </div>
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} requestFrom="activity" />
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} requestFrom={activePage} />
     </div>
   );
 };
 
-export default ActivityDetailPage;
+export default DetailPage;

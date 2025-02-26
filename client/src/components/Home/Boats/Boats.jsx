@@ -89,7 +89,10 @@ const Boats = () => {
   if (loading) return <LoadingPage />;
 
   return (
-    <div ref={carouselRef} className={`${styles.carousel} xl:py-20`}>
+    <div
+      ref={carouselRef}
+      className={`${styles.carousel} xl:py-20 lazyLoadLeft`}
+    >
       <div ref={listRef} className={styles.list}>
         {boats.map((boat) => (
           <div className={`${styles.sliderItem} `} key={boat._id}>

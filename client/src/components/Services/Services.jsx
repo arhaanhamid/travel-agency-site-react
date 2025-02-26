@@ -3,15 +3,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Skeleton from "../Skeleton";
 import styles from "./styles.module.css";
 import FilterSidebar from "./FilterSidebar";
+import { CardBody, CardContainer, CardItem } from "../ui/ThreeDCard";
 
 const Services = ({ data, defaultLoc = "" }) => {
-  const location = useLocation();
   const navigate = useNavigate();
+  const location = useLocation();
   const activePage = location.pathname.split("/")[2]; // Get active page from URL
 
   // Handler for navigation
   const handleMoreDetails = (id) => {
-    console.log(id);
     navigate(`${location.pathname}/${id}`);
   };
 
@@ -122,10 +122,10 @@ const Services = ({ data, defaultLoc = "" }) => {
   ]);
 
   // Returns a random rotation transform between -5deg and 5deg.
-  function randomRotate() {
-    const deg = Math.random() * (2 - -2) + -2;
-    return `rotate(${deg}deg)`;
-  }
+  // function randomRotate() {
+  //   const deg = Math.random() * (2 - -2) + -2;
+  //   return `rotate(${deg}deg)`;
+  // }
 
   return (
     <div className="flex flex-col w-auto py-[120px] mx-auto">
@@ -174,7 +174,70 @@ const Services = ({ data, defaultLoc = "" }) => {
           {filteredTrips.length > 0 ? (
             filteredTrips.map((item, index) => (
               <Suspense fallback={<Skeleton />} key={item._id}>
-                <div
+                <CardContainer className="lazyLoadDown">
+                  <CardBody className={`${styles.card}`}>
+                    <CardItem
+                      translateZ={5}
+                      rotateX={1}
+                      rotateZ={-1}
+                      className="w-full mt-4"
+                    >
+                      <div className="relative">
+                        <img src={item.images[0]} alt={`Card ${index}`} />
+                        {activePage !== "boats" && (
+                          <span className="absolute top-1 left-1 sm:top-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
+                            {item.location}
+                          </span>
+                        )}
+                        <span className="absolute bottom-1 left-1 sm:bottom-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
+                          {activePage == "packages" &&
+                            item.duration + "-Day Trip"}
+                          {activePage == "activities" &&
+                            item.duration + "-Day Activity"}
+                          {(activePage == "hotels" || activePage == "boats") &&
+                            item.category}
+                          {activePage == "cars" &&
+                            "Passengers: " + item.passengers}
+                        </span>
+                      </div>
+                    </CardItem>
+                    <CardItem
+                      translateZ={10}
+                      translateX={5}
+                      className="text-xl font-bold text-neutral-600 dark:text-white"
+                    >
+                      <h2>{item.title}</h2>
+                    </CardItem>
+                    <CardItem
+                      translateZ={10}
+                      translateX={5}
+                      className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                    >
+                      <p className="line-clamp-5 text-xs/relaxed sm:text-sm/relaxed text-white/95">
+                        {item.desc}
+                      </p>
+                    </CardItem>
+                    <CardItem
+                      translateZ={20}
+                      translateX={10}
+                      as="button"
+                      className="w-full px-4 py-2 rounded-xl text-xs font-bold my-5"
+                    >
+                      <div
+                        className={`w-full flex items-center justify-center font-bold bg-transparent border-2 border-indigo-900 rounded-full text-[0.8rem] h-[40px] py-1 px-2 sm:h-[50px] sm:text-[1rem] md:text-[0.8rem] lg:px-2 lg:h-[45px] xl:h-[50px] xl:px-4 sm:px-4 hover:bg-indigo-900 text-indigo-900 hover:text-white transition duration-300 cursor-pointer`}
+                        onClick={() => handleMoreDetails(item._id)}
+                      >
+                        {activePage == "packages" && "Discover Trip"}
+                        {activePage == "hotels" && "Discover Hotel"}
+                        {activePage == "boats" && "Discover Boat"}
+                        {activePage == "cars" && "Discover Car"}
+                        {activePage == "activities" && "Discover Activity"}
+                      </div>
+                    </CardItem>
+                  </CardBody>
+                </CardContainer>
+
+                {/* <div
                   className={`${styles.card}`}
                   style={{ transform: randomRotate() }}
                 >
@@ -211,8 +274,8 @@ const Services = ({ data, defaultLoc = "" }) => {
                       {activePage == "boats" && "Discover Boat"}
                       {activePage == "cars" && "Discover Car"}
                       {activePage == "activities" && "Discover Activity"}
-                    </div>
-                    {/* <div
+                    </div> */}
+                {/* <div
                       className={`flex flex-col items-center justify-between h-full text-base `}
                     >
                       <span className="text-[12px] xs:text-xs font-medium text-indigo-900 uppercase">
@@ -228,8 +291,8 @@ const Services = ({ data, defaultLoc = "" }) => {
                         </small>
                       </span>
                     </div> */}
-                  </div>
-                </div>
+                {/* </div>
+                </div> */}
               </Suspense>
             ))
           ) : (

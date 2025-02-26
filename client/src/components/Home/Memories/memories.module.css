@@ -73,7 +73,7 @@
   font-weight: 500;
   color: #6366f1;
 }
-.Memories_wrapper .MemoriesCard .content span {
+.Memories_wrapper .MemoriesCard .content a {
   position: relative;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
@@ -81,7 +81,7 @@
   text-decoration: none;
 }
 
-.Memories_wrapper .MemoriesCard .content span::after {
+.Memories_wrapper .MemoriesCard .content a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -92,12 +92,12 @@
   transition: width 0.5s ease-in-out;
 }
 
-.Memories_wrapper .MemoriesCard .content span:hover {
+.Memories_wrapper .MemoriesCard .content a:hover {
   font-weight: 500;
   color: #6366f1;
 }
 
-.Memories_wrapper .MemoriesCard .content span:hover::after {
+.Memories_wrapper .MemoriesCard .content a:hover::after {
   width: 100%;
 }
 
@@ -160,19 +160,3 @@
     border-radius: 0px;
   }
 }
-
-/* .anim-lazy {
-  animation: appear linear;
-  animation-timeline: view();
-  animation-timeline: scroll();
-}
-@keyframes appear {
-  from {
-    opacity: 0;
-    scale: 0.5;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-  }
-} */

@@ -9,6 +9,7 @@ import LoadingPage from "../../../LoadingPage";
 
 import { useEffect, useState } from "react";
 import api from "../../../api";
+import { CardBody, CardContainer, CardItem } from "../../ui/ThreeDCard";
 
 function Destinations() {
   const [packagesData, setPackages] = useState([]);
@@ -41,7 +42,7 @@ function Destinations() {
   if (loading) return <LoadingPage />;
 
   return (
-    <div className="w-full h-screen flex flex-col">
+    <div className="w-full h-screen flex flex-col lazyLoadRight">
       <div
         className={`relative h-[480px] sm:h-[500px] xl:h-[550px] w-full flex justify-start items-center p-6 sm:p-14 overflow-hidden ${styles.imageContainer}`}
       >
@@ -77,7 +78,37 @@ function Destinations() {
         {packagesData.map((item) => {
           return (
             <SwiperSlide key={item._id}>
-              <div
+              <CardContainer requestFrom="destinations">
+                <CardBody
+                  className={`${styles.slide} p-2 m-2 bg-white overflow-hidden cursor-pointer`}
+                  onClick={() => handleNavigate(item)}
+                  requestFrom="destinations"
+                >
+                  <CardItem
+                    translateZ={10}
+                    rotateX={10}
+                    rotateZ={-2}
+                    className="w-full mt-4"
+                  >
+                    <img
+                      src={item.images[0]}
+                      alt={item.title}
+                      className={`w-full h-full rounded-[12px]`}
+                    />
+                  </CardItem>
+                  <CardItem
+                    translateZ={10}
+                    translateX={5}
+                    className="text-xl font-bold text-neutral-600 dark:text-white"
+                  >
+                    <span className="text-xs uppercase font-semibold text-gray-700 tracking-[1px]">
+                      {item.location}
+                    </span>
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
+
+              {/* <div
                 className={`${styles.slide} p-2 m-2 bg-white overflow-hidden`}
                 onClick={() => handleNavigate(item)}
               >
@@ -89,7 +120,7 @@ function Destinations() {
                 <span className="text-xs uppercase font-semibold text-gray-700 tracking-[1px]">
                   {item.location}
                 </span>
-              </div>
+              </div> */}
             </SwiperSlide>
           );
         })}
