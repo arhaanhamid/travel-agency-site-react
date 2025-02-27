@@ -71,7 +71,6 @@ const Hotels = () => {
           nextEl: ".custom-next",
           prevEl: ".custom-prev",
         }}
-        lazy="true"
       >
         {hotels.length > 0 ? (
           hotels.map((hotel, index) =>

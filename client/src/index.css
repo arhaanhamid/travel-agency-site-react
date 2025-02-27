@@ -94,16 +94,29 @@
   animation-range: entry 0 cover 30%;
   /* animation-timeline: scroll(); */
 }
-.lazyLoadDownQuick {
+.lazyLoadDown20 {
   animation: appeardown linear;
   animation-timeline: view();
   animation-range: entry 0 cover 20%;
   /* animation-timeline: scroll(); */
 }
+
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 640px) {
+  .lazyLoadDown {
+    animation: appeardown linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 20%;
+    /* animation-timeline: scroll(); */
+  }
+}
 @keyframes appearleft {
   from {
     opacity: 0;
-    scale: 0.5;
+    scale: 0.1;
     transform: translateX(-1500px);
   }
   to {
@@ -115,7 +128,7 @@
 @keyframes appearright {
   from {
     opacity: 0;
-    scale: 0.5;
+    scale: 0.1;
     transform: translateX(1500px);
   }
   to {
@@ -127,7 +140,7 @@
 @keyframes appeardown {
   from {
     opacity: 0;
-    scale: 0.5;
+    scale: 0.1;
     transform: translateY(100px);
   }
   to {

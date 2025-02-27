@@ -64,6 +64,16 @@
   background: rgba(0, 0, 0, 0.5); /* Blackish, semi-transparent */
   z-index: 1;
 }
+.filterMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  /* height: 100vh; */
+  padding: 20px;
+  overflow-y: auto;
+}
 
 /* Responsive (Mobile) Styles */
 @media screen and (max-width: 768px) {
@@ -79,7 +89,7 @@
       width 0.4s ease-in-out,
       padding 0.4s ease-in-out;
     padding: 0;
-    overflow-y: auto; /* Use vertical auto-scroll instead of full scroll */
+    overflow-y: auto;
   }
 
   /* When active, expand the filter menu */

@@ -1,9 +1,9 @@
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Skeleton from "../Skeleton";
+import Skeleton from "../UIComponents/Skeleton";
 import styles from "./styles.module.css";
 import FilterSidebar from "./FilterSidebar";
-import { CardBody, CardContainer, CardItem } from "../ui/ThreeDCard";
+import { CardBody, CardContainer, CardItem } from "../UIComponents/ThreeDCard";
 
 const Services = ({ data, defaultLoc = "" }) => {
   const navigate = useNavigate();
@@ -170,7 +170,7 @@ const Services = ({ data, defaultLoc = "" }) => {
         </div>
 
         {/* Grid layout for service items */}
-        <div className="md:w-[70%] lg:w-[75%] xl:w-[82%] h-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 px-[10px] gap-x-[20px] gap-y-[60px]">
+        <div className="md:w-[70%] lg:w-[75%] xl:w-[82%] h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 px-[10px] gap-x-[20px] gap-y-[60px]">
           {filteredTrips.length > 0 ? (
             filteredTrips.map((item, index) => (
               <Suspense fallback={<Skeleton />} key={item._id}>
@@ -204,14 +204,14 @@ const Services = ({ data, defaultLoc = "" }) => {
                     <CardItem
                       translateZ={10}
                       translateX={5}
-                      className="text-xl font-bold text-neutral-600 dark:text-white"
+                      className="w-full text-center text-xl font-bold text-neutral-600 dark:text-white"
                     >
                       <h2>{item.title}</h2>
                     </CardItem>
                     <CardItem
                       translateZ={10}
                       translateX={5}
-                      className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                      className="min-w-full text-center text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
                     >
                       <p className="line-clamp-5 text-xs/relaxed sm:text-sm/relaxed text-white/95">
                         {item.desc}

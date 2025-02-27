@@ -9,7 +9,11 @@ import LoadingPage from "../../../LoadingPage";
 
 import { useEffect, useState } from "react";
 import api from "../../../api";
-import { CardBody, CardContainer, CardItem } from "../../ui/ThreeDCard";
+import {
+  CardBody,
+  CardContainer,
+  CardItem,
+} from "../../UIComponents/ThreeDCard";
 
 function Destinations() {
   const [packagesData, setPackages] = useState([]);

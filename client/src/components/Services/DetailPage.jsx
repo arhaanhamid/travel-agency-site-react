@@ -15,8 +15,8 @@ import Modal from "../UIComponents/Modal";
 import ErrorPage from "../../ErrorPage";
 import LoadingPage from "../../LoadingPage";
 import api from "../../api";
-import { Timeline } from "../ui/Timeline";
-import { Meteors } from "../ui/MeteorEffect";
+import { Timeline } from "../UIComponents/Timeline";
+import { Meteors } from "../UIComponents/MeteorEffect";
 
 const DetailPage = () => {
   const location = useLocation();
@@ -74,7 +74,6 @@ const DetailPage = () => {
             disableOnInteraction: false,
           }}
           loop={true}
-          lazy="true"
         >
           {data.images.map((image, index) => {
             return (
@@ -84,9 +83,9 @@ const DetailPage = () => {
                   <img
                     src={image}
                     alt={data.title}
-                    className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg"
-                    loading="lazy"
+                    className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg swiper-lazy"
                   />
+                  <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                 </div>
               </SwiperSlide>
             );
@@ -96,7 +95,7 @@ const DetailPage = () => {
         </Swiper>
 
         {/* component */}
-        <div className="w-full mx-auto rounded-lg overflow-hidden">
+        <div className="w-full mx-auto rounded-lg overflow-hidden lazyLoadDown20">
           {/* Product Details */}
           <div className="p-3 sm:px-5 md:px-8 lg:px-28 flex flex-col gap-5 md:gap-10">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-indigo-600">
@@ -112,14 +111,14 @@ const DetailPage = () => {
 
             {/* Travel Inclusive Items */}
             {activePage !== "activities" && (
-              <div className="text-sm text-gray-700">
+              <div className="text-sm text-gray-700 lazyLoadRight">
                 <h1 className="font-bold">Package Amenities:</h1>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                   {data.amenities.map((item, index) => {
                     return (
                       <div
                         key={index}
-                        className="flex lg:flex-col lg:items-center gap-2 border-2 rounded-md min-w-[80px] sm:min-w-[100px] py-2"
+                        className="flex lg:flex-col lg:items-center gap-2 border-2 rounded-md min-w-[80px] sm:min-w-[100px] py-2 "
                       >
                         <i
                           className={`${iconsData[item.label]} text-2xl sm:text-[30px]`}
@@ -174,7 +173,7 @@ const DetailPage = () => {
         </div>
 
         {/* Description */}
-        <div className="mt-12 p-3 max-w-screen-md mx-auto text-gray-700 text-base sm:text-lg leading-relaxed">
+        <div className="mt-12 p-3 max-w-screen-md mx-auto text-gray-700 text-base sm:text-lg leading-relaxed lazyLoadDown">
           <p>{data.desc}</p>
         </div>
 
