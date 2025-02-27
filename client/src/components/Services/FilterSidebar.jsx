@@ -7,7 +7,10 @@ const FilterSidebar = ({
   activePage,
   selectedDestinations,
   setSelectedDestinations,
+  selectedPacktag,
+  setSelectedPacktag,
   defaultLoc,
+  defaultTag,
   // priceRange,
   // setPriceRange,
   durationRange,
@@ -22,7 +25,18 @@ const FilterSidebar = ({
   const bars = useRef();
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [showMoreDestinations, setShowMoreDestinations] = useState(false);
+  const [showMorePacktag, setShowMorePacktag] = useState(false);
   const [showMoreActivities, setShowMoreActivities] = useState(false);
+  console.log(defaultTag);
+  //can do this in mongoDB but tired
+  const tagsLabel = {
+    solo: "Solo Travel",
+    small: "Small Groups Departures",
+    cheap: "Affordable Dreams",
+    tour: "Foody Tours",
+    religious: "Religious Tours",
+    private: "Private Touring",
+  };
 
   const menuHandler = () => {
     setIsSidebarActive((prev) => !prev);
@@ -42,6 +56,21 @@ const FilterSidebar = ({
           acc[loc] = (acc[loc] || 0) + 1;
           return acc;
         }, {});
+      return Object.entries(counts).map(([name, count]) => ({ name, count }));
+    }
+    return [];
+  }, [servicesData, activePage]);
+
+  const packtags = useMemo(() => {
+    if (["packages"].includes(activePage)) {
+      // Extract all tags from each item and flatten the result into a single array
+      const tags = servicesData.flatMap((item) => item.tags || []);
+      // Count the occurrences of each tag
+      const counts = tags.reduce((acc, tag) => {
+        acc[tag] = (acc[tag] || 0) + 1;
+        return acc;
+      }, {});
+      // Convert the counts object to an array of { name, count } objects
       return Object.entries(counts).map(([name, count]) => ({ name, count }));
     }
     return [];
@@ -88,11 +117,13 @@ const FilterSidebar = ({
 
   const clearAllFilters = () => {
     setSelectedDestinations([]);
+    setSelectedPacktag([]);
     // setPriceRange([100, 50000]);
     setDurationRange([1, 7]);
     setSelectedActivities([]);
     setSortOption("Latest");
     setShowMoreDestinations(false);
+    setShowMorePacktag(false);
     setShowMoreActivities(false);
   };
 
@@ -102,14 +133,24 @@ const FilterSidebar = ({
     } else {
       setSelectedDestinations([]);
     }
+    if (defaultTag) {
+      setSelectedPacktag(() => [defaultTag]);
+    } else {
+      setSelectedPacktag([]);
+    }
   }, []);
 
   const DESTINATION_DISPLAY_COUNT = 5;
+  const TAG_DISPLAY_COUNT = 5;
   const ACTIVITY_DISPLAY_COUNT = 5;
 
   const displayedDestinations = showMoreDestinations
     ? destinations
     : destinations.slice(0, DESTINATION_DISPLAY_COUNT);
+
+  const displayedPacktags = showMorePacktag
+    ? packtags
+    : packtags.slice(0, TAG_DISPLAY_COUNT);
 
   const displayedActivities = showMoreActivities
     ? activitiesData
@@ -191,7 +232,7 @@ const FilterSidebar = ({
                   }
                 }}
               />
-              <span className=" text-sm">Show All</span>
+              <p className=" text-xs">Show All</p>
             </label>
           </div>
           <ul className="space-y-2">
@@ -216,9 +257,9 @@ const FilterSidebar = ({
                         }
                       }}
                     />
-                    <span className=" text-sm">{dest.name}</span>
+                    <p className=" text-xs">{dest.name}</p>
                   </label>
-                  <span className="text-gray-500 text-sm">{dest.count}</span>
+                  <p className="text-gray-500 text-xs">{dest.count}</p>
                 </div>
               </li>
             ))}
@@ -233,6 +274,64 @@ const FilterSidebar = ({
           )}
         </section>
         <hr className="my-3" />
+
+        {/* Tags Filter */}
+        <section className={`mb-6 ${activePage !== "packages" && "hidden"}`}>
+          <h3 className="text-md font-semibold mb-3">Tags</h3>
+          <div className="mb-2">
+            <label className="flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                className="mr-2"
+                checked={selectedPacktag.length === packtags.length}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setSelectedPacktag(packtags.map((tag) => tag.name));
+                  } else {
+                    setSelectedPacktag([]);
+                  }
+                }}
+              />
+              <p className="text-xs">Show All</p>
+            </label>
+          </div>
+          <ul className="space-y-2">
+            {displayedPacktags.map((tag, idx) => (
+              <li key={idx}>
+                <div className="flex justify-between items-center">
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      className="mr-2"
+                      checked={selectedPacktag.includes(tag.name)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setSelectedPacktag((prev) => [...prev, tag.name]);
+                        } else {
+                          setSelectedPacktag((prev) =>
+                            prev.filter((item) => item !== tag.name)
+                          );
+                        }
+                      }}
+                    />
+                    <p className="text-xs">{tagsLabel[tag.name]}</p>
+                  </label>
+                  <p className="text-gray-500 text-xs">{tag.count}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          {packtags.length > TAG_DISPLAY_COUNT && (
+            <button
+              onClick={() => setShowMorePacktag((prev) => !prev)}
+              className="text-left w-auto mt-2 text-xs font-bold text-indigo-500 hover:underline"
+            >
+              {showMorePacktag ? "Show Less" : "Show More"}
+            </button>
+          )}
+        </section>
+        <hr className="my-3" />
+
         {/* Activities Filter */}
         <section
           className={`my-6 ${activePage === "activities" ? "" : "hidden"}`}
@@ -253,7 +352,7 @@ const FilterSidebar = ({
                   }
                 }}
               />
-              <span className=" text-sm">Show All</span>
+              <span className=" text-xs">Show All</span>
             </label>
           </div>
           <ul className="space-y-2">
@@ -278,11 +377,9 @@ const FilterSidebar = ({
                         }
                       }}
                     />
-                    <span className=" text-sm">{activity.name}</span>
+                    <p className=" text-xs">{activity.name}</p>
                   </label>
-                  <span className="text-gray-500 text-sm">
-                    {activity.count}
-                  </span>
+                  <p className="text-gray-500 text-xs">{activity.count}</p>
                 </div>
               </li>
             ))}

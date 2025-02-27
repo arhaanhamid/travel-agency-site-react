@@ -16,6 +16,7 @@ const PackageSchema = new mongoose.Schema(
   {
     images: { type: [String], required: true }, // Array of image URLs or identifiers
     location: { type: String, required: true },
+    tags: { type: [String] },
     duration: { type: String, required: true },
     title: { type: String, required: true },
     desc: { type: String, required: true },

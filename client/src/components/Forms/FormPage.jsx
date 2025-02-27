@@ -6,15 +6,17 @@ import "react-phone-input-2/lib/style.css";
 import api from "../../api";
 import ErrorPage from "../../ErrorPage";
 import LoadingPage from "../../LoadingPage";
+import { useParams } from "react-router-dom";
 
 const FormPage = ({ isOpen, requestFrom }) => {
   const [packages, setPackages] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const inquiryForm = isOpen.inquire;
-  const bookingForm = isOpen.book;
-  const generalInquiry = false;
+  const { type } = useParams();
+
+  const bookingForm = isOpen ? isOpen.book : false;
+  const generalInquiry = type === "general";
 
   const [formData, setFormData] = useState({
     showLocations: false,
@@ -136,16 +138,16 @@ const FormPage = ({ isOpen, requestFrom }) => {
     }
 
     // Validate travel date fields
-    if (!isOpen.inquire && !formData.date.day) {
+    if (!isOpen?.inquire && !formData.date.day) {
       newErrors.day = "* Day is required";
     }
-    if (!isOpen.inquire && !formData.date.month) {
+    if (!isOpen?.inquire && !formData.date.month) {
       newErrors.month = "* Month is required";
     }
-    if (!isOpen.inquire && !formData.date.year) {
+    if (!isOpen?.inquire && !formData.date.year) {
       newErrors.year = "* Year is required";
     }
-    if (!isOpen.inquire && !formData.date.nights) {
+    if (!isOpen?.inquire && !formData.date.nights) {
       newErrors.nights = "* Number of nights is required";
     }
     if (!formData.party.adults) {
@@ -161,7 +163,7 @@ const FormPage = ({ isOpen, requestFrom }) => {
     }
 
     // Validate special occasion (if applicable)
-    if (formData.showOccasions && !formData.selectedOccasion) {
+    if (formData.showOccasions && formData.selectedOccasion.length === 0) {
       newErrors.selectedOccasion = "* Please select an occasion";
     }
 
@@ -179,7 +181,7 @@ const FormPage = ({ isOpen, requestFrom }) => {
       try {
         const response = await api.post("form/submit-form", {
           ...formData,
-          requestFrom,
+          requestFrom: requestFrom ? requestFrom : "general",
         });
 
         console.log("Form submitted successfully:", response.data);
@@ -233,9 +235,9 @@ const FormPage = ({ isOpen, requestFrom }) => {
   if (loading) return <LoadingPage />;
 
   return (
-    <div className="fontMont min-h-screen bg-gray-200">
+    <div className="fontMont min-h-screen">
       <form
-        className="max-w-full mx-auto bg-white shadow-2xl p-4 sm:p-6 md:p-8 space-y-8"
+        className={`max-w-full bg-stone-100 mx-auto shadow-2xl p-4 sm:p-6 md:p-8 space-y-8 ${generalInquiry && "sm:max-w-[80%] xl:max-w-[70%] pt-24 sm:pt-28 md:pt-28 lg:pt-36 lg:pb-20 p-[5%] sm:p-[5%] md:p-[5%]"}`}
         onSubmit={handleSubmit}
       >
         {/* Destination Section */}
@@ -330,7 +332,7 @@ const FormPage = ({ isOpen, requestFrom }) => {
         )}
 
         {/* Travel Date & Duration Section */}
-        {bookingForm && (
+        {(bookingForm || generalInquiry) && (
           <section>
             <div className="mb-10 flex flex-col">
               <h2 className="text-base sm:text-lg mb-2 md:text-xl text-gray-700">
@@ -410,7 +412,9 @@ const FormPage = ({ isOpen, requestFrom }) => {
                 </div>
 
                 {/* Number of Nights Select */}
-                {(requestFrom === "hotel" || requestFrom === "boat") && (
+                {(requestFrom === "hotel" ||
+                  requestFrom === "boat" ||
+                  generalInquiry) && (
                   <div>
                     <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                       Number of Nights

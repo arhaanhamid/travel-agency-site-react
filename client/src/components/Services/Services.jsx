@@ -1,11 +1,10 @@
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Skeleton from "../UIComponents/Skeleton";
 import styles from "./styles.module.css";
 import FilterSidebar from "./FilterSidebar";
 import { CardBody, CardContainer, CardItem } from "../UIComponents/ThreeDCard";
 
-const Services = ({ data, defaultLoc = "" }) => {
+const Services = ({ data, defaultLoc = "", defaultTag = "" }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const activePage = location.pathname.split("/")[2]; // Get active page from URL
@@ -17,10 +16,10 @@ const Services = ({ data, defaultLoc = "" }) => {
 
   const [servicesData, setServicesData] = useState([]);
   const [searchText, setSearchText] = useState("");
-  // Filter states
   const [selectedDestinations, setSelectedDestinations] = useState([
     defaultLoc,
   ]);
+  const [selectedPacktag, setSelectedPacktag] = useState([defaultTag]);
   const [priceRange, setPriceRange] = useState([100, 50000]);
   const [durationRange, setDurationRange] = useState([1, 30]);
   const [selectedActivities, setSelectedActivities] = useState([]);
@@ -58,6 +57,12 @@ const Services = ({ data, defaultLoc = "" }) => {
     if (selectedDestinations.length > 0) {
       filtered = filtered.filter((item) =>
         selectedDestinations.includes(item.location)
+      );
+    }
+    // Package Type filter
+    if (selectedPacktag.length > 0) {
+      filtered = filtered.filter((item) =>
+        item.tags.some((tag) => selectedPacktag.includes(tag))
       );
     }
 
@@ -114,6 +119,7 @@ const Services = ({ data, defaultLoc = "" }) => {
     servicesData,
     searchText,
     selectedDestinations,
+    selectedPacktag,
     priceRange,
     durationRange,
     selectedActivities,
@@ -157,7 +163,10 @@ const Services = ({ data, defaultLoc = "" }) => {
             activePage={activePage}
             selectedDestinations={selectedDestinations}
             setSelectedDestinations={setSelectedDestinations}
+            selectedPacktag={selectedPacktag}
+            setSelectedPacktag={setSelectedPacktag}
             defaultLoc={defaultLoc}
+            defaultTag={defaultTag}
             priceRange={priceRange}
             setPriceRange={setPriceRange}
             durationRange={durationRange}
@@ -173,97 +182,54 @@ const Services = ({ data, defaultLoc = "" }) => {
         <div className="md:w-[70%] lg:w-[75%] xl:w-[82%] h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 px-[10px] gap-x-[20px] gap-y-[60px]">
           {filteredTrips.length > 0 ? (
             filteredTrips.map((item, index) => (
-              <Suspense fallback={<Skeleton />} key={item._id}>
-                <CardContainer className="lazyLoadDown">
-                  <CardBody className={`${styles.card}`}>
-                    <CardItem
-                      translateZ={5}
-                      rotateX={1}
-                      rotateZ={-1}
-                      className="w-full mt-4"
-                    >
-                      <div className="relative">
-                        <img src={item.images[0]} alt={`Card ${index}`} />
-                        {activePage !== "boats" && (
-                          <span className="absolute top-1 left-1 sm:top-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
-                            {item.location}
-                          </span>
-                        )}
-                        <span className="absolute bottom-1 left-1 sm:bottom-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
-                          {activePage == "packages" &&
-                            item.duration + "-Day Trip"}
-                          {activePage == "activities" &&
-                            item.duration + "-Day Activity"}
-                          {(activePage == "hotels" || activePage == "boats") &&
-                            item.category}
-                          {activePage == "cars" &&
-                            "Passengers: " + item.passengers}
+              <CardContainer key={item._id} className="lazyLoadDown">
+                <CardBody className={`${styles.card}`}>
+                  <CardItem
+                    translateZ={5}
+                    rotateX={1}
+                    rotateZ={-1}
+                    className="w-full mt-4"
+                  >
+                    <div className="relative">
+                      <img src={item.images[0]} alt={`Card ${index}`} />
+                      {activePage !== "boats" && (
+                        <span className="absolute top-1 left-1 sm:top-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
+                          {item.location}
                         </span>
-                      </div>
-                    </CardItem>
-                    <CardItem
-                      translateZ={10}
-                      translateX={5}
-                      className="w-full text-center text-xl font-bold text-neutral-600 dark:text-white"
-                    >
-                      <h2>{item.title}</h2>
-                    </CardItem>
-                    <CardItem
-                      translateZ={10}
-                      translateX={5}
-                      className="min-w-full text-center text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-                    >
-                      <p className="line-clamp-5 text-xs/relaxed sm:text-sm/relaxed text-white/95">
-                        {item.desc}
-                      </p>
-                    </CardItem>
-                    <CardItem
-                      translateZ={20}
-                      translateX={10}
-                      as="button"
-                      className="w-full px-4 py-2 rounded-xl text-xs font-bold my-5"
-                    >
-                      <div
-                        className={`w-full flex items-center justify-center font-bold bg-transparent border-2 border-indigo-900 rounded-full text-[0.8rem] h-[40px] py-1 px-2 sm:h-[50px] sm:text-[1rem] md:text-[0.8rem] lg:px-2 lg:h-[45px] xl:h-[50px] xl:px-4 sm:px-4 hover:bg-indigo-900 text-indigo-900 hover:text-white transition duration-300 cursor-pointer`}
-                        onClick={() => handleMoreDetails(item._id)}
-                      >
-                        {activePage == "packages" && "Discover Trip"}
-                        {activePage == "hotels" && "Discover Hotel"}
-                        {activePage == "boats" && "Discover Boat"}
-                        {activePage == "cars" && "Discover Car"}
-                        {activePage == "activities" && "Discover Activity"}
-                      </div>
-                    </CardItem>
-                  </CardBody>
-                </CardContainer>
-
-                {/* <div
-                  className={`${styles.card}`}
-                  style={{ transform: randomRotate() }}
-                >
-                  <div className="relative">
-                    <img src={item.images[0]} alt={`Card ${index} `} />
-                    {activePage !== "boats" && (
-                      <span className="absolute top-1 left-1 sm:top-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
-                        {item.location}
+                      )}
+                      <span className="absolute bottom-1 left-1 sm:bottom-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
+                        {activePage == "packages" &&
+                          item.duration + "-Day Trip"}
+                        {activePage == "activities" &&
+                          item.duration + "-Day Activity"}
+                        {(activePage == "hotels" || activePage == "boats") &&
+                          item.category}
+                        {activePage == "cars" &&
+                          "Passengers: " + item.passengers}
                       </span>
-                    )}
-                    <span className="absolute bottom-1 left-1 sm:bottom-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
-                      {activePage == "packages" && item.duration + "-Day Trip"}
-                      {activePage == "activities" &&
-                        item.duration + "-Day Activity"}
-                      {(activePage == "hotels" || activePage == "boats") &&
-                        item.category}
-                      {activePage == "cars" && "Passengers: " + item.passengers}
-                    </span>
-                  </div>
-                  <h2>{item.title}</h2>
-                  <p className="line-clamp-5 text-xs/relaxed sm:text-sm/relaxed text-white/95">
-                    {item.desc}
-                  </p>
-
-                  <div
-                    className={`flex items-center justify-center mt-5 h-[50px]`}
+                    </div>
+                  </CardItem>
+                  <CardItem
+                    translateZ={10}
+                    translateX={5}
+                    className="w-full text-center text-xl font-bold text-neutral-600 dark:text-white"
+                  >
+                    <h2>{item.title}</h2>
+                  </CardItem>
+                  <CardItem
+                    translateZ={10}
+                    translateX={5}
+                    className="min-w-full text-center text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                  >
+                    <p className="line-clamp-5 text-xs/relaxed sm:text-sm/relaxed text-white/95">
+                      {item.desc}
+                    </p>
+                  </CardItem>
+                  <CardItem
+                    translateZ={20}
+                    translateX={10}
+                    as="button"
+                    className="w-full px-4 py-2 rounded-xl text-xs font-bold my-5"
                   >
                     <div
                       className={`w-full flex items-center justify-center font-bold bg-transparent border-2 border-indigo-900 rounded-full text-[0.8rem] h-[40px] py-1 px-2 sm:h-[50px] sm:text-[1rem] md:text-[0.8rem] lg:px-2 lg:h-[45px] xl:h-[50px] xl:px-4 sm:px-4 hover:bg-indigo-900 text-indigo-900 hover:text-white transition duration-300 cursor-pointer`}
@@ -274,26 +240,28 @@ const Services = ({ data, defaultLoc = "" }) => {
                       {activePage == "boats" && "Discover Boat"}
                       {activePage == "cars" && "Discover Car"}
                       {activePage == "activities" && "Discover Activity"}
-                    </div> */}
-                {/* <div
-                      className={`flex flex-col items-center justify-between h-full text-base `}
-                    >
-                      <span className="text-[12px] xs:text-xs font-medium text-indigo-900 uppercase">
-                        FROM
-                      </span>
-                      <span className="text-[1rem] sm:text-[1.4rem] lg:text-[0.8rem] xl:text-[1rem] font-bold text-indigo-900">
-                        ₹{item.price}{" "}
-                        <small className="font-normal text-xs">
-                          {activePage == "packages" && "PP"}
-                          {activePage == "hotels" ||
-                            (activePage == "boats" && "PP")}
-                          {activePage == "cars" && ""}
-                        </small>
-                      </span>
-                    </div> */}
-                {/* </div>
-                </div> */}
-              </Suspense>
+                    </div>
+                  </CardItem>
+                  {/* <CardItem>
+                      <div
+                        className={`flex flex-col items-center justify-between h-full text-base `}
+                      >
+                        <span className="text-[12px] xs:text-xs font-medium text-indigo-900 uppercase">
+                          FROM
+                        </span>
+                        <span className="text-[1rem] sm:text-[1.4rem] lg:text-[0.8rem] xl:text-[1rem] font-bold text-indigo-900">
+                          ₹{item.price}{" "}
+                          <small className="font-normal text-xs">
+                            {activePage == "packages" && "PP"}
+                            {activePage == "hotels" ||
+                              (activePage == "boats" && "PP")}
+                            {activePage == "cars" && ""}
+                          </small>
+                        </span>
+                      </div>
+                    </CardItem> */}
+                </CardBody>
+              </CardContainer>
             ))
           ) : (
             <div className="text-black">

@@ -12,6 +12,7 @@ const ServicesPage = () => {
   const { type } = useParams();
   const query = new URLSearchParams(useLocation().search);
   const defaultLoc = query.get("loc");
+  const defaultTag = query.get("tag");
   const [data, setData] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -55,7 +56,13 @@ const ServicesPage = () => {
   if (loading) return <LoadingPage />;
 
   // Pass the fetched data to your Services component
-  return <Services data={JSON.stringify(data)} defaultLoc={defaultLoc} />;
+  return (
+    <Services
+      data={JSON.stringify(data)}
+      defaultLoc={defaultLoc}
+      defaultTag={defaultTag}
+    />
+  );
 };
 
 export default ServicesPage;

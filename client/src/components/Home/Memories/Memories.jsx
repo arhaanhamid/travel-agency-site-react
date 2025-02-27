@@ -18,7 +18,7 @@ function Memories() {
 
         <div className={memoriesCSS.content}>
           <h3>Small Groups Departures</h3>
-          <Link to="/services/packages/">View Tours</Link>
+          <Link to="/services/packages?tag=small">View Tours</Link>
         </div>
       </div>
       <div className={`${memoriesCSS.MemoriesCard} lazyLoadRight`}>
@@ -26,15 +26,15 @@ function Memories() {
 
         <div className={memoriesCSS.content}>
           <h3>Affordable Dreams</h3>
-          <Link to="/services/packages/">View Tours</Link>
+          <Link to="/services/packages?tag=cheap">View Tours</Link>
         </div>
       </div>
       <div className={`${memoriesCSS.MemoriesCard} lazyLoadRight`}>
         <img src={memoriesImages.memoriesImg3} alt="Memories-img" />
 
         <div className={memoriesCSS.content}>
-          <h3>Undiscover Tours</h3>
-          <Link to="/services/packages/">View Tours</Link>
+          <h3>Foody Tours</h3>
+          <Link to="/services/packages?tag=tour">View Tours</Link>
         </div>
       </div>
       <div className={`${memoriesCSS.MemoriesCard} lazyLoadRight`}>
@@ -45,7 +45,7 @@ function Memories() {
             Let Our Experts Pan <br />
             Your 2024 Jouney
           </h3>
-          <Link to="/services/packages/">View Tours</Link>
+          <Link to="/forms/general">View Tours</Link>
         </div>
       </div>
       <div className={`${memoriesCSS.MemoriesCard} lazyLoadRight`}>
@@ -53,7 +53,7 @@ function Memories() {
 
         <div className={memoriesCSS.content}>
           <h3>Religious Tours</h3>
-          <Link to="/services/packages/">View Tours</Link>
+          <Link to="/services/packages?tag=religious">View Tours</Link>
         </div>
       </div>
       <div className={`${memoriesCSS.MemoriesCard} lazyLoadRight`}>
@@ -61,7 +61,7 @@ function Memories() {
 
         <div className={memoriesCSS.content}>
           <h3>Solo Travel</h3>
-          <Link to="/services/packages/">View Tours</Link>
+          <Link to="/services/packages?tag=solo">View Tours</Link>
         </div>
       </div>
       <div className={`${memoriesCSS.MemoriesCard} lazyLoadRight`}>
@@ -69,7 +69,7 @@ function Memories() {
 
         <div className={memoriesCSS.content}>
           <h3>Private Touring</h3>
-          <Link to="/services/packages/">View Tours</Link>
+          <Link to="/services/packages?tag=private">View Tours</Link>
         </div>
       </div>
     </div>

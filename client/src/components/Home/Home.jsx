@@ -11,6 +11,7 @@ const Home = () => {
   return (
     <div className="main gap-32">
       <Hero />
+
       <PopularPackages />
       <Destinations />
       <Boats />

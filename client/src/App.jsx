@@ -27,7 +27,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/services/:type" element={<ServicesPage />} />
           <Route path="/services/:type/:dataId" element={<DetailPage />} />
-          <Route path="/forms" element={<FormPage />} />
+          <Route path="/forms/:type" element={<FormPage />} />
           <Route path="/testpage" element={<Testpage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
