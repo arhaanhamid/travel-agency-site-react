@@ -4,7 +4,9 @@ const FormDataSchema = new mongoose.Schema(
   {
     showLocations: { type: Boolean, default: false },
     destinations: { type: [String], default: [] },
-    RequestType: { type: [String], default: "" },
+    requestType: { type: [String], default: "" },
+    subject: { type: [String], default: "" },
+    service: { type: [String], default: "" },
     date: {
       day: { type: String, default: "" },
       month: { type: String, default: "" },

@@ -181,7 +181,15 @@ const FormPage = ({ isOpen, requestFrom }) => {
       try {
         const response = await api.post("form/submit-form", {
           ...formData,
-          requestFrom: requestFrom ? requestFrom : "general",
+          service: requestFrom ? requestFrom : "general",
+          requestType: isOpen
+            ? isOpen.inquire
+              ? "INQUIRY"
+              : "BOOKING"
+            : "GENERAL INQUIRY",
+          subject: isOpen
+            ? isOpen.subject && isOpen.subject
+            : "General Inquiry",
         });
 
         console.log("Form submitted successfully:", response.data);
@@ -503,7 +511,7 @@ const FormPage = ({ isOpen, requestFrom }) => {
         </section>
 
         {/* Must Sees and Dos Section */}
-        {requestFrom === "package" && (
+        {(requestFrom === "package" || generalInquiry) && (
           <section>
             <div className="mb-10 flex flex-col">
               <h2 className="text-base sm:text-lg mb-2 md:text-xl text-gray-700">
