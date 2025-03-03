@@ -1,13 +1,19 @@
 import mongoose from "mongoose";
 
+const imageSchema = new mongoose.Schema({
+  avif: { type: String },
+  webp: { type: String },
+  jpg: { type: String, required: true },
+});
+
 const ActivitySchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
     location: { type: String, required: true },
     desc: { type: String, required: true },
-    images: { type: [String], required: true }, // Array of image URLs or identifiers
-    duration: { type: Number, required: true }, // Duration in hours or days
-    price: { type: Number, required: true },
+    images: { type: [imageSchema], default: [] },
+    duration: { type: Number, required: true },
+    price: { type: Number },
   },
   { timestamps: true }
 );

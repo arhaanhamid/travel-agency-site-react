@@ -191,7 +191,26 @@ const Services = ({ data, defaultLoc = "", defaultTag = "" }) => {
                     className="w-full mt-4"
                   >
                     <div className="relative">
-                      <img src={item.images[0]} alt={`Card ${index}`} />
+                      {activePage === "activites" ||
+                      activePage === "packages" ? (
+                        <picture>
+                          <source
+                            srcSet={item.images[0].avif}
+                            type="image/avif"
+                          />
+                          <source
+                            srcSet={item.images[0].webp}
+                            type="image/webp"
+                          />
+                          <img
+                            src={item.images[0].jpg}
+                            alt={`Card ${index}`}
+                            loading="lazy"
+                          />
+                        </picture>
+                      ) : (
+                        <img src={item.images[0]} alt={`Card ${index}`} />
+                      )}
                       {activePage !== "boats" && (
                         <span className="absolute top-1 left-1 sm:top-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
                           {item.location}

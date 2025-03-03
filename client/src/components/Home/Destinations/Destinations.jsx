@@ -51,7 +51,7 @@ function Destinations() {
         className={`relative h-[480px] sm:h-[500px] xl:h-[550px] w-full flex justify-start items-center p-6 sm:p-14 overflow-hidden ${styles.imageContainer}`}
       >
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        <h2 className="relative text-white text-2xl sm:text-3xl md:text-4xl leading-[40px] sm:leading-[60px]  md:leading-[75px]">
+        <h2 className="relative text-white text-2xl sm:text-3xl md:text-4xl leading-[40px] sm:leading-[60px]  md:leading-[75px] z-50">
           Explore The World, <br /> One Unforgettable Journey
         </h2>
       </div>
@@ -94,11 +94,21 @@ function Destinations() {
                     rotateZ={-2}
                     className="w-full mt-4"
                   >
-                    <img
+                    {/* <img
                       src={item.images[0]}
                       alt={item.title}
                       className={`w-full h-full rounded-[12px]`}
-                    />
+                    /> */}
+                    <picture>
+                      <source srcSet={item.images[0].avif} type="image/avif" />
+                      <source srcSet={item.images[0].webp} type="image/webp" />
+                      <img
+                        src={item.images[0].jpg}
+                        alt={item.title}
+                        loading="lazy"
+                        className={`w-full h-full rounded-[12px]`}
+                      />
+                    </picture>
                   </CardItem>
                   <CardItem
                     translateZ={10}

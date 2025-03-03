@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./style.module.css";
-// import { activities } from "../../../../public/assets/GlobalData";
 import { useNavigate } from "react-router-dom";
 import ErrorPage from "../../../ErrorPage";
 import LoadingPage from "../../../LoadingPage";
@@ -109,7 +108,16 @@ const Activities = () => {
         <div ref={sliderRef} className={`${styles.list}`}>
           {activities.map((activity) => (
             <div className={`${styles.item}`} key={activity._id}>
-              <img src={activity.images[0]} alt={activity.title} />
+              <picture key={activity._id}>
+                <source srcSet={activity.images[0].avif} type="image/avif" />
+                <source srcSet={activity.images[0].webp} type="image/webp" />
+                <img
+                  src={activity.images[0].jpg}
+                  alt={activity.title}
+                  loading="lazy"
+                />
+              </picture>
+              {/* <img src={activity.images[0]} alt={activity.title} /> */}
               <div className="absolute inset-0 bg-black opacity-30"></div>
               <div className={`${styles.content}`}>
                 <div className={`${styles.author} uppercase mb-2`}>
@@ -143,7 +151,15 @@ const Activities = () => {
         <div ref={thumbnailRef} className={`${styles.thumbnail}`}>
           {activities.map((activity) => (
             <div className={`${styles.item}`} key={activity._id}>
-              <img src={activity.images[0]} alt={activity.title} />
+              <picture key={activity._id}>
+                <source srcSet={activity.images[0].avif} type="image/avif" />
+                <source srcSet={activity.images[0].webp} type="image/webp" />
+                <img
+                  src={activity.images[0].jpg}
+                  alt={activity.title}
+                  loading="lazy"
+                />
+              </picture>
               <div className={`${styles.content}`}>
                 <div className={`${styles.title}`}>{activity.title}</div>
               </div>

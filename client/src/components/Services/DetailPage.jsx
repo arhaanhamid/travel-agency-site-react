@@ -80,11 +80,25 @@ const DetailPage = () => {
               <SwiperSlide key={index}>
                 <div className="relative max-w-screen-md mb-8 h-64 sm:h-80 md:h-96 mx-auto">
                   <div className="absolute left-0 bottom-0 w-full h-full z-10 bg-gradient-to-t from-black/70 via-transparent"></div>
-                  <img
-                    src={image}
-                    alt={data.title}
-                    className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg swiper-lazy"
-                  />
+
+                  {activePage === "activities" || activePage === "packages" ? (
+                    <picture>
+                      <source srcSet={image.avif} type="image/avif" />
+                      <source srcSet={image.webp} type="image/webp" />
+                      <img
+                        src={image.jpg}
+                        alt={image.title}
+                        loading="lazy"
+                        className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg swiper-lazy"
+                      />
+                    </picture>
+                  ) : (
+                    <img
+                      src={image}
+                      alt={data.title}
+                      className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg swiper-lazy"
+                    />
+                  )}
                   <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                 </div>
               </SwiperSlide>

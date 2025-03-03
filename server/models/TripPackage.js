@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const TimelineSchema = new mongoose.Schema({
   day: { type: String, required: true },
   title: { type: String, required: true },
-  summary: { type: String, required: true },
   desc: { type: String, required: true },
 });
 
@@ -12,9 +11,15 @@ const AmenitySchema = new mongoose.Schema({
   label: { type: String },
 });
 
+const imageSchema = new mongoose.Schema({
+  avif: { type: String },
+  webp: { type: String },
+  jpg: { type: String, required: true },
+});
+
 const PackageSchema = new mongoose.Schema(
   {
-    images: { type: [String], required: true }, // Array of image URLs or identifiers
+    images: { type: [imageSchema], default: [] },
     location: { type: String, required: true },
     tags: { type: [String] },
     duration: { type: String, required: true },

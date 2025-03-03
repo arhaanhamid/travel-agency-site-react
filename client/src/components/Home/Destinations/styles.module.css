@@ -5,19 +5,83 @@
     rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .imageContainer {
-  background: url(/assets/destinations_panaroma_02.jpg);
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: 1;
-  animation: anim_change_img 5s infinite linear alternate;
+  position: relative;
+  width: 100%;
+  height: 400px; /* adjust as needed */
+  overflow: hidden;
 }
 
-@keyframes anim_change_img {
+/* Base layer: first image */
+.imageContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Fallback and modern formats for the first image */
+  background-image: url("/assets/destinations_panaroma_02.jpg");
+  background-image: -webkit-image-set(
+    url("/assets/destinations_panaroma_02.avif") type("image/avif"),
+    url("/assets/destinations_panaroma_02.webp") type("image/webp"),
+    url("/assets/destinations_panaroma_02.jpg") type("image/jpeg")
+  );
+  background-image: image-set(
+    url("/assets/destinations_panaroma_02.avif") type("image/avif"),
+    url("/assets/destinations_panaroma_02.webp") type("image/webp"),
+    url("/assets/destinations_panaroma_02.jpg") type("image/jpeg")
+  );
+  /* z-index: 1; */
+  /* Fully opaque */
+  opacity: 1;
+  transition: opacity 5s ease;
+}
+
+/* Overlay layer: second image */
+.imageContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Fallback and modern formats for the second image */
+  background-image: url("/assets/destinations_panaroma_01.jpg");
+  background-image: -webkit-image-set(
+    url("/assets/destinations_panaroma_01.avif") type("image/avif"),
+    url("/assets/destinations_panaroma_01.webp") type("image/webp"),
+    url("/assets/destinations_panaroma_01.jpg") type("image/jpeg")
+  );
+  background-image: image-set(
+    url("/assets/destinations_panaroma_01.avif") type("image/avif"),
+    url("/assets/destinations_panaroma_01.webp") type("image/webp"),
+    url("/assets/destinations_panaroma_01.jpg") type("image/jpeg")
+  );
+  z-index: 1;
+  /* Start invisible */
+  opacity: 0;
+  transition: opacity 5s ease;
+}
+
+/* When the container has the class 'fade', fade in the overlay */
+@keyframes crossfade {
   0% {
-    background: url(/assets/destinations_panaroma_02.jpg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
   }
   100% {
-    background: url(/assets/destinations_panaroma_01.jpg);
+    opacity: 0;
   }
+}
+
+.imageContainer::after {
+  animation: crossfade 10s infinite;
 }

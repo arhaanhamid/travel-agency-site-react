@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Range } from "react-range";
 import styles from "./styles.module.css";
 
@@ -27,7 +28,6 @@ const FilterSidebar = ({
   const [showMoreDestinations, setShowMoreDestinations] = useState(false);
   const [showMorePacktag, setShowMorePacktag] = useState(false);
   const [showMoreActivities, setShowMoreActivities] = useState(false);
-  console.log(defaultTag);
   //can do this in mongoDB but tired
   const tagsLabel = {
     solo: "Solo Travel",
@@ -138,7 +138,21 @@ const FilterSidebar = ({
     } else {
       setSelectedPacktag([]);
     }
-  }, []);
+  }, [defaultLoc, defaultTag]);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if the navigation type indicates a reload
+    const navEntries = performance.getEntriesByType("navigation");
+    const isReload = navEntries.length > 0 && navEntries[0].type === "reload";
+
+    if (isReload) {
+      // Remove query parameters by navigating to only the pathname
+      navigate(location.pathname, { replace: true });
+    }
+  }, [navigate, location.pathname]);
 
   const DESTINATION_DISPLAY_COUNT = 5;
   const TAG_DISPLAY_COUNT = 5;

@@ -12,15 +12,32 @@ const About = () => {
       }
     }
   }, [location]);
+
   return (
     <section className="about mt-[80px]">
       {/* Hero Section */}
       <div className="relative w-full h-96">
-        <img
+        {/* <img
           className="absolute h-full w-full object-cover object-[70%]"
           src="/assets/destinations_panaroma_03.jpg"
           alt="hero background"
-        />
+        /> */}
+        <picture>
+          <source
+            srcSet="/assets/destinations_panaroma_03.avif"
+            type="image/avif"
+          />
+          <source
+            srcSet="/assets/destinations_panaroma_03.webp"
+            type="image/webp"
+          />
+          <img
+            src="/assets/destinations_panaroma_03.jpg"
+            alt="hero background"
+            loading="lazy"
+            className="absolute h-full w-full object-cover object-[70%]"
+          />
+        </picture>
         <div className="absolute inset-0 h-full w-full bg-black/50"></div>
         <div className="w-max h-full flex flex-col justify-center pl-5 sm:pl-10 md:pl-20 lg:pl-28 xl:pl-40">
           <h2 className="font-montserrat tracking-normal leading-[1.3] text-white mb-4 text-4xl lg:text-4xl z-10">
@@ -40,11 +57,21 @@ const About = () => {
           className="flex flex-col lg:grid lg:grid-cols-2 lg:place-items-center lg:h-screen gap-10 sm:gap-14 lg:gap-5 sm:px-10 md:sm:px-16 lg:sm:px-8"
         >
           <div className="h-[600px] w-full relative overflow-hidden rounded-none md:rounded-lg shadow transition hover:shadow-lg lazyLoadLeft">
-            <img
+            {/* <img
               src="/assets/hero_bg.jpg"
               alt="hero_image"
               className="absolute px-1 left-0 top-0 w-full h-full z-0 object-cover"
-            />
+            /> */}
+            <picture>
+              <source srcSet="/assets/hero_bg.avif" type="image/avif" />
+              <source srcSet="/assets/hero_bg.webp" type="image/webp" />
+              <img
+                src="/assets/hero_bg.jpg"
+                alt="hero background"
+                loading="lazy"
+                className="absolute h-full w-full object-cover object-[70%]"
+              />
+            </picture>
           </div>
           <div className="lazyLoadRight">
             <h1 className="text-3xl md:text-[40px] xl:text-[50px] text-center text-indigo-500 mb-10 lazyLoadRight">
@@ -73,12 +100,16 @@ const About = () => {
           className="flex flex-col lg:grid lg:grid-cols-2 h-screen py-auto my-auto lg:mx-10 lg:gap-10"
         >
           <div className="h-[250px] sm:h-[350px] md:h-[450px] lg:h-[600px] lg:w-full mb-10 w-full relative overflow-hidden rounded-none md:rounded-lg flex items-center justify-center lazyLoadLeft">
-            <img
-              src="/assets/hero_bg.jpg"
-              alt="hero_image"
-              className="px-1 w-auto h-full z-0 object-cover transition-transform duration-300 ease-in-out hover:scale-125"
-              loading="lazy"
-            />
+            <picture>
+              <source srcSet="/assets/hero_bg.avif" type="image/avif" />
+              <source srcSet="/assets/hero_bg.webp" type="image/webp" />
+              <img
+                src="/assets/hero_bg.jpg"
+                alt="hero background"
+                loading="lazy"
+                className="absolute h-full w-full object-cover object-[70%]"
+              />
+            </picture>
           </div>
           <div className="flex flex-col sm:px-10 md:px-16 lg:px-1 place-self-center lazyLoadRight">
             <h1 className="text-3xl md:text-[40px] xl:text-[50px] text-center lg:text-start text-indigo-500 mb-10 lazyLoadRight">
