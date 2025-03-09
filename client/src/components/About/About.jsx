@@ -17,11 +17,6 @@ const About = () => {
     <section className="about mt-[80px]">
       {/* Hero Section */}
       <div className="relative w-full h-96">
-        {/* <img
-          className="absolute h-full w-full object-cover object-[70%]"
-          src="/assets/destinations_panaroma_03.jpg"
-          alt="hero background"
-        /> */}
         <picture>
           <source
             srcSet="/assets/destinations_panaroma_03.avif"

@@ -20,13 +20,12 @@ const Services = ({ data, defaultLoc = "", defaultTag = "" }) => {
     defaultLoc,
   ]);
   const [selectedPacktag, setSelectedPacktag] = useState([defaultTag]);
-  const [priceRange, setPriceRange] = useState([100, 50000]);
+  // const [priceRange, setPriceRange] = useState([100, 50000]);
   const [durationRange, setDurationRange] = useState([1, 30]);
   const [selectedActivities, setSelectedActivities] = useState([]);
   const [sortOption, setSortOption] = useState("Latest");
 
   const handleSearchChange = (e) => setSearchText(e.target.value);
-
   //Useeffect to parse incoming data to proper JSON
   useEffect(() => {
     if (data) {
@@ -55,22 +54,29 @@ const Services = ({ data, defaultLoc = "", defaultTag = "" }) => {
 
     // Destination filter
     if (selectedDestinations.length > 0) {
-      filtered = filtered.filter((item) =>
-        selectedDestinations.includes(item.location)
-      );
+      filtered = filtered.filter((item) => {
+        if (activePage === "packages") {
+          Array.isArray(item.location) &&
+            item.location.some((loc) => selectedDestinations.includes(loc));
+        }
+        return selectedDestinations.includes(item.location);
+      });
     }
     // Package Type filter
+
     if (selectedPacktag.length > 0) {
-      filtered = filtered.filter((item) =>
-        item.tags.some((tag) => selectedPacktag.includes(tag))
-      );
+      filtered = filtered.filter((item) => {
+        return (
+          item.tags && item.tags.some((tag) => selectedPacktag.includes(tag))
+        );
+      });
     }
 
     // Price filter
-    filtered = filtered.filter((item) => {
-      const price = Number(item.price);
-      return price >= priceRange[0] && price <= priceRange[1];
-    });
+    // filtered = filtered.filter((item) => {
+    //   const price = Number(item.price);
+    //   return price >= priceRange[0] && price <= priceRange[1];
+    // });
 
     // Duration filter (packages only)
     if (activePage === "packages") {
@@ -89,12 +95,12 @@ const Services = ({ data, defaultLoc = "", defaultTag = "" }) => {
 
     // Sorting
     switch (sortOption) {
-      case "Price: Low to High":
-        filtered.sort((a, b) => a.price - b.price);
-        break;
-      case "Price: High to Low":
-        filtered.sort((a, b) => b.price - a.price);
-        break;
+      // case "Price: Low to High":
+      //   filtered.sort((a, b) => a.price - b.price);
+      //   break;
+      // case "Price: High to Low":
+      //   filtered.sort((a, b) => b.price - a.price);
+      //   break;
       case "Days: Low to High":
         filtered.sort((a, b) => a.duration - b.duration);
         break;
@@ -120,18 +126,12 @@ const Services = ({ data, defaultLoc = "", defaultTag = "" }) => {
     searchText,
     selectedDestinations,
     selectedPacktag,
-    priceRange,
+    // priceRange,
     durationRange,
     selectedActivities,
     sortOption,
     activePage,
   ]);
-
-  // Returns a random rotation transform between -5deg and 5deg.
-  // function randomRotate() {
-  //   const deg = Math.random() * (2 - -2) + -2;
-  //   return `rotate(${deg}deg)`;
-  // }
 
   return (
     <div className="flex flex-col w-auto py-[120px] mx-auto">
@@ -167,8 +167,8 @@ const Services = ({ data, defaultLoc = "", defaultTag = "" }) => {
             setSelectedPacktag={setSelectedPacktag}
             defaultLoc={defaultLoc}
             defaultTag={defaultTag}
-            priceRange={priceRange}
-            setPriceRange={setPriceRange}
+            // priceRange={priceRange}
+            // setPriceRange={setPriceRange}
             durationRange={durationRange}
             setDurationRange={setDurationRange}
             selectedActivities={selectedActivities}
@@ -191,29 +191,33 @@ const Services = ({ data, defaultLoc = "", defaultTag = "" }) => {
                     className="w-full mt-4"
                   >
                     <div className="relative">
-                      {activePage === "activites" ||
-                      activePage === "packages" ? (
-                        <picture>
+                      <picture>
+                        {item.images[0].avif && (
                           <source
                             srcSet={item.images[0].avif}
                             type="image/avif"
                           />
+                        )}
+                        {item.images[0].webp && (
                           <source
                             srcSet={item.images[0].webp}
                             type="image/webp"
                           />
-                          <img
-                            src={item.images[0].jpg}
-                            alt={`Card ${index}`}
-                            loading="lazy"
-                          />
-                        </picture>
-                      ) : (
-                        <img src={item.images[0]} alt={`Card ${index}`} />
-                      )}
-                      {activePage !== "boats" && (
+                        )}
+                        <img
+                          src={item.images[0].jpg}
+                          alt={`Card ${index}`}
+                          loading="lazy"
+                        />
+                      </picture>
+
+                      {activePage !== "cars" && (
                         <span className="absolute top-1 left-1 sm:top-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
-                          {item.location}
+                          {activePage === "packages"
+                            ? item.location.length > 1
+                              ? "Multi-Location"
+                              : item.location
+                            : item.location}
                         </span>
                       )}
                       <span className="absolute bottom-1 left-1 sm:bottom-2 sm:left-2 text-[0.6rem] md:text-[0.6rem] px-2 py-1 lg:p-1 font-semibold flex items-center bg-[#f8f3e8] text-indigo-900 uppercase tracking-wide">
@@ -284,8 +288,8 @@ const Services = ({ data, defaultLoc = "", defaultTag = "" }) => {
             ))
           ) : (
             <div className="text-black">
-              <h1 className="text-4xl font-bold mb-8 text-center">
-                No results for{" "}
+              <h1 className="text-4xl font-bold mb-8 text-center h-screen flex flex-col items-center justify-center">
+                No results for
                 <span className="font-extrabold">&quot;{searchText}&quot;</span>
               </h1>
             </div>

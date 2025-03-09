@@ -94,11 +94,6 @@ function Destinations() {
                     rotateZ={-2}
                     className="w-full mt-4"
                   >
-                    {/* <img
-                      src={item.images[0]}
-                      alt={item.title}
-                      className={`w-full h-full rounded-[12px]`}
-                    /> */}
                     <picture>
                       <source srcSet={item.images[0].avif} type="image/avif" />
                       <source srcSet={item.images[0].webp} type="image/webp" />
@@ -121,20 +116,6 @@ function Destinations() {
                   </CardItem>
                 </CardBody>
               </CardContainer>
-
-              {/* <div
-                className={`${styles.slide} p-2 m-2 bg-white overflow-hidden`}
-                onClick={() => handleNavigate(item)}
-              >
-                <img
-                  src={item.images[0]}
-                  alt={item.title}
-                  className={`${styles.image} w-full h-full rounded-[12px]`}
-                />
-                <span className="text-xs uppercase font-semibold text-gray-700 tracking-[1px]">
-                  {item.location}
-                </span>
-              </div> */}
             </SwiperSlide>
           );
         })}

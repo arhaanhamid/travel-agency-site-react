@@ -14,13 +14,13 @@ const imageSchema = new mongoose.Schema({
 const TransportSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
-    location: { type: String, required: true },
-    price: { type: Number, required: true },
+    location: { type: String },
+    price: { type: Number },
     images: { type: [imageSchema], default: [] },
-    passengers: { type: Number, required: true },
-    baggage: { type: Number, required: true },
+    passengers: { type: Number },
+    baggage: { type: Number },
     desc: { type: String, required: true },
-    amenities: { type: [AmenitySchema], required: true },
+    amenities: { type: [AmenitySchema] },
   },
   { timestamps: true }
 );

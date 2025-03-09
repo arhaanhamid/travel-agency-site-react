@@ -18,8 +18,8 @@ const HotelSchema = new mongoose.Schema(
     category: { type: String, required: true },
     desc: { type: String, required: true },
     images: { type: [imageSchema], default: [] },
-    price: { type: String, required: true },
-    amenities: { type: [AmenitySchema], required: true },
+    price: { type: String },
+    amenities: { type: [AmenitySchema] },
   },
   { timestamps: true }
 );

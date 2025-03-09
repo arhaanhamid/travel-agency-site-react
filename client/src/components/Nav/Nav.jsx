@@ -40,15 +40,16 @@ function Nav() {
 
   const destinations = useMemo(() => {
     if (packages.length > 0) {
-      const loc_address = packages.map((item) => {
-        return (
-          item.location && {
-            name: item.location,
-            to: `services/packages?loc=${item.location}`,
-          }
-        );
+      const locations = new Set([
+        ...packages.flatMap((item) => item.location || []),
+      ]);
+      const loc_add = Array.from(locations).map((loc) => {
+        return {
+          name: loc,
+          to: `services/packages?loc=${loc}`,
+        };
       });
-      return loc_address;
+      return loc_add;
     }
     return [];
   }, [packages]);
@@ -80,8 +81,8 @@ function Nav() {
       className={`navbar ${navCSS.Nav_wrapper} ${location.pathname === "/" ? "bg-[rgba(0,0,0,0.3)] text-white" : "bg-white text-gray-500"}`}
     >
       <div>
-        <Link to="/testpage" onClick={menuHandler}>
-          <img src="../../assets/logo.png" alt="logo" className="h-[70px]" />
+        <Link to="/" onClick={menuHandler}>
+          <img src="/assets/logo.png" alt="logo" className="h-[70px]" />
         </Link>
       </div>
 

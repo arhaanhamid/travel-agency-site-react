@@ -9,12 +9,16 @@ const HotelCard = ({ hotel }) => {
   };
   return (
     <div className="h-[600px] w-full relative overflow-hidden rounded-none md:rounded-lg shadow transition hover:shadow-lg">
-      <img
-        src={hotel.images[0]}
-        alt={hotel.title}
-        className="absolute px-1 left-0 top-0 w-full h-full z-0 object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-125"
-        loading="lazy"
-      />
+      <picture>
+        <source srcSet={hotel.images[0].avif} type="image/avif" />
+        <source srcSet={hotel.images[0].webp} type="image/webp" />
+        <img
+          src={hotel.images[0].jpg}
+          alt={hotel.title}
+          loading="lazy"
+          className="absolute px-1 left-0 top-0 w-full h-full z-0 object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-125"
+        />
+      </picture>
       <span className="absolute top-3 left-3 sm:top-4 sm:left-4 text-xs sm:text-sm font-semibold flex items-center px-3 py-1 bg-gray-800 text-white uppercase tracking-wide">
         {hotel.location}
       </span>

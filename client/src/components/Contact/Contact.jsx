@@ -3,8 +3,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Testimonials from "../Home/Testimonials/Testimonials";
 import api from "../../api";
-import ErrorPage from "../../ErrorPage";
-import LoadingPage from "../../LoadingPage";
+import Toast from "../UIComponents/Toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,14 +13,12 @@ const Contact = () => {
     email: "",
     message: "",
   });
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [formErrors, setFormErrors] = useState({});
-  console.log(formData);
+  const [toastType, setToastType] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleFormDetails = useCallback((e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -66,21 +63,25 @@ const Contact = () => {
     e.preventDefault();
 
     async function submitForm() {
+      setIsDisabled(true);
+      setTimeout(() => {
+        setIsDisabled(false);
+      }, 15000);
+
       try {
-        const response = await api.post("form/submit-form", {
+        await api.post("form/submit-form", {
           ...formData,
-          requestFrom: "contact",
+          service: "contact",
         });
 
-        console.log("Form submitted successfully:", response.data);
-        alert("Form submitted successfully!");
+        console.log("Form submitted successfully");
+        setToastType("success");
       } catch (error) {
         console.error(
           "Submission error:",
           error.response ? error.response.data : error
         );
-        // alert("Error submitting form.");
-        setError(true);
+        setToastType("failure");
       }
     }
 
@@ -91,7 +92,6 @@ const Contact = () => {
       return;
     }
 
-    console.log("Submitting form data:", formData);
     submitForm();
     setFormErrors({});
   };
@@ -104,18 +104,26 @@ const Contact = () => {
         : "border-gray-300 focus:ring-indigo-500"
     }`;
 
-  if (error) return <ErrorPage />;
-  if (loading) return <LoadingPage />;
-
   return (
     <section className="contact mt-[80px]">
       {/* Hero */}
       <div className="relative w-full h-96">
-        <img
-          className="absolute h-full w-full object-cover object-[70%]"
-          src="/assets/destinations_panaroma_03.jpg"
-          alt="hero background"
-        />
+        <picture>
+          <source
+            srcSet="/assets/destinations_panaroma_03.avif"
+            type="image/avif"
+          />
+          <source
+            srcSet="/assets/destinations_panaroma_03.webp"
+            type="image/webp"
+          />
+          <img
+            src="/assets/destinations_panaroma_03.jpg"
+            alt="contact us background"
+            loading="lazy"
+            className="absolute h-full w-full object-cover object-[70%]"
+          />
+        </picture>
         <div className="absolute inset-0 h-full w-full bg-black/50"></div>
         <div className="w-max h-full flex flex-col justify-center pl-5 sm:pl-10 md:pl-20 lg:pl-28 xl:pl-40">
           <h2 className="font-montserrat tracking-normal leading-[1.3] text-white mb-4 text-4xl lg:text-4xl z-10">
@@ -126,7 +134,6 @@ const Contact = () => {
           </p>
         </div>
       </div>
-
       {/* Main Container */}
       <div className="relative -mt-20 max-w-[90%] md:max-w-[80%] mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-lg py-10">
         {/* Header */}
@@ -305,10 +312,17 @@ const Contact = () => {
                 </div>
                 <button
                   type="submit"
-                  className="md:col-span-2 bg-indigo-700 text-white px-8 py-3 hover:bg-indigo-800 transition-colors duration-300"
+                  className={`md:col-span-2 ${
+                    isDisabled
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-indigo-700 hover:bg-indigo-800"
+                  } text-white px-8 py-3 transition-colors duration-300`}
                 >
                   Send Message
                 </button>
+                {toastType && (
+                  <Toast type={toastType} onClose={() => setToastType(null)} />
+                )}
               </form>
             </div>
           </div>

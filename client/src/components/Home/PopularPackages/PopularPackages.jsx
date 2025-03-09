@@ -110,14 +110,20 @@ const PopularPackages = () => {
         <div ref={sliderRef} className={`${styles.list}`}>
           {packages.map((item) => (
             <div className={`${styles.item}`} key={item._id}>
-              <img src={item.images[0]} alt={item.title} />
+              <picture>
+                <source srcSet={item.images[0].avif} type="image/avif" />
+                <source srcSet={item.images[0].webp} type="image/webp" />
+                <img src={item.images[0].jpg} alt={item.title} loading="lazy" />
+              </picture>
               <div className="absolute inset-0 bg-black opacity-30"></div>
 
               <div
                 className={`${styles.content} flex flex-col md:gap-2 pr-[30%] md:pl-10 lg:pl-28`}
               >
                 <div className={`${styles.author} uppercase`}>
-                  {item.location}
+                  {item.location.length > 1
+                    ? "Multi-Location"
+                    : item.location[0]}
                 </div>
                 <div className={`${styles.title} uppercase md:text-5xl`}>
                   {item.title}
@@ -149,7 +155,11 @@ const PopularPackages = () => {
               className={`${styles.item} cursor-pointer`}
               key={item._id}
             >
-              <img src={item.images[0]} alt={item.title} />
+              <picture>
+                <source srcSet={item.images[0].avif} type="image/avif" />
+                <source srcSet={item.images[0].webp} type="image/webp" />
+                <img src={item.images[0].jpg} alt={item.title} loading="lazy" />
+              </picture>{" "}
               <div className={`${styles.content}`}>
                 <div className={`${styles.title}`}>{item.title}</div>
               </div>

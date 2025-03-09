@@ -52,8 +52,6 @@ const Team = () => {
             slidesPerView: 1,
           },
         }}
-        // loop={true}
-        // navigation
         navigation={{
           nextEl: ".custom-next",
           prevEl: ".custom-prev",

@@ -9,7 +9,7 @@ const imageSchema = new mongoose.Schema({
 const ActivitySchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
-    location: { type: String, required: true },
+    location: { type: String },
     desc: { type: String, required: true },
     images: { type: [imageSchema], default: [] },
     duration: { type: Number, required: true },

@@ -54,9 +54,9 @@ const DetailPage = () => {
   if (loading) return <LoadingPage />;
 
   return (
-    <div className="bg-gray-900">
+    <div className="bg-white">
       <Meteors number={111} />
-      <div className="relative bg-gray-200 max-w-screen-lg mx-auto py-24 sm:py-24 md:py-124 lg:py-24 px-1">
+      <div className="relative bg-gray-100 shadow-2xl max-w-screen-lg mx-auto py-24 sm:py-24 md:py-124 lg:py-24 px-1">
         {/* Image Section */}
         <Swiper
           spaceBetween={20}
@@ -81,24 +81,17 @@ const DetailPage = () => {
                 <div className="relative max-w-screen-md mb-8 h-64 sm:h-80 md:h-96 mx-auto">
                   <div className="absolute left-0 bottom-0 w-full h-full z-10 bg-gradient-to-t from-black/70 via-transparent"></div>
 
-                  {activePage === "activities" || activePage === "packages" ? (
-                    <picture>
-                      <source srcSet={image.avif} type="image/avif" />
-                      <source srcSet={image.webp} type="image/webp" />
-                      <img
-                        src={image.jpg}
-                        alt={image.title}
-                        loading="lazy"
-                        className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg swiper-lazy"
-                      />
-                    </picture>
-                  ) : (
+                  <picture>
+                    <source srcSet={image.avif} type="image/avif" />
+                    <source srcSet={image.webp} type="image/webp" />
                     <img
-                      src={image}
-                      alt={data.title}
+                      src={image.jpg}
+                      alt={image.title}
+                      loading="lazy"
                       className="w-full object-cover h-64 sm:h-80 md:h-96 rounded-lg swiper-lazy"
                     />
-                  )}
+                  </picture>
+
                   <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                 </div>
               </SwiperSlide>

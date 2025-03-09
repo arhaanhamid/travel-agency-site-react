@@ -1,13 +1,3 @@
-export const memoriesImages = {
-  memoriesImg1: "/assets/memories/travelport1.jpg",
-  memoriesImg2: "/assets/memories/travelport2.jpg",
-  memoriesImg3: "/assets/memories/travelport4.jpg",
-  memoriesImg4: "/assets/memories/travelport3.jpg",
-  memoriesImg5: "/assets/memories/travelport5.jpg",
-  memoriesImg6: "/assets/memories/travelport6.jpg",
-  memoriesImg7: "/assets/memories/travelport7.jpg",
-};
-
 export const iconsData = {
   facebook: "ri-facebook-fill",
   instagram: "ri-instagram-fill",
@@ -43,18 +33,16 @@ const packagesData = [
         jpg: "/assets/packages/Trips012.jpg",
       },
     ],
-    location: "Kashmir",
-    duration: "5",
-    title: "Kashmir Tourist Package 1",
+    location: ["Pahalgam", "Gulmarg", "Sonamarg"],
+    duration: 5,
+    title: "Heavenly Kashmir Escapes",
     desc: "Every traveller who enjoys the outdoors, is an adventurer, seeks tranquilly, or is an explorer has Kashmir on their bucket list. The picturesque area is decorated with a lush green valley, colourful meadows, deep woods, magnificent glaciers, dazzling lakes, snow-capped mountains, and stunning panoramas, making it a perfect vacation spot for all types of tourists. The region is renowned for its unique beauty as well as its Mughal-era architecture, a vibrant culture, and upscale houseboats. The city of summer is a retail mecca and a haven for outdoor activities.\nWe visit prominent locations in Kashmir, such as Srinagar, Sonamarg, Pahalgam, and Gulmarg, on our 4-night, 5-day spectacular Kashmir tour. Our itinerary's destinations and scenic stops are all chosen to enchant you and pique your interest.to return often to this location. So don't hesitate any longer and get in contact with us to learn more about the schedule for our enchanted Kashmir tour.",
-    price: "25000",
     isPopular: true,
     amenities: [
       { title: "Sightseeing", label: "sightseeing" },
       { title: "Hotel", label: "hotel" },
       { title: "Transport", label: "transport" },
-      { title: 4, label: "duration" },
-      { title: "Pahalgam", label: "location" },
+      { title: 5, label: "duration" },
     ],
     timelineData: [
       {
@@ -95,18 +83,16 @@ const packagesData = [
         jpg: "/assets/packages/Trips022.jpg",
       },
     ],
-    location: "Kashmir",
-    duration: "2",
-    title: "Kashmir Honeymoon Package",
+    location: ["Pahalgam", "Gulmarg", "Sonamarg"],
+    duration: 7,
+    title: "Mystic Valley Odyssey",
     desc: "Srinagar is all about scenic Chinar trees everywhere. Its apple orchards, Shikara rides, houseboats and the boundless beauty of the majestic mountain ranges make it a complete honeymoon package. Sonamarg, which is known as the “meadow of gold” stays true to its name. Once you are in Sonamarg it feels like heaven on earth. The picturesque sights all around you will charm you within no time.\nA honeymoon package is all about romance and there is no other place than Gulmarg to spend your honeymoon. This quaint valley is all about its snow, skiing slopes and monumental snow-covered mountains. It will take you away from the hustle-bustle of your daily routine and make you fall in love with the sound of silence.",
-    price: "20000",
     isPopular: false,
     amenities: [
       { title: "Sightseeing", label: "sightseeing" },
       { title: "Hotel", label: "hotel" },
       { title: "Transport", label: "transport" },
-      { title: 2, label: "duration" },
-      { title: "Sonamarg", label: "location" },
+      { title: 7, label: "duration" },
     ],
     timelineData: [
       {
@@ -126,7 +112,7 @@ const packagesData = [
       },
       {
         day: "Day 4",
-        title: "Pahalgam",
+        title: "Gulmarg",
         desc: "After breakfast, check out from the hotel and proceed for Gulmarg. On arrival, check into your hotel. Please note that no outside vehicle is allowed in Gulmarg. You need to take local vehicle / Ponies on direct payment basis as local taxi union does not allow outside vehicle to do sightseeing. Driver will help you in booking local taxi / Pony. Evening is free for leisure activities. Dinner and overnight will be at hotel in Gulmarg.\nNote: Do note that for local movement guest has to either hire the pony or local vehicle on direct payment basis, the vehicle used in the itinerary only drops the guest in Gulmarg hotel. Guest may give the request for booking Gulmarg Gondola Ticket which is going to be subject to availability at the time of package booking.",
       },
       {
@@ -158,18 +144,16 @@ const packagesData = [
         jpg: "/assets/packages/Trips032.jpg",
       },
     ],
-    location: "Kashmir",
-    duration: "7",
-    title: "Kashmir Family Tour Package",
+    location: ["Pahalgam", "Gulmarg", "Sonamarg"],
+    duration: 7,
+    title: "Kashmir Family Fiesta",
     desc: "A Kashmir family tour package typically includes accommodations, transportation, sightseeing, and activities suited for families. The itinerary for a family tour package in Kashmir may include visits to popular tourist destinations such as Srinagar, Gulmarg, Pahalgam, and Sonamarg.\nThe focus of a Kashmir family tour package is to provide a fun and safe travel experience for families with a mix of cultural, historical and recreational activities. The goal is to make sure families leave with cherished memories of their time in Kashmir.",
-    price: "22000",
     isPopular: false,
     amenities: [
       { title: "Sightseeing", label: "sightseeing" },
       { title: "Hotel", label: "hotel" },
       { title: "Transport", label: "transport" },
-      { title: 3, label: "duration" },
-      { title: "Jammu", label: "location" },
+      { title: 7, label: "duration" },
     ],
     timelineData: [
       {
@@ -221,18 +205,16 @@ const packagesData = [
         jpg: "/assets/packages/Trips042.jpg",
       },
     ],
-    location: "Kashmir",
-    duration: "6",
-    title: "Kashmir Tourist Package 2",
+    location: ["Pahalgam", "Gulmarg", "Sonamarg", "Srinagar"],
+    duration: 6,
+    title: "Paradise Unveiled: Kashmir Journeys",
     desc: "Kashmir is a slice of heaven on earth that amplifies the Himalayas' natural splendour. Its beauty creates a lasting impression on your mind because it is surrounded by snow-capped mountains. You should travel to Kashmir for a variety of reasons, including its lakeside gardens, Chinnar trees, sparkling lakes, and a delectable fall season. The capital of Kashmir during the summer months is Srinagar, which is situated on both banks of the Jhelum River. It is the city of lakes, the Venice of the East, and has stunning natural beauty. Shikaras and the stunning, gorgeous Himalayan setting captivate travellers. Don't overlook the city's magnificent Mughal architecture. The beautiful Betaab valley is a draw to Pahalgam. Trekking and horseback riding are both great sports to do in this valley. It is a well-known venue for Bollywood movie production.\nThis charming village of Gulmarg is located in the Western Himalayas' Pir Panjal Range. Visitors from all over the world are drawn to the region by its gleaming snow-capped alps, lush green pastures, colourful meadows, deep valleys, and slopes covered with pine Trees.",
-    price: "28000",
     isPopular: true,
     amenities: [
       { title: "Sightseeing", label: "sightseeing" },
       { title: "Hotel", label: "hotel" },
       { title: "Transport", label: "transport" },
-      { title: 2, label: "duration" },
-      { title: "Katra", label: "location" },
+      { title: 6, label: "duration" },
     ],
     timelineData: [
       {
@@ -284,18 +266,16 @@ const packagesData = [
         jpg: "/assets/packages/Trips052.jpg",
       },
     ],
-    location: "Jammu and Kasmir",
+    location: ["Pahalgam", "Gulmarg", "Sonamarg", "Srinagar", "Jammu"],
     duration: "8",
-    title: "Jammu-Kashmir Tourist Package",
+    title: "Heritage & Harmony Tour",
     desc: "The city of Srinagar is the summer capital of Kashmir and spreads on both sides of the Jhelum River. It boasts of natural beauty and is the city of lakes and also the Venice of the East. Sonamarg fascinates tourists with its beautiful picturesque Himalayan backdrop. Pahalgam is renowned for the picturesque valleys it houses. This town is also ideal for activities like horse riding and trekking. Gulmarg, this quaint town is nestled in the Pir Panjal Range of the Western Himalayas. Its shiny snow-covered peaks, lush green pastures, beautiful gardens, quaint valleys and pine-covered slopes attract tourists from all over the world.\nPatnitop is heaven on earth. It intensifies the beauty of the Himalayas. Surrounded by snow-capped mountains its beauty leaves a memorable experience on your mind.",
-    price: "29500",
     isPopular: false,
     amenities: [
       { title: "Sightseeing", label: "sightseeing" },
       { title: "Hotel", label: "hotel" },
       { title: "Transport", label: "transport" },
-      { title: 2, label: "duration" },
-      { title: "Doodhpathri", label: "location" },
+      { title: 8, label: "duration" },
     ],
     timelineData: [
       {
@@ -359,18 +339,16 @@ const packagesData = [
         jpg: "/assets/packages/Trips062.jpg",
       },
     ],
-    location: "Kashmir",
+    location: ["Pahalgam", "Gulmarg", "Sonamarg", "Doodhpathri"],
     duration: "7",
     title: "Kashir Adventure Trail",
     desc: "The valley of Kashmir houses many beautiful cities and towns. One of them is its summer capital, Srinagar. The place is known for its exotic beauty, Mughal architecture, twinkling lakes and its houseboats. Srinagar is also known to be a shopping hub. It is renowned for its cashews and saffron. The name Sonamarg, comes from “meadow of gold”. Reading about this place is no fun, only if you visit it you will know why it is called the meadow of gold. The charisma of Sonamarg will mesmerise you completely.\nBeautiful hills and lots of greenery is what Pahalgam is all about. The climate is also very suitable and keeps you comfortable. The quaint town of Gulmarg is known for its snow-capped mountains. The place is like a beautiful painting. From the colour of the sky to the beautiful flowers and snow-covered mountains, it is the perfect place to relax and be away from home.",
-    price: "23000",
     isPopular: true,
     amenities: [
       { title: "Sightseeing", label: "sightseeing" },
       { title: "Hotel", label: "hotel" },
       { title: "Transport", label: "transport" },
-      { title: 3, label: "duration" },
-      { title: "Yusmarg", label: "location" },
+      { title: 7, label: "duration" },
     ],
     timelineData: [
       {
@@ -421,445 +399,380 @@ const packagesData = [
 
 export default packagesData;
 
+//HOTEL AMENITIES "STRUCTURE":
+// amenities: [
+//   { label: "roomService", title: "Room Service" },
+//   { label: "fineDining", title: "Fine Dining" },
+//   { label: "laundryService", title: "Laundry Service" },
+//   { label: "fitnessCenter", title: "Fitness Center" },
+// ],
 export const hotelsData = [
   {
-    id: 1,
-    title: "Shuhul Resort",
-    location: "Raj Bagh, Srinagar",
-    category: "Standard",
-    desc: "Shuhul Resort is located in the scenic Raj Bagh area of Srinagar. The resort offers comfortable and well-furnished rooms, equipped with essential amenities to ensure a relaxing stay. Guests can enjoy the peaceful environment and explore nearby attractions. The hotel also provides services such as housekeeping, parking, and a restaurant. Ideal for both business and leisure travelers, it offers excellent value for money.",
-    images: [
-      "/assets/hotels/hotel_a_00.jpeg",
-      "/assets/hotels/hotel_a_01.jpeg",
-      "/assets/hotels/hotel_a_02.jpeg",
-    ],
-    price: "3500",
-    amenities: [
-      { label: "freeWiFi", title: "Free Wifi" },
-      { label: "restaurant", title: "Restaurant" },
-      { label: "parking", title: "Parking" },
-      { label: "eventFacilities", title: "Event Facilities" },
-    ],
-  },
-  {
-    id: 2,
-    title: "Paisley Palace",
-    location: "Srinagar",
+    title: "Hotel Country Inn",
+    location: "Sonmarg",
     category: "Premium",
-    desc: "Paisley Palace is a luxurious 3-star hotel, conveniently located 15 km from Srinagar Airport. The hotel offers premium services, including a fine-dining restaurant, a health club, and conference facilities. The rooms are designed for comfort with modern furnishings, and guests can enjoy a range of recreational activities. It is an ideal choice for travelers seeking comfort, convenience, and luxury in the heart of Srinagar.",
+    desc: "Hotel Country Inn (often represented by properties like Country Inn & Suites by Radisson in Sonamarg) offers an inviting escape in one of Kashmir’s most scenic locales. Nestled along the Kargil Road in Sonamarg, this hotel is designed to blend modern comforts with the raw beauty of nature. Guests can enjoy spacious, well-appointed rooms featuring contemporary amenities, comfortable bedding, and private balconies that frame breathtaking views of snow‑capped Himalayan peaks and lush green meadows. The hotel’s warm and attentive service is complemented by complimentary amenities such as a hot breakfast buffet, high‑speed Wi-Fi, and on‑site parking. Beyond the comforts of your room, explore local attractions like Thajiwas Glacier and the vibrant Sonamarg Market. Whether you’re here for a family holiday or a business trip, the Country Inn’s commitment to hospitality ensures a peaceful retreat amid Kashmiri splendour, making it a perfect base to experience outdoor adventures and cultural excursions alike.",
     images: [
-      "/assets/hotels/hotel_b_00.jpeg",
-      "/assets/hotels/hotel_b_01.jpeg",
-      "/assets/hotels/hotel_b_02.jpg",
-    ],
-    price: "6500",
-    amenities: [
-      { label: "roomService", title: "Room Service" },
-      { label: "fineDining", title: "Fine Dining" },
-      { label: "laundryService", title: "Laundry Service" },
-      { label: "fitnessCenter", title: "Fitness Center" },
-    ],
-  },
-  {
-    id: 3,
-    title: "Lime Wood Inn",
-    location: "Sonwar Bagh, Srinagar",
-    category: "Standard",
-    desc: "Lime Wood Inn offers a charming stay in the heart of Sonwar Bagh, Srinagar. The hotel combines comfort with convenience, featuring well-equipped rooms, friendly service, and affordable rates. It is a perfect base for exploring Srinagar’s scenic spots. Guests can enjoy modern amenities such as Wi-Fi, air-conditioning, and room service. The Inn also offers a cozy restaurant serving local and international dishes, ensuring a delightful stay for all visitors.",
-    images: [
-      "/assets/hotels/hotel_c_00.jpg",
-      "/assets/hotels/hotel_c_01.jpg",
-      "/assets/hotels/hotel_c_02.jpg",
-    ],
-    price: "4000",
-    amenities: [
-      { label: "frontDesk24x7", title: "Front Desk 24/7" },
-      { label: "butlerService", title: "Butler Service" },
       {
-        label: "traditionalKashmiriDecor",
-        title: "Traditional Kashmiri Decor",
+        webp: "/assets/hotels/hotelCountryInnSonmarg(1).webp",
+        jpg: "/assets/hotels/hotelCountryInnSonmarg(1).jpg",
       },
-      { label: "barLounge", title: "Bar Lounge" },
+      {
+        jpg: "/assets/hotels/hotelCountryInnSonmarg(2).jpg",
+      },
+      {
+        jpg: "/assets/hotels/hotelCountryInnSonmarg(3).jpg",
+      },
     ],
   },
   {
-    id: 4,
-    title: "Hotel German Residency",
-    location: "Near M.A Link Road, Srinagar",
-    category: "Standard",
-    desc: "Hotel German Residency provides a warm, comfortable atmosphere for travelers visiting Srinagar. Situated near M.A Link Road, this 3-star hotel is known for its cozy rooms and convenient location. Guests can enjoy quick access to shopping, dining, and cultural attractions. The hotel offers a variety of services, including free Wi-Fi, parking, and room service. The rooms are tastefully furnished, with modern amenities to ensure a relaxing stay for all guests.",
-    images: [
-      "/assets/hotels/hotel_d_00.jpeg",
-      "/assets/hotels/hotel_d_01.jpeg",
-      "/assets/hotels/hotel_d_02.jpeg",
-    ],
-    price: "3200",
-    amenities: [
-      { label: "restaurant", title: "Restaurant" },
-      { label: "parking", title: "Parking" },
-      { label: "laundryService", title: "Laundry Service" },
-    ],
-  },
-  {
-    id: 5,
-    title: "Hotel Diwan Srinagar",
-    location: "Srinagar",
+    title: "Hotel Eden Resort & Spa",
+    location: "Pahalgam",
     category: "Premium",
-    desc: "Hotel Diwan Srinagar offers a perfect blend of traditional Kashmiri architecture and modern luxury. Located in a serene part of Srinagar, it features spacious, elegantly designed rooms with views of the beautiful surroundings. The hotel also offers a fine-dining restaurant and a health club for relaxation. Ideal for business and leisure travelers, it ensures a comfortable stay with premium amenities, including a bar/lounge and event hosting facilities.",
+    desc: "Situated in the heart of Pahalgam, Hotel Eden Resort & Spa provides an exceptional retreat where luxury meets nature. The property welcomes guests with elegantly designed rooms that exude both modern sophistication and local Kashmiri charm. Every suite is meticulously decorated, offering panoramic views of the serene Lidder River and the surrounding valleys. Beyond the beautifully appointed accommodations, the hotel boasts a state‑of‑the‑art spa and wellness center that offers rejuvenating treatments, hydrotherapy sessions, and massage therapies—all designed to refresh both body and mind. Culinary enthusiasts will appreciate the on‑site dining options, which serve a delectable mix of regional and international cuisine, crafted with local ingredients. The resort’s outdoor spaces, including lush gardens and seating areas, allow guests to soak in the natural beauty, while activities such as guided treks and local excursions ensure an immersive experience in the mystic landscapes of Kashmir. The dedicated staff and sustainable practices further elevate the guest experience, promising a memorable and holistic stay.",
     images: [
-      "/assets/hotels/hotel_e_00.jpeg",
-      "/assets/hotels/hotel_e_01.jpeg",
-      "/assets/hotels/hotel_e_02.png",
-    ],
-    price: "7500",
-    amenities: [
-      { label: "freeWiFi", title: "Free Wifi" },
-      { label: "roomService", title: "Room Service" },
-      { label: "fineDining", title: "Fine Dining" },
-      { label: "eventFacilities", title: "Event Facilities" },
-      { label: "barLounge", title: "Bar Lounge" },
+      {
+        webp: "/assets/hotels/hotelEdenResort&SpaPahalgam(1).webp",
+        jpg: "/assets/hotels/hotelEdenResort&SpaPahalgam(1).jpg",
+      },
+      {
+        webp: "/assets/hotels/hotelEdenResort&SpaPahalgam(2).webp",
+        jpg: "/assets/hotels/hotelEdenResort&SpaPahalgam(2).jpg",
+      },
+      {
+        webp: "/assets/hotels/hotelEdenResort&SpaPahalgam(3).webp",
+        jpg: "/assets/hotels/hotelEdenResort&SpaPahalgam(3).jpg",
+      },
     ],
   },
   {
-    id: 6,
-    title: "Hotel City Grace",
-    location: "Srinagar",
+    title: "Hotel Green Heights",
+    location: "Pahalgam",
+    category: "Premium",
+    desc: "Hotel Green Heights, located in Pahalgam, offers an enchanting blend of nature and luxury. This property is designed to give visitors an uninterrupted connection with the stunning Himalayan scenery. Nestled in a picturesque valley, its architecture seamlessly blends modern amenities with the rustic charm of Kashmiri aesthetics. Guests can enjoy spacious, well‐decorated rooms that feature large windows, allowing for 360‑degree views of snow‑capped mountains, dense pine forests, and the gentle flow of the Lidder River. Beyond the rooms, the hotel’s expansive lawns and thoughtfully landscaped gardens provide a perfect setting for morning walks and evening relaxation. An on‑site restaurant serves an array of local and continental dishes, while the friendly staff is always on hand to ensure personalized service. Whether it’s for a family vacation, a romantic getaway, or an adventure holiday, Hotel Green Heights offers an atmosphere of tranquility and luxury, making every moment of your stay truly memorable.",
+    images: [
+      {
+        webp: "/assets/hotels/hotelGreenHeightsPahalgam(1).webp",
+        jpg: "/assets/hotels/hotelGreenHeightsPahalgam(1).jpg",
+      },
+      {
+        jpg: "/assets/hotels/hotelGreenHeightsPahalgam(2).jpg",
+      },
+      {
+        jpg: "/assets/hotels/hotelGreenHeightsPahalgam(3).jpg",
+      },
+    ],
+  },
+  {
+    title: "Hotel Highlands Park",
+    location: "Gulmarg",
+    category: "Premium",
+    desc: "Hotel Highlands Park is a distinguished property that offers an elevated experience in the heart of Kashmir. Positioned to take full advantage of its lofty surroundings, the hotel boasts panoramic views of rolling highland meadows and majestic peaks. The contemporary design of the property harmonizes with traditional Kashmiri touches, creating an ambiance that is both elegant and inviting. Guests enjoy spacious, tastefully decorated rooms fitted with modern amenities such as air conditioning, high-speed internet, and premium bedding, ensuring a comfortable stay even in the crisp mountain air. The hotel’s facilities extend to a well-equipped fitness center, a relaxing spa, and an on-site restaurant that serves a fusion of local flavors and international cuisines. With sprawling outdoor spaces ideal for leisurely walks, bonfire evenings, and scenic picnics, Hotel Highlands Park caters to travelers seeking both adventure and tranquility. Its attentive service, combined with a strategic location near key attractions, makes it a superb choice for those looking to immerse themselves in the natural grandeur of Kashmir.",
+    images: [
+      {
+        webp: "/assets/hotels/hotelHighlandsParkGulmarg(1).webp",
+        jpg: "/assets/hotels/hotelHighlandsParkGulmarg(1).jpg",
+      },
+      {
+        jpg: "/assets/hotels/hotelHighlandsParkGulmarg(2).jpg",
+      },
+      {
+        jpg: "/assets/hotels/hotelHighlandsParkGulmarg(3).jpg",
+      },
+    ],
+  },
+  {
+    title: "Hotel Hillton",
+    location: "Pahalgam",
+    category: "Premium",
+    desc: "Often synonymous with luxury in Pahalgam, Hotel Hillton (recognized through its Royal Hillton brand) is a premier destination that marries refined comfort with breathtaking natural beauty. Located just a short stroll from the main market, this hotel offers spacious, elegantly designed rooms that capture the essence of Kashmiri heritage while incorporating modern conveniences. Every room is a sanctuary featuring plush bedding, contemporary furnishings, and expansive windows that frame the spectacular views of the surrounding valleys and snow‑dusted mountains. Guests are treated to an array of dining experiences, with on‑site gourmet restaurants serving both traditional Kashmiri dishes and international fare. The hotel’s commitment to hospitality is evident in its attentive, warm service and a host of amenities that include 24‑hour room service, concierge assistance, and recreational facilities such as a well-equipped fitness center and spa. Ideal for families, couples, and business travelers alike, Hotel Hillton ensures that every stay is memorable by combining luxury, comfort, and the enchanting beauty of Pahalgam’s natural landscape.",
+    images: [
+      {
+        webp: "/assets/hotels/hotelHilltopGulmarg(1).webp",
+        jpg: "/assets/hotels/hotelHilltopGulmarg(1).jpg",
+      },
+      {
+        webp: "/assets/hotels/hotelHilltopGulmarg(2).webp",
+        jpg: "/assets/hotels/hotelHilltopGulmarg(2).jpg",
+      },
+      {
+        webp: "/assets/hotels/hotelHilltopGulmarg(3).webp",
+        jpg: "/assets/hotels/hotelHilltopGulmarg(3).jpg",
+      },
+    ],
+  },
+  {
+    title: "Hotel Radisson",
+    location: "Sonmarg",
     category: "Budget",
-    desc: "Hotel City Grace offers a budget-friendly option for travelers looking for a comfortable and convenient stay in Srinagar. Located in the city center, the hotel provides easy access to popular tourist spots. It features simple yet well-equipped rooms with essential amenities. The hotel’s staff is known for their hospitality, offering services like free Wi-Fi, parking, and room service. A great choice for travelers on a budget without compromising on quality.",
+    desc: "Hotel Radisson in Kashmir, such as the Radisson Golf Resort in Pahalgam, stands as a beacon of modern luxury intertwined with the rich cultural tapestry of the region. This internationally acclaimed property features over a hundred stylish rooms designed with a blend of contemporary elegance and traditional Kashmiri craftwork. Guests can expect to be greeted with world‑class service, where every detail is attended to—from the plush bedding and modern in‑room amenities to the carefully curated art pieces that reflect local heritage. The resort is renowned for its expansive landscaped gardens, three sprawling outdoor areas, and exceptional recreational facilities, including a state‑of‑the‑art spa, fully equipped fitness center, and gourmet on‑site dining options. Whether you’re an avid golfer eager to tee off at the adjacent 18-hole course or simply looking to unwind in a tranquil setting, Hotel Radisson offers a comprehensive experience that combines leisure, adventure, and luxury. Its convenient location, coupled with thoughtful extras and impeccable service, ensures a memorable and rejuvenating stay for every guest.",
     images: [
-      "/assets/hotels/hotel_f_00.png",
-      "/assets/hotels/hotel_f_01.png",
-      "/assets/hotels/hotel_f_02.png",
-    ],
-    price: "2500",
-    amenities: [
-      { label: "frontDesk24x7", title: "Front Desk 24/7" },
-      { label: "butlerService", title: "Butler Service" },
-      { label: "fitnessCenter", title: "Fitness Center" },
-      { label: "laundryService", title: "Laundry Service" },
-      { label: "barLounge", title: "Bar Lounge" },
+      {
+        webp: "/assets/hotels/hotelRadissonSonmarg(1).webp",
+        jpg: "/assets/hotels/hotelRadissonSonmarg(1).jpg",
+      },
+      {
+        jpg: "/assets/hotels/hotelRadissonSonmarg(2).jpg",
+      },
+      {
+        jpg: "/assets/hotels/hotelRadissonSonmarg(3).jpg",
+      },
     ],
   },
   {
-    id: 7,
-    title: "Heritage Luxury Srinagar",
-    location: "Near Srinagar Airport",
+    title: "Hotel Sahar Grand Hills",
+    location: "Srinagar",
     category: "Premium",
-    desc: "Hotel Heritage Luxury offers a premium stay near Srinagar Airport, designed for those seeking a luxurious experience. This 3-star hotel features spacious rooms with modern decor, including air-conditioning, Wi-Fi, and satellite TV. The hotel provides high-end amenities like an on-site restaurant, fitness center, and concierge services. It’s perfect for both short stays and longer visits, ensuring that every guest receives the best service in a tranquil setting.",
+    desc: "Hotel Sahar Grand Hills is an epitome of hill station luxury set against the majestic backdrop of Kashmir’s towering ranges. This exquisite property offers guests a serene retreat where contemporary sophistication meets rustic charm. Nestled on a hillside, the hotel provides panoramic views of lush valleys, meandering rivers, and snow‑covered mountains that stretch as far as the eye can see. The rooms are spacious and elegantly decorated with modern furnishings combined with traditional Kashmiri motifs, ensuring a comfortable and culturally immersive experience. Guests can relish gourmet meals at the on‑site restaurant, which serves a delectable mix of local delicacies and international cuisine. The hotel also offers state‑of‑the‑art amenities including a full-service spa, indoor and outdoor recreational facilities, and attentive concierge services designed to cater to every need. With its tranquil ambiance, personalized service, and strategic location near popular local attractions, Hotel Sahar Grand Hills promises not just a stay, but a rejuvenating journey into the heart of Kashmir’s natural splendor.",
     images: [
-      "/assets/hotels/hotel_g_00.png",
-      "/assets/hotels/hotel_g_01.png",
-      "/assets/hotels/hotel_g_02.png",
+      {
+        webp: "/assets/hotels/hotelSaharGrandHillsSrinagar(1).webp",
+        jpg: "/assets/hotels/hotelSaharGrandHillsSrinagar(1).jpg",
+      },
+      {
+        jpg: "/assets/hotels/hotelSaharGrandHillsSrinagar(2).jpg",
+      },
+      {
+        jpg: "/assets/hotels/hotelSaharGrandHillsSrinagar(3).jpg",
+      },
     ],
-    price: "8000",
-    amenities: [
-      { label: "restaurant", title: "Restaurant" },
-      { label: "parking", title: "Parking" },
-      { label: "freeWiFi", title: "Free Wifi" },
-      { label: "eventFacilities", title: "Event Facilities" },
+  },
+  {
+    title: "Hotel Zaryaab",
+    location: "Srinagar",
+    category: "Premium",
+    desc: "Located in Srinagar near iconic attractions like Dal Lake and Shalimar Bagh, Hotel Zaryaab offers a welcoming haven for travelers seeking comfort and convenience. This property is strategically positioned in the heart of Srinagar, allowing guests to easily explore the rich cultural heritage and natural beauty of the region. The hotel’s well-appointed rooms are designed with a focus on both style and functionality, featuring modern amenities such as complimentary Wi‑Fi, air conditioning, and in‑room entertainment, ensuring a pleasant and relaxed stay. Guests are treated to friendly and efficient service, with staff committed to ensuring a hassle‑free experience from check‑in to check‑out. The on‑site restaurant serves a variety of dishes that blend local flavors with international influences, making every meal a delightful experience. Moreover, the hotel’s proximity to popular attractions, vibrant markets, and historical sites adds to its appeal, providing guests with ample opportunities to immerse themselves in the vibrant tapestry of Srinagar. Hotel Zaryaab is an ideal choice for both leisure and business travelers looking to experience the best of Kashmiri hospitality.",
+    images: [
+      {
+        webp: "/assets/hotels/hotelZaryaabSrinagar(1).webp",
+        jpg: "/assets/hotels/hotelZaryaabSrinagar(1).jpg",
+      },
+      {
+        jpg: "/assets/hotels/hotelZaryaabSrinagar(2).jpg",
+      },
+      {
+        jpg: "/assets/hotels/hotelZaryaabSrinagar(3).jpg",
+      },
     ],
   },
 ];
 
+//BOATS AMENITIES STRUCTURE
+// amenities: [
+//   { label: "restaurant", title: "Restaurant" },
+//   { label: "parking", title: "Parking" },
+//   { label: "freeWiFi", title: "Free Wifi" },
+//   { label: "eventFacilities", title: "Event Facilities" },
+// ],
 export const boatsData = [
   {
-    id: 1,
     title: "Royal Shikara Houseboat",
     location: "Dal Lake, Srinagar",
     category: "Luxury",
     desc: "Experience the charm of Kashmiri hospitality at Royal Shikara Houseboat, floating on the serene waters of Dal Lake. This luxury houseboat features elegantly designed rooms with intricate wood carvings, Wi-Fi, and modern amenities. Enjoy breathtaking lake views, traditional Kashmiri meals, and personalized service for a truly memorable stay.",
-    images: ["/assets/boats/boat01.jpg"],
-    price: "12000",
-    amenities: [
-      { label: "restaurant", title: "Restaurant" },
-      { label: "parking", title: "Parking" },
-      { label: "freeWiFi", title: "Free Wifi" },
-      { label: "eventFacilities", title: "Event Facilities" },
+    images: [
+      {
+        avif: "/assets/boats/boat01.avif",
+        webp: "/assets/boats/boat01.webp",
+        jpg: "/assets/boats/boat01.jpg",
+      },
     ],
   },
   {
-    id: 2,
     title: "Heavenly Retreat Houseboat",
     location: "Nigeen Lake, Srinagar",
     category: "Premium",
     desc: "Nestled in the peaceful waters of Nigeen Lake, Heavenly Retreat Houseboat offers a premium stay with beautifully decorated interiors and a touch of Kashmiri heritage. Each room is well-equipped with modern comforts like air-conditioning, Wi-Fi, and a private balcony overlooking the lake. Enjoy a relaxing stay with warm hospitality and delicious Kashmiri cuisine.",
-    images: ["/assets/boats/boat02.jpg"],
-    price: "10000",
-    amenities: [
-      { label: "frontDesk24x7", title: "Front Desk 24/7" },
-      { label: "butlerService", title: "Butler Service" },
-      { label: "fitnessCenter", title: "Fitness Center" },
-      { label: "laundryService", title: "Laundry Service" },
-      { label: "barLounge", title: "Bar Lounge" },
+    images: [
+      {
+        avif: "/assets/boats/boat02.avif",
+        webp: "/assets/boats/boat02.webp",
+        jpg: "/assets/boats/boat02.jpg",
+      },
     ],
   },
   {
-    id: 3,
     title: "Floating Paradise Houseboat",
     location: "Dal Lake, Srinagar",
     category: "Budget",
     desc: "Floating Paradise Houseboat provides a cozy and affordable stay on Dal Lake, ideal for travelers looking for an authentic houseboat experience. The houseboat offers traditionally designed rooms with wooden paneling, basic amenities, and a stunning sunrise view over the lake. Perfect for budget travelers seeking a peaceful escape.",
-    images: ["/assets/boats/boat03.jpg"],
-    price: "5000",
-    amenities: [
-      { label: "freeWiFi", title: "Free Wifi" },
-      { label: "roomService", title: "Room Service" },
-      { label: "fineDining", title: "Fine Dining" },
-      { label: "eventFacilities", title: "Event Facilities" },
-      { label: "barLounge", title: "Bar Lounge" },
+    images: [
+      {
+        avif: "/assets/boats/boat03.avif",
+        webp: "/assets/boats/boat03.webp",
+        jpg: "/assets/boats/boat03.jpg",
+      },
     ],
   },
   {
-    id: 4,
     title: "Golden Lotus Houseboat",
     location: "Jhelum River, Srinagar",
     category: "Mid-range",
     desc: "Golden Lotus Houseboat offers a blend of comfort and tradition on the tranquil Jhelum River. Guests can enjoy spacious rooms with Kashmiri carpets, modern bathrooms, and a relaxing deck area. Ideal for families and couples looking for a unique water-living experience with warm hospitality.",
-    images: ["/assets/boats/boat04.jpg"],
-    price: "7500",
-    amenities: [
-      { label: "restaurant", title: "Restaurant" },
-      { label: "parking", title: "Parking" },
-      { label: "laundryService", title: "Laundry Service" },
+    images: [
+      {
+        avif: "/assets/boats/boat04.avif",
+        webp: "/assets/boats/boat04.webp",
+        jpg: "/assets/boats/boat04.jpg",
+      },
     ],
   },
   {
-    id: 5,
     title: "Majestic Waves Houseboat",
     location: "Dal Lake, Srinagar",
     category: "Luxury",
     desc: "Majestic Waves Houseboat offers an opulent retreat on Dal Lake, featuring handcrafted wooden interiors, plush bedding, and top-notch amenities. Guests can savor authentic Kashmiri cuisine, enjoy guided shikara rides, and immerse themselves in the breathtaking beauty of the lake.",
-    images: ["/assets/boats/boat05.jpg"],
-    price: "14000",
-    amenities: [
-      { label: "frontDesk24x7", title: "Front Desk 24/7" },
-      { label: "butlerService", title: "Butler Service" },
+    images: [
       {
-        label: "traditionalKashmiriDecor",
-        title: "Traditional Kashmiri Decor",
+        avif: "/assets/boats/boat05.avif",
+        webp: "/assets/boats/boat05.webp",
+        jpg: "/assets/boats/boat05.jpg",
       },
-      { label: "barLounge", title: "Bar Lounge" },
     ],
   },
   {
-    id: 6,
     title: "Tranquil Shores Houseboat",
     location: "Nigeen Lake, Srinagar",
     category: "Premium",
     desc: "Perfectly positioned in the serene Nigeen Lake, Tranquil Shores Houseboat offers a peaceful escape with elegantly designed rooms, modern amenities, and warm hospitality. Guests can relax on the sundeck, enjoy panoramic views, and experience the best of Kashmiri traditions.",
-    images: ["/assets/boats/boat06.jpg"],
-    price: "9500",
-    amenities: [
-      { label: "roomService", title: "Room Service" },
-      { label: "fineDining", title: "Fine Dining" },
-      { label: "laundryService", title: "Laundry Service" },
-      { label: "fitnessCenter", title: "Fitness Center" },
+    images: [
+      {
+        avif: "/assets/boats/boat06.avif",
+        webp: "/assets/boats/boat06.webp",
+        jpg: "/assets/boats/boat06.jpg",
+      },
     ],
   },
   {
-    id: 7,
     title: "Sunset Bliss Houseboat",
     location: "Dal Lake, Srinagar",
     category: "Mid-range",
     desc: "Sunset Bliss Houseboat is known for its mesmerizing sunset views over Dal Lake. With cozy rooms featuring traditional wooden paneling, modern amenities, and an inviting common area, this houseboat is a perfect choice for travelers seeking comfort and an authentic Kashmiri experience.",
-    images: ["/assets/boats/boat07.jpg"],
-    price: "7000",
-    amenities: [
-      { label: "freeWiFi", title: "Free Wifi" },
-      { label: "restaurant", title: "Restaurant" },
-      { label: "parking", title: "Parking" },
-      { label: "eventFacilities", title: "Event Facilities" },
+    images: [
+      {
+        avif: "/assets/boats/boat07.avif",
+        webp: "/assets/boats/boat07.webp",
+        jpg: "/assets/boats/boat07.jpg",
+      },
     ],
   },
 ];
 
+//CARS AMENITIES STRUCTURE:
+// amenities: [
+//   { label: "acHeater", title: "Ac/Heater" },
+//   { label: "airbag", title: "Airbag" },
+//   { label: "chargingPoint", title: "Charging Point" },
+//   { label: "familyDriver", title: "Family Friendly Driver" },
+//   { label: "musicSystem", title: "Music System" },
+// ],
 export const carsData = [
   {
-    id: 1,
-    title: "Maruti Suzuki Swift",
-    location: "Srinagar - Budgam",
-    price: 5500,
-    images: ["/assets/cars/car01.jpeg"],
+    title: "Toyota Innova",
+    images: [
+      {
+        avif: "/assets/cars/innova(1).avif",
+        webp: "/assets/cars/innova(1).webp",
+        jpg: "/assets/cars/innova(1).jpg",
+      },
+    ],
     passengers: 5,
     baggage: 2,
-    desc: "The Maruti Suzuki Swift is a perfect blend of style and efficiency, designed for both dynamic city driving and scenic escapes across Kashmir. With agile handling, modern safety features, and an economical engine, this compact car promises a smooth ride on busy urban roads as well as winding country lanes. Its comfortable, thoughtfully designed interior makes every journey enjoyable and stress-free, while advanced technology enhances every drive. The Swift is an ideal choice for those who seek reliability combined with performance.",
-    amenities: [
-      { label: "acHeater", title: "Ac/Heater" },
-      { label: "airbag", title: "Airbag" },
-      { label: "chargingPoint", title: "Charging Point" },
-      { label: "familyDriver", title: "Family Friendly Driver" },
-      { label: "musicSystem", title: "Music System" },
-    ],
+    desc: "The Maruti Suzuki Ertiga is a perfect blend of style and efficiency, designed for both dynamic city driving and scenic escapes across Kashmir. With agile handling, modern safety features, and an economical engine, this compact car promises a smooth ride on busy urban roads as well as winding country lanes. Its comfortable, thoughtfully designed interior makes every journey enjoyable and stress-free, while advanced technology enhances every drive. The Swift is an ideal choice for those who seek reliability combined with performance.",
   },
   {
-    id: 2,
-    title: "Hyundai Creta",
-    location: "Srinagar - Chodura",
-    price: 35000,
-    images: ["/assets/cars/car02.jpeg"],
+    title: "Toyota Etios",
+
+    images: [
+      {
+        avif: "/assets/cars/etios(1).avif",
+        webp: "/assets/cars/etios(1).webp",
+        jpg: "/assets/cars/etios(1).jpg",
+      },
+    ],
     passengers: 5,
     baggage: 3,
-    desc: "Experience sophistication and robust performance with the Hyundai Creta, an SUV engineered to handle both bustling city streets and rugged terrain. The spacious interior and state-of-the-art technology ensure a secure and comfortable journey. Every detail, from the ergonomic seating to the intuitive infotainment system, has been meticulously designed to enhance your driving pleasure. Ideal for exploring the diverse landscapes of Kashmir, the Creta combines style, power, and advanced safety features to deliver a truly memorable travel experience.",
-    amenities: [
-      { label: "gpsNavigation", title: "GPS Navigation" },
-      { label: "bluetooth", title: "Bluetooth Connectivity" },
-      { label: "airbag", title: "Airbag" },
-      { label: "acHeater", title: "Ac/Heater" },
-      { label: "localInsight", title: "Local Insight" },
-      { label: "sunroof", title: "Sunroof" },
-    ],
+    desc: "Experience sophistication and robust performance with the Toyota Etios, an SUV engineered to handle both bustling city streets and rugged terrain. The spacious interior and state-of-the-art technology ensure a secure and comfortable journey. Every detail, from the ergonomic seating to the intuitive infotainment system, has been meticulously designed to enhance your driving pleasure. Ideal for exploring the diverse landscapes of Kashmir, the Creta combines style, power, and advanced safety features to deliver a truly memorable travel experience.",
   },
   {
-    id: 3,
-    title: "Tata Nexon",
-    location: "Srinagar",
-    price: 5000,
-    images: ["/assets/cars/car09.png"],
+    title: "Force Urbania",
+
+    images: [
+      {
+        avif: "/assets/cars/urbania(1).avif",
+        webp: "/assets/cars/urbania(1).webp",
+        jpg: "/assets/cars/urbania(1).jpg",
+      },
+    ],
     passengers: 5,
     baggage: 3,
-    desc: "Discover the dynamic performance of the Tata Nexon, a compact SUV built for both urban adventures and off-road escapades. Its bold design is complemented by advanced safety features and efficient performance that deliver a smooth ride on challenging roads. The modern cabin is spacious and equipped with innovative technology to keep you connected on every journey. Designed with both style and practicality in mind, the Nexon offers a reliable driving experience that adapts perfectly to the diverse landscapes of Kashmir.",
-    amenities: [
-      { label: "cruiseControl", title: "Cruise Control" },
-      { label: "touchscreen", title: "Touchscreen Display" },
-      { label: "rearCamera", title: "Rear Camera" },
-      { label: "airbag", title: "Airbag" },
-      { label: "musicSystem", title: "Music System" },
-      { label: "acHeater", title: "Ac/Heater" },
-    ],
+    desc: "Discover the dynamic performance of the Force Urbania, a compact SUV built for both urban adventures and off-road escapades. Its bold design is complemented by advanced safety features and efficient performance that deliver a smooth ride on challenging roads. The modern cabin is spacious and equipped with innovative technology to keep you connected on every journey. Designed with both style and practicality in mind, the Nexon offers a reliable driving experience that adapts perfectly to the diverse landscapes of Kashmir.",
   },
   {
-    id: 4,
-    title: "Mahindra Scorpio-N",
-    location: "Srinagar - Budgam",
-    price: 3500,
-    images: ["/assets/cars/car03.jpeg"],
+    title: "Suzuki Swift Dzire",
+    images: [
+      {
+        avif: "/assets/cars/dzire(1).avif",
+        webp: "/assets/cars/dzire(1).webp",
+        jpg: "/assets/cars/dzire(1).jpg",
+      },
+    ],
     passengers: 7,
     baggage: 4,
-    desc: "Conquer challenging roads with the Mahindra Scorpio-N, a robust SUV engineered for superior performance and durability. This powerful vehicle is built to tackle both urban congestion and off-road adventures in the scenic regions of Kashmir. Featuring a spacious interior with modern amenities, advanced safety systems, and a commanding engine, the Scorpio-N ensures stability and comfort on every journey. Its rugged design is harmoniously blended with contemporary technology to provide a secure, exhilarating driving experience without compromising on luxury.",
-    amenities: [
-      { label: "leatherSeats", title: "Leather Seats" },
-      { label: "heatedSeats", title: "Heated Seats" },
-      { label: "gpsNavigation", title: "GPS Navigation" },
-      { label: "rearCamera", title: "Rear Camera" },
-      { label: "acHeater", title: "Ac/Heater" },
-      { label: "airbag", title: "Airbag" },
-      { label: "chargingPoint", title: "Charging Point" },
-    ],
+    desc: "Conquer challenging roads with the Suzuki Swift Dzire, a robust SUV engineered for superior performance and durability. This powerful vehicle is built to tackle both urban congestion and off-road adventures in the scenic regions of Kashmir. Featuring a spacious interior with modern amenities, advanced safety systems, and a commanding engine, the Scorpio-N ensures stability and comfort on every journey. Its rugged design is harmoniously blended with contemporary technology to provide a secure, exhilarating driving experience without compromising on luxury.",
   },
   {
-    id: 5,
-    title: "Kia Seltos",
-    location: "Srinagar - Jammu",
-    price: 2000,
-    images: ["/assets/cars/car04.jpeg"],
+    title: "Force Tempo Traveller",
+    images: [
+      {
+        avif: "/assets/cars/traveller(1).avif",
+        webp: "/assets/cars/traveller(1).webp",
+        jpg: "/assets/cars/traveller(1).jpg",
+      },
+    ],
     passengers: 5,
     baggage: 3,
-    desc: "Embrace modern luxury with the Kia Seltos, a stylish SUV that perfectly balances innovative design with exceptional performance. Its refined interior, intuitive controls, and versatile features make every journey both comfortable and connected. Ideal for navigating the busy urban centers and serene countryside of Kashmir, the Seltos delivers a smooth, secure ride. With a focus on safety and modern convenience, this vehicle is tailored for drivers who value technology, aesthetics, and efficiency, ensuring a travel experience that is as memorable as it is reliable.",
-    amenities: [
-      { label: "localInsight", title: "Local Insight" },
-      { label: "bluetooth", title: "Bluetooth Connectivity" },
-      { label: "musicSystem", title: "Music System" },
-      { label: "familyDriver", title: "Family Friendly Driver" },
-      { label: "keylessEntry", title: "Keyless Entry" },
-    ],
+    desc: "Embrace modern luxury with the Kia Seltos, a stylish VAN that perfectly balances innovative design with exceptional performance. Its refined interior, intuitive controls, and versatile features make every journey both comfortable and connected. Ideal for navigating the busy urban centers and serene countryside of Kashmir, the Seltos delivers a smooth, secure ride. With a focus on safety and modern convenience, this vehicle is tailored for drivers who value technology, aesthetics, and efficiency, ensuring a travel experience that is as memorable as it is reliable.",
   },
   {
-    id: 6,
     title: "Toyota Innova Crysta",
     location: "Srinagar - Barahmulla",
-    price: 9000,
-    images: ["/assets/cars/car05.png"],
+    images: [
+      {
+        avif: "/assets/cars/crysta(1).avif",
+        webp: "/assets/cars/crysta(1).webp",
+        jpg: "/assets/cars/crysta(1).jpg",
+      },
+    ],
     passengers: 7,
     baggage: 5,
     desc: "Step into spacious elegance with the Toyota Innova Crysta, a premium vehicle designed for family travel and group adventures across the diverse landscapes of Kashmir. Boasting a roomy, well-appointed cabin and versatile seating configurations, this vehicle ensures comfort and convenience on long journeys. Advanced safety features, modern infotainment, and a robust engine combine to deliver a secure and pleasurable ride. The Innova Crysta is perfect for both leisurely trips and practical daily use, offering a harmonious blend of luxury, performance, and reliability that caters to every travel need.",
-    amenities: [
-      { label: "acHeater", title: "Ac/Heater" },
-      { label: "airbag", title: "Airbag" },
-      { label: "chargingPoint", title: "Charging Point" },
-      { label: "cruiseControl", title: "Cruise Control" },
-      { label: "gpsNavigation", title: "GPS Navigation" },
-      { label: "touchscreen", title: "Touchscreen Display" },
-      { label: "sunroof", title: "Sunroof" },
-    ],
   },
   {
-    id: 7,
-    title: "Honda City",
-    location: "Srinagar - Budgam",
-    price: 1500,
-    images: ["/assets/cars/car06.png"],
+    title: "Toyata Fortuner",
+    images: [
+      {
+        avif: "/assets/cars/fortuner(1).avif",
+        webp: "/assets/cars/fortuner(1).webp",
+        jpg: "/assets/cars/fortuner(1).jpg",
+      },
+    ],
     passengers: 5,
     baggage: 3,
-    desc: "Experience the perfect combination of sophistication and efficiency with the Honda City, a sedan that redefines urban commuting. Designed with precision and an emphasis on comfort, this vehicle features a spacious interior, modern safety features, and impressive fuel economy. The sleek exterior and smooth handling make it ideal for navigating the bustling streets and tranquil highways of Kashmir. Every journey becomes more enjoyable thanks to its thoughtful design and advanced technology, ensuring that you travel in both style and confidence.",
-    amenities: [
-      { label: "airbag", title: "Airbag" },
-      { label: "localInsight", title: "Local Insight" },
-      { label: "bluetooth", title: "Bluetooth Connectivity" },
-      { label: "familyDriver", title: "Family Friendly Driver" },
-      { label: "rearCamera", title: "Rear Camera" },
-      { label: "keylessEntry", title: "Keyless Entry" },
-    ],
+    desc: "Experience the perfect combination of sophistication and efficiency with the Toyata Fortuner, a sedan that redefines urban commuting. Designed with precision and an emphasis on comfort, this vehicle features a spacious interior, modern safety features, and impressive fuel economy. The sleek exterior and smooth handling make it ideal for navigating the bustling streets and tranquil highways of Kashmir. Every journey becomes more enjoyable thanks to its thoughtful design and advanced technology, ensuring that you travel in both style and confidence.",
   },
   {
-    id: 8,
     title: "Maruti Suzuki Ertiga",
-    location: "Srinagar - Anantnag",
-    price: 1000,
-    images: ["/assets/cars/car07.png"],
+    images: [
+      {
+        avif: "/assets/cars/ertiga(1).avif",
+        webp: "/assets/cars/ertiga(1).webp",
+        jpg: "/assets/cars/ertiga(1).jpg",
+      },
+    ],
     passengers: 7,
     baggage: 4,
     desc: "Discover practicality and versatility with the Maruti Suzuki Ertiga, a multi-purpose vehicle designed to accommodate both family outings and daily commutes. With a spacious cabin, flexible seating arrangements, and modern amenities, the Ertiga ensures every trip is comfortable and convenient. Its efficient performance, coupled with robust safety features, makes it an ideal choice for exploring the varied landscapes of Kashmir. Enjoy a reliable, economical ride that doesn’t compromise on comfort or style, making each journey as enjoyable as it is practical.",
-    amenities: [
-      { label: "acHeater", title: "Ac/Heater" },
-      { label: "airbag", title: "Airbag" },
-      { label: "gpsNavigation", title: "GPS Navigation" },
-      { label: "leatherSeats", title: "Leather Seats" },
-      { label: "heatedSeats", title: "Heated Seats" },
-      { label: "musicSystem", title: "Music System" },
-      { label: "touchscreen", title: "Touchscreen Display" },
-      { label: "chargingPoint", title: "Charging Point" },
-    ],
-  },
-  {
-    id: 9,
-    title: "MG Hector",
-    location: "Srinagar - Budgam",
-    price: 4500,
-    images: ["/assets/cars/car08.png"],
-    passengers: 5,
-    baggage: 4,
-    desc: "Elevate your driving experience with the MG Hector, a bold SUV that blends striking design with advanced technology and luxurious comfort. Engineered for dynamic performance, this vehicle features a spacious cabin, state-of-the-art infotainment system, and robust safety features that ensure a secure ride. Whether traversing urban avenues or exploring the scenic routes of Kashmir, the Hector delivers exceptional power and refinement. Its premium materials and innovative design make every journey not only safe but also remarkably enjoyable and stylish.",
-    amenities: [
-      { label: "acHeater", title: "Ac/Heater" },
-      { label: "airbag", title: "Airbag" },
-      { label: "familyDriver", title: "Family Friendly Driver" },
-      { label: "cruiseControl", title: "Cruise Control" },
-      { label: "rearCamera", title: "Rear Camera" },
-      { label: "keylessEntry", title: "Keyless Entry" },
-      { label: "localInsight", title: "Local Insight" },
-      { label: "bluetooth", title: "Bluetooth Connectivity" },
-    ],
-  },
-  {
-    id: 10,
-    title: "Tata Harrier",
-    location: "Srinagar - Budgam",
-    price: 7000,
-    images: ["/assets/cars/car10.png"],
-    passengers: 5,
-    baggage: 4,
-    desc: "Redefine your adventures with the Tata Harrier, a sophisticated SUV that epitomizes power, style, and modern innovation. With a commanding presence and an impeccably designed interior, this vehicle offers advanced safety features, luxurious comfort, and state-of-the-art technology for an unparalleled driving experience. Whether maneuvering through urban landscapes or exploring rugged terrains, the Harrier delivers a smooth and confident ride. Every detail, from its bold exterior to its ergonomic cabin, has been crafted to ensure that every journey across the majestic vistas of Kashmir is both extraordinary and memorable.",
-    amenities: [
-      { label: "acHeater", title: "Ac/Heater" },
-      { label: "airbag", title: "Airbag" },
-      { label: "chargingPoint", title: "Charging Point" },
-      { label: "gpsNavigation", title: "GPS Navigation" },
-      { label: "sunroof", title: "Sunroof" },
-      { label: "leatherSeats", title: "Leather Seats" },
-      { label: "touchscreen", title: "Touchscreen Display" },
-      { label: "cruiseControl", title: "Cruise Control" },
-      { label: "rearCamera", title: "Rear Camera" },
-    ],
   },
 ];
 
@@ -876,7 +789,6 @@ export const activitiesData = [
       },
     ],
     duration: 3,
-    price: 5000,
   },
   {
     title: "Trekking",
@@ -890,7 +802,6 @@ export const activitiesData = [
       },
     ],
     duration: 3,
-    price: 20000,
   },
   {
     title: "Gondola Ride",
@@ -904,7 +815,6 @@ export const activitiesData = [
       },
     ],
     duration: 3,
-    price: 7000,
   },
   {
     title: "Skiing & Snowboarding",
@@ -918,7 +828,6 @@ export const activitiesData = [
       },
     ],
     duration: 3,
-    price: 15000,
   },
   {
     title: "Houseboat Stay",
@@ -932,7 +841,6 @@ export const activitiesData = [
       },
     ],
     duration: 3,
-    price: 10000,
   },
   {
     title: "Hiking",
@@ -946,7 +854,6 @@ export const activitiesData = [
       },
     ],
     duration: 3,
-    price: 5000,
   },
   {
     title: "Exploring Mughal Gardens",
@@ -960,7 +867,6 @@ export const activitiesData = [
       },
     ],
     duration: 3,
-    price: 5000,
   },
   {
     title: "Wildlife Spotting",
@@ -974,7 +880,6 @@ export const activitiesData = [
       },
     ],
     duration: 3,
-    price: 5000,
   },
 ];
 

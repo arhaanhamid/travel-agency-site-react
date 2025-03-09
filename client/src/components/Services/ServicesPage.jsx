@@ -13,7 +13,7 @@ const ServicesPage = () => {
   const query = new URLSearchParams(useLocation().search);
   const defaultLoc = query.get("loc");
   const defaultTag = query.get("tag");
-  const [data, setData] = useState(false);
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -50,10 +50,10 @@ const ServicesPage = () => {
       }
     }
     fetchData();
-  }, [type]);
+  }, [type, defaultLoc, defaultTag]);
 
   if (error) return <ErrorPage />;
-  if (loading) return <LoadingPage />;
+  if (loading || data === null) return <LoadingPage />;
 
   // Pass the fetched data to your Services component
   return (

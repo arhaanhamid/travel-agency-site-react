@@ -61,15 +61,6 @@
   z-index: 10;
   transform: translateX(0);
 }
-.carousel .list .sliderItem img {
-  /* width: 50%;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  border-radius: 15px;
-  transform: translateY(-50%);
-  transition: right 1.5s; */
-}
 
 .carousel .list .sliderItem .introduce {
   opacity: 0;

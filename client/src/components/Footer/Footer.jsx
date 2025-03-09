@@ -7,9 +7,27 @@ import LoadingPage from "../../LoadingPage";
 
 function Footer() {
   const [packagesData, setPackages] = useState([]);
+  const [destinations, setDestinations] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const phoneNumber = 1234657890;
+
+  useEffect(() => {
+    if (packagesData.length > 0) {
+      const locations = new Set([
+        ...packagesData.flatMap((item) => item.location || []),
+      ]);
+
+      const loc_add = Array.from(locations).map((loc) => {
+        return {
+          name: loc,
+          to: `services/packages?loc=${loc}`,
+        };
+      });
+
+      setDestinations(loc_add);
+    }
+  }, [packagesData]);
 
   //useeffect to get Packages data from db
   useEffect(() => {
@@ -41,12 +59,9 @@ function Footer() {
               Destinations
             </h2>
             <ul className="flex flex-col space-y-2">
-              {packagesData.slice(0, 7).map((item) => (
-                <Link
-                  to={`/services/packages?loc=${item.location}`}
-                  key={item._id}
-                >
-                  {item.location}
+              {destinations.slice(0, 7).map((item, index) => (
+                <Link to={item.to} key={index}>
+                  {item.name}
                 </Link>
               ))}
             </ul>

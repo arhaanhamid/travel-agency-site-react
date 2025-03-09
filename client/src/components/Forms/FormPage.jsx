@@ -7,11 +7,14 @@ import api from "../../api";
 import ErrorPage from "../../ErrorPage";
 import LoadingPage from "../../LoadingPage";
 import { useParams } from "react-router-dom";
+import Toast from "../UIComponents/Toast";
 
 const FormPage = ({ isOpen, requestFrom }) => {
   const [packages, setPackages] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [toastType, setToastType] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const { type } = useParams();
 
@@ -178,8 +181,13 @@ const FormPage = ({ isOpen, requestFrom }) => {
     e.preventDefault();
 
     async function submitForm() {
+      setIsDisabled(true);
+      setTimeout(() => {
+        setIsDisabled(false);
+      }, 15000);
+
       try {
-        const response = await api.post("form/submit-form", {
+        await api.post("form/submit-form", {
           ...formData,
           service: requestFrom ? requestFrom : "general",
           requestType: isOpen
@@ -192,14 +200,14 @@ const FormPage = ({ isOpen, requestFrom }) => {
             : "General Inquiry",
         });
 
-        console.log("Form submitted successfully:", response.data);
-        alert("Form submitted successfully!");
+        console.log("Form submitted successfully");
+        setToastType("success");
       } catch (error) {
         console.error(
           "Submission error:",
           error.response ? error.response.data : error
         );
-        alert("Error submitting form.");
+        setToastType("failure");
       }
     }
 
@@ -210,7 +218,6 @@ const FormPage = ({ isOpen, requestFrom }) => {
       return;
     }
 
-    console.log("Submitting form data:", formData);
     submitForm();
     setFormErrors({});
   };
@@ -850,10 +857,17 @@ const FormPage = ({ isOpen, requestFrom }) => {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-indigo-600 hover:bg-indigo-800 transition duration-300 text-white uppercase tracking-[2px] py-3 px-8 mt-5 shadow"
+            className={`md:col-span-2 ${
+              isDisabled
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-indigo-700 hover:bg-indigo-800"
+            } transition duration-300 text-white uppercase tracking-[2px] py-3 px-8 mt-5 shadow`}
           >
             Submit Inquiry
           </button>
+          {toastType && (
+            <Toast type={toastType} onClose={() => setToastType(null)} />
+          )}
         </div>
       </form>
     </div>

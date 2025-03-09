@@ -46,7 +46,7 @@ const FilterSidebar = ({
 
   // Dynamic filter options
   const destinations = useMemo(() => {
-    if (["packages", "hotels", "activities"].includes(activePage)) {
+    if (["hotels", "activities"].includes(activePage)) {
       const locations = servicesData.map(
         (item) => item.location && item.location
       );
@@ -56,6 +56,13 @@ const FilterSidebar = ({
           acc[loc] = (acc[loc] || 0) + 1;
           return acc;
         }, {});
+      return Object.entries(counts).map(([name, count]) => ({ name, count }));
+    } else if (["packages"].includes(activePage)) {
+      const locations = servicesData.flatMap((item) => item.location || []);
+      const counts = locations.reduce((acc, loc) => {
+        acc[loc] = (acc[loc] || 0) + 1;
+        return acc;
+      }, {});
       return Object.entries(counts).map(([name, count]) => ({ name, count }));
     }
     return [];
@@ -119,7 +126,7 @@ const FilterSidebar = ({
     setSelectedDestinations([]);
     setSelectedPacktag([]);
     // setPriceRange([100, 50000]);
-    setDurationRange([1, 7]);
+    setDurationRange([1, 15]);
     setSelectedActivities([]);
     setSortOption("Latest");
     setShowMoreDestinations(false);
@@ -230,7 +237,10 @@ const FilterSidebar = ({
         <hr className="my-3" />
 
         {/* Destinations Filter */}
-        <section className={`mb-6 ${activePage === "cars" && "hidden"}`}>
+
+        <section
+          className={`mb-6 ${(activePage === "cars" || activePage === "boats") && "hidden"}`}
+        >
           <h3 className="text-md font-semibold mb-3">Destinations</h3>
           <div className="mb-2">
             <label className="flex items-center cursor-pointer">
@@ -287,7 +297,9 @@ const FilterSidebar = ({
             </button>
           )}
         </section>
-        <hr className="my-3" />
+        <hr
+          className={`my-3 ${(activePage === "cars" || activePage === "boats") && "hidden"}`}
+        />
 
         {/* Tags Filter */}
         <section className={`mb-6 ${activePage !== "packages" && "hidden"}`}>
@@ -344,12 +356,10 @@ const FilterSidebar = ({
             </button>
           )}
         </section>
-        <hr className="my-3" />
+        <hr className={`my-3 ${activePage !== "packages" && "hidden"}`} />
 
         {/* Activities Filter */}
-        <section
-          className={`my-6 ${activePage === "activities" ? "" : "hidden"}`}
-        >
+        <section className={`my-6 ${activePage !== "activities" && "hidden"}`}>
           <h3 className="text-md font-semibold mb-6">Activities</h3>
           {/* "Show All" checkbox to select/deselect all activities */}
           <div className="mb-2">
@@ -407,7 +417,7 @@ const FilterSidebar = ({
             </button>
           )}
         </section>
-        <hr className={`my-3 ${activePage === "activities" ? "" : "hidden"}`} />
+        <hr className={`my-3 ${activePage !== "activities" && "hidden"}`} />
 
         {/* Price Range Filter */}
         {/* <div className="my-6">

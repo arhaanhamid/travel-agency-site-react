@@ -96,11 +96,16 @@ const Boats = () => {
       <div ref={listRef} className={styles.list}>
         {boats.map((boat) => (
           <div className={`${styles.sliderItem} `} key={boat._id}>
-            <img
-              src={boat.images[0]}
-              alt={boat.title}
-              className="w-1/2 absolute right-0 top-[55%] sm:top-[60%] rounded-[15px] transform -translate-y-[55%] sm:-translate-y-[60%] transition-[right] duration-[1500ms]"
-            />
+            <picture>
+              <source srcSet={boat.images[0].avif} type="image/avif" />
+              <source srcSet={boat.images[0].webp} type="image/webp" />
+              <img
+                src={boat.images[0].jpg}
+                alt={boat.title}
+                loading="lazy"
+                className="w-1/2 absolute right-0 top-[55%] sm:top-[60%] rounded-[15px] transform -translate-y-[55%] sm:-translate-y-[60%] transition-[right] duration-[1500ms]"
+              />
+            </picture>
             <div className={`${styles.introduce} flex flex-col gap-2 sm:gap-5`}>
               <div
                 className={`${styles.title} font-montserrat uppercase text-xs sm:text-sm font-medium`}

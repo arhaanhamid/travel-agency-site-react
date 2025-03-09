@@ -78,6 +78,38 @@
   z-index: 999;
 }
 
+/* FOR TOAST */
+.toast {
+  z-index: 999999;
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s forwards;
+}
+
+.animate-slide-out {
+  animation: slideOut 0.5s forwards;
+}
+/* FOR TOAST */
+
+/* FOR VERY PAGE SLINDING IN AND OUT */
 .lazyLoadLeft {
   animation: appearleft linear;
   animation-timeline: view();
@@ -143,3 +175,4 @@
     transform: translateY(0px);
   }
 }
+/* FOR VERY PAGE SLINDING IN AND OUT */

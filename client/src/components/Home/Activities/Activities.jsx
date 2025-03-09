@@ -117,7 +117,6 @@ const Activities = () => {
                   loading="lazy"
                 />
               </picture>
-              {/* <img src={activity.images[0]} alt={activity.title} /> */}
               <div className="absolute inset-0 bg-black opacity-30"></div>
               <div className={`${styles.content}`}>
                 <div className={`${styles.author} uppercase mb-2`}>

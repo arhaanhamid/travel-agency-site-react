@@ -42,7 +42,7 @@
   width: 50px;
   border-radius: 50%; /* Using 50% creates a perfect circle */
   color: white;
-  background-color: rgb(0, 168, 107);
+  background-color: rgb(56, 60, 220);
   cursor: pointer;
   font-size: 18px;
   transition:
@@ -51,7 +51,7 @@
 }
 
 .bars:hover {
-  background-color: rgb(100, 100, 100);
+  background-color: rgb(55, 48, 163);
 }
 
 /* Backdrop Style */
@@ -65,7 +65,7 @@
   z-index: 1;
 }
 .filterMenu {
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   background-color: white;

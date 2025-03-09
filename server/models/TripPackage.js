@@ -20,7 +20,7 @@ const imageSchema = new mongoose.Schema({
 const PackageSchema = new mongoose.Schema(
   {
     images: { type: [imageSchema], default: [] },
-    location: { type: String, required: true },
+    location: { type: [String] },
     tags: { type: [String] },
     duration: { type: String, required: true },
     title: { type: String, required: true },

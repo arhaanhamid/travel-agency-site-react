@@ -426,20 +426,23 @@
                       <div style="margin-bottom: 15px">
                         <strong>Service of Interest:</strong><br />
                         <span style="text-transform: uppercase"
-                          ><%= data.service %></span
+                          ><%= data?.service %></span
                         >
                       </div>
                       <div style="margin-bottom: 15px">
                         <strong>Subject of Interest:</strong><br />
-                        <%= data.subject %>
+                        <%= data?.subject %>
                       </div>
                       <div>
                         <strong>Request Type:</strong><br />
-                        <%= data.requestType %>
+                        <%= data?.requestType %>
                       </div>
                     </div>
 
                     <!-- Trip Details Card -->
+                    <% if (data?.service !== "contact") { %>
+
+
                     <div
                       class="data-card"
                       style="
@@ -466,28 +469,29 @@
                       >
                         <div style="margin-bottom: 15px">
                           <strong>Destinations:</strong><br />
-                          <%= data.destinations.join(", ") %>
+                          <%= data?.destinations?.join(", ") %>
                         </div>
                         <div style="margin-bottom: 15px">
                           <strong>Date:</strong><br />
-                          <%= data.date.day %>-<%= data.date.month %>-<%=
-                          data.date.year %><br />
+                          <%= data?.date?.day %>-<%= data?.date?.month %>-<%=
+                          data?.date?.year %><br />
                         </div>
                         <div style="margin-bottom: 15px">
                           <strong>Number of Nights:</strong><br />
-                          <%= data.date.nights %> nights
+                          <%= data?.date?.nights %> nights
                         </div>
                         <div style="margin-bottom: 15px">
                           <strong>Party:</strong><br />
-                          <%= data.party.adults %> Adults<br />
-                          <%= data.party.children %> Children
+                          <%= data?.party?.adults %> Adults<br />
+                          <%= data?.party?.children %> Children
                         </div>
                         <div>
                           <strong>Budget per person:</strong><br />
-                          ₹<%= data.budget[0] %> - ₹<%= data.budget[1] %>
+                          ₹<%= data?.budget[0] %> - ₹<%= data?.budget[1] %>
                         </div>
                       </div>
                     </div>
+                    <% } %>
 
                     <!-- Must Sees & Message -->
                     <div
@@ -499,17 +503,21 @@
                         margin-bottom: 20px;
                       "
                     >
+                      <% if (data?.service !== "contact") { %>
+
+
                       <div style="margin-bottom: 15px">
                         <strong>Occasion:</strong><br />
-                        <%= data.selectedOccasion %>
+                        <%= data?.selectedOccasion %>
                       </div>
                       <div style="margin-bottom: 15px">
                         <strong>Must-See Attractions:</strong><br />
-                        <%= data.mustSees %>
+                        <%= data?.mustSees %>
                       </div>
+                      <% } %>
                       <div>
                         <strong>Message:</strong><br />
-                        <%= data.message %>
+                        <%= data?.message %>
                       </div>
                     </div>
 
@@ -540,21 +548,23 @@
                       >
                         <div style="margin-bottom: 15px">
                           <strong>Name:</strong><br />
-                          <%= data.clientDetails.fName %> <%=
-                          data.clientDetails.lName %>
+                          <%= data?.clientDetails?.fName %> <%=
+                          data?.clientDetails?.lName %>
                         </div>
                         <div style="margin-bottom: 15px">
                           <strong>Email:</strong><br />
-                          <%= data.clientDetails.email %>
+                          <%= data?.clientDetails?.email %>
                         </div>
                         <div>
                           <strong>Phone:</strong><br />
-                          <%= data.clientDetails.phone %>
+                          <%= data?.clientDetails?.phone %>
                         </div>
                       </div>
                     </div>
 
                     <!-- Footer -->
+                    <% if (data?.service !== "contact") { %>
+
                     <div
                       style="
                         text-align: center;
@@ -563,12 +573,15 @@
                         margin-top: 20px;
                       "
                     >
-                      <p>This request was submitted at <%= data.createdAt %></p>
                       <p>
-                        Terms Accepted: <%= data.conditions.acceptTerms %> |
-                        Receive Updates: <%= data.conditions.recieveUpdates %>
+                        This request was submitted at <%= data?.createdAt %>
+                      </p>
+                      <p>
+                        Terms Accepted: <%= data?.conditions?.acceptTerms %> |
+                        Receive Updates: <%= data?.conditions?.recieveUpdates %>
                       </p>
                     </div>
+                    <% } %>
                   </td>
                 </tr>
               </table>
